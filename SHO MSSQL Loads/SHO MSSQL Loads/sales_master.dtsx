@@ -1,0 +1,423 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/29/2018 2:30:17 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-PBEJN2M"
+  DTS:CreatorName="DESKTOP-PBEJN2M\BusinessIntel"
+  DTS:DTSID="{C0FCF718-E5CE-4910-9523-0CE9EF1A5DD5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="sales_master"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{B2E475E2-4D47-405C-8CBE-15F3A8A173A6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SMTP Connection Manager]"
+      DTS:CreationName="SMTP"
+      DTS:DTSID="{3B3C045F-EB32-49C1-9D51-C3DF0CB489A9}"
+      DTS:ObjectName="SMTP Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="SmtpServer">@[$Package::email_smtp]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=smtp.office365.com;UseWindowsAuthentication=False;EnableSsl=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{AE1CBF4D-BE5C-496C-8C4E-DBC858163FCC}"
+      DTS:ObjectName="email_cc">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">james.marlow@shos.com</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{269478F8-7592-4F0C-814D-4B6A98541A02}"
+      DTS:ObjectName="email_recipients">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">james.marlow@shos.com</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{8C1AFD71-D92D-400B-98A5-45DA4BAF51FA}"
+      DTS:ObjectName="email_smtp">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">smtp.office365.com</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Fact Load Plan and Forecast"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{5B22B4B0-9A5C-4C7B-800B-BB0C40AF58AF}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fact Load Plan and Forecast"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>plan_forecast_fact_loads.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Mail Notify - Fact Failure"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Send Mail Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{724bd209-bcd2-40cd-9913-def8bad18d1f}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Mail Notify - Fact Failure"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData />
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Mail Notify - Fact Success"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Send Mail Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{20eb26a4-6201-4415-a1e2-01312f38d6bc}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Mail Notify - Fact Success"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData />
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Mail Notify - Staging Failure"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Send Mail Task"
+      DTS:DTSID="{FB51DB78-5BBD-4E01-A22F-0A49BD8C88F9}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Mail Notify - Staging Failure"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="CCLine">@[$Package::email_cc]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ToLine">@[$Package::email_recipients]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{3B3C045F-EB32-49C1-9D51-C3DF0CB489A9}"
+          SendMailTask:From="sho_bi@shos.com"
+          SendMailTask:To="james.marlow@shos.com"
+          SendMailTask:CC="james.marlow@shos.com"
+          SendMailTask:Subject="ETL Failure: Finance Plan &amp; Forecast Fact Loads"
+          SendMailTask:MessageSource="!! Staging Load Failure !!&#xA;&#xA;There was an issue loading the fact table, please see logs for details" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Mail Notify - Staging Success"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Send Mail Task"
+      DTS:DTSID="{CB1E68E0-2792-451D-B57C-79D53FAE65D2}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Mail Notify - Staging Success"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="CCLine">@[$Package::email_cc]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ToLine">@[$Package::email_recipients]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="smtp.office365.com"
+          SendMailTask:From="sho_bi@shos.com"
+          SendMailTask:To="james.marlow@shos.com"
+          SendMailTask:CC="james.marlow@shos.com"
+          SendMailTask:Subject="ETL Success: Finance Plan &amp; Forecast Staging Loads"
+          SendMailTask:MessageSource="** Staging Load Success **&#xA;&#xA;All finance Plan &amp; Forecast Staging Tables have been loaded." xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Staging Load Plan and Forecast"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{ED4419D5-0B6A-4E0B-AD7C-E9428DFEA430}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Staging Load Plan and Forecast"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>finance_raw_loads.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{E16AFF00-AC1B-4B90-8AF9-C9588FBF8D81}"
+      DTS:From="Package\Staging Load Plan and Forecast"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Mail Notify - Staging Success" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{E9500D56-40BD-488E-A6F1-88C13B5C4EFC}"
+      DTS:From="Package\Staging Load Plan and Forecast"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Mail Notify - Staging Failure"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{8737C994-8F2C-4B80-9407-826EAF066B51}"
+      DTS:From="Package\Mail Notify - Staging Success"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Fact Load Plan and Forecast" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{188A868E-7441-41E9-AE2A-1CCBFD527E8E}"
+      DTS:From="Package\Fact Load Plan and Forecast"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Mail Notify - Fact Success" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{EA5F133C-6FCE-47EE-9DF4-E2154F24BF7C}"
+      DTS:From="Package\Fact Load Plan and Forecast"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Mail Notify - Fact Failure"
+      DTS:Value="1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="212,42"
+          Id="Package\Fact Load Plan and Forecast"
+          TopLeft="153,229" />
+        <NodeLayout
+          Size="227,42"
+          Id="Package\Staging Load Plan and Forecast"
+          TopLeft="259,71" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\Mail Notify - Staging Success"
+          TopLeft="154,146" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="336,113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-74.5,33"
+              Start="0,0"
+              End="-74.5,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.33858267716535" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.33858267716535"
+                    Point2="0,13.3385826771654"
+                    Point3="-4,13.3385826771654" />
+                  <mssgle:LineSegment
+                    End="-70.5,13.3385826771654" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-70.5,13.3385826771654"
+                    Point2="-74.5,13.3385826771654"
+                    Point3="-74.5,17.3385826771654" />
+                  <mssgle:LineSegment
+                    End="-74.5,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Mail Notify - Staging Failure"
+          TopLeft="376,147" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="409,113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="71.5,34"
+              Start="0,0"
+              End="71.5,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.74278215223097" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.74278215223097"
+                    Point2="0,13.742782152231"
+                    Point3="4,13.742782152231" />
+                  <mssgle:LineSegment
+                    End="67.5,13.742782152231" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67.5,13.742782152231"
+                    Point2="71.5,13.742782152231"
+                    Point3="71.5,17.742782152231" />
+                  <mssgle:LineSegment
+                    End="71.5,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="20.50865234375,18.742782152231,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="260.25,188">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Mail Notify - Fact Success"
+          TopLeft="46,306" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Mail Notify - Fact Failure"
+          TopLeft="266,305" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="225,271">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-79.5,35"
+              Start="0,0"
+              End="-79.5,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.1573033707865" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.1573033707865"
+                    Point2="0,14.1573033707865"
+                    Point3="-4,14.1573033707865" />
+                  <mssgle:LineSegment
+                    End="-75.5,14.1573033707865" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-75.5,14.1573033707865"
+                    Point2="-79.5,14.1573033707865"
+                    Point3="-79.5,18.1573033707865" />
+                  <mssgle:LineSegment
+                    End="-79.5,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="293,271">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="70,34"
+              Start="0,0"
+              End="70,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.75280898876405" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.75280898876405"
+                    Point2="0,13.752808988764"
+                    Point3="4,13.752808988764" />
+                  <mssgle:LineSegment
+                    End="66,13.752808988764" />
+                  <mssgle:CubicBezierSegment
+                    Point1="66,13.752808988764"
+                    Point2="70,13.752808988764"
+                    Point3="70,17.752808988764" />
+                  <mssgle:LineSegment
+                    End="70,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="19.75865234375,18.752808988764,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
