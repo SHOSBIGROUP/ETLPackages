@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="ETL_Load_Locations_Districts_Regions"
   DTS:PackageType="5"
-  DTS:VersionBuild="285"
-  DTS:VersionGUID="{C58B35C0-1F60-4CEB-9B19-4FD46FC956F4}">
+  DTS:VersionBuild="304"
+  DTS:VersionGUID="{53A75646-5C80-4E74-A30B-01BBCA81A620}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1w42Lua59Ea9oJqFFqWa2gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADxvJAn6mSkhTgL72rAaQPLAAAAAASAAACgAAAAEAAAAJo+2A1M5QVZ82FXNZbZIJQoAAAAb8+2ZwURQ9XsfOx8xrFjlvVRLoOunhCr9cC4XH53nrDbhXX5FFu9dxQAAACtPOSV0r3OXaGXG1oh8E3LJ7F8ZA</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1w42Lua59Ea9oJqFFqWa2gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD8a9nTFHzXQNZqBNPcdszEAAAAAASAAACgAAAAEAAAAAyAI23TdddXJP9+CTprFS0oAAAAGvVVrzV0f+Ik9fhmC53Ag6vFauKcV8HOnrM9ibYMTcIYsjehFCfyRBQAAAA9f0qYGjKgoOiZWC903fueDGmmLg</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -42,15 +42,18 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1w42Lua59Ea9oJqFFqWa2gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAy3Mmxp1UkSQm4LwO7isu4AAAAAASAAACgAAAAEAAAANWkjInB2MMP4TJD+PYgHaUoAAAAXXHgd1DH8fRTvVuwUKwIqrSrsuwMNwhs71CPBgebLstons++2J78yxQAAABZ751ytgIjV2viwGjQbkFl70PLjw</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1w42Lua59Ea9oJqFFqWa2gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABSpBhEXE33CmfQPxlUHT09AAAAAASAAACgAAAAEAAAALKKebCBQOhM26eyvs9TjyEoAAAAr1g8+oXRhO6do6g2ksXF7tHyp/YENS0gAGiNAZay6uz3e1gDKYYRYhQAAACM7Lg0k0ykUVEF8077hUudW5dfCA</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Location Errors Flat File]"
+      DTS:refId="Package.ConnectionManagers[District Errors Flat File]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{C9A4A243-8A90-41E7-8D7C-6D8DC76E751C}"
-      DTS:ObjectName="Location Errors Flat File">
+      DTS:DelayValidation="True"
+      DTS:DTSID="{79456328-fd29-4b35-8aba-0c6c4b5019e5}"
+      DTS:ObjectName="District Errors Flat File">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"C:\\Projects\\VisualStudio\\ETLPackages\\DataFiles\\District_Errors_" + (DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) + RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -58,9 +61,9 @@
           DTS:HeaderRowDelimiter="_x000D__x000A_"
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
-          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Projects\VisualStudio\ETLPackages\DataFiles\Location_Errors.csv">
+          DTS:ConnectionString="C:\Projects\VisualStudio\ETLPackages\DataFiles\District_Errors_20180912.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -68,8 +71,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="region_sk_id"
-              DTS:DTSID="{0FE6C50E-0B92-484D-99F7-5ED6B86DAC58}"
+              DTS:ObjectName="district_nbr"
+              DTS:DTSID="{775EECA7-209F-4B09-9172-22F3A87CF0D1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -77,8 +80,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="district_sk_id"
-              DTS:DTSID="{7DFDB1B1-9E65-47F4-A8EC-DD8036FE0BE5}"
+              DTS:ObjectName="district_name"
+              DTS:DTSID="{8ABFB1E5-12B5-4042-AA01-281F3C7EBA83}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -86,170 +89,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="ordc_loc_sk_id"
-              DTS:DTSID="{185A0934-E6D2-427E-A137-8E62D6B7680D}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="sho_location_format_sk_id"
-              DTS:DTSID="{CE41B2E1-4911-4C8E-9E27-64145A2F5B00}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="pos_nbr"
-              DTS:DTSID="{0B06A30D-9704-445F-A134-9D7449E1AA7D}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="ordc_nbr"
-              DTS:DTSID="{242DA7DD-270C-49D8-809A-7784F0C410A0}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="eis_nbr"
-              DTS:DTSID="{07D1A748-3119-4C8C-94B4-47735ABAF86E}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="location_name"
-              DTS:DTSID="{D06488E7-5621-4C73-9263-979F8BA702FD}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="location_format"
-              DTS:DTSID="{8546582B-FA56-424E-8015-22302CAE27E4}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="location_type"
-              DTS:DTSID="{2A0CBC4A-C541-4E78-9D84-5546D180A5AC}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="operator_type"
-              DTS:DTSID="{FCE2B2B8-CDCD-4D9D-AD30-3640ED0FF23E}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="operator_name"
-              DTS:DTSID="{3988BE36-2954-454A-9A6E-B89B3B7CC7D0}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="district"
-              DTS:DTSID="{48E9E934-8BEE-4B3E-B27B-525FD9351511}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="region"
-              DTS:DTSID="{386F3235-5230-406D-97FF-B0357ACA1D17}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="city"
-              DTS:DTSID="{2696C10E-8355-4C38-AD39-486B79AD2060}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="state"
-              DTS:DTSID="{B24C4927-CFFE-4DB6-80FF-E839C2C54C5F}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="zipcode"
-              DTS:DTSID="{355FF572-CA78-48F7-9BD3-577127B72618}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="address1"
-              DTS:DTSID="{E1D3C902-C681-40AC-BC08-CB543D4E5F85}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="address2"
-              DTS:DTSID="{CD2EFD36-DF48-4A11-BAF6-B13AEB0C93CB}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="open_dt"
-              DTS:DTSID="{43186621-C290-4153-8AFD-C5B6D70AFB2B}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="close_dt"
-              DTS:DTSID="{9A2A9540-1E9E-433C-B0C8-922CC213A58E}"
+              DTS:ObjectName="district_manager"
+              DTS:DTSID="{FC484F9C-B655-4995-93F8-CC13E1F62F6A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -258,7 +99,192 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="inactive"
-              DTS:DTSID="{AA2CBEFC-C029-47EC-AD37-676EF25CE0E1}"
+              DTS:DTSID="{E4BF4B57-786C-48ED-AB4F-9ECBF1063442}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Location Errors Flat File]"
+      DTS:CreationName="FLATFILE"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{C9A4A243-8A90-41E7-8D7C-6D8DC76E751C}"
+      DTS:ObjectName="Location Errors Flat File">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"C:\\Projects\\VisualStudio\\ETLPackages\\DataFiles\\Location_Errors_" + (DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) + RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Projects\VisualStudio\ETLPackages\DataFiles\Location_Errors_20180912.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="pos_nbr"
+              DTS:DTSID="{44F24C1C-ABC2-4A87-8B96-4D8D7F96DE45}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ordc_nbr"
+              DTS:DTSID="{2035CAE4-90E6-4C64-A9ED-D087771FB6B9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="eis_nbr"
+              DTS:DTSID="{8563A57E-0758-448B-AF70-F527A40FAA70}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="location_name"
+              DTS:DTSID="{B69DEFC1-998D-4A17-8087-2A435FFD00E6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="location_format"
+              DTS:DTSID="{1A20E6B6-276B-4CB9-B0B8-3EFD76A1C6A2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="location_type"
+              DTS:DTSID="{C0722973-EF6F-4B1A-B2C4-5A18F58FB49C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="operator_type"
+              DTS:DTSID="{457E26B5-968A-4F09-9E90-7545DF80094A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="operator_name"
+              DTS:DTSID="{0358D9AD-7895-4E14-A0DC-397700D19900}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="district"
+              DTS:DTSID="{5C3B72B6-C54B-434C-9B66-4BF3FDA11B90}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="region"
+              DTS:DTSID="{57AD784A-284B-488B-8020-4B94003C246B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="city"
+              DTS:DTSID="{E6989C9C-9A94-413B-9268-30F503C20169}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="state"
+              DTS:DTSID="{2B5132FA-98DC-465B-AE5D-E5EF6110ABCE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="zipcode"
+              DTS:DTSID="{6689308D-3625-4B98-9DBB-953B9D95DD1C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="address1"
+              DTS:DTSID="{BA03D0E1-A322-416A-937D-C4A94E7D633D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="address2"
+              DTS:DTSID="{9E6B50CB-D80A-4307-98E7-21AC229C4018}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="open_dt"
+              DTS:DTSID="{21003898-75BE-42E8-A9C1-779AA14735BC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="close_dt"
+              DTS:DTSID="{082602DB-F9C1-4D3A-B871-453DDC5A5172}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="inactive"
+              DTS:DTSID="{6E37C4D5-3FD6-42B1-AAB2-32F3513EE059}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -631,6 +657,65 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Region Errors Flat File]"
+      DTS:CreationName="FLATFILE"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{2e4cccff-ec4b-4950-b950-b94172c3b3ee}"
+      DTS:ObjectName="Region Errors Flat File">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"C:\\Projects\\VisualStudio\\ETLPackages\\DataFiles\\Region_Errors_" + (DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) + RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Projects\VisualStudio\ETLPackages\DataFiles\Region_Errors_20180912.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="region_nbr"
+              DTS:DTSID="{06214F17-4BC4-41AD-8777-35F12B2B1CEB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="region_name"
+              DTS:DTSID="{48A6654C-A0A8-4ED5-9464-FE183C963960}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="region_mgr"
+              DTS:DTSID="{67CEB1C7-8419-49F4-9AEA-45F7302AAE9B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="inactive"
+              DTS:DTSID="{2F11FD08-58E7-4F9E-A959-8AB18EC79B22}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[sho_dw]"
       DTS:CreationName="ADO.NET:SQL"
       DTS:DTSID="{b226acbd-bdbe-441c-96f2-dd975c85bb3d}"
@@ -641,7 +726,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1w42Lua59Ea9oJqFFqWa2gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAOfLQuJey6Dp1+b+mdwDnqAAAAAASAAACgAAAAEAAAAPQGxaUfhIchfbLLNTPTSRIoAAAASWUahmKsB34v4qqxTj+3RDWbnZXV3JsmwPiXLzj+JM8lBuE6Da+W/xQAAAAgtTKuTq8DrhRFCfSJShkxe5FTOw</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1w42Lua59Ea9oJqFFqWa2gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACYZI2TkLJNguNR09vcg+kMAAAAAASAAACgAAAAEAAAAKM6UIPOIzQ3Hq4SUJQkOUQoAAAA1QAqSeoP7iFUPHoBRT4tNzqm5LyUWAujUQFBoosyxXJecuqoEj2IdRQAAADcVtfaVMHk63El8/ZxJtWblLAJtQ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -656,7 +741,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1w42Lua59Ea9oJqFFqWa2gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACFhvRdyt8YstGj+cCCrPkkAAAAAASAAACgAAAAEAAAAL0O9dSTrzcz1zMwJnoNDVkoAAAA3l8M1cEsZ3UzUMnh9pPUZNQ9SA9EYCZC/gK8NHKgFywd/LpCuhG26hQAAAD0CNPBppUI3dFKHal/eOhSOKSFIQ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1w42Lua59Ea9oJqFFqWa2gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAByq2GF0y5BPpx7Ot5TUkwDAAAAAASAAACgAAAAEAAAAAxNoiQUOtsdAAkw6y3D+gYoAAAA8YrhW+7y7y6t4Og4a5nVgTX4SdC+86NozC3hf1iZrU2ny2S5cpAg7hQAAAAD+f0qF64Xz+9TM0ApAHI4/es1Nw</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -725,11 +810,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="50"
                       lineageId="Package\Populate sho_dw_dim_district Table\Convert Data Types for District Table Columns.Outputs[Data Conversion Output].Columns[cnv_district_name]"
                       name="cnv_district_name"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -747,11 +832,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="50"
                       lineageId="Package\Populate sho_dw_dim_district Table\Convert Data Types for District Table Columns.Outputs[Data Conversion Output].Columns[cnv_district_manager]"
                       name="cnv_district_manager"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -810,6 +895,97 @@
                   <externalMetadataColumns />
                 </output>
               </outputs>
+            </component>
+            <component
+              refId="Package\Populate sho_dw_dim_district Table\District Errors Flat File"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Flat File Destination"
+              localeId="1033"
+              name="District Errors Flat File">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Populate sho_dw_dim_district Table\District Errors Flat File.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[District Errors Flat File]"
+                  connectionManagerRefId="Package.ConnectionManagers[District Errors Flat File]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Populate sho_dw_dim_district Table\District Errors Flat File.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_district Table\District Errors Flat File.Inputs[Flat File Destination Input].Columns[fmt_district_nbr]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="fmt_district_nbr"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_district Table\District Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[district_nbr]"
+                      lineageId="Package\Populate sho_dw_dim_district Table\Set Boolean for inactive and Truncate String Values.Outputs[Derived Column Output].Columns[fmt_district_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_district Table\District Errors Flat File.Inputs[Flat File Destination Input].Columns[db_district_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="db_district_name"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_district Table\District Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[district_name]"
+                      lineageId="Package\Populate sho_dw_dim_district Table\Read from sho_staging_netsuite_district Table.Outputs[OLE DB Source Output].Columns[db_district_name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_district Table\District Errors Flat File.Inputs[Flat File Destination Input].Columns[db_district_manager]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="db_district_manager"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_district Table\District Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[district_manager]"
+                      lineageId="Package\Populate sho_dw_dim_district Table\Read from sho_staging_netsuite_district Table.Outputs[OLE DB Source Output].Columns[db_district_manager]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_district Table\District Errors Flat File.Inputs[Flat File Destination Input].Columns[cnv_inactive]"
+                      cachedDataType="bool"
+                      cachedName="cnv_inactive"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_district Table\District Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[inactive]"
+                      lineageId="Package\Populate sho_dw_dim_district Table\Set Boolean for inactive and Truncate String Values.Outputs[Derived Column Output].Columns[cnv_inactive]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_district Table\District Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[district_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="district_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_district Table\District Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[district_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="district_name" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_district Table\District Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[district_manager]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="district_manager" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_district Table\District Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[inactive]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="inactive" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
             </component>
             <component
               refId="Package\Populate sho_dw_dim_district Table\Perform Insert on sho_dw_dim_district Table for Valid Districts"
@@ -1273,6 +1449,11 @@
           </components>
           <paths>
             <path
+              refId="Package\Populate sho_dw_dim_district Table.Paths[Data Conversion Error Output]"
+              endId="Package\Populate sho_dw_dim_district Table\District Errors Flat File.Inputs[Flat File Destination Input]"
+              name="Data Conversion Error Output"
+              startId="Package\Populate sho_dw_dim_district Table\Convert Data Types for District Table Columns.Outputs[Data Conversion Error Output]" />
+            <path
               refId="Package\Populate sho_dw_dim_district Table.Paths[Data Conversion Output]"
               endId="Package\Populate sho_dw_dim_district Table\Perform Insert on sho_dw_dim_district Table for Valid Districts.Inputs[OLE DB Destination Input]"
               name="Data Conversion Output"
@@ -1431,7 +1612,7 @@
                       errorRowDisposition="RedirectRow"
                       lineageId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_region_nbr]"
                       name="cnv_region_nbr"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1448,10 +1629,10 @@
                       refId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_district_nbr]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_district_nbr]"
                       name="cnv_district_nbr"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1468,10 +1649,10 @@
                       refId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_pos_nbr]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_pos_nbr]"
                       name="cnv_pos_nbr"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1488,10 +1669,10 @@
                       refId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_eis_nbr]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_eis_nbr]"
                       name="cnv_eis_nbr"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1508,10 +1689,10 @@
                       refId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_open_dt]"
                       dataType="date"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_open_dt]"
                       name="cnv_open_dt"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1528,10 +1709,10 @@
                       refId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_close_dt]"
                       dataType="date"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_close_dt]"
                       name="cnv_close_dt"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1549,11 +1730,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="75"
                       lineageId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_location_name]"
                       name="cnv_location_name"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1571,11 +1752,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="10"
                       lineageId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_location_format]"
                       name="cnv_location_format"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1593,11 +1774,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="50"
                       lineageId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_location_type]"
                       name="cnv_location_type"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1615,11 +1796,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="50"
                       lineageId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_operator_type]"
                       name="cnv_operator_type"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1637,11 +1818,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="50"
                       lineageId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_operator_name]"
                       name="cnv_operator_name"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1659,11 +1840,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="25"
                       lineageId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_city]"
                       name="cnv_city"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1681,11 +1862,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="2"
                       lineageId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_state]"
                       name="cnv_state"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1703,11 +1884,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="7"
                       lineageId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_zipcode]"
                       name="cnv_zipcode"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1725,11 +1906,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="100"
                       lineageId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_address1]"
                       name="cnv_address1"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1747,11 +1928,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="100"
                       lineageId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Output].Columns[cnv_address2]"
                       name="cnv_address2"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1790,6 +1971,270 @@
                   <externalMetadataColumns />
                 </output>
               </outputs>
+            </component>
+            <component
+              refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Location Errors Flat File">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Location Errors Flat File]"
+                  connectionManagerRefId="Package.ConnectionManagers[Location Errors Flat File]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].Columns[fmt_pos_nbr]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="fmt_pos_nbr"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[pos_nbr]"
+                      lineageId="Package\Populate sho_dw_dim_location Table\Set Boolean for inactive and Format String Values.Outputs[Derived Column Output].Columns[fmt_pos_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].Columns[fmt_eis_nbr]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="fmt_eis_nbr"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[eis_nbr]"
+                      lineageId="Package\Populate sho_dw_dim_location Table\Set Boolean for inactive and Format String Values.Outputs[Derived Column Output].Columns[fmt_eis_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].Columns[fmt_location_name]"
+                      cachedDataType="wstr"
+                      cachedLength="75"
+                      cachedName="fmt_location_name"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[location_name]"
+                      lineageId="Package\Populate sho_dw_dim_location Table\Set Boolean for inactive and Format String Values.Outputs[Derived Column Output].Columns[fmt_location_name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].Columns[fmt_location_format]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="fmt_location_format"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[location_format]"
+                      lineageId="Package\Populate sho_dw_dim_location Table\Set Boolean for inactive and Format String Values.Outputs[Derived Column Output].Columns[fmt_location_format]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].Columns[fmt_location_type]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="fmt_location_type"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[location_type]"
+                      lineageId="Package\Populate sho_dw_dim_location Table\Set Boolean for inactive and Format String Values.Outputs[Derived Column Output].Columns[fmt_location_type]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].Columns[fmt_operator_type]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="fmt_operator_type"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[operator_type]"
+                      lineageId="Package\Populate sho_dw_dim_location Table\Set Boolean for inactive and Format String Values.Outputs[Derived Column Output].Columns[fmt_operator_type]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].Columns[fmt_operator_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="fmt_operator_name"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[operator_name]"
+                      lineageId="Package\Populate sho_dw_dim_location Table\Set Boolean for inactive and Format String Values.Outputs[Derived Column Output].Columns[fmt_operator_name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].Columns[fmt_district_nbr]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="fmt_district_nbr"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[district]"
+                      lineageId="Package\Populate sho_dw_dim_location Table\Set Boolean for inactive and Format String Values.Outputs[Derived Column Output].Columns[fmt_district_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].Columns[fmt_region_nbr]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="fmt_region_nbr"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[region]"
+                      lineageId="Package\Populate sho_dw_dim_location Table\Set Boolean for inactive and Format String Values.Outputs[Derived Column Output].Columns[fmt_region_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].Columns[fmt_city]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="fmt_city"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[city]"
+                      lineageId="Package\Populate sho_dw_dim_location Table\Set Boolean for inactive and Format String Values.Outputs[Derived Column Output].Columns[fmt_city]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].Columns[fmt_state]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="fmt_state"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[state]"
+                      lineageId="Package\Populate sho_dw_dim_location Table\Set Boolean for inactive and Format String Values.Outputs[Derived Column Output].Columns[fmt_state]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].Columns[fmt_zipcode]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="fmt_zipcode"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[zipcode]"
+                      lineageId="Package\Populate sho_dw_dim_location Table\Set Boolean for inactive and Format String Values.Outputs[Derived Column Output].Columns[fmt_zipcode]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].Columns[fmt_address1]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="fmt_address1"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[address1]"
+                      lineageId="Package\Populate sho_dw_dim_location Table\Set Boolean for inactive and Format String Values.Outputs[Derived Column Output].Columns[fmt_address1]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].Columns[fmt_address2]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="fmt_address2"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[address2]"
+                      lineageId="Package\Populate sho_dw_dim_location Table\Set Boolean for inactive and Format String Values.Outputs[Derived Column Output].Columns[fmt_address2]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].Columns[fmt_open_dt]"
+                      cachedDataType="wstr"
+                      cachedLength="23"
+                      cachedName="fmt_open_dt"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[open_dt]"
+                      lineageId="Package\Populate sho_dw_dim_location Table\Set Boolean for inactive and Format String Values.Outputs[Derived Column Output].Columns[fmt_open_dt]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].Columns[fmt_close_dt]"
+                      cachedDataType="wstr"
+                      cachedLength="23"
+                      cachedName="fmt_close_dt"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[close_dt]"
+                      lineageId="Package\Populate sho_dw_dim_location Table\Set Boolean for inactive and Format String Values.Outputs[Derived Column Output].Columns[fmt_close_dt]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].Columns[cnv_inactive]"
+                      cachedDataType="bool"
+                      cachedName="cnv_inactive"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[inactive]"
+                      lineageId="Package\Populate sho_dw_dim_location Table\Set Boolean for inactive and Format String Values.Outputs[Derived Column Output].Columns[cnv_inactive]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[pos_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="pos_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[ordc_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ordc_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[eis_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="eis_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[location_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="location_name" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[location_format]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="location_format" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[location_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="location_type" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[operator_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="operator_type" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[operator_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="operator_name" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[district]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="district" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="state" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[zipcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="zipcode" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[address1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="address1" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[address2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="address2" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[open_dt]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="open_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[close_dt]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="close_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[inactive]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="inactive" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
             </component>
             <component
               refId="Package\Populate sho_dw_dim_location Table\Perform Insert on sho_dw_dim_location Table for Valid Locations"
@@ -3190,6 +3635,11 @@
           </components>
           <paths>
             <path
+              refId="Package\Populate sho_dw_dim_location Table.Paths[Data Conversion Error Output]"
+              endId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Inputs[Flat File Destination Input]"
+              name="Data Conversion Error Output"
+              startId="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns.Outputs[Data Conversion Error Output]" />
+            <path
               refId="Package\Populate sho_dw_dim_location Table.Paths[Data Conversion Output]"
               endId="Package\Populate sho_dw_dim_location Table\Perform Insert on sho_dw_dim_location Table for Valid Locations.Inputs[OLE DB Destination Input]"
               name="Data Conversion Output"
@@ -3714,6 +4164,97 @@
               </outputs>
             </component>
             <component
+              refId="Package\Populate sho_dw_dim_region Table\Region Errors Flat File"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Region Errors Flat File">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Populate sho_dw_dim_region Table\Region Errors Flat File.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Region Errors Flat File]"
+                  connectionManagerRefId="Package.ConnectionManagers[Region Errors Flat File]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Populate sho_dw_dim_region Table\Region Errors Flat File.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_region Table\Region Errors Flat File.Inputs[Flat File Destination Input].Columns[fmt_region_nbr]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="fmt_region_nbr"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_region Table\Region Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[region_nbr]"
+                      lineageId="Package\Populate sho_dw_dim_region Table\Set Boolean for inactive and Truncate String Values.Outputs[Derived Column Output].Columns[fmt_region_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_region Table\Region Errors Flat File.Inputs[Flat File Destination Input].Columns[db_region_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="db_region_name"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_region Table\Region Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[region_name]"
+                      lineageId="Package\Populate sho_dw_dim_region Table\Read from sho_staging_netsuite_region Table.Outputs[OLE DB Source Output].Columns[db_region_name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_region Table\Region Errors Flat File.Inputs[Flat File Destination Input].Columns[db_region_manager]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="db_region_manager"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_region Table\Region Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[region_mgr]"
+                      lineageId="Package\Populate sho_dw_dim_region Table\Read from sho_staging_netsuite_region Table.Outputs[OLE DB Source Output].Columns[db_region_manager]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_region Table\Region Errors Flat File.Inputs[Flat File Destination Input].Columns[cnv_inactive]"
+                      cachedDataType="bool"
+                      cachedName="cnv_inactive"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_region Table\Region Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[inactive]"
+                      lineageId="Package\Populate sho_dw_dim_region Table\Set Boolean for inactive and Truncate String Values.Outputs[Derived Column Output].Columns[cnv_inactive]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_region Table\Region Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[region_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="region_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_region Table\Region Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[region_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="region_name" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_region Table\Region Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[region_mgr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="region_mgr" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_region Table\Region Errors Flat File.Inputs[Flat File Destination Input].ExternalColumns[inactive]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="inactive" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
               refId="Package\Populate sho_dw_dim_region Table\Set Boolean for inactive and Truncate String Values"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -3828,6 +4369,11 @@
             </component>
           </components>
           <paths>
+            <path
+              refId="Package\Populate sho_dw_dim_region Table.Paths[Data Conversion Error Output]"
+              endId="Package\Populate sho_dw_dim_region Table\Region Errors Flat File.Inputs[Flat File Destination Input]"
+              name="Data Conversion Error Output"
+              startId="Package\Populate sho_dw_dim_region Table\Convert Data Types for Region Table Columns.Outputs[Data Conversion Error Output]" />
             <path
               refId="Package\Populate sho_dw_dim_region Table.Paths[Data Conversion Output]"
               endId="Package\Populate sho_dw_dim_region Table\Perform Insert on sho_dw_dim_region Table for Valid Regions.Inputs[OLE DB Destination Input]"
@@ -7739,7 +8285,7 @@
     design-time-name="Package\Populate sho_dw_dim_location Table">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="265,44"
           Id="Package\Populate sho_dw_dim_location Table\Read from sho_staging_netsuite_location Table"
@@ -7751,29 +8297,27 @@
         <NodeLayout
           Size="273,48"
           Id="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns"
-          TopLeft="308,175" />
+          TopLeft="308,174" />
         <EdgeLayout
           Id="Package\Populate sho_dw_dim_location Table.Paths[Derived Column Output]"
           TopLeft="442.5,147">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,28"
+              EndConnector="0,27"
               Start="0,0"
-              End="0,20.5">
+              End="0,19.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.5" />
+                    End="0,19.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-24.80947265625,4.64306640625,49.6189453125,11.2138671875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7795,9 +8339,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-24.80947265625,7.64306640625,49.6189453125,11.2138671875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -7806,25 +8348,63 @@
           TopLeft="248,263" />
         <EdgeLayout
           Id="Package\Populate sho_dw_dim_location Table.Paths[Data Conversion Output]"
-          TopLeft="442.75,223">
+          TopLeft="442.75,222">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40"
+              EndConnector="0,41"
               Start="0,0"
-              End="0,32.5">
+              End="0,33.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.5" />
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Populate sho_dw_dim_location Table\Location Errors Flat File"
+          TopLeft="682,200" />
+        <EdgeLayout
+          Id="Package\Populate sho_dw_dim_location Table.Paths[Data Conversion Error Output]"
+          TopLeft="581,198">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="101,23"
+              Start="0,0"
+              End="93.5,23">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="46.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46.5,0"
+                    Point2="50.5,0"
+                    Point3="50.5,4" />
+                  <mssgle:LineSegment
+                    End="50.5,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.5,19"
+                    Point2="50.5,23"
+                    Point3="54.5,23" />
+                  <mssgle:LineSegment
+                    End="93.5,23" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-24.80947265625,10.6357421875,49.6189453125,11.228515625"
+              BoundingBox="-15.58638671875,-17.43359375,132.1727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -7848,7 +8428,7 @@
     design-time-name="Package\Populate sho_dw_dim_region Table">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="377,42"
           Id="Package\Populate sho_dw_dim_region Table\Convert Data Types for Region Table Columns"
@@ -7884,9 +8464,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.1201171875,7.96337890625,36.240234375,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7908,9 +8486,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.1201171875,26.96337890625,36.240234375,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7932,8 +8508,34 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="248,49"
+          Id="Package\Populate sho_dw_dim_region Table\Region Errors Flat File"
+          TopLeft="626.5,234.5" />
+        <EdgeLayout
+          Id="Package\Populate sho_dw_dim_region Table.Paths[Data Conversion Error Output]"
+          TopLeft="543,258.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="83.5,0"
+              Start="0,0"
+              End="76,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="76,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-17.83447265625,17.970703125,35.6689453125,9.55859375"
+              BoundingBox="-28.08638671875,5,132.1727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -7970,7 +8572,7 @@
     design-time-name="Package\Populate sho_staging_netsuite_district Table">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="327,46"
           Id="Package\Populate sho_staging_netsuite_district Table\Insert Into sho_staging_netsuite_district Table"
@@ -8006,9 +8608,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-20.56447265625,9.94873046875,41.1289453125,9.6025390625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8042,9 +8642,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.81447265625,21.25,41.1289453125,9.6025390625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8066,9 +8664,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-20.56447265625,11.94873046875,41.1289453125,9.6025390625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8091,7 +8687,7 @@
     design-time-name="Package\Populate sho_staging_netsuite_location Table">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="299,43"
           Id="Package\Populate sho_staging_netsuite_location Table\Perform Initial String Truncation for Insert"
@@ -8127,9 +8723,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-24.80947265625,9.14306640625,49.6189453125,11.2138671875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8163,9 +8757,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-20.05947265625,21.25,49.6189453125,11.2138671875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8199,9 +8791,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-31.05947265625,25.5,49.6189453125,11.2138671875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8224,7 +8814,7 @@
     design-time-name="Package\Populate sho_staging_netsuite_region Table">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="299,43"
           Id="Package\Populate sho_staging_netsuite_region Table\Perform Initial String Truncation for Insert"
@@ -8260,9 +8850,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.1201171875,9.96337890625,36.240234375,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8296,9 +8884,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-13.3701171875,21.25,36.240234375,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8320,9 +8906,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.1201171875,11.96337890625,36.240234375,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8345,7 +8929,7 @@
     design-time-name="Package\Populate sho_dw_dim_district Table">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="393,47"
           Id="Package\Populate sho_dw_dim_district Table\Perform Insert on sho_dw_dim_district Table for Valid Districts"
@@ -8381,9 +8965,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-20.56447265625,7.44873046875,41.1289453125,9.6025390625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8417,9 +8999,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-54.31447265625,41,41.1289453125,9.6025390625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8453,8 +9033,34 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Populate sho_dw_dim_district Table\District Errors Flat File"
+          TopLeft="546,239" />
+        <EdgeLayout
+          Id="Package\Populate sho_dw_dim_district Table.Paths[Data Conversion Error Output]"
+          TopLeft="511,259">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35,0"
+              Start="0,0"
+              End="27.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-13.22265625,17.5,36.4453125,9.6025390625"
+              BoundingBox="-52.33638671875,5,132.1727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
