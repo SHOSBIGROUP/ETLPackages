@@ -1,3 +1,11 @@
+Use sho_dw;
+
+truncate table dim.region;
+
+truncate table dim.district;
+
+truncate table dim.location;
+
 Insert Into dim.region (region_name) Values ('Unknown');
 
 Insert Into dim.region (region_name) Values ('Undefined');

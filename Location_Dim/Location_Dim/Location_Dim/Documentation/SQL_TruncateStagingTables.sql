@@ -1,3 +1,5 @@
+Use sho_staging;
+
 truncate table sho_staging.netsuite.location;
 
 truncate table sho_staging.netsuite.region;
