@@ -11,681 +11,10 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="ETL_Load_Locations_Districts_Regions"
   DTS:PackageType="5"
-  DTS:VersionBuild="343"
-  DTS:VersionGUID="{C76DC69C-0396-4260-B369-4B43D3B2B16E}">
+  DTS:VersionBuild="359"
+  DTS:VersionGUID="{19A0AB5F-3F55-4E37-A2F2-E04B9783A10D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[District Errors Flat File]"
-      DTS:CreationName="FLATFILE"
-      DTS:DelayValidation="True"
-      DTS:DTSID="{79456328-fd29-4b35-8aba-0c6c4b5019e5}"
-      DTS:ObjectName="District Errors Flat File">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">"C:\\Projects\\VisualStudio\\ETLPackages\\DataFiles\\District_Errors_" + (DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) + RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
-          DTS:ColumnNamesInFirstDataRow="True"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x0022_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Projects\VisualStudio\ETLPackages\DataFiles\District_Errors_20180912.csv">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="district_nbr"
-              DTS:DTSID="{775EECA7-209F-4B09-9172-22F3A87CF0D1}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="district_name"
-              DTS:DTSID="{8ABFB1E5-12B5-4042-AA01-281F3C7EBA83}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="district_manager"
-              DTS:DTSID="{FC484F9C-B655-4995-93F8-CC13E1F62F6A}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="inactive"
-              DTS:DTSID="{E4BF4B57-786C-48ED-AB4F-9ECBF1063442}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Location Errors Flat File]"
-      DTS:CreationName="FLATFILE"
-      DTS:DelayValidation="True"
-      DTS:DTSID="{C9A4A243-8A90-41E7-8D7C-6D8DC76E751C}"
-      DTS:ObjectName="Location Errors Flat File">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">"C:\\Projects\\VisualStudio\\ETLPackages\\DataFiles\\Location_Errors_" + (DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) + RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
-          DTS:ColumnNamesInFirstDataRow="True"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x0022_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Projects\VisualStudio\ETLPackages\DataFiles\Location_Errors_20180912.csv">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="pos_nbr"
-              DTS:DTSID="{44F24C1C-ABC2-4A87-8B96-4D8D7F96DE45}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="ordc_nbr"
-              DTS:DTSID="{2035CAE4-90E6-4C64-A9ED-D087771FB6B9}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="eis_nbr"
-              DTS:DTSID="{8563A57E-0758-448B-AF70-F527A40FAA70}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="location_name"
-              DTS:DTSID="{B69DEFC1-998D-4A17-8087-2A435FFD00E6}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="location_format"
-              DTS:DTSID="{1A20E6B6-276B-4CB9-B0B8-3EFD76A1C6A2}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="location_type"
-              DTS:DTSID="{C0722973-EF6F-4B1A-B2C4-5A18F58FB49C}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="operator_type"
-              DTS:DTSID="{457E26B5-968A-4F09-9E90-7545DF80094A}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="operator_name"
-              DTS:DTSID="{0358D9AD-7895-4E14-A0DC-397700D19900}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="district"
-              DTS:DTSID="{5C3B72B6-C54B-434C-9B66-4BF3FDA11B90}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="region"
-              DTS:DTSID="{57AD784A-284B-488B-8020-4B94003C246B}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="city"
-              DTS:DTSID="{E6989C9C-9A94-413B-9268-30F503C20169}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="state"
-              DTS:DTSID="{2B5132FA-98DC-465B-AE5D-E5EF6110ABCE}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="zipcode"
-              DTS:DTSID="{6689308D-3625-4B98-9DBB-953B9D95DD1C}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="address1"
-              DTS:DTSID="{BA03D0E1-A322-416A-937D-C4A94E7D633D}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="address2"
-              DTS:DTSID="{9E6B50CB-D80A-4307-98E7-21AC229C4018}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="open_dt"
-              DTS:DTSID="{21003898-75BE-42E8-A9C1-779AA14735BC}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="close_dt"
-              DTS:DTSID="{082602DB-F9C1-4D3A-B871-453DDC5A5172}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="inactive"
-              DTS:DTSID="{6E37C4D5-3FD6-42B1-AAB2-32F3513EE059}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Netsuite District Flat File]"
-      DTS:CreationName="FLATFILE"
-      DTS:DTSID="{7790079a-8856-40f1-87fc-3a97299c62ef}"
-      DTS:ObjectName="Netsuite District Flat File">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000A_"
-          DTS:ColumnNamesInFirstDataRow="True"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x0022_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Projects\VisualStudio\ETLPackages\DataFiles\District.csv">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="District Manager Name"
-              DTS:DTSID="{4DA79B18-AE1F-447C-8570-4395C59A9823}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Format"
-              DTS:DTSID="{ABF36112-43AD-4BA3-9A9F-0F0D7C325AD0}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="District Number"
-              DTS:DTSID="{31038080-EE67-406C-B064-320D7A6074F9}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="District Name"
-              DTS:DTSID="{F21AF04D-531E-4936-9880-EEE610C4005D}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000A_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Inactive"
-              DTS:DTSID="{559E4B61-E8DB-4177-B325-7849E60DF34D}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Netsuite Location Flat File]"
-      DTS:CreationName="FLATFILE"
-      DTS:DTSID="{B7C25FB4-8327-455A-8A9F-204AF29267FA}"
-      DTS:ObjectName="Netsuite Location Flat File">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000A_"
-          DTS:ColumnNamesInFirstDataRow="True"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x0022_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Projects\VisualStudio\ETLPackages\DataFiles\Location.csv">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Inactive"
-              DTS:DTSID="{A61C4A9E-F1A8-4EF9-9CD6-FC9C675107C6}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Close Date"
-              DTS:DTSID="{6221EF30-C9E2-4BEC-B09C-1315F9ECA5D2}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Location Desc"
-              DTS:DTSID="{0389A9E5-944D-48A2-9622-0353035DC634}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Format"
-              DTS:DTSID="{A37A1B4B-383B-4C27-B89F-0851271669A1}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Ownership Type"
-              DTS:DTSID="{0847AAC6-6E51-4F17-9D9F-B0360B889BB8}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Name (no hierarchy)"
-              DTS:DTSID="{42AD75C4-F257-49C3-944E-17C7F65D0778}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="POS Number"
-              DTS:DTSID="{9E3716B8-4A19-41AE-8D33-96CB8A387A6C}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="EIS Number"
-              DTS:DTSID="{96ED1DDD-2006-4542-AA41-8FB54BB49941}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Region"
-              DTS:DTSID="{660B2B8C-CEC8-4D80-8E19-E88E66FAC5C6}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="District"
-              DTS:DTSID="{282BCF39-2A6F-45DD-9E36-DC8A62BB6929}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="District Manager Name"
-              DTS:DTSID="{06C32EEC-1D30-4B45-8650-70906E9A69C4}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="City"
-              DTS:DTSID="{B7BEB756-DD73-410F-AC00-7D98F893C0A6}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="State Province"
-              DTS:DTSID="{B102E64D-2764-4BB4-A72F-A63E2C1DB268}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Zip"
-              DTS:DTSID="{86B8F6F0-D9CD-47B4-9E9F-0E6767E0D7E9}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Address 1"
-              DTS:DTSID="{DE0811B9-A33B-4CBF-94A2-69B8A050EB9B}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Address 2"
-              DTS:DTSID="{8A8D5171-F137-4FFC-8500-34FE2F3AF1BF}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Latitude"
-              DTS:DTSID="{C66DCDE8-A728-41FE-B523-4D43AE9D978E}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Longitude"
-              DTS:DTSID="{DCBBCEA0-DAA1-4201-8C37-5B107E88D420}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Open Date"
-              DTS:DTSID="{D8E0A725-8FC4-4ED4-968E-32072BDB1F69}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Change of Owner   Takeover Date"
-              DTS:DTSID="{FF61EF14-05AE-4326-8C8C-BACF5DADE119}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Franchisee   Dealer"
-              DTS:DTSID="{65BB51CE-2F2F-4B83-898D-64A13EE5000D}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Location Type"
-              DTS:DTSID="{6D065C80-94B6-470E-976C-7CF1CEC3747A}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Issue Date"
-              DTS:DTSID="{FE8A64C1-0844-4BFA-8BAC-1F4FAC0362EC}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000A_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Expiration Date"
-              DTS:DTSID="{295223AB-94C7-444B-8EF2-70662D20C76A}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Netsuite Region Flat File]"
-      DTS:CreationName="FLATFILE"
-      DTS:DTSID="{147fa484-bb76-4010-b1f7-3fbbec183c63}"
-      DTS:ObjectName="Netsuite Region Flat File">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000A_"
-          DTS:ColumnNamesInFirstDataRow="True"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x0022_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Projects\VisualStudio\ETLPackages\DataFiles\Region.csv">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Region Manager Name"
-              DTS:DTSID="{85D8BEAA-CBFD-46A8-AD5F-7738404BEDC1}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Format"
-              DTS:DTSID="{AAAB4566-45A4-4801-B3EA-60A040959C3E}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Region Number"
-              DTS:DTSID="{DABB02BC-ECBB-4554-87BA-4DE91157858A}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Region Name"
-              DTS:DTSID="{6B3E01B2-60CB-4EE8-8476-6D6D422B8683}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000A_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Inactive"
-              DTS:DTSID="{ADDE78FD-4F7D-4658-92E0-35F05C1C7839}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Region Errors Flat File]"
-      DTS:CreationName="FLATFILE"
-      DTS:DelayValidation="True"
-      DTS:DTSID="{2e4cccff-ec4b-4950-b950-b94172c3b3ee}"
-      DTS:ObjectName="Region Errors Flat File">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">"C:\\Projects\\VisualStudio\\ETLPackages\\DataFiles\\Region_Errors_" + (DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) + RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
-          DTS:ColumnNamesInFirstDataRow="True"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x0022_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Projects\VisualStudio\ETLPackages\DataFiles\Region_Errors_20180912.csv">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="region_nbr"
-              DTS:DTSID="{06214F17-4BC4-41AD-8777-35F12B2B1CEB}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="region_name"
-              DTS:DTSID="{48A6654C-A0A8-4ED5-9464-FE183C963960}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="region_mgr"
-              DTS:DTSID="{67CEB1C7-8419-49F4-9AEA-45F7302AAE9B}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="inactive"
-              DTS:DTSID="{2F11FD08-58E7-4F9E-A959-8AB18EC79B22}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -857,8 +186,8 @@
               <connections>
                 <connection
                   refId="Package\Populate sho_dw_dim_district Table\District Errors Flat File.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[District Errors Flat File]"
-                  connectionManagerRefId="Package.ConnectionManagers[District Errors Flat File]"
+                  connectionManagerID="{14CF3191-50B9-4734-AD1B-1C25312CB69F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[NS_DISTRICT_FLATFILE_ERRORS]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
@@ -1933,8 +1262,8 @@
               <connections>
                 <connection
                   refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Location Errors Flat File]"
-                  connectionManagerRefId="Package.ConnectionManagers[Location Errors Flat File]"
+                  connectionManagerID="{1AFABF72-3F5D-4911-A892-0CB10BD3D49B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[NS_LOCATION_FLATFILE_ERRORS]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
@@ -4124,8 +3453,8 @@
               <connections>
                 <connection
                   refId="Package\Populate sho_dw_dim_region Table\Region Errors Flat File.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Region Errors Flat File]"
-                  connectionManagerRefId="Package.ConnectionManagers[Region Errors Flat File]"
+                  connectionManagerID="{AFEF6898-DA4A-41A1-A374-59CFACCDBDED}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[NS_REGION_FLATFILE_ERRORS]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
@@ -4868,8 +4197,8 @@
               <connections>
                 <connection
                   refId="Package\Populate sho_staging_netsuite_district Table\Read Records from NetSuite Flat File Districts Source.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Netsuite District Flat File]"
-                  connectionManagerRefId="Package.ConnectionManagers[Netsuite District Flat File]"
+                  connectionManagerID="{046AA239-55DF-437C-89DB-6989FF2EA326}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[NS_DISTRICT_FLATFILE]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -6455,8 +5784,8 @@
               <connections>
                 <connection
                   refId="Package\Populate sho_staging_netsuite_location Table\Read Records from NetSuite Flat File Locations Source.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Netsuite Location Flat File]"
-                  connectionManagerRefId="Package.ConnectionManagers[Netsuite Location Flat File]"
+                  connectionManagerID="{2100EFF9-1FD3-492A-BD58-90F9C845076C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[NS_LOCATION_FLATFILE]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -7622,8 +6951,8 @@
               <connections>
                 <connection
                   refId="Package\Populate sho_staging_netsuite_region Table\Read Records from NetSuite Flat File Regions Source.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Netsuite Region Flat File]"
-                  connectionManagerRefId="Package.ConnectionManagers[Netsuite Region Flat File]"
+                  connectionManagerID="{186D22C6-01E1-4C31-8DFF-395316270C26}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[NS_REGION_FLATFILE]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -7970,7 +7299,7 @@
         <NodeLayout
           Size="247,42"
           Id="Package\Populate sho_dw_dim_region Table"
-          TopLeft="186.5,469.5" />
+          TopLeft="185.5,469.5" />
         <NodeLayout
           Size="289,42"
           Id="Package\Populate sho_staging_netsuite_district Table"
@@ -7978,11 +7307,45 @@
         <NodeLayout
           Size="294,42"
           Id="Package\Populate sho_staging_netsuite_location Table"
-          TopLeft="160.5,247.5" />
+          TopLeft="162.5,253.5" />
         <NodeLayout
           Size="287,42"
           Id="Package\Populate sho_staging_netsuite_region Table"
           TopLeft="156.5,177.5" />
+        <NodeLayout
+          Size="425,42"
+          Id="Package\Truncate and Populate Unknown and Undefined Locations, Regions, Districts in sho_dw"
+          TopLeft="93,323" />
+        <NodeLayout
+          Size="372,42"
+          Id="Package\Truncate sho_staging_netsuite Location,Region,District Tables"
+          TopLeft="109,23" />
+        <NodeLayout
+          Size="390,42"
+          Id="Package\Update Surrogate Keys for Locations, Regions, Districts in sho_dw"
+          TopLeft="108,636" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="307.5,295.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.5"
+              Start="0,0"
+              End="0,20">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="302.5,150.5">
@@ -8011,9 +7374,9 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="11,29"
+              EndConnector="10,29"
               Start="0,0"
-              End="11,21.5">
+              End="10,21.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -8024,13 +7387,13 @@
                     Point2="0,14.5"
                     Point3="4,14.5" />
                   <mssgle:LineSegment
-                    End="7,14.5" />
+                    End="6,14.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="7,14.5"
-                    Point2="11,14.5"
-                    Point3="11,18.5" />
+                    Point1="6,14.5"
+                    Point2="10,14.5"
+                    Point3="10,18.5" />
                   <mssgle:LineSegment
-                    End="11,21.5" />
+                    End="10,21.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8041,18 +7404,52 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="303.75,219.5">
+          TopLeft="300,219.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,28"
+              EndConnector="9.5,34"
               Start="0,0"
-              End="0,20.5">
+              End="9.5,26.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.5" />
+                    End="0,13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13"
+                    Point2="0,17"
+                    Point3="4,17" />
+                  <mssgle:LineSegment
+                    End="5.5,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.5,17"
+                    Point2="9.5,17"
+                    Point3="9.5,21" />
+                  <mssgle:LineSegment
+                    End="9.5,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="302.25,365">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.5"
+              Start="0,0"
+              End="0,26">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8063,13 +7460,13 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="310,511.5">
+          TopLeft="309,511.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-12.5,39.5"
+              EndConnector="-11.5,39.5"
               Start="0,0"
-              End="-12.5,32">
+              End="-11.5,32">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -8080,13 +7477,13 @@
                     Point2="0,19.75"
                     Point3="-4,19.75" />
                   <mssgle:LineSegment
-                    End="-8.5,19.75" />
+                    End="-7.5,19.75" />
                   <mssgle:CubicBezierSegment
-                    Point1="-8.5,19.75"
-                    Point2="-12.5,19.75"
-                    Point3="-12.5,23.75" />
+                    Point1="-7.5,19.75"
+                    Point2="-11.5,19.75"
+                    Point3="-11.5,23.75" />
                   <mssgle:LineSegment
-                    End="-12.5,32" />
+                    End="-11.5,32" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8095,10 +7492,28 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="372,42"
-          Id="Package\Truncate sho_staging_netsuite Location,Region,District Tables"
-          TopLeft="109,23" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="300.25,593">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
           TopLeft="295,65">
@@ -8133,80 +7548,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="425,42"
-          Id="Package\Truncate and Populate Unknown and Undefined Locations, Regions, Districts in sho_dw"
-          TopLeft="93,323" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="306.5,289.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,33.5"
-              Start="0,0"
-              End="0,26">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="302.25,365">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,33.5"
-              Start="0,0"
-              End="0,26">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="390,42"
-          Id="Package\Update Surrogate Keys for Locations, Regions, Districts in sho_dw"
-          TopLeft="108,636" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="300.25,593">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,43"
-              Start="0,0"
-              End="0,35.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -8215,6 +7556,14 @@
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="375,42"
+          Id="Package\Populate sho_dw_dim_district Table\Perform Insert on sho_dw_dim_district Table for Valid Districts"
+          TopLeft="185,315" />
+        <NodeLayout
+          Size="297,42"
+          Id="Package\Populate sho_dw_dim_district Table\Read from sho_staging_netsuite_district Table"
+          TopLeft="185,43" />
         <NodeLayout
           Size="172,42"
           Id="Package\Populate sho_dw_dim_district Table\District Errors Flat File"
@@ -8250,6 +7599,40 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Populate sho_dw_dim_district Table.Paths[Data Conversion Output]"
+          TopLeft="362.5,279">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10,36"
+              Start="0,0"
+              End="10,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14"
+                    Point2="0,18"
+                    Point3="4,18" />
+                  <mssgle:LineSegment
+                    End="6,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6,18"
+                    Point2="10,18"
+                    Point3="10,22" />
+                  <mssgle:LineSegment
+                    End="10,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Populate sho_dw_dim_district Table.Paths[Data Conversion Error Output]"
           TopLeft="511,259">
           <EdgeLayout.Curve>
@@ -8273,10 +7656,6 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="297,42"
-          Id="Package\Populate sho_dw_dim_district Table\Read from sho_staging_netsuite_district Table"
-          TopLeft="185,43" />
         <EdgeLayout
           Id="Package\Populate sho_dw_dim_district Table.Paths[OLE DB Source Output]"
           TopLeft="333.5,85">
@@ -8311,47 +7690,35 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="375,42"
-          Id="Package\Populate sho_dw_dim_district Table\Perform Insert on sho_dw_dim_district Table for Valid Districts"
-          TopLeft="185,315" />
-        <EdgeLayout
-          Id="Package\Populate sho_dw_dim_district Table.Paths[Data Conversion Output]"
-          TopLeft="362.5,279">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="10,36"
-              Start="0,0"
-              End="10,28.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14"
-                    Point2="0,18"
-                    Point3="4,18" />
-                  <mssgle:LineSegment
-                    End="6,18" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6,18"
-                    Point2="10,18"
-                    Point3="10,22" />
-                  <mssgle:LineSegment
-                    End="10,28.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Populate sho_dw_dim_district Table\Perform Insert on sho_dw_dim_district Table for Valid Districts">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Populate sho_dw_dim_district Table\Read from sho_staging_netsuite_district Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Populate sho_dw_dim_location Table">
     <LayoutInfo>
@@ -8662,6 +8029,10 @@
           Id="Package\Populate sho_staging_netsuite_district Table\Read Records from NetSuite Flat File Districts Source"
           TopLeft="262,38" />
         <NodeLayout
+          Size="299,42"
+          Id="Package\Populate sho_staging_netsuite_district Table\Insert Into sho_staging_netsuite_district Table"
+          TopLeft="261,293" />
+        <NodeLayout
           Size="307,53"
           Id="Package\Populate sho_staging_netsuite_district Table\Convert Unicode to ASCII Values"
           TopLeft="262.5,195.5" />
@@ -8725,10 +8096,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="299,42"
-          Id="Package\Populate sho_staging_netsuite_district Table\Insert Into sho_staging_netsuite_district Table"
-          TopLeft="261,293" />
         <EdgeLayout
           Id="Package\Populate sho_staging_netsuite_district Table.Paths[Data Conversion Output]"
           TopLeft="413.25,248.5">
@@ -8754,6 +8121,19 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Populate sho_staging_netsuite_district Table\Insert Into sho_staging_netsuite_district Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Populate sho_staging_netsuite_location Table">
     <LayoutInfo>
@@ -8767,6 +8147,10 @@
           Size="297,45"
           Id="Package\Populate sho_staging_netsuite_location Table\Read Records from NetSuite Flat File Locations Source"
           TopLeft="262,38" />
+        <NodeLayout
+          Size="304,42"
+          Id="Package\Populate sho_staging_netsuite_location Table\Insert Into sho_staging_netsuite_location Table"
+          TopLeft="255,275" />
         <NodeLayout
           Size="307,53"
           Id="Package\Populate sho_staging_netsuite_location Table\Convert Unicode to ASCII Values"
@@ -8827,10 +8211,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="304,42"
-          Id="Package\Populate sho_staging_netsuite_location Table\Insert Into sho_staging_netsuite_location Table"
-          TopLeft="255,275" />
         <EdgeLayout
           Id="Package\Populate sho_staging_netsuite_location Table.Paths[Data Conversion Output]"
           TopLeft="416,248.5">
@@ -8868,6 +8248,19 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Populate sho_staging_netsuite_location Table\Insert Into sho_staging_netsuite_location Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Populate sho_staging_netsuite_region Table">
     <LayoutInfo>
@@ -8878,69 +8271,13 @@
           Id="Package\Populate sho_staging_netsuite_region Table\Perform Initial String Truncation for Insert"
           TopLeft="257,120" />
         <NodeLayout
-          Size="297,45"
-          Id="Package\Populate sho_staging_netsuite_region Table\Read Records from NetSuite Flat File Regions Source"
-          TopLeft="262,38" />
-        <NodeLayout
           Size="307,53"
           Id="Package\Populate sho_staging_netsuite_region Table\Convert Unicode to ASCII Values"
           TopLeft="262.5,195.5" />
-        <EdgeLayout
-          Id="Package\Populate sho_staging_netsuite_region Table.Paths[Derived Column Output]"
-          TopLeft="406.5,163">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="9.5,32.5"
-              Start="0,0"
-              End="9.5,25">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.25"
-                    Point2="0,16.25"
-                    Point3="4,16.25" />
-                  <mssgle:LineSegment
-                    End="5.5,16.25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5.5,16.25"
-                    Point2="9.5,16.25"
-                    Point3="9.5,20.25" />
-                  <mssgle:LineSegment
-                    End="9.5,25" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Populate sho_staging_netsuite_region Table.Paths[Flat File Source Output]"
-          TopLeft="408.5,83">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,37"
-              Start="0,0"
-              End="0,29.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="297,45"
+          Id="Package\Populate sho_staging_netsuite_region Table\Read Records from NetSuite Flat File Regions Source"
+          TopLeft="262,38" />
         <NodeLayout
           Size="297,42"
           Id="Package\Populate sho_staging_netsuite_region Table\Insert Into sho_staging_netsuite_region Table"
@@ -8979,63 +8316,67 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Populate sho_staging_netsuite_region Table.Paths[Flat File Source Output]"
+          TopLeft="408.5,83">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Populate sho_staging_netsuite_region Table.Paths[Derived Column Output]"
+          TopLeft="406.5,163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.5,32.5"
+              Start="0,0"
+              End="9.5,25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.25"
+                    Point2="0,16.25"
+                    Point3="4,16.25" />
+                  <mssgle:LineSegment
+                    End="5.5,16.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.5,16.25"
+                    Point2="9.5,16.25"
+                    Point3="9.5,20.25" />
+                  <mssgle:LineSegment
+                    End="9.5,25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Populate sho_staging_netsuite_district Table\Insert Into sho_staging_netsuite_district Table">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Populate sho_staging_netsuite_region Table\Insert Into sho_staging_netsuite_region Table">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Populate sho_staging_netsuite_location Table\Insert Into sho_staging_netsuite_location Table">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Populate sho_dw_dim_district Table\Read from sho_staging_netsuite_district Table">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Populate sho_dw_dim_district Table\Perform Insert on sho_dw_dim_district Table for Valid Districts">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
