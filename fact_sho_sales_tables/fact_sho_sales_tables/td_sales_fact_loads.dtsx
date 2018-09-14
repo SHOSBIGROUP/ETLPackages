@@ -5,58 +5,62 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-PBEJN2M"
   DTS:CreatorName="DESKTOP-PBEJN2M\BusinessIntel"
-  DTS:DTSID="{3FB53284-3331-46F1-A285-36F4C07471F5}"
+  DTS:DTSID="{BE581411-EC47-45E1-8007-EBB8C653A6A1}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="14.0.3002.107"
   DTS:LocaleID="1033"
-  DTS:ObjectName="sales_fact_loads"
+  DTS:ObjectName="td_sales_fact_loads"
   DTS:PackageType="5"
-  DTS:VersionBuild="79"
-  DTS:VersionGUID="{AB336CAF-0138-45B3-B462-F1378CA1AAEC}">
+  DTS:VersionBuild="88"
+  DTS:VersionGUID="{85853A40-92E0-4DF1-96CE-88E17C7F2EA7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[mssql_sho_dw]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{A91ACBC8-12B0-43E2-B932-CFAAF9C4E065}"
+      DTS:DTSID="{43D2F1BD-E653-48F1-97DF-0570C367165A}"
       DTS:ObjectName="mssql_sho_dw">
       <DTS:PropertyExpression
-        DTS:Name="ServerName">@[$Package::mssql_servername]</DTS:PropertyExpression>
+        DTS:Name="InitialCatalog">@[$Project::DB_DW_NAME]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[$Project::DB_SERVERNAME]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=AZSQL01.ads.shos.com;User ID=mssql_etl;Initial Catalog=sho_dw;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=azsql01.centralus.cloudapp.azure.com;User ID=mssql_etl;Initial Catalog=sho_dw;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/BAcNlfBfEKl2/Du/ZYQqwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADnksT3MweqOPV6+2tHThEptAdNFN1UINJ+RE+QIp9tmQAAAAAOgAAAAAIAACAAAAB8jseNqqqNVJDUN0HPezPYKosScVRTXVoON/Li9aaeNTAAAACQkuIH9EjSnIiRBXKmn8TMu4TABmzby9w3Ei3W38bplkApw7f1baVMdE4njm1qe9pAAAAA0E5BC0bdfSUfVdF1uJOtxY5udRW+BVQOXcs/fdbGJ5y5YVOBe8FF5rG9IHN5gVPPSQ1bsAGc4+HVd3axA//udA</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/BAcNlfBfEKl2/Du/ZYQqwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAm5L7XgpUegabRPR7leGXnUZQv7i9f0VqhV62UsYjILAAAAAAOgAAAAAIAACAAAAAlvS7rt9lIxGyoTRVpOZVQZY7DWWiItH60LVMOXbKpHTAAAADgP6svSV/w/Jda90WRPvaTSlVZ8vfOm9aEQecpxrMBPMLFwmGBZVspjPQLmHASK01AAAAAwRMJN78Iy3ICapVrFdrsgnaMufmSPnvjObAH+EnFHY7E3qqGXNw18WUtTNUhNY+WB9JaEElhC5uEQmw+pWtDjQ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[mssql_sho_staging]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{C0CEE766-623C-4C06-817D-75288AAD6F89}"
+      DTS:DTSID="{A8CC8F9F-1CC0-4256-AB32-0D5C78FA2581}"
       DTS:ObjectName="mssql_sho_staging">
       <DTS:PropertyExpression
-        DTS:Name="ServerName">@[$Package::mssql_servername]</DTS:PropertyExpression>
+        DTS:Name="InitialCatalog">@[$Project::DB_STAGING_NAME]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[$Project::DB_SERVERNAME]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=AZSQL01.ads.shos.com;User ID=mssql_etl;Initial Catalog=sho_staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=azsql01.centralus.cloudapp.azure.com;User ID=mssql_etl;Initial Catalog=sho_staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/BAcNlfBfEKl2/Du/ZYQqwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD2UOurbgbvIbWLKGHfgjMdZui0IOol96MwupQKH2xIGgAAAAAOgAAAAAIAACAAAABEXhFBbczAx9MbPNvjD0VItVKBUpQXngZ1UJhPZkub9DAAAABstLfKo+UN2F28KtUW5UQbDyiVywXKixYdZNQgx0ltjZFA9MvdDYWNxAP0KyIGDk5AAAAAN7+4AMVXluxG4rKBl6bHF5A72t/6m61GfF8yMQubXhrsycEAEgdP3181QGEkDpha2AqONpI0DN9Snjc7shmjUg</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/BAcNlfBfEKl2/Du/ZYQqwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB04atoHuK3eRfTjUAN3ViUpwoL9bT5VAXb6LNfEDJ65wAAAAAOgAAAAAIAACAAAADmh5w2DmQNAKUae8H7YrCoAaWjEzva/nwMg+vvrs9IujAAAAAeDze0gY4rYYoaDS5LTFSXvhGPHONjaZR71PPXKTT8gQFnKHzYPplfaDvyYNvSzYNAAAAAJc1aJRn0HKDiuhxIm9gwIjZnPuvwtYSyG2qB9VGCHgn4qmqlZLRWdmUwds7vXgSJhtzBeIqmFkv3vQCfGRzcIA</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Reject File Connection - div lookup div fact]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{B0BB7517-CCD3-4900-9581-F18CB00F0218}"
+      DTS:DTSID="{AF6700CB-42F7-47FC-80B6-8A0992EC9808}"
       DTS:ObjectName="Reject File Connection - div lookup div fact">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Package::reject_file_dir]+"\\fact_sho_sales_by_div_div_lu.txt"</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[$Project::DIR_SALES_FACT] +"\\rejects\\fact_sho_sales_by_div_div_lu"+ (DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) + RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -65,7 +69,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\quicktemp\development\sho datamart\etl\sales fact\rejects\fact_sho_sales_by_div_div_lu.txt">
+          DTS:ConnectionString="C:\quicktemp\development\sho datamart\etl\sales fact\rejects\fact_sho_sales_by_div_div_lu20180914.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -73,7 +77,7 @@
               DTS:DataType="133"
               DTS:TextQualified="True"
               DTS:ObjectName="TRS_DT"
-              DTS:DTSID="{FE9535CA-BCDA-42AB-9074-C9E3D93CE72B}"
+              DTS:DTSID="{6BD117D4-A2DC-44FA-B51C-5799A7ADC4DC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -81,7 +85,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="LOC_NO"
-              DTS:DTSID="{FB41152B-9C67-486C-AD4C-DACBDBDCDAEB}"
+              DTS:DTSID="{59DBC714-1565-4E07-9512-BFB1B86BFF14}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -89,7 +93,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="DIV_NO"
-              DTS:DTSID="{417CAC74-75D9-4F1D-AEB8-AE7E6C6C6D4E}"
+              DTS:DTSID="{6365F688-3804-4C80-B827-D7DCA1D72A55}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -97,7 +101,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="net_sales"
-              DTS:DTSID="{C1E6A9BF-0B88-49A3-8449-F0616B1B6577}"
+              DTS:DTSID="{94CF4DCC-F08C-454D-9774-FD66CFEAE45B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -105,7 +109,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="net_units"
-              DTS:DTSID="{0B7507F2-799C-418D-900E-C3714CDF9BFD}"
+              DTS:DTSID="{B340A61D-A78E-49F2-B941-431D3266F5E6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -113,7 +117,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="pa_sales"
-              DTS:DTSID="{DB483BA6-E0A5-4F4A-BF08-83F5690E8F4D}"
+              DTS:DTSID="{102FC2DA-D20E-4148-BFA4-CB3334ABCE8B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -121,7 +125,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="pa_units"
-              DTS:DTSID="{9128A635-5178-4059-95FF-F5338A331F1D}"
+              DTS:DTSID="{46A68F4C-4216-408E-9609-862E945FE6AB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -129,7 +133,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="pam_sales"
-              DTS:DTSID="{2524656A-1ABE-4965-8548-8234C2F452A5}"
+              DTS:DTSID="{1029300B-1548-469F-8ADC-562533554A31}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -137,7 +141,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="pam_units"
-              DTS:DTSID="{D8DE5176-7488-4A07-B5E0-E3F3B8ACFE5D}"
+              DTS:DTSID="{1D4F8A58-7DBD-446C-95D3-DE4F2C1B48F7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -145,7 +149,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="total_markdowns"
-              DTS:DTSID="{6A36ED9B-C45F-48BE-A337-506766C04C9A}"
+              DTS:DTSID="{D6A0F299-73FC-435B-8E3F-4F9FF7F68E1B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -153,7 +157,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="avg_ticket_amt"
-              DTS:DTSID="{B7623B7C-4EC9-48BB-B758-7A9BB4C8932D}"
+              DTS:DTSID="{B668EFD1-4BEC-4331-9932-4CA35CF6B778}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -161,7 +165,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="avg_ticket_units"
-              DTS:DTSID="{CDAAE2C5-BD14-4DE1-807F-269F12B19B9F}"
+              DTS:DTSID="{C817B2C4-7927-482B-A0C6-136A130EF683}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -169,7 +173,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="lease_sales"
-              DTS:DTSID="{F585AE62-2963-4BBE-B96F-A2A53EDF1DC2}"
+              DTS:DTSID="{FAAA778A-593C-4EE6-BC3D-A3E1D5FAF063}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -177,7 +181,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="lease_units"
-              DTS:DTSID="{7006074F-6148-454A-8783-47A28CF96F71}"
+              DTS:DTSID="{F836190B-AE17-451B-AC5A-CC02141EF2DD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -185,7 +189,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="kenmore_net_sale"
-              DTS:DTSID="{A4E877D1-5958-41D6-B7F6-B2D8E5958DE1}"
+              DTS:DTSID="{989937C8-A3E7-4A35-B584-EF0CE43FB998}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -193,7 +197,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="craftsman_net_sale"
-              DTS:DTSID="{39040764-242E-4F46-B482-C8D6B858C139}"
+              DTS:DTSID="{8FCACF90-F566-499E-B75D-CAED7B8831D6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -201,7 +205,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="diehard_net_sale"
-              DTS:DTSID="{8FE7B8FC-4B72-4A97-BAE5-1415470636E6}"
+              DTS:DTSID="{532166FB-534D-4C48-B120-FC5B720BBB0A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -209,7 +213,7 @@
               DTS:DataType="20"
               DTS:TextQualified="True"
               DTS:ObjectName="kenmore_net_units"
-              DTS:DTSID="{A0CB44B5-5B5D-4075-9067-249064201807}"
+              DTS:DTSID="{5EB63BB2-0B60-429D-A009-7AE9148F6950}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -217,7 +221,7 @@
               DTS:DataType="20"
               DTS:TextQualified="True"
               DTS:ObjectName="craftsman_net_units"
-              DTS:DTSID="{072F0CB8-A084-4A53-BADE-F65B2322C2B9}"
+              DTS:DTSID="{E6B90DAD-0348-4DB4-8CEA-5C71C513E603}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -225,7 +229,7 @@
               DTS:DataType="20"
               DTS:TextQualified="True"
               DTS:ObjectName="diehard_net_units"
-              DTS:DTSID="{F13255EF-845A-4191-94F5-2E9ABCB33B41}"
+              DTS:DTSID="{95D5EEB0-BD4E-4B31-AFDC-2469A443A3DE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -234,7 +238,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="pos_source_system"
-              DTS:DTSID="{A5C66E36-8106-446C-9453-B46C2A5D3188}"
+              DTS:DTSID="{54F28566-F9C2-4959-A7AE-51B0885CB74F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -243,7 +247,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="trs_dt_sk_id"
-              DTS:DTSID="{61E6B8A7-4726-4ECE-953E-064A2375FA14}"
+              DTS:DTSID="{E38BB9A1-D70F-41DD-AC90-E7F8DF5A6C8B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -251,7 +255,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="sho_location_sk_id"
-              DTS:DTSID="{3FE77E7C-FA7E-48B4-B80B-8E71C9622DE7}"
+              DTS:DTSID="{25D83108-906C-42A1-8AB6-947AD5C2F0E1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -260,7 +264,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="reject_reason"
-              DTS:DTSID="{2ED0A213-B91F-4F82-94D9-8832F05C5091}"
+              DTS:DTSID="{C9166DB3-146B-4E8D-8FDA-1ACA9B50CF64}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -269,266 +273,10 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Reject File Connection - loc lookup div fact]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{92F03F8C-26C9-4F34-A475-CD831D0F6CB3}"
+      DTS:DTSID="{E0847F92-430F-477A-A880-1C509CBE3B58}"
       DTS:ObjectName="Reject File Connection - loc lookup div fact">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Package::reject_file_dir]+ "\\fact_sho_sales_by_div.txt"</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x0022_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="C:\quicktemp\development\sho datamart\etl\sales fact\rejects\fact_sho_sales_by_div.txt">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="133"
-              DTS:TextQualified="True"
-              DTS:ObjectName="TRS_DT"
-              DTS:DTSID="{375DF354-DE9E-4BFD-871B-FFC363DBF3F5}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="LOC_NO"
-              DTS:DTSID="{25A03F5F-3A62-457F-B139-D6FB34E0A219}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="DIV_NO"
-              DTS:DTSID="{1A4BDC61-1562-4487-9317-AA7A3EB1E61F}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
-              DTS:TextQualified="True"
-              DTS:ObjectName="net_sales"
-              DTS:DTSID="{EC6CD2FA-89DB-4D5E-B4E6-2ABE54014525}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="net_units"
-              DTS:DTSID="{41D57603-7318-4D7C-B7CF-CDE22E8F0B27}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
-              DTS:TextQualified="True"
-              DTS:ObjectName="pa_sales"
-              DTS:DTSID="{C13577C3-4B95-40D4-96AB-41506C107539}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="pa_units"
-              DTS:DTSID="{5B7BF31B-65AD-4E28-BA88-9DB5816A10A2}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
-              DTS:TextQualified="True"
-              DTS:ObjectName="pam_sales"
-              DTS:DTSID="{A60C5518-3678-40D7-A726-89521FC080F5}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="pam_units"
-              DTS:DTSID="{80BD9382-91F9-4CEC-8DC5-9BC1A7B27396}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
-              DTS:TextQualified="True"
-              DTS:ObjectName="total_markdowns"
-              DTS:DTSID="{023A5B82-0B4E-4BF1-A7B9-8123AF6DF961}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
-              DTS:TextQualified="True"
-              DTS:ObjectName="avg_ticket_amt"
-              DTS:DTSID="{712CBA07-26CC-4A6C-9034-A2CCC68D4EC6}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="avg_ticket_units"
-              DTS:DTSID="{B98EDAF4-709F-4F82-8329-D2103062F6A7}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
-              DTS:TextQualified="True"
-              DTS:ObjectName="lease_sales"
-              DTS:DTSID="{C65FAAA7-5C61-4DD6-B99C-4E879F59C8C1}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="lease_units"
-              DTS:DTSID="{BA226A41-E51F-45CD-9C6E-296CC16486C9}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
-              DTS:TextQualified="True"
-              DTS:ObjectName="kenmore_net_sale"
-              DTS:DTSID="{1BAA2453-307F-4D7D-85B3-3123A3991BDF}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
-              DTS:TextQualified="True"
-              DTS:ObjectName="craftsman_net_sale"
-              DTS:DTSID="{87970B07-A6AC-4CC7-9CA8-24435E4A57BB}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
-              DTS:TextQualified="True"
-              DTS:ObjectName="diehard_net_sale"
-              DTS:DTSID="{7D6E91FB-3564-4C98-9EED-0A9B81E4A8B1}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="20"
-              DTS:TextQualified="True"
-              DTS:ObjectName="kenmore_net_units"
-              DTS:DTSID="{B38CD8A2-2A16-47D1-88DC-B95F91540016}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="20"
-              DTS:TextQualified="True"
-              DTS:ObjectName="craftsman_net_units"
-              DTS:DTSID="{68879678-D4C4-40EE-AB74-4271ECADB90C}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="20"
-              DTS:TextQualified="True"
-              DTS:ObjectName="diehard_net_units"
-              DTS:DTSID="{DC2D26F4-A0EC-4584-9F0D-4E3766BA3551}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="1"
-              DTS:DataType="130"
-              DTS:TextQualified="True"
-              DTS:ObjectName="pos_source_system"
-              DTS:DTSID="{AB10BAE4-5FC9-4166-894C-4B40D4B37216}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="8"
-              DTS:DataType="130"
-              DTS:TextQualified="True"
-              DTS:ObjectName="trs_dt_sk_id"
-              DTS:DTSID="{C3101D93-9CD3-43CB-A142-091ACAEA6FFE}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="38"
-              DTS:DataType="130"
-              DTS:TextQualified="True"
-              DTS:ObjectName="reject_reason"
-              DTS:DTSID="{2D130920-033E-472D-8112-1C9438B30F1F}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
-              DTS:TextQualified="True"
-              DTS:ObjectName="spp_sales"
-              DTS:DTSID="{6D768A11-1FD7-4DE9-911A-069C1F0B9E77}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
-              DTS:TextQualified="True"
-              DTS:ObjectName="spp_merch_sales"
-              DTS:DTSID="{670B8D1A-C987-4300-BCAF-DA2F1CD144BF}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
-              DTS:TextQualified="True"
-              DTS:ObjectName="bulk_sales"
-              DTS:DTSID="{66CAC0BE-7B71-4CE8-9EE9-9387BA7BFE6A}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="bulk_units"
-              DTS:DTSID="{70905FC8-25E1-4DAB-91AB-676E3F5C2312}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
-              DTS:TextQualified="True"
-              DTS:ObjectName="sears_credit_sales"
-              DTS:DTSID="{554A7E06-A852-480B-9BB7-B06608500F9C}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:DataType="5"
-              DTS:TextQualified="True"
-              DTS:ObjectName="other_credit_sales"
-              DTS:DTSID="{FBB3F3EC-B15F-42B3-8185-ED522CCDA47B}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Reject File Connection-loc lookup loc fact]"
-      DTS:CreationName="FLATFILE"
-      DTS:DTSID="{14385D9D-4C36-4C01-BC9F-F56AFA9471E3}"
-      DTS:ObjectName="Reject File Connection-loc lookup loc fact">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Package::reject_file_dir] +"\\fact_sho_sales_by_loc.txt"</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[$Project::DIR_SALES_FACT] +"\\rejects\\fact_sho_sales_by_div"+ (DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) + RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -538,7 +286,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\quicktemp\development\sho datamart\etl\sales fact\rejects\fact_sho_sales_by_loc.txt">
+          DTS:ConnectionString="C:\quicktemp\development\sho datamart\etl\sales fact\rejects\fact_sho_sales_by_div20180914.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -546,7 +294,7 @@
               DTS:DataType="133"
               DTS:TextQualified="True"
               DTS:ObjectName="TRS_DT"
-              DTS:DTSID="{B0B5BEFA-D9AF-43BA-B659-D370752E8761}"
+              DTS:DTSID="{2CEEFD74-8578-4D95-A874-6947D7084C9E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -554,7 +302,15 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="LOC_NO"
-              DTS:DTSID="{58FDE795-76DC-43A8-A817-1FF059FE69F9}"
+              DTS:DTSID="{824CF83F-B03A-4762-9B3A-031F7C8A11F6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DIV_NO"
+              DTS:DTSID="{29F81F89-2836-43BC-9CDD-59C9B3CDD151}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -562,7 +318,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="net_sales"
-              DTS:DTSID="{9AC66980-BFD5-4584-A9BC-5E558D02649C}"
+              DTS:DTSID="{70555F4B-01CC-4641-A295-9FD1ED79BC89}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -570,7 +326,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="net_units"
-              DTS:DTSID="{7C89F0B3-3740-4772-B86A-4CD207BD9A7F}"
+              DTS:DTSID="{41AC2FCC-2A52-4522-951A-675B177988F3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -578,7 +334,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="pa_sales"
-              DTS:DTSID="{0D13BFB7-2F05-4980-B15A-7114D1CD52F7}"
+              DTS:DTSID="{C6A90BD8-F968-4A9C-B746-D5B52AE23133}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -586,7 +342,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="pa_units"
-              DTS:DTSID="{024B3841-8D23-4BB3-9CA9-27EBC0AEDBAA}"
+              DTS:DTSID="{D1FA0FDB-5C69-4C82-AB5B-4757572F5B6E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -594,7 +350,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="pam_sales"
-              DTS:DTSID="{771B6693-BC3C-403E-AB20-16C0634787A3}"
+              DTS:DTSID="{BEC217C4-E89B-4301-92F3-4D7EA7E050E1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -602,7 +358,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="pam_units"
-              DTS:DTSID="{29184068-7D8E-4565-9823-1A5C66E2A33F}"
+              DTS:DTSID="{062ED493-DEB1-4B84-905D-7C3D4478DF17}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -610,7 +366,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="total_markdowns"
-              DTS:DTSID="{CBA31E63-552A-4039-A7F4-855081899E02}"
+              DTS:DTSID="{0B5E9024-93F6-4396-9299-532C52ECAB5A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -618,7 +374,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="avg_ticket_amt"
-              DTS:DTSID="{D29EC1FD-9F01-4B59-9384-FE9A81FEF0B9}"
+              DTS:DTSID="{0738EA1D-7A84-4C65-9B0D-F95995B28472}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -626,7 +382,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="avg_ticket_units"
-              DTS:DTSID="{EC90660F-9E9F-47DE-986A-69D561DEA174}"
+              DTS:DTSID="{51CF3626-947C-4791-A4CA-C104BDF3662D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -634,7 +390,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="lease_sales"
-              DTS:DTSID="{F7F8AAA8-8F0F-4371-BDAE-28067BF0F959}"
+              DTS:DTSID="{7C34361E-E607-4F3A-A4DC-F0D41D56C1BB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -642,63 +398,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="lease_units"
-              DTS:DTSID="{756A6A83-A3F3-4C15-B1CA-F022EBE83A5D}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
-              DTS:TextQualified="True"
-              DTS:ObjectName="spp_sales"
-              DTS:DTSID="{6E3DA8C2-66C6-45FB-B589-B2434F34C9B6}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="spp_units"
-              DTS:DTSID="{CAF80156-4180-4CFB-8559-E812D5E94661}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
-              DTS:TextQualified="True"
-              DTS:ObjectName="spp_merch_sales"
-              DTS:DTSID="{5D3754FA-24AC-4F49-B282-A91FCF0E36D5}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
-              DTS:TextQualified="True"
-              DTS:ObjectName="bulk_sales"
-              DTS:DTSID="{B3C76534-F46C-4E08-A6D0-92C002A3F4E6}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="bulk_units"
-              DTS:DTSID="{4783D0FE-C7A6-4A18-9ACC-1E526D884F7F}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
-              DTS:TextQualified="True"
-              DTS:ObjectName="sears_credit_sales"
-              DTS:DTSID="{8BA466B6-F924-40B4-83AB-65E53109E283}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
-              DTS:TextQualified="True"
-              DTS:ObjectName="other_credit_sales"
-              DTS:DTSID="{25C928EE-C101-4ED9-A6D2-FFEED1C4F3D1}"
+              DTS:DTSID="{DED7458B-32C0-4E60-9532-0E6FCD75F739}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -706,7 +406,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="kenmore_net_sale"
-              DTS:DTSID="{C615E439-D6D1-4FCF-8731-8F376CD0673E}"
+              DTS:DTSID="{3121BA4C-CAB5-4B58-89DB-F9C937002E38}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -714,7 +414,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="craftsman_net_sale"
-              DTS:DTSID="{C70798AF-C8E8-4A54-8FAD-5E6BF7FC2ADE}"
+              DTS:DTSID="{BADB327B-73CF-4EDA-A0D2-2C590C2D4B68}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -722,7 +422,31 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="diehard_net_sale"
-              DTS:DTSID="{1A024447-1A23-4885-81D5-707682018076}"
+              DTS:DTSID="{C1CC0A51-F616-4B36-A370-7B40698786B6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="kenmore_net_units"
+              DTS:DTSID="{A7537756-6C52-4C65-8EED-D52F57D89B22}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="craftsman_net_units"
+              DTS:DTSID="{CF5A8C51-4E26-40D0-9EFF-1E8181FC6430}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="diehard_net_units"
+              DTS:DTSID="{133FF7AF-BC8D-4896-AE88-AAE4D90F36E1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -731,16 +455,23 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="pos_source_system"
-              DTS:DTSID="{59F1CC65-D30D-4655-A1DB-E5C006C6A78A}"
+              DTS:DTSID="{76583EB8-8AC8-4262-AF0E-7B341CE71228}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="8"
-              DTS:DataType="130"
+              DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="trs_dt_sk_id"
-              DTS:DTSID="{68DD8B72-7E64-40EA-ADBB-4EB7F254AA5F}"
+              DTS:DTSID="{9BAB5D08-B4CC-47D0-8A72-AA6C31060870}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="gross_profit"
+              DTS:DTSID="{B2D993E6-77AB-4451-A30D-010F0CD9B5B8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -749,42 +480,269 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="reject_reason"
-              DTS:DTSID="{52010110-9CA1-493E-A346-066B79B6AD73}"
+              DTS:DTSID="{92FB347F-90B2-472B-BD20-C8C34CDFEFD2}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Reject File Connection-loc lookup loc fact]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{A030A565-2021-49DE-A15C-A093AE8F6F54}"
+      DTS:ObjectName="Reject File Connection-loc lookup loc fact">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::DIR_SALES_FACT] +"\\rejects\\fact_sho_sales_by_loc"+ (DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) + RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\quicktemp\development\sho datamart\etl\sales fact\rejects\fact_sho_sales_by_loc20180914.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="133"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TRS_DT"
+              DTS:DTSID="{704596B6-71B8-4EDA-8415-5A69C2635BCE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LOC_NO"
+              DTS:DTSID="{BFC257EE-9A35-4B17-A1BB-131CF0567FD5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="net_sales"
+              DTS:DTSID="{CF97D0B5-97DE-46A7-B940-DE75DD0E86A6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="net_units"
+              DTS:DTSID="{FDF7C4BF-6E2B-4718-8729-20790A7B537C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="pa_sales"
+              DTS:DTSID="{F9D769AA-4509-4795-BF83-93948B808505}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="pa_units"
+              DTS:DTSID="{8A250204-142C-433D-B1BC-AF9BC516586C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="pam_sales"
+              DTS:DTSID="{7C0AF7C8-3848-40DF-8127-08AE479A495C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="pam_units"
+              DTS:DTSID="{24D7179B-7FDF-4577-A12E-61907F48D812}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="total_markdowns"
+              DTS:DTSID="{47A5DE2B-68CF-49AF-9B76-4D4F1A30DA5A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="avg_ticket_amt"
+              DTS:DTSID="{E0EE997A-0E2C-4197-87E3-1E2A407A5FE2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="avg_ticket_units"
+              DTS:DTSID="{B6A81EBE-E263-4D0D-B69E-930D7730AA6C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="lease_sales"
+              DTS:DTSID="{778C318D-3794-4D08-BE6F-22A358D9AD50}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="lease_units"
+              DTS:DTSID="{D726B24F-1BF6-4DD1-B1D4-082CC8D01879}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="spp_sales"
+              DTS:DTSID="{D301D9FD-F7B8-4075-A94F-251FC84C78DF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="spp_merch_sales"
+              DTS:DTSID="{6F16F3E4-59C3-470A-A04D-215306DD8F00}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="bulk_sales"
+              DTS:DTSID="{21E136BD-6F89-4E8D-8F15-9FEE845FFE67}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="bulk_units"
+              DTS:DTSID="{A94AB9B2-F7CC-4E12-8C63-580BC08E8C02}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sears_credit_sales"
+              DTS:DTSID="{4F1181E0-4137-4B36-8829-5F1CC896F899}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="other_credit_sales"
+              DTS:DTSID="{3A254952-7039-4927-9C89-BB169C8012ED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="kenmore_net_sale"
+              DTS:DTSID="{C6CAB694-93D3-4B67-ADEF-60146E9A5918}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="craftsman_net_sale"
+              DTS:DTSID="{8981083F-5178-42FC-94A7-B42C8955D672}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="diehard_net_sale"
+              DTS:DTSID="{136303F1-6C0F-414A-96EF-79CAF04F304E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="kenmore_net_units"
+              DTS:DTSID="{A6469749-4F8C-4D3F-A71A-52A4F5E06199}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="craftsman_net_units"
+              DTS:DTSID="{AF4F6E9A-7705-4ED2-B5F3-F3E898487E44}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="diehard_net_units"
+              DTS:DTSID="{70C296F7-7ACA-40CE-9EE3-9E2C0DD19EB0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="pos_source_system"
+              DTS:DTSID="{FECCBB26-E267-4085-BD5C-46743C63FBC4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="trs_dt_sk_id"
+              DTS:DTSID="{779BDD66-1B0C-4A97-9C17-B6A67AF738B6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="38"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="reject_reason"
+              DTS:DTSID="{E3D5EBD9-E265-4744-8F5A-534AD9313BCA}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:PackageParameters>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="8"
-      DTS:DTSID="{C15FC250-AAE4-48CF-8306-6BD66ECA31E2}"
-      DTS:ObjectName="mssql_servername"
-      DTS:Required="True">
-      <DTS:Property
-        DTS:DataType="8"
-        DTS:Name="ParameterValue">AZSQL01.ads.shos.com</DTS:Property>
-    </DTS:PackageParameter>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="8"
-      DTS:DTSID="{C048BDCC-0D0F-4168-8F5A-B641544736CE}"
-      DTS:ObjectName="reject_file_dir"
-      DTS:Required="True">
-      <DTS:Property
-        DTS:DataType="8"
-        DTS:Name="ParameterValue">C:\quicktemp\development\sho datamart\etl\sales fact\rejects</DTS:Property>
-    </DTS:PackageParameter>
-  </DTS:PackageParameters>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Merge Teradata Raw into fact sho sales"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{73AA6829-CBE0-4F32-8979-ABAE859D9FF9}"
+      DTS:DTSID="{54BE6E5A-8719-46B0-A3A0-705454AC2785}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Merge Teradata Raw into fact sho sales"
@@ -1600,11 +1558,6 @@
                       cachedName="trs_dt_sk_id"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\add manufactured cols.Outputs[Derived Column Output].Columns[trs_dt_sk_id]" />
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Inputs[Data Conversion Input].Columns[sho_location_sk_id]"
-                      cachedDataType="i4"
-                      cachedName="sho_location_sk_id"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Outputs[Lookup Match Output].Columns[sho_location_sk_id]" />
-                    <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Inputs[Data Conversion Input].Columns[cat_div_sk_id]"
                       cachedDataType="i4"
                       cachedName="cat_div_sk_id"
@@ -1629,6 +1582,11 @@
                       cachedDataType="i4"
                       cachedName="eis_nbr"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Outputs[Lookup Match Output].Columns[eis_nbr]" />
+                    <inputColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Inputs[Data Conversion Input].Columns[location_sk_id]"
+                      cachedDataType="i4"
+                      cachedName="location_sk_id"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Outputs[Lookup Match Output].Columns[location_sk_id]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2092,26 +2050,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sho_location_sk_id]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sho_location_sk_id]"
-                      name="Copy of sho_location_sk_id"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Outputs[Lookup Match Output].Columns[sho_location_sk_id]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of cat_div_sk_id]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
@@ -2205,6 +2143,26 @@
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
                           name="SourceInputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Outputs[Lookup Match Output].Columns[eis_nbr]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of location_sk_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of location_sk_id]"
+                      name="Copy of location_sk_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Outputs[Lookup Match Output].Columns[location_sk_id]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -2405,12 +2363,6 @@
                       cachedName="trs_dt_sk_id"
                       externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales\divcat reject file.Inputs[Flat File Destination Input].ExternalColumns[trs_dt_sk_id]"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\add manufactured cols.Outputs[Derived Column Output].Columns[trs_dt_sk_id]" />
-                    <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\divcat reject file.Inputs[Flat File Destination Input].Columns[sho_location_sk_id]"
-                      cachedDataType="i4"
-                      cachedName="sho_location_sk_id"
-                      externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales\divcat reject file.Inputs[Flat File Destination Input].ExternalColumns[sho_location_sk_id]"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Outputs[Lookup Match Output].Columns[sho_location_sk_id]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\divcat reject file.Inputs[Flat File Destination Input].Columns[reject_reason]"
                       cachedDataType="wstr"
@@ -3185,7 +3137,7 @@ FROM teradata.td_sales_dly_sales net
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[fact].[sho_sales_dev]</property>
+                  name="OpenRowset">[fact].[sho_sales]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -3259,12 +3211,6 @@ FROM teradata.td_sales_dly_sales net
                       cachedName="Copy of cat_div_sk_id"
                       externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[prod_cat_div_sk_id]"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of cat_div_sk_id]" />
-                    <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].Columns[Copy of sho_location_sk_id]"
-                      cachedDataType="i4"
-                      cachedName="Copy of sho_location_sk_id"
-                      externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[sho_location_sk_id]"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sho_location_sk_id]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].Columns[Copy of TRS_DT]"
                       cachedDataType="dbDate"
@@ -3408,6 +3354,12 @@ FROM teradata.td_sales_dly_sales net
                       cachedName="Copy of pam_units"
                       externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[pam_units]"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pam_units]" />
+                    <inputColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].Columns[Copy of location_sk_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of location_sk_id"
+                      externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[location_sk_id]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of location_sk_id]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3423,10 +3375,6 @@ FROM teradata.td_sales_dly_sales net
                       refId="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[prod_cat_div_sk_id]"
                       dataType="i4"
                       name="prod_cat_div_sk_id" />
-                    <externalMetadataColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[sho_location_sk_id]"
-                      dataType="i4"
-                      name="sho_location_sk_id" />
                     <externalMetadataColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[trs_dt]"
                       dataType="dbDate"
@@ -3551,6 +3499,10 @@ FROM teradata.td_sales_dly_sales net
                       refId="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[rec_upd_dt]"
                       dataType="dbTimeStamp"
                       name="rec_upd_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[location_sk_id]"
+                      dataType="i4"
+                      name="location_sk_id" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -3809,30 +3761,6 @@ FROM teradata.td_sales_dly_sales net
                       dataType="i4"
                       name="lease_units" />
                     <externalMetadataColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Location Reject File.Inputs[Flat File Destination Input].ExternalColumns[spp_sales]"
-                      dataType="r8"
-                      name="spp_sales" />
-                    <externalMetadataColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Location Reject File.Inputs[Flat File Destination Input].ExternalColumns[spp_merch_sales]"
-                      dataType="r8"
-                      name="spp_merch_sales" />
-                    <externalMetadataColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Location Reject File.Inputs[Flat File Destination Input].ExternalColumns[bulk_sales]"
-                      dataType="r8"
-                      name="bulk_sales" />
-                    <externalMetadataColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Location Reject File.Inputs[Flat File Destination Input].ExternalColumns[bulk_units]"
-                      dataType="i4"
-                      name="bulk_units" />
-                    <externalMetadataColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Location Reject File.Inputs[Flat File Destination Input].ExternalColumns[sears_credit_sales]"
-                      dataType="r8"
-                      name="sears_credit_sales" />
-                    <externalMetadataColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Location Reject File.Inputs[Flat File Destination Input].ExternalColumns[other_credit_sales]"
-                      dataType="r8"
-                      name="other_credit_sales" />
-                    <externalMetadataColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Location Reject File.Inputs[Flat File Destination Input].ExternalColumns[kenmore_net_sale]"
                       dataType="r8"
                       name="kenmore_net_sale" />
@@ -3851,8 +3779,7 @@ FROM teradata.td_sales_dly_sales net
                       name="pos_source_system" />
                     <externalMetadataColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Location Reject File.Inputs[Flat File Destination Input].ExternalColumns[trs_dt_sk_id]"
-                      dataType="wstr"
-                      length="8"
+                      dataType="i4"
                       name="trs_dt_sk_id" />
                     <externalMetadataColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Location Reject File.Inputs[Flat File Destination Input].ExternalColumns[reject_reason]"
@@ -3875,6 +3802,10 @@ FROM teradata.td_sales_dly_sales net
                       refId="Package\Merge Teradata Raw into fact sho sales\Location Reject File.Inputs[Flat File Destination Input].ExternalColumns[diehard_net_units]"
                       dataType="i8"
                       name="diehard_net_units" />
+                    <externalMetadataColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales\Location Reject File.Inputs[Flat File Destination Input].ExternalColumns[gross_profit]"
+                      dataType="i4"
+                      name="gross_profit" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -3931,7 +3862,7 @@ where [refTable].[div_nbr] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="cat_div_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="cat_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="cat_nm" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="div_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="div_nm" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_upd_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_eff_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_exp_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="cat_div_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="vbs_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="vbs_nm" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="cat_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="cat_nm" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="div_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="div_nm" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_upd_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -4103,7 +4034,7 @@ where [refTable].[pos_nbr] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="sho_location_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="district_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ordc_loc_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pos_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="eis_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="location_name" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_format" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="operator_type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="operator_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="district" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="city" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="state" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="zipcode" dataType="DT_STR" length="7" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address1" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address2" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="open_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="close_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_upd_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="location_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="district_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ordc_loc_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="sho_location_format_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pos_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ordc_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="eis_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="location_name" dataType="DT_STR" length="75" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_format" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="operator_type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="operator_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="district" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="city" dataType="DT_STR" length="25" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="state" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="zipcode" dataType="DT_STR" length="7" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address1" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address2" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="open_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="close_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="inactive" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -4161,20 +4092,6 @@ where [refTable].[pos_nbr] = ?</property>
                   synchronousInputId="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Outputs[Lookup Match Output].Columns[sho_location_sk_id]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Outputs[Lookup Match Output].Columns[sho_location_sk_id]"
-                      name="sho_location_sk_id"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">sho_location_sk_id</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Outputs[Lookup Match Output].Columns[pos_nbr]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
@@ -4200,6 +4117,20 @@ where [refTable].[pos_nbr] = ?</property>
                           dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
                           name="CopyFromReferenceColumn">eis_nbr</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Outputs[Lookup Match Output].Columns[location_sk_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Outputs[Lookup Match Output].Columns[location_sk_id]"
+                      name="location_sk_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">location_sk_id</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -5030,14 +4961,14 @@ where [refTable].[pos_nbr] = ?</property>
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [fact].[sho_sales_dev]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [fact].[sho_sales]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [fact].[sho_sales_dev]) [refTable]
-where [refTable].[pos_source_system] = ? and [refTable].[trs_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [fact].[sho_sales]) [refTable]
+where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and [refTable].[location_sk_id] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -5068,12 +4999,12 @@ where [refTable].[pos_source_system] = ? and [refTable].[trs_dt_sk_id] = ? and [
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="daily_loc_div_sales_fact_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="trs_dt_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="prod_cat_div_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="sho_location_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="trs_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pos_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="div_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="cat_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="net_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="net_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="gross_profit" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="kenmore_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="kenmore_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="total_md_amt" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="craftsman_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="craftsman_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="diehard_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="diehard_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="avg_ticket_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="avg_ticket_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pos_source_system" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="pa_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="pa_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="lease_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="lease_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pam_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="pam_units" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_upd_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="daily_loc_div_sales_fact_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="trs_dt_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="prod_cat_div_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="location_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="trs_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pos_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="div_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="cat_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="net_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="net_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="gross_profit" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="kenmore_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="kenmore_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="total_md_amt" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="craftsman_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="craftsman_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="diehard_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="diehard_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="avg_ticket_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="avg_ticket_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pos_source_system" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="pa_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="pa_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="lease_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="lease_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pam_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="pam_units" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_upd_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pos_source_system]};#{Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of trs_dt_sk_id]};#{Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sho_location_sk_id]};#{Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of cat_div_sk_id]};</property>
+                  name="ParameterMap">#{Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of trs_dt_sk_id]};#{Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of cat_div_sk_id]};#{Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of location_sk_id]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -5097,31 +5028,15 @@ where [refTable].[pos_source_system] = ? and [refTable].[trs_dt_sk_id] = ? and [
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Route inserts and updates.Inputs[Lookup Input].Columns[Copy of trs_dt_sk_id]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Route inserts and updates.Inputs[Lookup Input].Columns[Copy of location_sk_id]"
                       cachedDataType="i4"
-                      cachedName="Copy of trs_dt_sk_id"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of trs_dt_sk_id]">
+                      cachedName="Copy of location_sk_id"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of location_sk_id]">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">trs_dt_sk_id</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Route inserts and updates.Inputs[Lookup Input].Columns[Copy of sho_location_sk_id]"
-                      cachedDataType="i4"
-                      cachedName="Copy of sho_location_sk_id"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sho_location_sk_id]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">sho_location_sk_id</property>
+                          name="JoinToReferenceColumn">location_sk_id</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -5145,17 +5060,15 @@ where [refTable].[pos_source_system] = ? and [refTable].[trs_dt_sk_id] = ? and [
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Route inserts and updates.Inputs[Lookup Input].Columns[Copy of pos_source_system]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1"
-                      cachedName="Copy of pos_source_system"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pos_source_system]">
+                      refId="Package\Merge Teradata Raw into fact sho sales\Route inserts and updates.Inputs[Lookup Input].Columns[Copy of trs_dt_sk_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of trs_dt_sk_id"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of trs_dt_sk_id]">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">pos_source_system</property>
+                          name="JoinToReferenceColumn">trs_dt_sk_id</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -6480,7 +6393,7 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [fact].[sho_sales_dev]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [fact].[sho_sales]
    SET	
 	   [net_sales] = ? --0
 	  ,[net_units] = ? --1
@@ -6502,7 +6415,7 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
       ,[pam_units] = ? --17
       ,[rec_upd_dt] = current_timestamp
  WHERE [trs_dt_sk_id] = ? --18
-	AND [sho_location_sk_id] = ? --19
+	AND [location_sk_id] = ? --19
 	AND [prod_cat_div_sk_id] = ? --20
 	AND [pos_source_system] = 'T'</property>
                 <property
@@ -6650,17 +6563,17 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                       externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales\Update day-loc-sales rows in fact.Inputs[OLE DB Command Input].ExternalColumns[Param_18]"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of trs_dt_sk_id]" />
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Update day-loc-sales rows in fact.Inputs[OLE DB Command Input].Columns[Copy of sho_location_sk_id]"
-                      cachedDataType="i4"
-                      cachedName="Copy of sho_location_sk_id"
-                      externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales\Update day-loc-sales rows in fact.Inputs[OLE DB Command Input].ExternalColumns[Param_19]"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sho_location_sk_id]" />
-                    <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Update day-loc-sales rows in fact.Inputs[OLE DB Command Input].Columns[Copy of cat_div_sk_id]"
                       cachedDataType="i4"
                       cachedName="Copy of cat_div_sk_id"
                       externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales\Update day-loc-sales rows in fact.Inputs[OLE DB Command Input].ExternalColumns[Param_20]"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of cat_div_sk_id]" />
+                    <inputColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales\Update day-loc-sales rows in fact.Inputs[OLE DB Command Input].Columns[Copy of location_sk_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of location_sk_id"
+                      externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales\Update day-loc-sales rows in fact.Inputs[OLE DB Command Input].ExternalColumns[Param_19]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of location_sk_id]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -6991,19 +6904,19 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
               startId="Package\Merge Teradata Raw into fact sho sales\add lu Category Division reject reason.Outputs[Derived Column Output]" />
             <path
               refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output1]"
+              endId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Inputs[Data Conversion Input]"
+              name="Lookup Match Output"
+              startId="Package\Merge Teradata Raw into fact sho sales\lu Category Division sk id.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output2]"
               endId="Package\Merge Teradata Raw into fact sho sales\Filter to only changed rows.Inputs[Conditional Split Input]"
               name="Lookup Match Output"
               startId="Package\Merge Teradata Raw into fact sho sales\Route inserts and updates.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output2]"
+              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output]"
               endId="Package\Merge Teradata Raw into fact sho sales\lu Category Division sk id.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output]"
-              endId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Inputs[Data Conversion Input]"
-              name="Lookup Match Output"
-              startId="Package\Merge Teradata Raw into fact sho sales\lu Category Division sk id.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup No Match Output]"
               endId="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input]"
@@ -7041,14 +6954,14 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
               startId="Package\Merge Teradata Raw into fact sho sales\Filter to only changed rows.Outputs[rows_to_update]" />
             <path
               refId="Package\Merge Teradata Raw into fact sho sales.Paths[Sort Output]"
-              endId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\Merge Teradata Raw into fact sho sales\sort division sales.Outputs[Sort Output]" />
-            <path
-              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Sort Output1]"
               endId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\Merge Teradata Raw into fact sho sales\sort brand sales.Outputs[Sort Output]" />
+            <path
+              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Sort Output1]"
+              endId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Merge Teradata Raw into fact sho sales\sort division sales.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -7057,7 +6970,7 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
       DTS:refId="Package\Merge Teradata Raw into fact sho sales by loc"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{09E6B3B3-03D5-4AE1-82BF-E0F62DD92107}"
+      DTS:DTSID="{A2FDACD8-2EF5-4FF1-835E-1FC63C054100}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Merge Teradata Raw into fact sho sales by loc"
@@ -7780,11 +7693,6 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                       cachedName="trs_dt_sk_id"
                       lineageId="Package\Merge Teradata Raw into fact sho sales by loc\add manufactured cols.Outputs[Derived Column Output].Columns[trs_dt_sk_id]" />
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Data Conversion.Inputs[Data Conversion Input].Columns[sho_location_sk_id]"
-                      cachedDataType="i4"
-                      cachedName="sho_location_sk_id"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\lu sho location sk id.Outputs[Lookup Match Output].Columns[sho_location_sk_id]" />
-                    <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales by loc\Data Conversion.Inputs[Data Conversion Input].Columns[kenmore_net_units]"
                       cachedDataType="i8"
                       cachedName="kenmore_net_units"
@@ -7799,6 +7707,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                       cachedDataType="i8"
                       cachedName="diehard_net_units"
                       lineageId="Package\Merge Teradata Raw into fact sho sales by loc\merge join brand sales.Outputs[Merge Join Output].Columns[diehard_net_units]" />
+                    <inputColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Data Conversion.Inputs[Data Conversion Input].Columns[location_sk_id]"
+                      cachedDataType="i4"
+                      cachedName="location_sk_id"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\lu sho location sk id.Outputs[Lookup Match Output].Columns[location_sk_id]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -8367,19 +8280,19 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sho_location_sk_id]"
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of location_sk_id]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sho_location_sk_id]"
-                      name="Copy of sho_location_sk_id"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of location_sk_id]"
+                      name="Copy of location_sk_id"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales by loc\lu sho location sk id.Outputs[Lookup Match Output].Columns[sho_location_sk_id]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales by loc\lu sho location sk id.Outputs[Lookup Match Output].Columns[location_sk_id]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -8785,7 +8698,7 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[fact].[sho_sales_by_loc_dev]</property>
+                  name="OpenRowset">[fact].[sho_sales_by_loc]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -8847,12 +8760,6 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                       cachedName="Copy of trs_dt_sk_id"
                       externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[trs_dt_sk_id]"
                       lineageId="Package\Merge Teradata Raw into fact sho sales by loc\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of trs_dt_sk_id]" />
-                    <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].Columns[Copy of sho_location_sk_id]"
-                      cachedDataType="i4"
-                      cachedName="Copy of sho_location_sk_id"
-                      externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[sho_location_sk_id]"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sho_location_sk_id]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].Columns[Copy of TRS_DT]"
                       cachedDataType="dbDate"
@@ -9025,6 +8932,12 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                       cachedScale="2"
                       externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[other_credit_sales]"
                       lineageId="Package\Merge Teradata Raw into fact sho sales by loc\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of other_credit_sales]" />
+                    <inputColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].Columns[Copy of location_sk_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of location_sk_id"
+                      externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[location_sk_id]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of location_sk_id]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -9036,10 +8949,6 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                       refId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[trs_dt_sk_id]"
                       dataType="i4"
                       name="trs_dt_sk_id" />
-                    <externalMetadataColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[sho_location_sk_id]"
-                      dataType="i4"
-                      name="sho_location_sk_id" />
                     <externalMetadataColumn
                       refId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[trs_dt]"
                       dataType="dbDate"
@@ -9182,6 +9091,10 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                       refId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[rec_upd_dt]"
                       dataType="dbTimeStamp"
                       name="rec_upd_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[location_sk_id]"
+                      dataType="i4"
+                      name="location_sk_id" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -9515,7 +9428,7 @@ where [refTable].[pos_nbr] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="sho_location_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="district_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ordc_loc_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pos_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="eis_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="location_name" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_format" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="operator_type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="operator_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="district" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="city" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="state" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="zipcode" dataType="DT_STR" length="7" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address1" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address2" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="open_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="close_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_upd_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="location_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="district_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ordc_loc_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="sho_location_format_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pos_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ordc_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="eis_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="location_name" dataType="DT_STR" length="75" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_format" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="operator_type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="operator_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="district" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="city" dataType="DT_STR" length="25" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="state" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="zipcode" dataType="DT_STR" length="7" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address1" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address2" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="open_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="close_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="inactive" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -9573,17 +9486,17 @@ where [refTable].[pos_nbr] = ?</property>
                   synchronousInputId="Package\Merge Teradata Raw into fact sho sales by loc\lu sho location sk id.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales by loc\lu sho location sk id.Outputs[Lookup Match Output].Columns[sho_location_sk_id]"
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\lu sho location sk id.Outputs[Lookup Match Output].Columns[location_sk_id]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\lu sho location sk id.Outputs[Lookup Match Output].Columns[sho_location_sk_id]"
-                      name="sho_location_sk_id"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\lu sho location sk id.Outputs[Lookup Match Output].Columns[location_sk_id]"
+                      name="location_sk_id"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">sho_location_sk_id</property>
+                          name="CopyFromReferenceColumn">location_sk_id</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -10741,6 +10654,24 @@ where [refTable].[pos_nbr] = ?</property>
                       cachedName="reject_reason"
                       externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[reject_reason]"
                       lineageId="Package\Merge Teradata Raw into fact sho sales by loc\add location lu reject reason.Outputs[Derived Column Output].Columns[reject_reason]" />
+                    <inputColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].Columns[kenmore_net_units]"
+                      cachedDataType="i8"
+                      cachedName="kenmore_net_units"
+                      externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[kenmore_net_units]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\merge join brand sales.Outputs[Merge Join Output].Columns[kenmore_net_units]" />
+                    <inputColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].Columns[craftsman_net_units]"
+                      cachedDataType="i8"
+                      cachedName="craftsman_net_units"
+                      externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[craftsman_net_units]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\merge join brand sales.Outputs[Merge Join Output].Columns[craftsman_net_units]" />
+                    <inputColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].Columns[diehard_net_units]"
+                      cachedDataType="i8"
+                      cachedName="diehard_net_units"
+                      externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[diehard_net_units]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\merge join brand sales.Outputs[Merge Join Output].Columns[diehard_net_units]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -10801,10 +10732,6 @@ where [refTable].[pos_nbr] = ?</property>
                       dataType="r8"
                       name="spp_sales" />
                     <externalMetadataColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[spp_units]"
-                      dataType="i4"
-                      name="spp_units" />
-                    <externalMetadataColumn
                       refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[spp_merch_sales]"
                       dataType="r8"
                       name="spp_merch_sales" />
@@ -10851,6 +10778,18 @@ where [refTable].[pos_nbr] = ?</property>
                       dataType="wstr"
                       length="38"
                       name="reject_reason" />
+                    <externalMetadataColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[kenmore_net_units]"
+                      dataType="i8"
+                      name="kenmore_net_units" />
+                    <externalMetadataColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[craftsman_net_units]"
+                      dataType="i8"
+                      name="craftsman_net_units" />
+                    <externalMetadataColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[diehard_net_units]"
+                      dataType="i8"
+                      name="diehard_net_units" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -11523,14 +11462,14 @@ GROUP BY net.trs_dt, net.LOC_NO</property>
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [fact].[sho_sales_by_loc_dev]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [fact].[sho_sales_by_loc]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [fact].[sho_sales_by_loc_dev]) [refTable]
-where [refTable].[trs_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [fact].[sho_sales_by_loc]) [refTable]
+where [refTable].[trs_dt_sk_id] = ? and [refTable].[location_sk_id] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -11561,12 +11500,12 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pro
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="daily_loc_sales_fact_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="trs_dt_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="sho_location_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="trs_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pos_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pos_source_system" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="net_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="net_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="kenmore_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="kenmore_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="total_md_amt" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="craftsman_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="craftsman_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="diehard_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="diehard_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="avg_ticket_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="avg_ticket_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pa_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="pa_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="lease_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="lease_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pam_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="pam_units" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="spp_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="spp_merch_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="bulk_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="bulk_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="sears_credit_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="other_credit_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_upd_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="daily_loc_sales_fact_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="trs_dt_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="location_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="trs_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pos_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pos_source_system" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="net_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="net_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="kenmore_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="kenmore_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="total_md_amt" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="craftsman_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="craftsman_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="diehard_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="diehard_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="avg_ticket_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="avg_ticket_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pa_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="pa_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="lease_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="lease_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pam_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="pam_units" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="spp_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="spp_merch_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="bulk_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="bulk_units" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="sears_credit_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="other_credit_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_upd_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Merge Teradata Raw into fact sho sales by loc\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of trs_dt_sk_id]};#{Package\Merge Teradata Raw into fact sho sales by loc\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sho_location_sk_id]};</property>
+                  name="ParameterMap">#{Package\Merge Teradata Raw into fact sho sales by loc\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of trs_dt_sk_id]};#{Package\Merge Teradata Raw into fact sho sales by loc\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of location_sk_id]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -11606,15 +11545,15 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pro
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Route Inserts and Updates.Inputs[Lookup Input].Columns[Copy of sho_location_sk_id]"
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Route Inserts and Updates.Inputs[Lookup Input].Columns[Copy of location_sk_id]"
                       cachedDataType="i4"
-                      cachedName="Copy of sho_location_sk_id"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sho_location_sk_id]">
+                      cachedName="Copy of location_sk_id"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of location_sk_id]">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">sho_location_sk_id</property>
+                          name="JoinToReferenceColumn">location_sk_id</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -13208,7 +13147,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [fact].[sho_sales_by_loc_dev]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [fact].[sho_sales_by_loc]
    SET	
 	   [net_sales] = ?
 	  ,[net_units] = ?
@@ -13235,7 +13174,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
       ,[other_credit_sales] = ?
       ,[rec_upd_dt] = current_timestamp
  WHERE [trs_dt_sk_id] = ?
-	AND [sho_location_sk_id] = ?
+	AND [location_sk_id] = ?
 	AND [pos_source_system] = 'T'</property>
                 <property
                   dataType="System.Int32"
@@ -13416,11 +13355,11 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                       externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales by loc\Update day-loc-sales rows in fact.Inputs[OLE DB Command Input].ExternalColumns[Param_22]"
                       lineageId="Package\Merge Teradata Raw into fact sho sales by loc\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of other_credit_sales]" />
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Update day-loc-sales rows in fact.Inputs[OLE DB Command Input].Columns[Copy of sho_location_sk_id]"
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Update day-loc-sales rows in fact.Inputs[OLE DB Command Input].Columns[Copy of location_sk_id]"
                       cachedDataType="i4"
-                      cachedName="Copy of sho_location_sk_id"
+                      cachedName="Copy of location_sk_id"
                       externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales by loc\Update day-loc-sales rows in fact.Inputs[OLE DB Command Input].ExternalColumns[Param_24]"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sho_location_sk_id]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of location_sk_id]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -13908,49 +13847,49 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="202,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\Route inserts and updates"
-          TopLeft="357,517" />
-        <NodeLayout
-          Size="254,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact"
-          TopLeft="661,515" />
-        <NodeLayout
-          Size="181,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\convert nulls for brands to zero"
-          TopLeft="358,160" />
-        <NodeLayout
-          Size="200,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\Location Reject File"
-          TopLeft="692,330" />
-        <NodeLayout
-          Size="198,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\rollup to brand name"
-          TopLeft="101,193" />
+          Size="177,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format"
+          TopLeft="364,283" />
         <NodeLayout
           Size="199,42"
           Id="Package\Merge Teradata Raw into fact sho sales\td_sales_dly_brand_attr raw"
           TopLeft="100,303" />
         <NodeLayout
-          Size="207,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\sort division sales"
-          TopLeft="90,69" />
+          Size="235,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\Update day-loc-sales rows in fact"
+          TopLeft="336,677" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\convert nulls for brands to zero"
+          TopLeft="358,160" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\rollup to brand name"
+          TopLeft="101,193" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\Location Reject File"
+          TopLeft="692,330" />
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\add lu Category Division reject reason"
+          TopLeft="684,387" />
         <NodeLayout
           Size="220,42"
           Id="Package\Merge Teradata Raw into fact sho sales\divcat reject file"
           TopLeft="703,442" />
         <NodeLayout
+          Size="254,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact"
+          TopLeft="661,515" />
+        <NodeLayout
           Size="207,42"
           Id="Package\Merge Teradata Raw into fact sho sales\Filter to only changed rows"
           TopLeft="351,600" />
         <NodeLayout
-          Size="219,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\divisional sales data from raw"
-          TopLeft="87,15" />
-        <NodeLayout
-          Size="200,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\sort brand sales"
-          TopLeft="100,142" />
+          Size="207,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\sort division sales"
+          TopLeft="90,69" />
         <NodeLayout
           Size="207,42"
           Id="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup"
@@ -13960,21 +13899,21 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           Id="Package\Merge Teradata Raw into fact sho sales\Data Conversion"
           TopLeft="376.5,451.5" />
         <NodeLayout
-          Size="235,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\Update day-loc-sales rows in fact"
-          TopLeft="336,677" />
-        <NodeLayout
           Size="186,42"
           Id="Package\Merge Teradata Raw into fact sho sales\add manufactured cols"
           TopLeft="356,216" />
         <NodeLayout
-          Size="177,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format"
-          TopLeft="364,283" />
-        <NodeLayout
           Size="198,42"
           Id="Package\Merge Teradata Raw into fact sho sales\lu Category Division sk id"
           TopLeft="356,380" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\Route inserts and updates"
+          TopLeft="357,517" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\sort brand sales"
+          TopLeft="100,142" />
         <NodeLayout
           Size="213,42"
           Id="Package\Merge Teradata Raw into fact sho sales\add location lu reject reason"
@@ -13984,9 +13923,135 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           Id="Package\Merge Teradata Raw into fact sho sales\compute brand name"
           TopLeft="99,246" />
         <NodeLayout
-          Size="258,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\add lu Category Division reject reason"
-          TopLeft="684,387" />
+          Size="219,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\divisional sales data from raw"
+          TopLeft="87,15" />
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Sort Output1]"
+          TopLeft="297,90">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="49,31.3333333333333"
+              Start="0,0"
+              End="41.5,31.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="24.3211009174312,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.3211009174312,0"
+                    Point2="28.3211009174312,0"
+                    Point3="28.3211009174312,4" />
+                  <mssgle:LineSegment
+                    End="28.3211009174312,27.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.3211009174312,27.3333333333333"
+                    Point2="28.3211009174312,31.3333333333333"
+                    Point3="32.3211009174312,31.3333333333333" />
+                  <mssgle:LineSegment
+                    End="41.5,31.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Sort Output]"
+          TopLeft="300,163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="46,-30.3333333333333"
+              Start="0,0"
+              End="38.5,-30.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="22.5871559633027,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5871559633027,0"
+                    Point2="26.5871559633027,0"
+                    Point3="26.5871559633027,-4" />
+                  <mssgle:LineSegment
+                    End="26.5871559633027,-26.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.5871559633027,-26.3333333333333"
+                    Point2="26.5871559633027,-30.3333333333333"
+                    Point3="30.5871559633027,-30.3333333333333" />
+                  <mssgle:LineSegment
+                    End="38.5,-30.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[rows_to_update]"
+          TopLeft="454,642">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-36.08296875,7.9453125,72.1659375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[OLE DB Source Output1]"
+          TopLeft="306,36">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-9,48.3333333333333"
+              Start="0,0"
+              End="-1.5,48.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,4" />
+                  <mssgle:LineSegment
+                    End="22.5,44.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,44.3333333333333"
+                    Point2="22.5,48.3333333333333"
+                    Point3="18.5,48.3333333333333" />
+                  <mssgle:LineSegment
+                    End="-1.5,48.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Merge Teradata Raw into fact sho sales.Paths[OLE DB Source Output]"
           TopLeft="100,324">
@@ -14140,7 +14205,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output2]"
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output]"
           TopLeft="453.75,325">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14164,7 +14229,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output1]"
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output2]"
           TopLeft="456.25,559">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14188,7 +14253,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output]"
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output1]"
           TopLeft="454.75,422">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14425,137 +14490,19 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Sort Output1]"
-          TopLeft="300,163">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="46,-30.3333333333333"
-              Start="0,0"
-              End="38.5,-30.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="22.5871559633027,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.5871559633027,0"
-                    Point2="26.5871559633027,0"
-                    Point3="26.5871559633027,-4" />
-                  <mssgle:LineSegment
-                    End="26.5871559633027,-26.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="26.5871559633027,-26.3333333333333"
-                    Point2="26.5871559633027,-30.3333333333333"
-                    Point3="30.5871559633027,-30.3333333333333" />
-                  <mssgle:LineSegment
-                    End="38.5,-30.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Sort Output]"
-          TopLeft="297,90">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="49,31.3333333333333"
-              Start="0,0"
-              End="41.5,31.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="24.3211009174312,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="24.3211009174312,0"
-                    Point2="28.3211009174312,0"
-                    Point3="28.3211009174312,4" />
-                  <mssgle:LineSegment
-                    End="28.3211009174312,27.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="28.3211009174312,27.3333333333333"
-                    Point2="28.3211009174312,31.3333333333333"
-                    Point3="32.3211009174312,31.3333333333333" />
-                  <mssgle:LineSegment
-                    End="41.5,31.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[rows_to_update]"
-          TopLeft="454,642">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,35"
-              Start="0,0"
-              End="0,27.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-36.08296875,7.9453125,72.1659375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[OLE DB Source Output1]"
-          TopLeft="306,36">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="-9,48.3333333333333"
-              Start="0,0"
-              End="-1.5,48.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.5,0"
-                    Point2="22.5,0"
-                    Point3="22.5,4" />
-                  <mssgle:LineSegment
-                    End="22.5,44.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.5,44.3333333333333"
-                    Point2="22.5,48.3333333333333"
-                    Point3="18.5,48.3333333333333" />
-                  <mssgle:LineSegment
-                    End="-1.5,48.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Merge Teradata Raw into fact sho sales\Route inserts and updates">
+    design-time-name="Package\Merge Teradata Raw into fact sho sales\td_sales_dly_brand_attr raw">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -14565,7 +14512,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[fact].[sho_sales_dev]</Value>
+          type="q3:string">[dim].[location]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -14591,23 +14538,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Merge Teradata Raw into fact sho sales\td_sales_dly_brand_attr raw">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Merge Teradata Raw into fact sho sales\divisional sales data from raw">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format">
+    design-time-name="Package\Merge Teradata Raw into fact sho sales\Route inserts and updates">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -14617,7 +14548,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dim].[location]</Value>
+          type="q3:string">[fact].[sho_sales]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -14652,11 +14583,23 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Merge Teradata Raw into fact sho sales\divisional sales data from raw">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Merge Teradata Raw into fact sho sales by loc">
     <LayoutInfo>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc\rollup to brand name"
+          TopLeft="74,376" />
         <NodeLayout
           Size="172,42"
           Id="Package\Merge Teradata Raw into fact sho sales by loc\lu sho location sk id"
@@ -14674,37 +14617,41 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           Id="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact"
           TopLeft="865,532" />
         <NodeLayout
+          Size="210,42"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc\sort rolled up div sales data"
+          TopLeft="72,86" />
+        <NodeLayout
           Size="209,42"
           Id="Package\Merge Teradata Raw into fact sho sales by loc\compute brand name"
           TopLeft="72,323" />
         <NodeLayout
-          Size="205,42"
-          Id="Package\Merge Teradata Raw into fact sho sales by loc\rollup to brand name"
-          TopLeft="74,376" />
+          Size="210,42"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc\td_sales_dly_brand_attr raw"
+          TopLeft="70,267" />
         <NodeLayout
           Size="235,42"
           Id="Package\Merge Teradata Raw into fact sho sales by loc\Update day-loc-sales rows in fact"
-          TopLeft="531,693" />
-        <NodeLayout
-          Size="210,42"
-          Id="Package\Merge Teradata Raw into fact sho sales by loc\sort rolled up div sales data"
-          TopLeft="72,86" />
+          TopLeft="530,693" />
         <NodeLayout
           Size="220,42"
           Id="Package\Merge Teradata Raw into fact sho sales by loc\merge join brand sales"
           TopLeft="313,210" />
         <NodeLayout
-          Size="210,42"
-          Id="Package\Merge Teradata Raw into fact sho sales by loc\td_sales_dly_brand_attr raw"
-          TopLeft="70,267" />
+          Size="205,42"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc\sort location sales data"
+          TopLeft="75,148" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc\rolled up divisional sales data from raw"
+          TopLeft="72,30" />
         <NodeLayout
           Size="170,42"
           Id="Package\Merge Teradata Raw into fact sho sales by loc\convert nulls for brands to zero"
           TopLeft="568,210" />
         <NodeLayout
           Size="205,42"
-          Id="Package\Merge Teradata Raw into fact sho sales by loc\sort location sales data"
-          TopLeft="75,148" />
+          Id="Package\Merge Teradata Raw into fact sho sales by loc\Route Inserts and Updates"
+          TopLeft="538,531" />
         <NodeLayout
           Size="186,42"
           Id="Package\Merge Teradata Raw into fact sho sales by loc\add manufactured cols"
@@ -14718,141 +14665,17 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           Id="Package\Merge Teradata Raw into fact sho sales by loc\Filter to only changed rows"
           TopLeft="542,605" />
         <NodeLayout
-          Size="205,42"
-          Id="Package\Merge Teradata Raw into fact sho sales by loc\Route Inserts and Updates"
-          TopLeft="538,531" />
-        <NodeLayout
-          Size="263,42"
-          Id="Package\Merge Teradata Raw into fact sho sales by loc\rolled up divisional sales data from raw"
-          TopLeft="71,31" />
+          Size="128,42"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc\Reject File"
+          TopLeft="921,434" />
         <NodeLayout
           Size="203,42"
           Id="Package\Merge Teradata Raw into fact sho sales by loc\sort brand sales"
           TopLeft="77,429" />
         <NodeLayout
-          Size="128,42"
-          Id="Package\Merge Teradata Raw into fact sho sales by loc\Reject File"
-          TopLeft="927,458" />
-        <NodeLayout
           Size="213,42"
           Id="Package\Merge Teradata Raw into fact sho sales by loc\add location lu reject reason"
           TopLeft="877,361" />
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Merge Join Output1]"
-          TopLeft="533,231">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="35,0"
-              Start="0,0"
-              End="27.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="27.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Merge Join Output]"
-          TopLeft="422.5,158">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,52"
-              Start="0,0"
-              End="0,44.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output1]"
-          TopLeft="730,379.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="147,0"
-              Start="0,0"
-              End="139.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="139.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="13.94361328125,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output]"
-          TopLeft="743,552.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="122,0"
-              Start="0,0"
-              End="114.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="114.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="1.44361328125,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup Match Output1]"
-          TopLeft="643,573">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,32"
-              Start="0,0"
-              End="0,24.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,6.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup Match Output]"
           TopLeft="643,398">
@@ -14957,18 +14780,18 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Derived Column Output]"
-          TopLeft="987.25,403">
+          TopLeft="984.25,403">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,55"
+              EndConnector="0,31"
               Start="0,0"
-              End="0,47.5">
+              End="0,23.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,47.5" />
+                    End="0,23.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15068,40 +14891,6 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output1]"
-          TopLeft="280,169">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="29,-26.3333333333333"
-              Start="0,0"
-              End="21.5,-26.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="12.7614678899083,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="12.7614678899083,0"
-                    Point2="16.7614678899083,0"
-                    Point3="16.7614678899083,-4" />
-                  <mssgle:LineSegment
-                    End="16.7614678899083,-22.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="16.7614678899083,-22.3333333333333"
-                    Point2="16.7614678899083,-26.3333333333333"
-                    Point3="20.7614678899083,-26.3333333333333" />
-                  <mssgle:LineSegment
-                    End="21.5,-26.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output]"
           TopLeft="282,107">
           <EdgeLayout.Curve>
@@ -15136,8 +14925,42 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output1]"
+          TopLeft="280,169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="29,-26.3333333333333"
+              Start="0,0"
+              End="21.5,-26.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="12.7614678899083,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.7614678899083,0"
+                    Point2="16.7614678899083,0"
+                    Point3="16.7614678899083,-4" />
+                  <mssgle:LineSegment
+                    End="16.7614678899083,-22.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.7614678899083,-22.3333333333333"
+                    Point2="16.7614678899083,-26.3333333333333"
+                    Point3="20.7614678899083,-26.3333333333333" />
+                  <mssgle:LineSegment
+                    End="21.5,-26.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[rows_to_update]"
-          TopLeft="647,647">
+          TopLeft="646.5,647">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
@@ -15161,24 +14984,30 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[OLE DB Source Output2]"
-          TopLeft="202.5,73">
+          TopLeft="72,51">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="79.5,28.3333333333333"
+              EndConnector="0,56"
               Start="0,0"
-              End="72,28.3333333333333">
+              End="-7.5,56">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.3333333333333" />
+                    End="-18.5,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,24.3333333333333"
-                    Point2="0,28.3333333333333"
-                    Point3="4,28.3333333333333" />
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
                   <mssgle:LineSegment
-                    End="72,28.3333333333333" />
+                    End="-22.5,52" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,52"
+                    Point2="-22.5,56"
+                    Point3="-18.5,56" />
+                  <mssgle:LineSegment
+                    End="-7.5,56" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15255,6 +15084,122 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Merge Join Output1]"
+          TopLeft="533,231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="35,0"
+              Start="0,0"
+              End="27.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Merge Join Output]"
+          TopLeft="422.5,158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output]"
+          TopLeft="743,552.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="122,0"
+              Start="0,0"
+              End="114.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="114.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="1.44361328125,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output1]"
+          TopLeft="730,379.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="147,0"
+              Start="0,0"
+              End="139.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="139.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="13.94361328125,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup Match Output1]"
+          TopLeft="643,573">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,6.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -15316,6 +15261,19 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Merge Teradata Raw into fact sho sales by loc\rolled up divisional sales data from raw">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Merge Teradata Raw into fact sho sales by loc\Route Inserts and Updates">
     <Properties>
       <Property>
@@ -15326,7 +15284,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[fact].[sho_sales_by_loc_dev]</Value>
+          type="q3:string">[fact].[sho_sales_by_loc]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -15335,19 +15293,6 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Merge Teradata Raw into fact sho sales by loc\rolled up divisional sales data from raw">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

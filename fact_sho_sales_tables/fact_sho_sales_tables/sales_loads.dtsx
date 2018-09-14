@@ -1,0 +1,520 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/3/2018 1:17:10 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-PBEJN2M"
+  DTS:CreatorName="DESKTOP-PBEJN2M\BusinessIntel"
+  DTS:DTSID="{814C058D-7793-442A-8196-AAB12B3F69B1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.68"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="sales_loads"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{B97A2E0B-3ADB-48F6-9CB4-321F0BDE5285}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[AZSQL01.ads.shos.com.teradata_raw.mssql_etl]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B74AE4C8-311D-40B8-B0F0-E0EDDA687A88}"
+      DTS:ObjectName="AZSQL01.ads.shos.com.teradata_raw.mssql_etl">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=AZSQL01.ads.shos.com;User ID=jmarlo1;Initial Catalog=sho_staging;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/BAcNlfBfEKl2/Du/ZYQqwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACi+gkN6qoe0SfrPJvRm1Nk7ciAM7q/vRLsYt+sR5vLQQAAAAAOgAAAAAIAACAAAAAnBTiDw4QF1UaFiclL1KaKLIscOkrTj2NW41qy2Lk1BSAAAAARenUeUG7Z6mAIGwVlfKvwGKz0l4kpTGNTgv1lA3jaOkAAAAC/E+LqraZwCHrFcp8s2n7GVS1fAskBFzpzdm13h8mGb5MoAl20DDfXpYA+ZYSezA7ILZbPoY9C2UH83cUXJNrb</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SHC EDW PROD1.jmarlo1]"
+      DTS:CreationName="ODBC"
+      DTS:DTSID="{90FE126D-2137-44E4-AD6D-1D3F3E2A816B}"
+      DTS:ObjectName="SHC EDW PROD1.jmarlo1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=jmarlo1;Dsn=SHC EDW PROD1;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/BAcNlfBfEKl2/Du/ZYQqwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACoQhYil3zsk/SmPe1IhJA7CXP+d7DGiUGT9BPL3uUAFQAAAAAOgAAAAAIAACAAAAC7BuTl8NHG/7KjZuEAL3ojX1gVt9OueDs9gZMqLYmRbCAAAABb5SdsMYGpQOWQMPel8bLLfcaeICRkYzYPS2C7aqeZIEAAAAAF6QWXC6kgoeLFmggpHIXqe/HjJeUCCZijbqMN1PxjsLMz/CgsDqAv659QJmMoOK4iAySgSZOs/2S9hIGvlOa8</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load Net Sales"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{EBCAFCB1-D54A-4998-AD7A-2CE3DDFF3301}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Net Sales"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Net Sales\sho_staging"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="sho_staging"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[teradata].[td_sales_dly_pa]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Net Sales\sho_staging.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[AZSQL01.ads.shos.com.teradata_raw.mssql_etl]"
+                  connectionManagerRefId="Package.ConnectionManagers[AZSQL01.ads.shos.com.teradata_raw.mssql_etl]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Net Sales\sho_staging.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Net Sales\sho_staging.Inputs[OLE DB Destination Input].Columns[TRS_DT]"
+                      cachedDataType="dbDate"
+                      cachedName="TRS_DT"
+                      externalMetadataColumnId="Package\Load Net Sales\sho_staging.Inputs[OLE DB Destination Input].ExternalColumns[TRS_DT]"
+                      lineageId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].Columns[TRS_DT]" />
+                    <inputColumn
+                      refId="Package\Load Net Sales\sho_staging.Inputs[OLE DB Destination Input].Columns[LOC_NO]"
+                      cachedDataType="i4"
+                      cachedName="LOC_NO"
+                      externalMetadataColumnId="Package\Load Net Sales\sho_staging.Inputs[OLE DB Destination Input].ExternalColumns[LOC_NO]"
+                      lineageId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].Columns[LOC_NO]" />
+                    <inputColumn
+                      refId="Package\Load Net Sales\sho_staging.Inputs[OLE DB Destination Input].Columns[DIV_NO]"
+                      cachedDataType="i2"
+                      cachedName="DIV_NO"
+                      externalMetadataColumnId="Package\Load Net Sales\sho_staging.Inputs[OLE DB Destination Input].ExternalColumns[Div_NO]"
+                      lineageId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].Columns[DIV_NO]" />
+                    <inputColumn
+                      refId="Package\Load Net Sales\sho_staging.Inputs[OLE DB Destination Input].Columns[NetSales]"
+                      cachedDataType="numeric"
+                      cachedName="NetSales"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Load Net Sales\sho_staging.Inputs[OLE DB Destination Input].ExternalColumns[NetSales]"
+                      lineageId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].Columns[NetSales]" />
+                    <inputColumn
+                      refId="Package\Load Net Sales\sho_staging.Inputs[OLE DB Destination Input].Columns[PAMUNITS]"
+                      cachedDataType="i4"
+                      cachedName="PAMUNITS"
+                      externalMetadataColumnId="Package\Load Net Sales\sho_staging.Inputs[OLE DB Destination Input].ExternalColumns[PAMUNITS]"
+                      lineageId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].Columns[PAMUNITS]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Net Sales\sho_staging.Inputs[OLE DB Destination Input].ExternalColumns[TRS_DT]"
+                      dataType="dbDate"
+                      name="TRS_DT" />
+                    <externalMetadataColumn
+                      refId="Package\Load Net Sales\sho_staging.Inputs[OLE DB Destination Input].ExternalColumns[LOC_NO]"
+                      dataType="i4"
+                      name="LOC_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Load Net Sales\sho_staging.Inputs[OLE DB Destination Input].ExternalColumns[Div_NO]"
+                      dataType="i4"
+                      name="Div_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Load Net Sales\sho_staging.Inputs[OLE DB Destination Input].ExternalColumns[NetSales]"
+                      dataType="r8"
+                      name="NetSales" />
+                    <externalMetadataColumn
+                      refId="Package\Load Net Sales\sho_staging.Inputs[OLE DB Destination Input].ExternalColumns[PAMUNITS]"
+                      dataType="i4"
+                      name="PAMUNITS" />
+                    <externalMetadataColumn
+                      refId="Package\Load Net Sales\sho_staging.Inputs[OLE DB Destination Input].ExternalColumns[REC_LOAD_DTM]"
+                      dataType="dbTimeStamp"
+                      name="REC_LOAD_DTM" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Net Sales\sho_staging.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load Net Sales\sho_staging.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Net Sales\sho_staging.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Net Sales\sho_staging.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Net Sales\sho_staging.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Net Sales\sho_staging.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Net Sales\Teradata PA Sales"
+              componentClassID="Attunity.SSISODBCSrc"
+              contactInfo="ODBC Source;Connector for Open Database Connectivity (ODBC) by Attunity; Attunity Ltd.; All Rights Reserved; http://www.attunity.com;7"
+              description="ODBC Source"
+              name="Teradata PA Sales"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of the table to be fetched."
+                  expressionType="Notify"
+                  name="TableName"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand">-- PA  sales by div
+SELECT 	S.TRS_DT,
+		S.LOC_NO,
+		P.LN_NO as DIV_NO,
+		SUM((CASE WHEN S.TRS_TYP_CD='S' THEN 1 ELSE -1 END)*S.SLL_DLR) AS NetSales ,
+		SUM((CASE WHEN S.TRS_TYP_CD='S' THEN 1 ELSE -1 END)*S.UN_QT) AS PAMUNITS 
+
+FROM    
+		SPRS_DW_VIEWS.SALES S 
+		INNER JOIN shc_work_tbls.TS_SHO_locations L ON (S.LOC_NO=L.LOC_NO)
+		INNER JOIN SPRS_DW_VIEWS.PRODUCT P ON (S.PRD_IRL_NO=P.PRD_IRL_NO)
+
+WHERE   S.SLS_TYP_CD='M' 
+	AND S.TRS_DT between date '2018-07-08' and date '2018-08-02'
+	AND POS_DIV=70
+	
+GROUP BY 1,2,3</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows fetched per batch."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines the chunk size allocation for LOB columns"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines how the component exposes CHAR columns. If False, CHAR columns are exposed as (multi-)byte strings (DT_STR), if True, CHAR columns are exposed as wide strings (DT_WSTR)"
+                  expressionType="Notify"
+                  name="ExposeCharColumnsAsUnicode">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                  expressionType="Notify"
+                  name="StatementTimeout">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The code page to use when code page information is unavailable from the data source."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="The mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="The method used for fetching data."
+                  expressionType="Notify"
+                  name="FetchMethod"
+                  typeConverter="FetchMethod">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="The ODBC C data type for binding numeric data."
+                  expressionType="Notify"
+                  name="BindNumericAs"
+                  typeConverter="BindNumericAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                  expressionType="Notify"
+                  name="BindCharColumnsAs"
+                  typeConverter="BindCharColumnsAs">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Net Sales\Teradata PA Sales.Connections[ODBCConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SHC EDW PROD1.jmarlo1]"
+                  connectionManagerRefId="Package.ConnectionManagers[SHC EDW PROD1.jmarlo1]"
+                  description="The ODBC runtime connection"
+                  name="ODBCConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output]"
+                  errorRowDisposition="FailComponent"
+                  name="ODBC Source Output"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].Columns[TRS_DT]"
+                      dataType="dbDate"
+                      externalMetadataColumnId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].ExternalColumns[TRS_DT]"
+                      lineageId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].Columns[TRS_DT]"
+                      name="TRS_DT" />
+                    <outputColumn
+                      refId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].Columns[LOC_NO]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].ExternalColumns[LOC_NO]"
+                      lineageId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].Columns[LOC_NO]"
+                      name="LOC_NO" />
+                    <outputColumn
+                      refId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].Columns[DIV_NO]"
+                      dataType="i2"
+                      externalMetadataColumnId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].ExternalColumns[DIV_NO]"
+                      lineageId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].Columns[DIV_NO]"
+                      name="DIV_NO" />
+                    <outputColumn
+                      refId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].Columns[NetSales]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].ExternalColumns[NetSales]"
+                      lineageId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].Columns[NetSales]"
+                      name="NetSales"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].Columns[PAMUNITS]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].ExternalColumns[PAMUNITS]"
+                      lineageId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].Columns[PAMUNITS]"
+                      name="PAMUNITS" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].ExternalColumns[TRS_DT]"
+                      dataType="dbDate"
+                      name="TRS_DT" />
+                    <externalMetadataColumn
+                      refId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].ExternalColumns[LOC_NO]"
+                      dataType="i4"
+                      name="LOC_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].ExternalColumns[DIV_NO]"
+                      dataType="i2"
+                      name="DIV_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].ExternalColumns[NetSales]"
+                      dataType="numeric"
+                      name="NetSales"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].ExternalColumns[PAMUNITS]"
+                      dataType="i4"
+                      name="PAMUNITS" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Error Output]"
+                  isErrorOut="true"
+                  name="ODBC Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Error Output].Columns[TRS_DT]"
+                      dataType="dbDate"
+                      externalMetadataColumnId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].ExternalColumns[TRS_DT]"
+                      lineageId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Error Output].Columns[TRS_DT]"
+                      name="TRS_DT" />
+                    <outputColumn
+                      refId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Error Output].Columns[LOC_NO]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].ExternalColumns[LOC_NO]"
+                      lineageId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Error Output].Columns[LOC_NO]"
+                      name="LOC_NO" />
+                    <outputColumn
+                      refId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Error Output].Columns[DIV_NO]"
+                      dataType="i2"
+                      externalMetadataColumnId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].ExternalColumns[DIV_NO]"
+                      lineageId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Error Output].Columns[DIV_NO]"
+                      name="DIV_NO" />
+                    <outputColumn
+                      refId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Error Output].Columns[NetSales]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].ExternalColumns[NetSales]"
+                      lineageId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Error Output].Columns[NetSales]"
+                      name="NetSales"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Error Output].Columns[PAMUNITS]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output].ExternalColumns[PAMUNITS]"
+                      lineageId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Error Output].Columns[PAMUNITS]"
+                      name="PAMUNITS" />
+                    <outputColumn
+                      refId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load Net Sales.Paths[ODBC Source Output]"
+              endId="Package\Load Net Sales\sho_staging.Inputs[OLE DB Destination Input]"
+              name="ODBC Source Output"
+              startId="Package\Load Net Sales\Teradata PA Sales.Outputs[ODBC Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Load Net Sales"
+          TopLeft="70,53" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load Net Sales">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Load Net Sales\Teradata PA Sales"
+          TopLeft="151,77" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Load Net Sales\sho_staging"
+          TopLeft="161,167" />
+        <EdgeLayout
+          Id="Package\Load Net Sales.Paths[ODBC Source Output]"
+          TopLeft="230.75,119">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Net Sales\sho_staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
