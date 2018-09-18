@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="td_sales_fact_loads"
   DTS:PackageType="5"
-  DTS:VersionBuild="88"
-  DTS:VersionGUID="{85853A40-92E0-4DF1-96CE-88E17C7F2EA7}">
+  DTS:VersionBuild="92"
+  DTS:VersionGUID="{29D9A85E-606E-4797-8990-9161E3B9746B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -22,16 +22,14 @@
       DTS:DTSID="{43D2F1BD-E653-48F1-97DF-0570C367165A}"
       DTS:ObjectName="mssql_sho_dw">
       <DTS:PropertyExpression
-        DTS:Name="InitialCatalog">@[$Project::DB_DW_NAME]</DTS:PropertyExpression>
-      <DTS:PropertyExpression
-        DTS:Name="ServerName">@[$Project::DB_SERVERNAME]</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">"Data Source=" + @[$Project::DB_SERVERNAME] + ";User ID=" +  @[$Project::DB_USERNAME]+";Password=" +  @[$Project::DB_PASSWORD] + ";Initial Catalog=" +  @[$Project::DB_DW_NAME] + ";Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=azsql01.centralus.cloudapp.azure.com;User ID=mssql_etl;Initial Catalog=sho_dw;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=AZSQL01.ads.shos.com;User ID=mssql_etl;Initial Catalog=sho_dw;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/BAcNlfBfEKl2/Du/ZYQqwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAm5L7XgpUegabRPR7leGXnUZQv7i9f0VqhV62UsYjILAAAAAAOgAAAAAIAACAAAAAlvS7rt9lIxGyoTRVpOZVQZY7DWWiItH60LVMOXbKpHTAAAADgP6svSV/w/Jda90WRPvaTSlVZ8vfOm9aEQecpxrMBPMLFwmGBZVspjPQLmHASK01AAAAAwRMJN78Iy3ICapVrFdrsgnaMufmSPnvjObAH+EnFHY7E3qqGXNw18WUtTNUhNY+WB9JaEElhC5uEQmw+pWtDjQ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/BAcNlfBfEKl2/Du/ZYQqwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADANz2F3faG1TJ+EA/5Q5K2fhx2mVFMLEepVnE8AEGDkgAAAAAOgAAAAAIAACAAAAAmAxLGtyVhOqpKx7h19yi0ydd1dQAIr5lZZ3mfwfTohzAAAAAi1YhuTQXEw+T/8PjO9Vo2i3gkjEh2Ehp5aJg+Bl1NzhjuKyky7pae/SlEyrisO3tAAAAAt3AxKNhj52h9w+LpKreR+thXb+hCizoVSjea6xmZGMyonB+xIFv5mYZrB24DN6nJq1JiNwvH74GnFMVhqgLeQg</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -41,16 +39,14 @@
       DTS:DTSID="{A8CC8F9F-1CC0-4256-AB32-0D5C78FA2581}"
       DTS:ObjectName="mssql_sho_staging">
       <DTS:PropertyExpression
-        DTS:Name="InitialCatalog">@[$Project::DB_STAGING_NAME]</DTS:PropertyExpression>
-      <DTS:PropertyExpression
-        DTS:Name="ServerName">@[$Project::DB_SERVERNAME]</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">"Data Source=" + @[$Project::DB_SERVERNAME] + ";User ID=" +  @[$Project::DB_USERNAME]+";Password=" +  @[$Project::DB_PASSWORD] + ";Initial Catalog=" +  @[$Project::DB_STAGING_NAME] + ";Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=azsql01.centralus.cloudapp.azure.com;User ID=mssql_etl;Initial Catalog=sho_staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=AZSQL01.ads.shos.com;User ID=mssql_etl;Initial Catalog=sho_staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/BAcNlfBfEKl2/Du/ZYQqwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB04atoHuK3eRfTjUAN3ViUpwoL9bT5VAXb6LNfEDJ65wAAAAAOgAAAAAIAACAAAADmh5w2DmQNAKUae8H7YrCoAaWjEzva/nwMg+vvrs9IujAAAAAeDze0gY4rYYoaDS5LTFSXvhGPHONjaZR71PPXKTT8gQFnKHzYPplfaDvyYNvSzYNAAAAAJc1aJRn0HKDiuhxIm9gwIjZnPuvwtYSyG2qB9VGCHgn4qmqlZLRWdmUwds7vXgSJhtzBeIqmFkv3vQCfGRzcIA</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/BAcNlfBfEKl2/Du/ZYQqwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD/R2s4v0G1mQ1mSG6fnVbY2Q2H9iWVPq8XkvR6Y1E5YQAAAAAOgAAAAAIAACAAAAAAyOr8zp1dTB0tXPtlIi+DrIY+MozSGRR1tez/KC6KVzAAAAAMd7cPEdiMZtsdrwX+XQscxVkmUYS1d1MOm0kGDsjPKiOzD5mCFK/aF8wHXonxheJAAAAAYjiPmSF2xVCaZxEeg7JyjSa9nd58CgH7kWGJwMaYgg2QCqNW1yzRia8XM2PY+otc3PsdrvZfPFgW+ON1AeWpSQ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -69,7 +65,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\quicktemp\development\sho datamart\etl\sales fact\rejects\fact_sho_sales_by_div_div_lu20180914.csv">
+          DTS:ConnectionString="C:\quicktemp\development\sho datamart\etl\sales fact\rejects\fact_sho_sales_by_div_div_lu20180918.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -286,7 +282,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\quicktemp\development\sho datamart\etl\sales fact\rejects\fact_sho_sales_by_div20180914.csv">
+          DTS:ConnectionString="C:\quicktemp\development\sho datamart\etl\sales fact\rejects\fact_sho_sales_by_div20180918.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -502,7 +498,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\quicktemp\development\sho datamart\etl\sales fact\rejects\fact_sho_sales_by_loc20180914.csv">
+          DTS:ConnectionString="C:\quicktemp\development\sho datamart\etl\sales fact\rejects\fact_sho_sales_by_loc20180918.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -510,7 +506,7 @@
               DTS:DataType="133"
               DTS:TextQualified="True"
               DTS:ObjectName="TRS_DT"
-              DTS:DTSID="{704596B6-71B8-4EDA-8415-5A69C2635BCE}"
+              DTS:DTSID="{8E1CB81E-32A9-4EF7-B773-D9F44F681763}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -518,7 +514,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="LOC_NO"
-              DTS:DTSID="{BFC257EE-9A35-4B17-A1BB-131CF0567FD5}"
+              DTS:DTSID="{626EEE1F-32D1-4ED7-92C4-1F21BC04B526}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -526,7 +522,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="net_sales"
-              DTS:DTSID="{CF97D0B5-97DE-46A7-B940-DE75DD0E86A6}"
+              DTS:DTSID="{A845A135-1DF2-4FA0-A350-C19DF1057B45}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -534,7 +530,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="net_units"
-              DTS:DTSID="{FDF7C4BF-6E2B-4718-8729-20790A7B537C}"
+              DTS:DTSID="{506B2ACE-AFD3-4D9C-A7F8-032C44440A8A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -542,7 +538,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="pa_sales"
-              DTS:DTSID="{F9D769AA-4509-4795-BF83-93948B808505}"
+              DTS:DTSID="{AC253F97-7853-44EE-88F2-EA7EF2F8B6DF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -550,7 +546,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="pa_units"
-              DTS:DTSID="{8A250204-142C-433D-B1BC-AF9BC516586C}"
+              DTS:DTSID="{EA42DB92-6C9D-44BD-9130-209BC44D1282}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -558,7 +554,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="pam_sales"
-              DTS:DTSID="{7C0AF7C8-3848-40DF-8127-08AE479A495C}"
+              DTS:DTSID="{A8EA4C74-3DA3-47B0-8645-E8E2D3EE34D1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -566,7 +562,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="pam_units"
-              DTS:DTSID="{24D7179B-7FDF-4577-A12E-61907F48D812}"
+              DTS:DTSID="{0D80D621-DC36-40C9-98AF-BEC30922B5FC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -574,7 +570,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="total_markdowns"
-              DTS:DTSID="{47A5DE2B-68CF-49AF-9B76-4D4F1A30DA5A}"
+              DTS:DTSID="{2F31A1AA-2E50-4C89-B922-292772BB721F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -582,7 +578,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="avg_ticket_amt"
-              DTS:DTSID="{E0EE997A-0E2C-4197-87E3-1E2A407A5FE2}"
+              DTS:DTSID="{F77E44C7-B05D-487D-95B4-8316F3D36293}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -590,7 +586,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="avg_ticket_units"
-              DTS:DTSID="{B6A81EBE-E263-4D0D-B69E-930D7730AA6C}"
+              DTS:DTSID="{F134DBC5-BBA9-4272-84D6-07F8ABA46A9A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -598,7 +594,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="lease_sales"
-              DTS:DTSID="{778C318D-3794-4D08-BE6F-22A358D9AD50}"
+              DTS:DTSID="{92D718D3-4EA4-4BFB-B132-BCDB3B3B4B26}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -606,7 +602,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="lease_units"
-              DTS:DTSID="{D726B24F-1BF6-4DD1-B1D4-082CC8D01879}"
+              DTS:DTSID="{3BBA2D67-9160-4304-8456-9B766198BC96}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -614,7 +610,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="spp_sales"
-              DTS:DTSID="{D301D9FD-F7B8-4075-A94F-251FC84C78DF}"
+              DTS:DTSID="{D9DA8CCA-442A-4E4A-BE47-F6DF53BADB2D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -622,7 +618,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="spp_merch_sales"
-              DTS:DTSID="{6F16F3E4-59C3-470A-A04D-215306DD8F00}"
+              DTS:DTSID="{AC40B147-8643-4788-A37B-8230F73871AF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -630,7 +626,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="bulk_sales"
-              DTS:DTSID="{21E136BD-6F89-4E8D-8F15-9FEE845FFE67}"
+              DTS:DTSID="{D9B24631-4948-4B12-8F0F-FA2A9A68EE92}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -638,7 +634,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="bulk_units"
-              DTS:DTSID="{A94AB9B2-F7CC-4E12-8C63-580BC08E8C02}"
+              DTS:DTSID="{B943AB4C-7B91-43E5-9BF5-192FCBD0E0DE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -646,7 +642,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="sears_credit_sales"
-              DTS:DTSID="{4F1181E0-4137-4B36-8829-5F1CC896F899}"
+              DTS:DTSID="{0961B73D-3BC8-45E4-8924-0607E7CE728F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -654,7 +650,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="other_credit_sales"
-              DTS:DTSID="{3A254952-7039-4927-9C89-BB169C8012ED}"
+              DTS:DTSID="{4DFE5F69-2883-484C-BAFF-C90F71FC9C26}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -662,7 +658,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="kenmore_net_sale"
-              DTS:DTSID="{C6CAB694-93D3-4B67-ADEF-60146E9A5918}"
+              DTS:DTSID="{EBF904C8-9A86-4776-8BF1-0C8F5B2D5777}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -670,7 +666,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="craftsman_net_sale"
-              DTS:DTSID="{8981083F-5178-42FC-94A7-B42C8955D672}"
+              DTS:DTSID="{2CE2F2D4-B925-447D-92E4-C551E0162B72}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -678,7 +674,7 @@
               DTS:DataType="5"
               DTS:TextQualified="True"
               DTS:ObjectName="diehard_net_sale"
-              DTS:DTSID="{136303F1-6C0F-414A-96EF-79CAF04F304E}"
+              DTS:DTSID="{5A453FB2-17B0-4F3B-91EA-6D0E39842F06}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -686,7 +682,7 @@
               DTS:DataType="20"
               DTS:TextQualified="True"
               DTS:ObjectName="kenmore_net_units"
-              DTS:DTSID="{A6469749-4F8C-4D3F-A71A-52A4F5E06199}"
+              DTS:DTSID="{4A9215DE-B472-460F-80CA-29586ACA6434}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -694,7 +690,7 @@
               DTS:DataType="20"
               DTS:TextQualified="True"
               DTS:ObjectName="craftsman_net_units"
-              DTS:DTSID="{AF4F6E9A-7705-4ED2-B5F3-F3E898487E44}"
+              DTS:DTSID="{B8385014-A46D-46C3-B24E-683B584CC4BB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -702,7 +698,7 @@
               DTS:DataType="20"
               DTS:TextQualified="True"
               DTS:ObjectName="diehard_net_units"
-              DTS:DTSID="{70C296F7-7ACA-40CE-9EE3-9E2C0DD19EB0}"
+              DTS:DTSID="{6E98977D-0A90-4915-B38A-F170D3BAA9C6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -711,7 +707,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="pos_source_system"
-              DTS:DTSID="{FECCBB26-E267-4085-BD5C-46743C63FBC4}"
+              DTS:DTSID="{C9B31837-0D5A-463E-8FB8-6B57431178C7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -720,7 +716,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="trs_dt_sk_id"
-              DTS:DTSID="{779BDD66-1B0C-4A97-9C17-B6A67AF738B6}"
+              DTS:DTSID="{171F38F2-47F9-47E8-8B4B-2E6026D026BE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -729,7 +725,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="reject_reason"
-              DTS:DTSID="{E3D5EBD9-E265-4744-8F5A-534AD9313BCA}"
+              DTS:DTSID="{B48206A0-0DD5-44C3-BC45-00A68290DAF0}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -6904,19 +6900,19 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
               startId="Package\Merge Teradata Raw into fact sho sales\add lu Category Division reject reason.Outputs[Derived Column Output]" />
             <path
               refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output1]"
-              endId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Inputs[Data Conversion Input]"
-              name="Lookup Match Output"
-              startId="Package\Merge Teradata Raw into fact sho sales\lu Category Division sk id.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output2]"
               endId="Package\Merge Teradata Raw into fact sho sales\Filter to only changed rows.Inputs[Conditional Split Input]"
               name="Lookup Match Output"
               startId="Package\Merge Teradata Raw into fact sho sales\Route inserts and updates.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output]"
+              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output2]"
               endId="Package\Merge Teradata Raw into fact sho sales\lu Category Division sk id.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output]"
+              endId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Inputs[Data Conversion Input]"
+              name="Lookup Match Output"
+              startId="Package\Merge Teradata Raw into fact sho sales\lu Category Division sk id.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup No Match Output]"
               endId="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input]"
@@ -13745,14 +13741,14 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
               startId="Package\Merge Teradata Raw into fact sho sales by loc\Route Inserts and Updates.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output1]"
-              endId="Package\Merge Teradata Raw into fact sho sales by loc\add location lu reject reason.Inputs[Derived Column Input]"
-              name="Lookup No Match Output"
-              startId="Package\Merge Teradata Raw into fact sho sales by loc\lu sho location sk id.Outputs[Lookup No Match Output]" />
-            <path
-              refId="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output]"
               endId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
               startId="Package\Merge Teradata Raw into fact sho sales by loc\Route Inserts and Updates.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output]"
+              endId="Package\Merge Teradata Raw into fact sho sales by loc\add location lu reject reason.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\Merge Teradata Raw into fact sho sales by loc\lu sho location sk id.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Merge Join Output]"
               endId="Package\Merge Teradata Raw into fact sho sales by loc\merge join brand sales.Inputs[Merge Join Left Input]"
@@ -13785,14 +13781,14 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
               startId="Package\Merge Teradata Raw into fact sho sales by loc\Filter to only changed rows.Outputs[rows_to_update]" />
             <path
               refId="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output1]"
-              endId="Package\Merge Teradata Raw into fact sho sales by loc\merge join rolld div sales and loc sales.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\Merge Teradata Raw into fact sho sales by loc\sort location sales data.Outputs[Sort Output]" />
-            <path
-              refId="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output]"
               endId="Package\Merge Teradata Raw into fact sho sales by loc\merge join rolld div sales and loc sales.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\Merge Teradata Raw into fact sho sales by loc\sort rolled up div sales data.Outputs[Sort Output]" />
+            <path
+              refId="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output]"
+              endId="Package\Merge Teradata Raw into fact sho sales by loc\merge join rolld div sales and loc sales.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Merge Teradata Raw into fact sho sales by loc\sort location sales data.Outputs[Sort Output]" />
             <path
               refId="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output2]"
               endId="Package\Merge Teradata Raw into fact sho sales by loc\merge join brand sales.Inputs[Merge Join Right Input]"
@@ -14205,7 +14201,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output]"
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output2]"
           TopLeft="453.75,325">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14229,7 +14225,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output2]"
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output1]"
           TopLeft="456.25,559">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14253,7 +14249,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output1]"
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output]"
           TopLeft="454.75,422">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14891,7 +14887,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output]"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output1]"
           TopLeft="282,107">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14925,7 +14921,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output1]"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output]"
           TopLeft="280,169">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -15129,7 +15125,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output]"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output1]"
           TopLeft="743,552.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -15153,7 +15149,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output1]"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output]"
           TopLeft="730,379.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
