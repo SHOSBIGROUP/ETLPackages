@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ObjectName="Reject File Connection - div lookup div fact"
+  DTS:DelayValidation="True"
+  DTS:ObjectName="LOAD_TD_to_SHO_DW_FACT_SALES_Rejects_Div_Lookup_Div"
   DTS:DTSID="{AF6700CB-42F7-47FC-80B6-8A0992EC9808}"
   DTS:CreationName="FLATFILE">
   <DTS:PropertyExpression
-    DTS:Name="ConnectionString">@[$Project::DIR_TD_SALES_REJECTS] +"\\fact_sho_sales_by_div_div_lu"+ (DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) + RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
+    DTS:Name="ConnectionString">@[$Project::DATAFOLDER_TERADATA_REJECTS]  +"\\fact_sho_sales_by_div_div_lu"+ (DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) + RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
       DTS:Format="Delimited"
@@ -13,7 +14,7 @@
       DTS:RowDelimiter=""
       DTS:TextQualifier="_x0022_"
       DTS:CodePage="1252"
-      DTS:ConnectionString="\\10.1.0.22\ssis_incoming\teradata\rejects\fact_sho_sales_by_div_div_lu20180918.csv">
+      DTS:ConnectionString="\\AZSSIS01\ssis_rejects\fact_sho_sales_by_div_div_lu20180919.csv">
       <DTS:FlatFileColumns>
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
