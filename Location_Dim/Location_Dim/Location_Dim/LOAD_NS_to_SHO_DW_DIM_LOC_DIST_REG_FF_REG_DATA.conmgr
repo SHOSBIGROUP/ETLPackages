@@ -1,20 +1,21 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ObjectName="NS_REGION_FLATFILE_ERRORS"
-  DTS:DTSID="{AFEF6898-DA4A-41A1-A374-59CFACCDBDED}"
+  DTS:ObjectName="LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_DATA"
+  DTS:DTSID="{186D22C6-01E1-4C31-8DFF-395316270C26}"
+  DTS:Description="Netsuite Region Flat File Data Source"
   DTS:CreationName="FLATFILE">
   <DTS:PropertyExpression
-    DTS:Name="ConnectionString">@[$Project::DATAFILE_PATH_REGION] + "_Errors_" + (DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) + RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + @[$Project::DATAFILE_EXTENSION]</DTS:PropertyExpression>
+    DTS:Name="ConnectionString">@[$Project::DATAFILE_PATH_REGION] +  @[$Project::DATAFILE_EXTENSION]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
       DTS:Format="Delimited"
       DTS:LocaleID="1033"
-      DTS:HeaderRowDelimiter="_x000D__x000A_"
+      DTS:HeaderRowDelimiter="_x000A_"
       DTS:ColumnNamesInFirstDataRow="True"
       DTS:RowDelimiter=""
       DTS:TextQualifier="_x0022_"
       DTS:CodePage="1252"
-      DTS:ConnectionString="C:\Projects\VisualStudio\ETLPackages\DataFiles\Region_Errors_Template.csv">
+      DTS:ConnectionString="C:\Projects\VisualStudio\ETLPackages\DataFiles\Region.csv">
       <DTS:FlatFileColumns>
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -22,8 +23,8 @@
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="region_nbr"
-          DTS:DTSID="{7C2CFBD1-0C40-44DA-B1D2-B9844F4B6D7B}"
+          DTS:ObjectName="Region Manager Name"
+          DTS:DTSID="{CCBC1128-EFCE-4CD1-96B5-6713F04F5E48}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -31,8 +32,8 @@
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="region_name"
-          DTS:DTSID="{680FAC39-D793-4E73-ACC4-D2065356C499}"
+          DTS:ObjectName="Format"
+          DTS:DTSID="{D4AC0750-A560-4F84-8633-EC7028565114}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -40,17 +41,26 @@
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="region_mgr"
-          DTS:DTSID="{E4DEFEB7-D539-4989-8183-9CF9E2AE80FA}"
+          DTS:ObjectName="Region Number"
+          DTS:DTSID="{C2356A58-4365-4F34-A658-9EAB40D9FBCB}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
-          DTS:ColumnDelimiter="_x000D__x000A_"
+          DTS:ColumnDelimiter="_x002C_"
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="inactive"
-          DTS:DTSID="{1706CAED-BF50-420D-A9B4-9B2B07ACB775}"
+          DTS:ObjectName="Region Name"
+          DTS:DTSID="{23EC89BD-EB14-43CA-B137-3C926715C327}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x000A_"
+          DTS:MaximumWidth="50"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="Inactive"
+          DTS:DTSID="{298BCB76-EF62-4E81-B7A0-25281BDE441E}"
           DTS:CreationName="" />
       </DTS:FlatFileColumns>
     </DTS:ConnectionManager>

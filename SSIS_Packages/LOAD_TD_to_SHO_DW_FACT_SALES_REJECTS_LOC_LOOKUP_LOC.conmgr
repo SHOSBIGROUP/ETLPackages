@@ -1,0 +1,249 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="LOAD_TD_to_SHO_DW_FACT_SALES_REJECTS_LOC_LOOKUP_LOC"
+  DTS:DTSID="{811E1E6D-45EC-45E9-B008-162E98163F19}"
+  DTS:CreationName="FLATFILE">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::LOAD_TD_to_SHO_DW_FACT_SALES_REJECTS] +"\\fact_sho_sales_by_loc_loc_lu"+ (DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) + RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:Format="Delimited"
+      DTS:LocaleID="1033"
+      DTS:HeaderRowDelimiter="_x000D__x000A_"
+      DTS:ColumnNamesInFirstDataRow="True"
+      DTS:RowDelimiter=""
+      DTS:TextQualifier="_x0022_"
+      DTS:CodePage="1252"
+      DTS:ConnectionString="\\10.1.0.22\ssis_incoming\teradata\rejects\fact_sho_sales_by_loc_loc_lu20180921.csv">
+      <DTS:FlatFileColumns>
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="133"
+          DTS:TextQualified="True"
+          DTS:ObjectName="TRS_DT"
+          DTS:DTSID="{4FC14B4D-4977-43FC-A108-82A60BBCC8F7}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="3"
+          DTS:TextQualified="True"
+          DTS:ObjectName="LOC_NO"
+          DTS:DTSID="{7FDB33CE-3930-46FA-87F3-823BF2C44948}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="5"
+          DTS:TextQualified="True"
+          DTS:ObjectName="net_sales"
+          DTS:DTSID="{967865B0-7AB6-4729-9FA4-D3A12BAC06CB}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="3"
+          DTS:TextQualified="True"
+          DTS:ObjectName="net_units"
+          DTS:DTSID="{243EBB39-5288-449C-A18C-A6CDE1CFFD09}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="5"
+          DTS:TextQualified="True"
+          DTS:ObjectName="pa_sales"
+          DTS:DTSID="{068B1770-4A71-42A0-A2BB-5861A5BAA1F0}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="3"
+          DTS:TextQualified="True"
+          DTS:ObjectName="pa_units"
+          DTS:DTSID="{71040838-A7C1-4CA2-BD70-E89DF2812E63}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="5"
+          DTS:TextQualified="True"
+          DTS:ObjectName="pam_sales"
+          DTS:DTSID="{C85AB841-B749-414D-9446-FD119296F8D4}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="3"
+          DTS:TextQualified="True"
+          DTS:ObjectName="pam_units"
+          DTS:DTSID="{E3A411B0-62CD-4D39-A002-8E720E9E1265}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="5"
+          DTS:TextQualified="True"
+          DTS:ObjectName="total_markdowns"
+          DTS:DTSID="{E9A5B61B-F3B3-4F57-9E7B-CDDBFCC7BDEF}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="5"
+          DTS:TextQualified="True"
+          DTS:ObjectName="avg_ticket_amt"
+          DTS:DTSID="{B37B5428-C645-4AF8-A0AD-F1AEAEC7C6DB}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="3"
+          DTS:TextQualified="True"
+          DTS:ObjectName="avg_ticket_units"
+          DTS:DTSID="{341E77ED-F8CB-417F-B08F-D8D308F13477}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="5"
+          DTS:TextQualified="True"
+          DTS:ObjectName="lease_sales"
+          DTS:DTSID="{13DE1776-A140-4758-BC33-7256B98EC3ED}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="3"
+          DTS:TextQualified="True"
+          DTS:ObjectName="lease_units"
+          DTS:DTSID="{009517B2-AFC1-4DAC-8BE5-1FEA7EB06D56}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="5"
+          DTS:TextQualified="True"
+          DTS:ObjectName="spp_sales"
+          DTS:DTSID="{64C08723-C2E6-4487-AA3B-BA7AE7D36995}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="5"
+          DTS:TextQualified="True"
+          DTS:ObjectName="spp_merch_sales"
+          DTS:DTSID="{87489C02-EE5F-45DF-9018-AA8D5D95E9D6}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="5"
+          DTS:TextQualified="True"
+          DTS:ObjectName="bulk_sales"
+          DTS:DTSID="{5A054615-E09D-453E-B261-10F9C9CA2CD7}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="3"
+          DTS:TextQualified="True"
+          DTS:ObjectName="bulk_units"
+          DTS:DTSID="{41C84E24-A5E5-418E-B9A8-4753C8220024}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="5"
+          DTS:TextQualified="True"
+          DTS:ObjectName="sears_credit_sales"
+          DTS:DTSID="{F1D8CFA8-1814-41F7-9973-CA97BF0C8B39}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="5"
+          DTS:TextQualified="True"
+          DTS:ObjectName="other_credit_sales"
+          DTS:DTSID="{CB48C58F-DA6D-4B4A-8C19-8577A27B73A3}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="5"
+          DTS:TextQualified="True"
+          DTS:ObjectName="kenmore_net_sale"
+          DTS:DTSID="{A9558D15-FCB3-42F6-8E2A-4E1FED2974EE}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="5"
+          DTS:TextQualified="True"
+          DTS:ObjectName="craftsman_net_sale"
+          DTS:DTSID="{66C40565-3C20-4646-BBBC-091118121170}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="5"
+          DTS:TextQualified="True"
+          DTS:ObjectName="diehard_net_sale"
+          DTS:DTSID="{46D51F01-4232-4F25-8BDB-FDB243B42B3D}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="20"
+          DTS:TextQualified="True"
+          DTS:ObjectName="kenmore_net_units"
+          DTS:DTSID="{CFD0522B-2E85-43FA-8984-D4A95AEB90A3}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="20"
+          DTS:TextQualified="True"
+          DTS:ObjectName="craftsman_net_units"
+          DTS:DTSID="{331F448B-8B20-4805-AB53-B5D483C5DC25}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:DataType="20"
+          DTS:TextQualified="True"
+          DTS:ObjectName="diehard_net_units"
+          DTS:DTSID="{A265F48D-616B-4A28-8C74-070A2B682CCF}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="1"
+          DTS:DataType="130"
+          DTS:TextQualified="True"
+          DTS:ObjectName="pos_source_system"
+          DTS:DTSID="{EFD97B90-502C-49A2-B647-448524ED8FC4}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="8"
+          DTS:DataType="130"
+          DTS:TextQualified="True"
+          DTS:ObjectName="trs_dt_sk_id"
+          DTS:DTSID="{0A82CF91-8B19-4337-ADFA-E7C7B7832D93}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x000D__x000A_"
+          DTS:MaximumWidth="38"
+          DTS:DataType="130"
+          DTS:TextQualified="True"
+          DTS:ObjectName="reject_reason"
+          DTS:DTSID="{5AB54505-40C8-4088-BDD5-682CFB8488DE}"
+          DTS:CreationName="" />
+      </DTS:FlatFileColumns>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

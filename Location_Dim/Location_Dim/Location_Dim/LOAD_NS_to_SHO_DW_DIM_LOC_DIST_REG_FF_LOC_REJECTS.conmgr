@@ -1,21 +1,20 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ObjectName="NS_LOCATION_FLATFILE"
-  DTS:DTSID="{2100EFF9-1FD3-492A-BD58-90F9C845076C}"
-  DTS:Description="NS_LOCATION_FLATFILE"
+  DTS:ObjectName="LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_REJECTS"
+  DTS:DTSID="{1AFABF72-3F5D-4911-A892-0CB10BD3D49B}"
   DTS:CreationName="FLATFILE">
   <DTS:PropertyExpression
-    DTS:Name="ConnectionString">@[$Project::DATAFILE_PATH_LOCATION] +  @[$Project::DATAFILE_EXTENSION]</DTS:PropertyExpression>
+    DTS:Name="ConnectionString">@[$Project::DATAFILE_PATH_LOCATION] + "_Errors_" + (DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) + RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + @[$Project::DATAFILE_EXTENSION]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
       DTS:Format="Delimited"
       DTS:LocaleID="1033"
-      DTS:HeaderRowDelimiter="_x000D_"
+      DTS:HeaderRowDelimiter="_x000D__x000A_"
       DTS:ColumnNamesInFirstDataRow="True"
       DTS:RowDelimiter=""
       DTS:TextQualifier="_x0022_"
       DTS:CodePage="1252"
-      DTS:ConnectionString="C:\Projects\VisualStudio\ETLPackages\DataFiles\Location.csv">
+      DTS:ConnectionString="C:\Projects\VisualStudio\ETLPackages\DataFiles\Location_Errors_20180920.csv">
       <DTS:FlatFileColumns>
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -23,8 +22,8 @@
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="Inactive"
-          DTS:DTSID="{F8FAECC9-8779-42B0-9D55-1829F7021093}"
+          DTS:ObjectName="pos_nbr"
+          DTS:DTSID="{56E8DBAF-E331-415E-867D-281F6A9FE435}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -32,8 +31,8 @@
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="Close Date"
-          DTS:DTSID="{47248D56-59BB-46BC-B708-4993CF58B94D}"
+          DTS:ObjectName="ordc_nbr"
+          DTS:DTSID="{28F418BE-D36B-498E-BA90-43FE5A585ADC}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -41,8 +40,8 @@
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="Location Desc"
-          DTS:DTSID="{D580BED3-2CA6-46D2-B84A-62654A46CABD}"
+          DTS:ObjectName="eis_nbr"
+          DTS:DTSID="{265A74FE-B9A9-4121-A0E7-6D7EBBEBC72E}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -50,8 +49,8 @@
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="Format"
-          DTS:DTSID="{F569B2D6-5E1E-4178-9F86-BD87C69917A4}"
+          DTS:ObjectName="location_name"
+          DTS:DTSID="{BE2C3415-8642-40D6-BE06-AF648BD2A64C}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -59,8 +58,8 @@
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="Ownership Type"
-          DTS:DTSID="{CC33FEDE-3730-425E-AC2A-5206514BBB68}"
+          DTS:ObjectName="location_format"
+          DTS:DTSID="{335B9290-19D0-4B88-A5D4-E09B43A94D75}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -68,8 +67,8 @@
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="Name (no hierarchy)"
-          DTS:DTSID="{A5336252-7A6C-47E2-83BB-02F6143F9AF2}"
+          DTS:ObjectName="location_type"
+          DTS:DTSID="{91E86F29-A73C-4D1E-90FA-78E4B68886C6}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -77,8 +76,8 @@
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="POS Number"
-          DTS:DTSID="{C21A83C6-9D6E-4AD6-A92D-5B19406728C7}"
+          DTS:ObjectName="operator_type"
+          DTS:DTSID="{700C5061-EE63-4667-B466-DC6FD99BE232}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -86,8 +85,8 @@
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="EIS Number"
-          DTS:DTSID="{C0AE33AF-9B6A-48D1-862F-A05BC0B4A6A9}"
+          DTS:ObjectName="operator_name"
+          DTS:DTSID="{E9D44FDC-7394-46BD-A814-FEEC39CC9178}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -95,8 +94,8 @@
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="Region"
-          DTS:DTSID="{BCD2EEEA-3012-4A43-9C88-7D2180C2EA93}"
+          DTS:ObjectName="district"
+          DTS:DTSID="{47F0DBB9-CFC9-46EE-9B03-9D6C42DC4D2A}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -104,8 +103,8 @@
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="District"
-          DTS:DTSID="{EB06AB10-D354-4518-9B0B-7B8735871B31}"
+          DTS:ObjectName="region"
+          DTS:DTSID="{92D20AFC-D8C3-4409-9B9B-5A8DB8CC3FBC}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -113,8 +112,8 @@
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="District Manager Name"
-          DTS:DTSID="{3265DD59-12FC-48C8-AD9B-62923C4194CF}"
+          DTS:ObjectName="city"
+          DTS:DTSID="{CC5BC299-9D89-47E5-8882-3D1BE47D0AF7}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -122,8 +121,8 @@
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="City"
-          DTS:DTSID="{1FE04E76-7E98-4C34-8152-365C7431116B}"
+          DTS:ObjectName="state"
+          DTS:DTSID="{ADEBF6AE-4879-4135-AE48-B89B8FD2B494}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -131,8 +130,8 @@
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="State Province"
-          DTS:DTSID="{13A1F62D-E376-46CE-996B-78BE108CAC5F}"
+          DTS:ObjectName="zipcode"
+          DTS:DTSID="{4621CED0-8A10-45BD-9A30-785BB05A2CCE}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -140,8 +139,8 @@
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="Zip"
-          DTS:DTSID="{C541F457-93BA-478C-903A-499A84E3BBCD}"
+          DTS:ObjectName="address1"
+          DTS:DTSID="{253211A9-470B-4770-8880-1C0C86B6B60B}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -149,8 +148,8 @@
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="Address 1"
-          DTS:DTSID="{6425D3C7-ADA8-4D63-A4D7-82AF3586CF52}"
+          DTS:ObjectName="address2"
+          DTS:DTSID="{0769507F-F8DF-422E-B15E-A1A7EB61F44B}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -158,8 +157,8 @@
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="Address 2"
-          DTS:DTSID="{27F1FDE6-DB69-4FD2-9643-FAEFE6F20B67}"
+          DTS:ObjectName="open_dt"
+          DTS:DTSID="{E4F76FF1-6A3F-4CDB-A0B3-C73CAF94265C}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -167,71 +166,17 @@
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="Latitude"
-          DTS:DTSID="{4C46612A-5DD4-4896-8883-70396AB1BDCB}"
+          DTS:ObjectName="close_dt"
+          DTS:DTSID="{6537DB44-2C6A-4EEE-9E35-EE065783C23F}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
-          DTS:ColumnDelimiter="_x002C_"
+          DTS:ColumnDelimiter="_x000D__x000A_"
           DTS:MaximumWidth="50"
           DTS:DataType="129"
           DTS:TextQualified="True"
-          DTS:ObjectName="Longitude"
-          DTS:DTSID="{E651A6B0-39CC-4406-AC5A-A7772B749434}"
-          DTS:CreationName="" />
-        <DTS:FlatFileColumn
-          DTS:ColumnType="Delimited"
-          DTS:ColumnDelimiter="_x002C_"
-          DTS:MaximumWidth="50"
-          DTS:DataType="129"
-          DTS:TextQualified="True"
-          DTS:ObjectName="Open Date"
-          DTS:DTSID="{71ABEE79-234E-479C-B76F-62D078850D72}"
-          DTS:CreationName="" />
-        <DTS:FlatFileColumn
-          DTS:ColumnType="Delimited"
-          DTS:ColumnDelimiter="_x002C_"
-          DTS:MaximumWidth="50"
-          DTS:DataType="129"
-          DTS:TextQualified="True"
-          DTS:ObjectName="Change of Owner   Takeover Date"
-          DTS:DTSID="{E63F1308-6E83-47C5-A29A-41820C9B2C1D}"
-          DTS:CreationName="" />
-        <DTS:FlatFileColumn
-          DTS:ColumnType="Delimited"
-          DTS:ColumnDelimiter="_x002C_"
-          DTS:MaximumWidth="50"
-          DTS:DataType="129"
-          DTS:TextQualified="True"
-          DTS:ObjectName="Franchisee   Dealer"
-          DTS:DTSID="{94094F06-D9D3-41D9-8028-00906D84DA4C}"
-          DTS:CreationName="" />
-        <DTS:FlatFileColumn
-          DTS:ColumnType="Delimited"
-          DTS:ColumnDelimiter="_x002C_"
-          DTS:MaximumWidth="50"
-          DTS:DataType="129"
-          DTS:TextQualified="True"
-          DTS:ObjectName="Location Type"
-          DTS:DTSID="{FF5165D8-A10A-4EFE-81E8-0FC92F3863BC}"
-          DTS:CreationName="" />
-        <DTS:FlatFileColumn
-          DTS:ColumnType="Delimited"
-          DTS:ColumnDelimiter="_x002C_"
-          DTS:MaximumWidth="50"
-          DTS:DataType="129"
-          DTS:TextQualified="True"
-          DTS:ObjectName="Issue Date"
-          DTS:DTSID="{9A8AEE02-C168-4FDD-991C-24A268E05192}"
-          DTS:CreationName="" />
-        <DTS:FlatFileColumn
-          DTS:ColumnType="Delimited"
-          DTS:ColumnDelimiter="_x000A_"
-          DTS:MaximumWidth="50"
-          DTS:DataType="129"
-          DTS:TextQualified="True"
-          DTS:ObjectName="Expiration Date"
-          DTS:DTSID="{CB800E5B-EB93-4139-A8AA-B9810EBDDD46}"
+          DTS:ObjectName="inactive"
+          DTS:DTSID="{6CFA6575-9BA8-418B-BDE3-906F52694955}"
           DTS:CreationName="" />
       </DTS:FlatFileColumns>
     </DTS:ConnectionManager>

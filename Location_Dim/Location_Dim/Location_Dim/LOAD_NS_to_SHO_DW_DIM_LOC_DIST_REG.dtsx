@@ -5,16 +5,29 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="LT-MPLASKOW"
   DTS:CreatorName="SHO\mplaskow"
-  DTS:DTSID="{BD81912B-D427-4D22-843F-D3EEF4B90345}"
+  DTS:DTSID="{C6C3EF1C-EE2B-42CE-B8A5-763E01D96991}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="14.0.3002.107"
   DTS:LocaleID="1033"
-  DTS:ObjectName="ETL_Load_Locations_Districts_Regions"
+  DTS:ObjectName="LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG"
   DTS:PackageType="5"
-  DTS:VersionBuild="362"
-  DTS:VersionGUID="{911349F7-5F83-4431-BD66-3D837E438611}">
+  DTS:VersionBuild="365"
+  DTS:VersionGUID="{5E61A3D1-BAA1-4ACB-8ABB-BBB76545F7A9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:Description="Data Source for Location Load"
+      DTS:DTSID="{5408E080-987C-4330-AD93-41EDE1E84542}"
+      DTS:ObjectName="LOCATION_DATA_SOURCE"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">N</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -187,7 +200,7 @@
                 <connection
                   refId="Package\Populate sho_dw_dim_district Table\District Errors Flat File.Connections[FlatFileConnection]"
                   connectionManagerID="{14CF3191-50B9-4734-AD1B-1C25312CB69F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[NS_DISTRICT_FLATFILE_ERRORS]"
+                  connectionManagerRefId="Project.ConnectionManagers[LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_REJECTS]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
@@ -1263,7 +1276,7 @@
                 <connection
                   refId="Package\Populate sho_dw_dim_location Table\Location Errors Flat File.Connections[FlatFileConnection]"
                   connectionManagerID="{1AFABF72-3F5D-4911-A892-0CB10BD3D49B}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[NS_LOCATION_FLATFILE_ERRORS]"
+                  connectionManagerRefId="Project.ConnectionManagers[LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_REJECTS]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
@@ -3466,7 +3479,7 @@
                 <connection
                   refId="Package\Populate sho_dw_dim_region Table\Region Errors Flat File.Connections[FlatFileConnection]"
                   connectionManagerID="{AFEF6898-DA4A-41A1-A374-59CFACCDBDED}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[NS_REGION_FLATFILE_ERRORS]"
+                  connectionManagerRefId="Project.ConnectionManagers[LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_REJECTS]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
@@ -4210,7 +4223,7 @@
                 <connection
                   refId="Package\Populate sho_staging_netsuite_district Table\Read Records from NetSuite Flat File Districts Source.Connections[FlatFileConnection]"
                   connectionManagerID="{046AA239-55DF-437C-89DB-6989FF2EA326}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[NS_DISTRICT_FLATFILE]"
+                  connectionManagerRefId="Project.ConnectionManagers[LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_DATA]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -5797,7 +5810,7 @@
                 <connection
                   refId="Package\Populate sho_staging_netsuite_location Table\Read Records from NetSuite Flat File Locations Source.Connections[FlatFileConnection]"
                   connectionManagerID="{2100EFF9-1FD3-492A-BD58-90F9C845076C}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[NS_LOCATION_FLATFILE]"
+                  connectionManagerRefId="Project.ConnectionManagers[LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_DATA]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -6964,7 +6977,7 @@
                 <connection
                   refId="Package\Populate sho_staging_netsuite_region Table\Read Records from NetSuite Flat File Regions Source.Connections[FlatFileConnection]"
                   connectionManagerID="{186D22C6-01E1-4C31-8DFF-395316270C26}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[NS_REGION_FLATFILE]"
+                  connectionManagerRefId="Project.ConnectionManagers[LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_DATA]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -7351,6 +7364,10 @@
           Id="Package\Populate sho_staging_netsuite_region Table"
           TopLeft="156.5,170.5" />
         <NodeLayout
+          Size="392,42"
+          Id="Package\Remove Invalid Records from sho_staging_netsuite_location Table"
+          TopLeft="134,303" />
+        <NodeLayout
           Size="425,42"
           Id="Package\Truncate and Populate Unknown and Undefined Locations, Regions, Districts in sho_dw"
           TopLeft="95,376" />
@@ -7362,6 +7379,40 @@
           Size="390,42"
           Id="Package\Update Surrogate Keys for Locations, Regions, Districts in sho_dw"
           TopLeft="108,636" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="317.5,273.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.5,29.5"
+              Start="0,0"
+              End="12.5,22">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.75"
+                    Point2="0,14.75"
+                    Point3="4,14.75" />
+                  <mssgle:LineSegment
+                    End="8.5,14.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.5,14.75"
+                    Point2="12.5,14.75"
+                    Point3="12.5,18.75" />
+                  <mssgle:LineSegment
+                    End="12.5,22" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="303,135.5">
@@ -7568,44 +7619,6 @@
                     Point3="11,18.25" />
                   <mssgle:LineSegment
                     End="11,21" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="392,42"
-          Id="Package\Remove Invalid Records from sho_staging_netsuite_location Table"
-          TopLeft="134,303" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="317.5,273.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="12.5,29.5"
-              Start="0,0"
-              End="12.5,22">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,10.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.75"
-                    Point2="0,14.75"
-                    Point3="4,14.75" />
-                  <mssgle:LineSegment
-                    End="8.5,14.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="8.5,14.75"
-                    Point2="12.5,14.75"
-                    Point3="12.5,18.75" />
-                  <mssgle:LineSegment
-                    End="12.5,22" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7831,69 +7844,25 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="313,42"
-          Id="Package\Populate sho_dw_dim_location Table\Set Boolean for inactive and Format String Values"
-          TopLeft="284,105" />
-        <NodeLayout
           Size="386,42"
           Id="Package\Populate sho_dw_dim_location Table\Perform Insert on sho_dw_dim_location Table for Valid Locations"
           TopLeft="248,263" />
+        <NodeLayout
+          Size="265,44"
+          Id="Package\Populate sho_dw_dim_location Table\Read from sho_staging_netsuite_location Table"
+          TopLeft="306,27" />
         <NodeLayout
           Size="190,42"
           Id="Package\Populate sho_dw_dim_location Table\Location Errors Flat File"
           TopLeft="682,200" />
         <NodeLayout
+          Size="313,42"
+          Id="Package\Populate sho_dw_dim_location Table\Set Boolean for inactive and Format String Values"
+          TopLeft="284,105" />
+        <NodeLayout
           Size="273,48"
           Id="Package\Populate sho_dw_dim_location Table\Convert Data Types for Location Columns"
           TopLeft="308,174" />
-        <NodeLayout
-          Size="265,44"
-          Id="Package\Populate sho_dw_dim_location Table\Read from sho_staging_netsuite_location Table"
-          TopLeft="306,27" />
-        <EdgeLayout
-          Id="Package\Populate sho_dw_dim_location Table.Paths[OLE DB Source Output]"
-          TopLeft="439.5,71">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34"
-              Start="0,0"
-              End="0,26.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Populate sho_dw_dim_location Table.Paths[Derived Column Output]"
-          TopLeft="442.5,147">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27"
-              Start="0,0"
-              End="0,19.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Populate sho_dw_dim_location Table.Paths[Data Conversion Output]"
           TopLeft="442.75,222">
@@ -7950,6 +7919,50 @@
             <mssgm:EdgeLabel
               BoundingBox="-15.58638671875,-17.43359375,132.1727734375,11.43359375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Populate sho_dw_dim_location Table.Paths[OLE DB Source Output]"
+          TopLeft="439.5,71">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Populate sho_dw_dim_location Table.Paths[Derived Column Output]"
+          TopLeft="442.5,147">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27"
+              Start="0,0"
+              End="0,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8135,7 +8148,7 @@
     design-time-name="Package\Populate sho_staging_netsuite_district Table">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="297,45"
           Id="Package\Populate sho_staging_netsuite_district Table\Read Records from NetSuite Flat File Districts Source"
@@ -8171,9 +8184,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8207,9 +8218,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8231,9 +8240,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8260,33 +8267,45 @@
         <NodeLayout
           Size="299,43"
           Id="Package\Populate sho_staging_netsuite_location Table\Perform Initial String Truncation for Insert"
-          TopLeft="257,120" />
+          TopLeft="244,185" />
         <NodeLayout
-          Size="297,45"
+          Size="335,42"
           Id="Package\Populate sho_staging_netsuite_location Table\Read Records from NetSuite Flat File Locations Source"
-          TopLeft="262,38" />
+          TopLeft="146,77" />
         <NodeLayout
           Size="304,42"
           Id="Package\Populate sho_staging_netsuite_location Table\Insert Into sho_staging_netsuite_location Table"
-          TopLeft="255,275" />
+          TopLeft="332,367" />
         <NodeLayout
           Size="307,53"
           Id="Package\Populate sho_staging_netsuite_location Table\Convert Unicode to ASCII Values"
-          TopLeft="262.5,195.5" />
+          TopLeft="309.5,260.5" />
         <EdgeLayout
           Id="Package\Populate sho_staging_netsuite_location Table.Paths[Flat File Source Output]"
-          TopLeft="408.5,83">
+          TopLeft="313.5,119">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,37"
+              EndConnector="80,66"
               Start="0,0"
-              End="0,29.5">
+              End="80,58.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.5" />
+                    End="0,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="4,33" />
+                  <mssgle:LineSegment
+                    End="76,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="76,33"
+                    Point2="80,33"
+                    Point3="80,37" />
+                  <mssgle:LineSegment
+                    End="80,58.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8297,13 +8316,13 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Populate sho_staging_netsuite_location Table.Paths[Derived Column Output]"
-          TopLeft="406.5,163">
+          TopLeft="393.5,228">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="9.5,32.5"
+              EndConnector="69.5,32.5"
               Start="0,0"
-              End="9.5,25">
+              End="69.5,25">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -8314,13 +8333,13 @@
                     Point2="0,16.25"
                     Point3="4,16.25" />
                   <mssgle:LineSegment
-                    End="5.5,16.25" />
+                    End="65.5,16.25" />
                   <mssgle:CubicBezierSegment
-                    Point1="5.5,16.25"
-                    Point2="9.5,16.25"
-                    Point3="9.5,20.25" />
+                    Point1="65.5,16.25"
+                    Point2="69.5,16.25"
+                    Point3="69.5,20.25" />
                   <mssgle:LineSegment
-                    End="9.5,25" />
+                    End="69.5,25" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8331,30 +8350,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Populate sho_staging_netsuite_location Table.Paths[Data Conversion Output]"
-          TopLeft="416,248.5">
+          TopLeft="463,313.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-9,26.5"
+              EndConnector="21,53.5"
               Start="0,0"
-              End="-9,19">
+              End="21,46">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,9.25" />
+                    End="0,22.75" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,9.25"
-                    Point2="0,13.25"
-                    Point3="-4,13.25" />
+                    Point1="0,22.75"
+                    Point2="0,26.75"
+                    Point3="4,26.75" />
                   <mssgle:LineSegment
-                    End="-5,13.25" />
+                    End="17,26.75" />
                   <mssgle:CubicBezierSegment
-                    Point1="-5,13.25"
-                    Point2="-9,13.25"
-                    Point3="-9,17.25" />
+                    Point1="17,26.75"
+                    Point2="21,26.75"
+                    Point3="21,30.75" />
                   <mssgle:LineSegment
-                    End="-9,19" />
+                    End="21,46" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

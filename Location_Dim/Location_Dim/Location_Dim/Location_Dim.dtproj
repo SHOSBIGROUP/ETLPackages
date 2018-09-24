@@ -26,21 +26,21 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">LT-MPLASKO</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1w42Lua59Ea9oJqFFqWa2gAAAAACAAAAAAADZgAAwAAAABAAAAA625DSruP3XlJlQkQ+qRWbAAAAAASAAACgAAAAEAAAACwbKRQ2GiE3q2pV4gX3DpyIAAAAO4tQdbtpLmtR/1RH7r8CwwIbYoi55iXefrFONJGpK1wzk2oARfZrWuNba/mxg7hZW7QWteDVtAqldu+0brKky6A542FLCMPwrd0AfZmRJt4zkuHSn7dDPlU0LO2Lrzd8ELFk55i3PY38uJUCRO6D8vsKyeV0sFEeoSfUaVLZjzncIoJn37DM9RQAAAC0vWn7V6vNz6zVHQGoVbMCMPby+g==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1w42Lua59Ea9oJqFFqWa2gAAAAACAAAAAAADZgAAwAAAABAAAAA9GTVlQpoMwW6Uuy+F3FBCAAAAAASAAACgAAAAEAAAAPsVWTFZbMz1XKqoYmEG0xOIAAAAdW9GAhgAU8tLU+uHO6c76uGVlLAK4aUkmE5dRZeVriZFRcTY4t3u0MNTnWITarXmrqulI9arOr2Re8BZPYcdfWgPxrjV5zl4sa+LJ/RVo/hNbNLCdpnpqRuctIuko4bBR4D+eEsPzzQUYuja0t/VA9p2TTpNk7V6DRhaX7eQ3DgvKPSN2FjCKRQAAACpLu9TE67fZittYEn2NrH0bXKvYA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
-          <SSIS:Package SSIS:Name="ETL_Load_Locations_Districts_Regions.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="SHO_STAGING_OLEDB.conmgr" />
           <SSIS:ConnectionManager SSIS:Name="SHO_DW_OLEDB.conmgr" />
-          <SSIS:ConnectionManager SSIS:Name="NS_DISTRICT_FLATFILE.conmgr" />
-          <SSIS:ConnectionManager SSIS:Name="NS_REGION_FLATFILE.conmgr" />
-          <SSIS:ConnectionManager SSIS:Name="NS_LOCATION_FLATFILE.conmgr" />
-          <SSIS:ConnectionManager SSIS:Name="NS_DISTRICT_FLATFILE_ERRORS.conmgr" />
-          <SSIS:ConnectionManager SSIS:Name="NS_REGION_FLATFILE_ERRORS.conmgr" />
-          <SSIS:ConnectionManager SSIS:Name="NS_LOCATION_FLATFILE_ERRORS.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_DATA.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_REJECTS.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_DATA.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_REJECTS.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_DATA.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_REJECTS.conmgr" />
         </SSIS:ConnectionManagers>
         <SSIS:DeploymentInfo>
           <SSIS:ProjectConnectionParameters>
@@ -192,7 +192,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE.AlwaysCheckForRowDelimiters">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_DATA.AlwaysCheckForRowDelimiters">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -207,7 +207,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE.CodePage">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_DATA.CodePage">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -222,7 +222,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE.ColumnNamesInFirstDataRow">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_DATA.ColumnNamesInFirstDataRow">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -237,7 +237,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE.DataRowsToSkip">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_DATA.DataRowsToSkip">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -252,7 +252,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE.Format">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_DATA.Format">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -267,7 +267,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE.HeaderRowDelimiter">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_DATA.HeaderRowDelimiter">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -283,7 +283,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE.HeaderRowsToSkip">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_DATA.HeaderRowsToSkip">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -298,7 +298,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE.LocaleID">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_DATA.LocaleID">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -313,7 +313,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE.RowDelimiter">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_DATA.RowDelimiter">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -324,10 +324,12 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">
+                </SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE.TextQualifier">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_DATA.TextQualifier">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -342,7 +344,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE.Unicode">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_DATA.Unicode">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -357,7 +359,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE.AlwaysCheckForRowDelimiters">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_REJECTS.AlwaysCheckForRowDelimiters">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -372,7 +374,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE.CodePage">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_REJECTS.CodePage">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -387,7 +389,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE.ColumnNamesInFirstDataRow">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_REJECTS.ColumnNamesInFirstDataRow">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -402,7 +404,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE.DataRowsToSkip">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_REJECTS.DataRowsToSkip">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -417,7 +419,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE.Format">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_REJECTS.Format">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -432,7 +434,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE.HeaderRowDelimiter">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_REJECTS.HeaderRowDelimiter">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -448,7 +450,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE.HeaderRowsToSkip">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_REJECTS.HeaderRowsToSkip">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -463,7 +465,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE.LocaleID">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_REJECTS.LocaleID">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -478,7 +480,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE.RowDelimiter">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_REJECTS.RowDelimiter">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -489,10 +491,12 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">
+                </SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE.TextQualifier">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_REJECTS.TextQualifier">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -507,7 +511,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE.Unicode">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_DIST_REJECTS.Unicode">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -522,7 +526,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE.AlwaysCheckForRowDelimiters">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_DATA.AlwaysCheckForRowDelimiters">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -537,7 +541,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE.CodePage">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_DATA.CodePage">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -552,7 +556,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE.ColumnNamesInFirstDataRow">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_DATA.ColumnNamesInFirstDataRow">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -567,7 +571,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE.DataRowsToSkip">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_DATA.DataRowsToSkip">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -582,7 +586,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE.Format">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_DATA.Format">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -597,7 +601,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE.HeaderRowDelimiter">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_DATA.HeaderRowDelimiter">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -612,7 +616,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE.HeaderRowsToSkip">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_DATA.HeaderRowsToSkip">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -627,7 +631,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE.LocaleID">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_DATA.LocaleID">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -642,7 +646,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE.RowDelimiter">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_DATA.RowDelimiter">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -653,10 +657,12 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">
+                </SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE.TextQualifier">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_DATA.TextQualifier">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -671,7 +677,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE.Unicode">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_DATA.Unicode">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -686,7 +692,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE_ERRORS.AlwaysCheckForRowDelimiters">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_REJECTS.AlwaysCheckForRowDelimiters">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -701,7 +707,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE_ERRORS.CodePage">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_REJECTS.CodePage">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -716,7 +722,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE_ERRORS.ColumnNamesInFirstDataRow">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_REJECTS.ColumnNamesInFirstDataRow">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -731,22 +737,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE_ERRORS.ConnectionString">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="CreationName">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">C:\Projects\VisualStudio\ETLPackages\DataFiles\District_Errors_Template.csv</SSIS:Property>
-                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-              </SSIS:Properties>
-            </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE_ERRORS.DataRowsToSkip">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_REJECTS.DataRowsToSkip">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -761,7 +752,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE_ERRORS.Format">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_REJECTS.Format">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -776,7 +767,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE_ERRORS.HeaderRowDelimiter">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_REJECTS.HeaderRowDelimiter">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -792,7 +783,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE_ERRORS.HeaderRowsToSkip">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_REJECTS.HeaderRowsToSkip">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -807,7 +798,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE_ERRORS.LocaleID">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_REJECTS.LocaleID">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -822,7 +813,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE_ERRORS.RowDelimiter">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_REJECTS.RowDelimiter">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -833,10 +824,12 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">
+                </SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE_ERRORS.TextQualifier">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_REJECTS.TextQualifier">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -851,7 +844,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_DISTRICT_FLATFILE_ERRORS.Unicode">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_REJECTS.Unicode">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -866,7 +859,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE_ERRORS.AlwaysCheckForRowDelimiters">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_DATA.AlwaysCheckForRowDelimiters">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -881,7 +874,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE_ERRORS.CodePage">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_DATA.CodePage">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -896,7 +889,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE_ERRORS.ColumnNamesInFirstDataRow">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_DATA.ColumnNamesInFirstDataRow">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -911,22 +904,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE_ERRORS.ConnectionString">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="CreationName">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">C:\Projects\VisualStudio\ETLPackages\DataFiles\Region_Errors_Template.csv</SSIS:Property>
-                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-              </SSIS:Properties>
-            </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE_ERRORS.DataRowsToSkip">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_DATA.DataRowsToSkip">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -941,7 +919,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE_ERRORS.Format">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_DATA.Format">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -956,7 +934,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE_ERRORS.HeaderRowDelimiter">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_DATA.HeaderRowDelimiter">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -972,7 +950,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE_ERRORS.HeaderRowsToSkip">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_DATA.HeaderRowsToSkip">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -987,7 +965,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE_ERRORS.LocaleID">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_DATA.LocaleID">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -1002,7 +980,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE_ERRORS.RowDelimiter">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_DATA.RowDelimiter">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -1013,10 +991,12 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">
+                </SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE_ERRORS.TextQualifier">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_DATA.TextQualifier">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -1031,7 +1011,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_REGION_FLATFILE_ERRORS.Unicode">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_DATA.Unicode">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -1046,7 +1026,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE_ERRORS.AlwaysCheckForRowDelimiters">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_REJECTS.AlwaysCheckForRowDelimiters">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -1061,7 +1041,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE_ERRORS.CodePage">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_REJECTS.CodePage">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -1076,7 +1056,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE_ERRORS.ColumnNamesInFirstDataRow">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_REJECTS.ColumnNamesInFirstDataRow">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -1091,22 +1071,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE_ERRORS.ConnectionString">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="CreationName">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">C:\Projects\VisualStudio\ETLPackages\DataFiles\Location_Errors_Template.csv</SSIS:Property>
-                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-              </SSIS:Properties>
-            </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE_ERRORS.DataRowsToSkip">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_REJECTS.DataRowsToSkip">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -1121,7 +1086,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE_ERRORS.Format">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_REJECTS.Format">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -1136,7 +1101,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE_ERRORS.HeaderRowDelimiter">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_REJECTS.HeaderRowDelimiter">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -1152,7 +1117,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE_ERRORS.HeaderRowsToSkip">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_REJECTS.HeaderRowsToSkip">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -1167,7 +1132,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE_ERRORS.LocaleID">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_REJECTS.LocaleID">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -1182,7 +1147,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE_ERRORS.RowDelimiter">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_REJECTS.RowDelimiter">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -1193,10 +1158,12 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">
+                </SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE_ERRORS.TextQualifier">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_REJECTS.TextQualifier">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -1211,7 +1178,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.NS_LOCATION_FLATFILE_ERRORS.Unicode">
+            <SSIS:Parameter SSIS:Name="CM.LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_REG_REJECTS.Unicode">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -1228,22 +1195,36 @@
             </SSIS:Parameter>
           </SSIS:ProjectConnectionParameters>
           <SSIS:PackageInfo>
-            <SSIS:PackageMetaData SSIS:Name="ETL_Load_Locations_Districts_Regions.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{BD81912B-D427-4D22-843F-D3EEF4B90345}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">ETL_Load_Locations_Districts_Regions</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{C6C3EF1C-EE2B-42CE-B8A5-763E01D96991}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">358</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">365</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{75708569-9F5B-47D5-BC02-51AC2A1123AE}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{5E61A3D1-BAA1-4ACB-8ABB-BBB76545F7A9}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
-              <SSIS:Parameters />
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="LOCATION_DATA_SOURCE">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{5408E080-987C-4330-AD93-41EDE1E84542}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">Data Source for Location Load</SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">N</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
             </SSIS:PackageMetaData>
           </SSIS:PackageInfo>
         </SSIS:DeploymentInfo>
