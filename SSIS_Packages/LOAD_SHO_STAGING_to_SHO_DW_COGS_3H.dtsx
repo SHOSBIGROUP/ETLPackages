@@ -1,0 +1,983 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/24/2018 5:12:44 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LT-MPLASKO"
+  DTS:CreatorName="SHO\mplaskow"
+  DTS:DTSID="{BCDFF5DA-86AE-4224-978B-B7D293CDEC4B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LOAD_SHO_STAGING_to_SHO_DW_COGS_3H"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{E23CC55C-D1F0-4C8F-9F59-DD7594F30AA0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Populate COGS in sho_dw Sales Facts"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{38FD94CF-08CA-46B4-8350-5D36693C9D1B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Populate COGS in sho_dw Sales Facts"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Convert COGS, Week and Year Titles"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Inputs[Data Conversion Input].Columns[fmt_week_title]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="fmt_week_title"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Outputs[Derived Column Output].Columns[fmt_week_title]" />
+                    <inputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Inputs[Data Conversion Input].Columns[fmt_year_title]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="fmt_year_title"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Outputs[Derived Column Output].Columns[fmt_year_title]" />
+                    <inputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Inputs[Data Conversion Input].Columns[cogs_amt]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="cogs_amt"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].Columns[cogs_amt]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Outputs[Data Conversion Output].Columns[cnv_week_title]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Outputs[Data Conversion Output].Columns[cnv_week_title]"
+                      name="cnv_week_title"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Outputs[Derived Column Output].Columns[fmt_week_title]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Outputs[Data Conversion Output].Columns[cnv_year_title]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Outputs[Data Conversion Output].Columns[cnv_year_title]"
+                      name="cnv_year_title"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Outputs[Derived Column Output].Columns[fmt_year_title]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Outputs[Data Conversion Output].Columns[cnv_cogs_amt]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Outputs[Data Conversion Output].Columns[cnv_cogs_amt]"
+                      name="cnv_cogs_amt"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].Columns[cogs_amt]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Populate COGS in sho_dw Sales Facts\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Populate COGS in sho_dw Sales Facts\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Data Conversion.Inputs[Data Conversion Input].Columns[fmt_year_title]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="fmt_year_title"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Outputs[Derived Column Output].Columns[fmt_year_title]" />
+                    <inputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Data Conversion.Inputs[Data Conversion Input].Columns[fmt_week_title]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="fmt_week_title"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Outputs[Derived Column Output].Columns[fmt_week_title]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Populate COGS in sho_dw Sales Facts\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Populate COGS in sho_dw Sales Facts\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Data Conversion.Outputs[Data Conversion Output].Columns[fmt_year_title]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Data Conversion.Outputs[Data Conversion Output].Columns[fmt_year_title]"
+                      name="fmt_year_title"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Outputs[Derived Column Output].Columns[fmt_year_title]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Data Conversion.Outputs[Data Conversion Output].Columns[fmt_week_title]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="2"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Data Conversion.Outputs[Data Conversion Output].Columns[fmt_week_title]"
+                      name="fmt_week_title"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Outputs[Derived Column Output].Columns[fmt_week_title]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Populate COGS in sho_dw Sales Facts\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Populate COGS in sho_dw Sales Facts\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Format Week and Year Titles"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Inputs[Derived Column Input].Columns[year_title]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="year_title"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].Columns[year_title]" />
+                    <inputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Inputs[Derived Column Input].Columns[week_title]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="week_title"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].Columns[week_title]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Outputs[Derived Column Output].Columns[fmt_week_title]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="2"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Outputs[Derived Column Output].Columns[fmt_week_title]"
+                      name="fmt_week_title"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT]([REPLACE]("WEEK",[UPPER](#{Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].Columns[week_title]}),""),2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(REPLACE("WEEK",UPPER(week_title),""),2)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Outputs[Derived Column Output].Columns[fmt_year_title]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Outputs[Derived Column Output].Columns[fmt_year_title]"
+                      name="fmt_year_title"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].Columns[year_title]},4)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(year_title,4)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[finance].[week_loc_div_3h_cogs_stg]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Connections[OleDbConnection]"
+                  connectionManagerID="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_STAGING]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].Columns[year_title]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].ExternalColumns[year_title]"
+                      length="12"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].Columns[year_title]"
+                      name="year_title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].Columns[loc_title]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].ExternalColumns[loc_title]"
+                      length="25"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].Columns[loc_title]"
+                      name="loc_title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].Columns[week_title]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].ExternalColumns[week_title]"
+                      length="6"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].Columns[week_title]"
+                      name="week_title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].Columns[essbase_pull_title]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].ExternalColumns[essbase_pull_title]"
+                      length="50"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].Columns[essbase_pull_title]"
+                      name="essbase_pull_title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].Columns[div_title]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].ExternalColumns[div_title]"
+                      length="50"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].Columns[div_title]"
+                      name="div_title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].Columns[cogs_amt]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].ExternalColumns[cogs_amt]"
+                      length="8"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].Columns[cogs_amt]"
+                      name="cogs_amt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].Columns[rec_load_dt]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].ExternalColumns[rec_load_dt]"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].Columns[rec_load_dt]"
+                      name="rec_load_dt"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].ExternalColumns[year_title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="year_title" />
+                    <externalMetadataColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].ExternalColumns[loc_title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="loc_title" />
+                    <externalMetadataColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].ExternalColumns[week_title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="week_title" />
+                    <externalMetadataColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].ExternalColumns[essbase_pull_title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="essbase_pull_title" />
+                    <externalMetadataColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].ExternalColumns[div_title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="div_title" />
+                    <externalMetadataColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].ExternalColumns[cogs_amt]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="cogs_amt" />
+                    <externalMetadataColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output].ExternalColumns[rec_load_dt]"
+                      dataType="dbTimeStamp"
+                      name="rec_load_dt" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Error Output].Columns[year_title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Error Output].Columns[year_title]"
+                      name="year_title" />
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Error Output].Columns[loc_title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Error Output].Columns[loc_title]"
+                      name="loc_title" />
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Error Output].Columns[week_title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Error Output].Columns[week_title]"
+                      name="week_title" />
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Error Output].Columns[essbase_pull_title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Error Output].Columns[essbase_pull_title]"
+                      name="essbase_pull_title" />
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Error Output].Columns[div_title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Error Output].Columns[div_title]"
+                      name="div_title" />
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Error Output].Columns[cogs_amt]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Error Output].Columns[cogs_amt]"
+                      name="cogs_amt" />
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Error Output].Columns[rec_load_dt]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Error Output].Columns[rec_load_dt]"
+                      name="rec_load_dt" />
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update fact.sho_sales Set gross_profit = ? 
+Where trs_dt_sk_id in 
+(Select calendar_dt_sk_id from dim.calendar where fiscal_year_nbr = ? and fiscal_week_nbr = ?)</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command.Inputs[OLE DB Command Input].Columns[cnv_cogs_amt]"
+                      cachedDataType="r4"
+                      cachedName="cnv_cogs_amt"
+                      externalMetadataColumnId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Outputs[Data Conversion Output].Columns[cnv_cogs_amt]" />
+                    <inputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command.Inputs[OLE DB Command Input].Columns[cnv_year_title]"
+                      cachedDataType="i4"
+                      cachedName="cnv_year_title"
+                      externalMetadataColumnId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Outputs[Data Conversion Output].Columns[cnv_year_title]" />
+                    <inputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command.Inputs[OLE DB Command Input].Columns[cnv_week_title]"
+                      cachedDataType="i4"
+                      cachedName="cnv_week_title"
+                      externalMetadataColumnId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Outputs[Data Conversion Output].Columns[cnv_week_title]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="numeric"
+                      name="Param_0"
+                      precision="11"
+                      scale="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Populate COGS in sho_dw Sales Facts.Paths[Data Conversion Output]"
+              endId="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Data Conversion Output"
+              startId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Populate COGS in sho_dw Sales Facts.Paths[Data Conversion Output1]"
+              endId="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles.Inputs[Data Conversion Input]"
+              name="Data Conversion Output"
+              startId="Package\Populate COGS in sho_dw Sales Facts\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Populate COGS in sho_dw Sales Facts.Paths[Derived Column Output]"
+              endId="Package\Populate COGS in sho_dw Sales Facts\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Populate COGS in sho_dw Sales Facts.Paths[OLE DB Source Output]"
+              endId="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="257,42"
+          Id="Package\Populate COGS in sho_dw Sales Facts"
+          TopLeft="129,32" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Populate COGS in sho_dw Sales Facts">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="419,42"
+          Id="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table"
+          TopLeft="127,47" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Populate COGS in sho_dw Sales Facts\Format Week and Year Titles"
+          TopLeft="180,116" />
+        <EdgeLayout
+          Id="Package\Populate COGS in sho_dw Sales Facts.Paths[OLE DB Source Output]"
+          TopLeft="336.5,89">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-48.5,27"
+              Start="0,0"
+              End="-48.5,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.5"
+                    Point2="0,13.5"
+                    Point3="-4,13.5" />
+                  <mssgle:LineSegment
+                    End="-44.5,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-44.5,13.5"
+                    Point2="-48.5,13.5"
+                    Point3="-48.5,17.5" />
+                  <mssgle:LineSegment
+                    End="-48.5,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="252,42"
+          Id="Package\Populate COGS in sho_dw Sales Facts\Convert COGS, Week and Year Titles"
+          TopLeft="156,241" />
+        <NodeLayout
+          Size="238,50"
+          Id="Package\Populate COGS in sho_dw Sales Facts\OLE DB Command"
+          TopLeft="162,304" />
+        <EdgeLayout
+          Id="Package\Populate COGS in sho_dw Sales Facts.Paths[Data Conversion Output]"
+          TopLeft="408,262">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8,67"
+              Start="0,0"
+              End="-0.5,67">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,4" />
+                  <mssgle:LineSegment
+                    End="22.5,63" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,63"
+                    Point2="22.5,67"
+                    Point3="18.5,67" />
+                  <mssgle:LineSegment
+                    End="-0.5,67" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Populate COGS in sho_dw Sales Facts\Data Conversion"
+          TopLeft="189,174" />
+        <EdgeLayout
+          Id="Package\Populate COGS in sho_dw Sales Facts.Paths[Derived Column Output]"
+          TopLeft="288,158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="57,37"
+              Start="0,0"
+              End="49.5,37">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33"
+                    Point2="0,37"
+                    Point3="4,37" />
+                  <mssgle:LineSegment
+                    End="49.5,37" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Populate COGS in sho_dw Sales Facts.Paths[Data Conversion Output1]"
+          TopLeft="267,216">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15,25"
+              Start="0,0"
+              End="15,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.5"
+                    Point2="0,12.5"
+                    Point3="4,12.5" />
+                  <mssgle:LineSegment
+                    End="11,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11,12.5"
+                    Point2="15,12.5"
+                    Point3="15,16.5" />
+                  <mssgle:LineSegment
+                    End="15,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Populate COGS in sho_dw Sales Facts\Load COGS from sho_staging_finance_week_loc_div_3h_cogs_stg Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

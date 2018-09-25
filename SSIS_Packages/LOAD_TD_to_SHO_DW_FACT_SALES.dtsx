@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-PBEJN2M"
   DTS:CreatorName="DESKTOP-PBEJN2M\BusinessIntel"
-  DTS:DTSID="{6F874BB3-A645-4721-B4B0-C3986D234FF4}"
+  DTS:DTSID="{88D2DED3-822B-46B2-8404-D07230FB21D1}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="14.0.3002.107"
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_TD_to_SHO_DW_FACT_SALES"
   DTS:PackageType="5"
-  DTS:VersionBuild="118"
-  DTS:VersionGUID="{4A734AD4-DAA8-404A-96FA-37B95B9B87FF}">
+  DTS:VersionBuild="121"
+  DTS:VersionGUID="{F780BA5A-BE6F-4A23-AD16-50CAB0115541}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -21,7 +21,7 @@
       DTS:refId="Package\Merge Teradata Raw into fact sho sales"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{7FFAC44A-E02E-4122-9427-65C53ACBCB26}"
+      DTS:DTSID="{54BE6E5A-8719-46B0-A3A0-705454AC2785}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Merge Teradata Raw into fact sho sales"
@@ -149,7 +149,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      length="47"
+                      length="48"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\add lu Category Division reject reason.Outputs[Derived Column Output].Columns[reject_reason]"
                       name="reject_reason"
                       truncationRowDisposition="FailComponent">
@@ -158,13 +158,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">"Unable to find DIV in dim.category_division" + (DT_WSTR,4)#{Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[DIV_NO]}</property>
+                          name="Expression">"Unable to find DIV " + (DT_WSTR,4)#{Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[DIV_NO]} + " in dim.category_division"</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">"Unable to find DIV in dim.category_division" + (DT_WSTR,4)DIV_NO</property>
+                          name="FriendlyExpression">"Unable to find DIV " + (DT_WSTR,4)DIV_NO + " in dim.category_division"</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -234,10 +234,11 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\add manufactured cols.Outputs[Derived Column Output].Columns[pos_source_system]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      length="1"
+                      length="3"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\add manufactured cols.Outputs[Derived Column Output].Columns[pos_source_system]"
                       name="pos_source_system"
                       truncationRowDisposition="FailComponent">
@@ -246,13 +247,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">"T"</property>
+                          name="Expression">(DT_STR,3,1252)"T"</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">"T"</property>
+                          name="FriendlyExpression">(DT_STR,3,1252)"T"</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -314,13 +315,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_STR,3,1252)[SUBSTRING]([LEFT](((DT_WSTR,3)#{Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[DIV_NO]}),3),1,3)</property>
+                          name="Expression">(DT_STR,3,1252)[RIGHT]([REPLICATE]("0",3) + (DT_WSTR,3)#{Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[DIV_NO]},3)</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(DT_STR,3,1252)SUBSTRING(LEFT(((DT_WSTR,3)DIV_NO),3),1,3)</property>
+                          name="FriendlyExpression">(DT_STR,3,1252)RIGHT(REPLICATE("0",3) + (DT_WSTR,3)DIV_NO,3)</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -857,8 +858,9 @@
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[diehard_net_units]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Inputs[Data Conversion Input].Columns[pos_source_system]"
-                      cachedDataType="wstr"
-                      cachedLength="1"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
                       cachedName="pos_source_system"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\add manufactured cols.Outputs[Derived Column Output].Columns[pos_source_system]" />
                     <inputColumn
@@ -1529,7 +1531,7 @@
                 <connection
                   refId="Package\Merge Teradata Raw into fact sho sales\divcat reject file.Connections[FlatFileConnection]"
                   connectionManagerID="{F9C3A371-7689-493E-A03A-6D45DA491DF5}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LOAD_TD_to_SHO_DW_FACT_SALES_REJECTS_DIV_LOOKUP_DIV]"
+                  connectionManagerRefId="Project.ConnectionManagers[LOAD_TD_to_SHO_DW_FACT_SALES_REJECTS_DIV LOOKUP_DIV]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
@@ -1663,8 +1665,9 @@
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[diehard_net_units]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\divcat reject file.Inputs[Flat File Destination Input].Columns[pos_source_system]"
-                      cachedDataType="wstr"
-                      cachedLength="1"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
                       cachedName="pos_source_system"
                       externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales\divcat reject file.Inputs[Flat File Destination Input].ExternalColumns[pos_source_system]"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\add manufactured cols.Outputs[Derived Column Output].Columns[pos_source_system]" />
@@ -1677,7 +1680,7 @@
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\divcat reject file.Inputs[Flat File Destination Input].Columns[reject_reason]"
                       cachedDataType="wstr"
-                      cachedLength="47"
+                      cachedLength="48"
                       cachedName="reject_reason"
                       externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales\divcat reject file.Inputs[Flat File Destination Input].ExternalColumns[reject_reason]"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\add lu Category Division reject reason.Outputs[Derived Column Output].Columns[reject_reason]" />
@@ -1832,8 +1835,8 @@
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">--Join in all raw tables to feed into ssis to load fact
 SELECT
 	net.TRS_DT,
-	net.LOC_NO,
-	net.DIV_NO,
+	net.LOC_NO as  LOC_NO,
+	net.DIV_NO as  DIV_NO,
 	net.netsales as net_sales,
 	net.netunits as net_units,
 	coalesce(pa.NetSales,0) as pa_sales,
@@ -2881,7 +2884,7 @@ FROM teradata.td_sales_dly_sales net
                 <connection
                   refId="Package\Merge Teradata Raw into fact sho sales\Location Reject File.Connections[FlatFileConnection]"
                   connectionManagerID="{2152F3CD-846B-4BDA-AEA7-7F3F85DB47C2}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LOAD_TD_to_SHO_DW_FACT_SALES_REJECTS_LOC_LOOKUP_DIV]"
+                  connectionManagerRefId="Project.ConnectionManagers[LOAD_TD_to_SHO_DW_FACT_SALES_REJECTS_LOC LOOKUP_DIV]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
@@ -2990,8 +2993,9 @@ FROM teradata.td_sales_dly_sales net
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[diehard_net_sale]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Location Reject File.Inputs[Flat File Destination Input].Columns[pos_source_system]"
-                      cachedDataType="wstr"
-                      cachedLength="1"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
                       cachedName="pos_source_system"
                       externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales\Location Reject File.Inputs[Flat File Destination Input].ExternalColumns[pos_source_system]"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\add manufactured cols.Outputs[Derived Column Output].Columns[pos_source_system]" />
@@ -3169,7 +3173,7 @@ where [refTable].[div_nbr] = ?</property>
                   dataType="System.Int32"
                   description="Specifies the cache type of the lookup table."
                   name="CacheType"
-                  typeConverter="CacheType">1</property>
+                  typeConverter="CacheType">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
@@ -3344,7 +3348,7 @@ where [refTable].[pos_nbr] = ?</property>
                   dataType="System.Int32"
                   description="Specifies the cache type of the lookup table."
                   name="CacheType"
-                  typeConverter="CacheType">1</property>
+                  typeConverter="CacheType">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
@@ -6235,19 +6239,19 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
               startId="Package\Merge Teradata Raw into fact sho sales\add lu Category Division reject reason.Outputs[Derived Column Output]" />
             <path
               refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output1]"
+              endId="Package\Merge Teradata Raw into fact sho sales\lu Category Division sk id.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output2]"
               endId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Inputs[Data Conversion Input]"
               name="Lookup Match Output"
               startId="Package\Merge Teradata Raw into fact sho sales\lu Category Division sk id.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output2]"
+              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output]"
               endId="Package\Merge Teradata Raw into fact sho sales\Filter to only changed rows.Inputs[Conditional Split Input]"
               name="Lookup Match Output"
               startId="Package\Merge Teradata Raw into fact sho sales\Route inserts and updates.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output]"
-              endId="Package\Merge Teradata Raw into fact sho sales\lu Category Division sk id.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup No Match Output]"
               endId="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input]"
@@ -6301,7 +6305,7 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
       DTS:refId="Package\Merge Teradata Raw into fact sho sales by loc"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{8A30C6BA-0BC7-4329-903A-5E151C873147}"
+      DTS:DTSID="{A2FDACD8-2EF5-4FF1-835E-1FC63C054100}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Merge Teradata Raw into fact sho sales by loc"
@@ -8426,6 +8430,12 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                       refId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[location_sk_id]"
                       dataType="i4"
                       name="location_sk_id" />
+                    <externalMetadataColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[gross_profit]"
+                      dataType="numeric"
+                      name="gross_profit"
+                      precision="11"
+                      scale="2" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -8738,7 +8748,7 @@ where [refTable].[pos_nbr] = ?</property>
                   dataType="System.Int32"
                   description="Specifies the cache type of the lookup table."
                   name="CacheType"
-                  typeConverter="CacheType">1</property>
+                  typeConverter="CacheType">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
@@ -9821,7 +9831,7 @@ where [refTable].[pos_nbr] = ?</property>
                 <connection
                   refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Connections[FlatFileConnection]"
                   connectionManagerID="{811E1E6D-45EC-45E9-B008-162E98163F19}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LOAD_TD_to_SHO_DW_FACT_SALES_REJECTS_LOC_LOOKUP_LOC]"
+                  connectionManagerRefId="Project.ConnectionManagers[LOAD_TD_to_SHO_DW_FACT_SALES_REJECTS_LOC LOOKUP_LOC]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
@@ -9910,42 +9920,6 @@ where [refTable].[pos_nbr] = ?</property>
                       cachedName="lease_units"
                       externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[lease_units]"
                       lineageId="Package\Merge Teradata Raw into fact sho sales by loc\merge join brand sales.Outputs[Merge Join Output].Columns[lease_units]" />
-                    <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].Columns[spp_sales]"
-                      cachedDataType="r8"
-                      cachedName="spp_sales"
-                      externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[spp_sales]"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\merge join brand sales.Outputs[Merge Join Output].Columns[spp_sales]" />
-                    <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].Columns[spp_merch_sales]"
-                      cachedDataType="r8"
-                      cachedName="spp_merch_sales"
-                      externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[spp_merch_sales]"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\merge join brand sales.Outputs[Merge Join Output].Columns[spp_merch_sales]" />
-                    <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].Columns[bulk_sales]"
-                      cachedDataType="r8"
-                      cachedName="bulk_sales"
-                      externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[bulk_sales]"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\merge join brand sales.Outputs[Merge Join Output].Columns[bulk_sales]" />
-                    <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].Columns[bulk_units]"
-                      cachedDataType="i4"
-                      cachedName="bulk_units"
-                      externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[bulk_units]"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\merge join brand sales.Outputs[Merge Join Output].Columns[bulk_units]" />
-                    <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].Columns[sears_credit_sales]"
-                      cachedDataType="r8"
-                      cachedName="sears_credit_sales"
-                      externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[sears_credit_sales]"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\merge join brand sales.Outputs[Merge Join Output].Columns[sears_credit_sales]" />
-                    <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].Columns[other_credit_sales]"
-                      cachedDataType="r8"
-                      cachedName="other_credit_sales"
-                      externalMetadataColumnId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[other_credit_sales]"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales by loc\merge join brand sales.Outputs[Merge Join Output].Columns[other_credit_sales]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].Columns[kenmore_net_sale]"
                       cachedDataType="r8"
@@ -10059,30 +10033,6 @@ where [refTable].[pos_nbr] = ?</property>
                       dataType="i4"
                       name="lease_units" />
                     <externalMetadataColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[spp_sales]"
-                      dataType="r8"
-                      name="spp_sales" />
-                    <externalMetadataColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[spp_merch_sales]"
-                      dataType="r8"
-                      name="spp_merch_sales" />
-                    <externalMetadataColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[bulk_sales]"
-                      dataType="r8"
-                      name="bulk_sales" />
-                    <externalMetadataColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[bulk_units]"
-                      dataType="i4"
-                      name="bulk_units" />
-                    <externalMetadataColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[sears_credit_sales]"
-                      dataType="r8"
-                      name="sears_credit_sales" />
-                    <externalMetadataColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[other_credit_sales]"
-                      dataType="r8"
-                      name="other_credit_sales" />
-                    <externalMetadataColumn
                       refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[kenmore_net_sale]"
                       dataType="r8"
                       name="kenmore_net_sale" />
@@ -10121,6 +10071,30 @@ where [refTable].[pos_nbr] = ?</property>
                       refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[diehard_net_units]"
                       dataType="i8"
                       name="diehard_net_units" />
+                    <externalMetadataColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[spp_sales]"
+                      dataType="r8"
+                      name="spp_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[spp_merch_sales]"
+                      dataType="r8"
+                      name="spp_merch_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[bulk_sales]"
+                      dataType="r8"
+                      name="bulk_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[bulk_units]"
+                      dataType="i4"
+                      name="bulk_units" />
+                    <externalMetadataColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[sears_credit_sales]"
+                      dataType="r8"
+                      name="sears_credit_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Reject File.Inputs[Flat File Destination Input].ExternalColumns[other_credit_sales]"
+                      dataType="r8"
+                      name="other_credit_sales" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -13178,177 +13152,85 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="200,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\sort brand sales"
-          TopLeft="100,142" />
-        <NodeLayout
-          Size="199,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\td_sales_dly_brand_attr raw"
-          TopLeft="100,303" />
+          Size="254,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact"
+          TopLeft="661,515" />
         <NodeLayout
           Size="177,42"
           Id="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format"
           TopLeft="364,283" />
         <NodeLayout
-          Size="181,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\convert nulls for brands to zero"
-          TopLeft="358,160" />
-        <NodeLayout
           Size="200,42"
           Id="Package\Merge Teradata Raw into fact sho sales\Location Reject File"
           TopLeft="692,330" />
-        <NodeLayout
-          Size="258,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\add lu Category Division reject reason"
-          TopLeft="684,387" />
-        <NodeLayout
-          Size="198,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\rollup to brand name"
-          TopLeft="101,193" />
-        <NodeLayout
-          Size="207,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup"
-          TopLeft="346,106" />
-        <NodeLayout
-          Size="220,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\divcat reject file"
-          TopLeft="703,442" />
-        <NodeLayout
-          Size="254,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact"
-          TopLeft="661,515" />
-        <NodeLayout
-          Size="207,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\Filter to only changed rows"
-          TopLeft="351,600" />
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\Data Conversion"
-          TopLeft="376.5,451.5" />
         <NodeLayout
           Size="207,42"
           Id="Package\Merge Teradata Raw into fact sho sales\sort division sales"
           TopLeft="90,69" />
         <NodeLayout
+          Size="181,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\convert nulls for brands to zero"
+          TopLeft="358,160" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup"
+          TopLeft="345,106" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\Filter to only changed rows"
+          TopLeft="351,600" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\divcat reject file"
+          TopLeft="741,453" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\rollup to brand name"
+          TopLeft="101,193" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\td_sales_dly_brand_attr raw"
+          TopLeft="100,303" />
+        <NodeLayout
           Size="186,42"
           Id="Package\Merge Teradata Raw into fact sho sales\add manufactured cols"
           TopLeft="356,216" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\Data Conversion"
+          TopLeft="376.5,451.5" />
         <NodeLayout
           Size="202,42"
           Id="Package\Merge Teradata Raw into fact sho sales\Route inserts and updates"
           TopLeft="357,517" />
         <NodeLayout
-          Size="235,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\Update day-loc-sales rows in fact"
-          TopLeft="336,677" />
-        <NodeLayout
           Size="198,42"
           Id="Package\Merge Teradata Raw into fact sho sales\lu Category Division sk id"
-          TopLeft="356,380" />
+          TopLeft="357,380" />
         <NodeLayout
-          Size="213,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\add location lu reject reason"
-          TopLeft="683,280" />
+          Size="200,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\sort brand sales"
+          TopLeft="100,142" />
+        <NodeLayout
+          Size="219,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\divisional sales data from raw"
+          TopLeft="87,15" />
         <NodeLayout
           Size="201,42"
           Id="Package\Merge Teradata Raw into fact sho sales\compute brand name"
           TopLeft="99,246" />
         <NodeLayout
-          Size="219,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\divisional sales data from raw"
-          TopLeft="87,15" />
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Sort Output1]"
-          TopLeft="297,90">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="49,31.3333333333333"
-              Start="0,0"
-              End="41.5,31.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="24.3211009174312,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="24.3211009174312,0"
-                    Point2="28.3211009174312,0"
-                    Point3="28.3211009174312,4" />
-                  <mssgle:LineSegment
-                    End="28.3211009174312,27.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="28.3211009174312,27.3333333333333"
-                    Point2="28.3211009174312,31.3333333333333"
-                    Point3="32.3211009174312,31.3333333333333" />
-                  <mssgle:LineSegment
-                    End="41.5,31.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Sort Output]"
-          TopLeft="300,163">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="46,-30.3333333333333"
-              Start="0,0"
-              End="38.5,-30.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="22.5871559633027,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.5871559633027,0"
-                    Point2="26.5871559633027,0"
-                    Point3="26.5871559633027,-4" />
-                  <mssgle:LineSegment
-                    End="26.5871559633027,-26.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="26.5871559633027,-26.3333333333333"
-                    Point2="26.5871559633027,-30.3333333333333"
-                    Point3="30.5871559633027,-30.3333333333333" />
-                  <mssgle:LineSegment
-                    End="38.5,-30.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[rows_to_update]"
-          TopLeft="454,642">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,35"
-              Start="0,0"
-              End="0,27.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-36.08296875,7.9453125,72.1659375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="235,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\Update day-loc-sales rows in fact"
+          TopLeft="336,677" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\add location lu reject reason"
+          TopLeft="683,280" />
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\add lu Category Division reject reason"
+          TopLeft="684,387" />
         <EdgeLayout
           Id="Package\Merge Teradata Raw into fact sho sales.Paths[OLE DB Source Output1]"
           TopLeft="306,36">
@@ -13380,7 +13262,9 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-12.3294140625,-17.2431640625,69.658828125,11.2431640625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13414,64 +13298,68 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-58.3001171875,1,69.600234375,11.2431640625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Merge Teradata Raw into fact sho sales.Paths[Merge Join Output]"
-          TopLeft="553,127">
+          TopLeft="345,135.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="-14,54"
+              EndConnector="13,39.8333333333333"
               Start="0,0"
-              End="-6.5,54">
+              End="5.5,39.8333333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="18.5,0" />
+                    End="-18.5,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="18.5,0"
-                    Point2="22.5,0"
-                    Point3="22.5,4" />
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
                   <mssgle:LineSegment
-                    End="22.5,50" />
+                    End="-22.5,35.8333333333333" />
                   <mssgle:CubicBezierSegment
-                    Point1="22.5,50"
-                    Point2="22.5,54"
-                    Point3="18.5,54" />
+                    Point1="-22.5,35.8333333333333"
+                    Point2="-22.5,39.8333333333333"
+                    Point3="-18.5,39.8333333333333" />
                   <mssgle:LineSegment
-                    End="-6.5,54" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup No Match Output2]"
-          TopLeft="554,401.666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="130,0"
-              Start="0,0"
-              End="122.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="122.5,0" />
+                    End="5.5,39.8333333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="5.44361328125,5,111.6127734375,11.609375"
+              BoundingBox="-57.3294140625,-17.2431640625,69.658828125,11.2431640625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup No Match Output2]"
+          TopLeft="555,401.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="129,0"
+              Start="0,0"
+              End="121.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="121.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="4.94361328125,5,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -13507,7 +13395,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0.921656214162894,1,111.6127734375,11.609375"
+              BoundingBox="-3.32334378583711,1,170.7934765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -13531,37 +13419,13 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-38.14673828125,5,111.6127734375,11.609375"
+              BoundingBox="-47.85173828125,5,190.2034765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output1]"
-          TopLeft="454.75,422">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,29.5"
-              Start="0,0"
-              End="0,22">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-80.51173828125,5.1953125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output]"
-          TopLeft="453.75,325">
+          TopLeft="454.25,325">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
@@ -13579,12 +13443,12 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-80.51173828125,17.9453125,96.3827734375,11.609375"
+              BoundingBox="-87.48673828125,17.9453125,174.9734765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output2]"
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output]"
           TopLeft="456.25,559">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -13608,31 +13472,43 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Derived Column Output4]"
-          TopLeft="684,413.666666666667">
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output2]"
+          TopLeft="455.25,422">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="19,49.3333333333333"
+              EndConnector="0,29.5"
               Start="0,0"
-              End="11.5,49.3333333333333">
+              End="0,22">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
+                    End="0,22" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-87.48673828125,5.1953125,174.9734765625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Derived Column Output4]"
+          TopLeft="815.5,429">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,24"
+              Start="0,0"
+              End="0,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-22.5,45.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,45.3333333333333"
-                    Point2="-22.5,49.3333333333333"
-                    Point3="-18.5,49.3333333333333" />
-                  <mssgle:LineSegment
-                    End="11.5,49.3333333333333" />
+                    End="0,16.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13672,7 +13548,9 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-47.68056640625,-17.2431640625,50.3611328125,11.2431640625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13694,7 +13572,9 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-34.8294140625,3.12841796875,69.658828125,11.2431640625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13728,7 +13608,9 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-59.3294140625,-17.2431640625,69.658828125,11.2431640625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13762,7 +13644,9 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-57.3001171875,1,69.600234375,11.2431640625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13784,7 +13668,9 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-34.8294140625,2.37841796875,69.658828125,11.2431640625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13818,7 +13704,105 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-58.3001171875,1,69.600234375,11.228515625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Sort Output1]"
+          TopLeft="297,95.6666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="48,22.8333333333333"
+              Start="0,0"
+              End="40.5,22.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="22.4431137724551,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.4431137724551,0"
+                    Point2="26.4431137724551,0"
+                    Point3="26.4431137724551,4" />
+                  <mssgle:LineSegment
+                    End="26.4431137724551,18.8333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.4431137724551,18.8333333333333"
+                    Point2="26.4431137724551,22.8333333333333"
+                    Point3="30.4431137724551,22.8333333333333" />
+                  <mssgle:LineSegment
+                    End="40.5,22.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8.38630029004491,-17.2431640625,69.658828125,11.2431640625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Sort Output]"
+          TopLeft="300,163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="45,-36"
+              Start="0,0"
+              End="37.5,-36">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,-4" />
+                  <mssgle:LineSegment
+                    End="22.5,-32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,-32"
+                    Point2="22.5,-36"
+                    Point3="26.5,-36" />
+                  <mssgle:LineSegment
+                    End="37.5,-36" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-12.3001171875,1,69.600234375,11.228515625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[rows_to_update]"
+          TopLeft="454,642">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-36.08296875,7.9453125,72.1659375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13928,10 +13912,6 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="205,42"
-          Id="Package\Merge Teradata Raw into fact sho sales by loc\rollup to brand name"
-          TopLeft="74,376" />
-        <NodeLayout
           Size="172,42"
           Id="Package\Merge Teradata Raw into fact sho sales by loc\lu sho location sk id"
           TopLeft="558,356" />
@@ -13948,41 +13928,29 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           Id="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact"
           TopLeft="865,532" />
         <NodeLayout
-          Size="210,42"
-          Id="Package\Merge Teradata Raw into fact sho sales by loc\sort rolled up div sales data"
-          TopLeft="72,86" />
-        <NodeLayout
           Size="209,42"
           Id="Package\Merge Teradata Raw into fact sho sales by loc\compute brand name"
           TopLeft="72,323" />
         <NodeLayout
-          Size="210,42"
-          Id="Package\Merge Teradata Raw into fact sho sales by loc\td_sales_dly_brand_attr raw"
-          TopLeft="70,267" />
-        <NodeLayout
-          Size="235,42"
-          Id="Package\Merge Teradata Raw into fact sho sales by loc\Update day-loc-sales rows in fact"
-          TopLeft="530,693" />
+          Size="205,42"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc\rollup to brand name"
+          TopLeft="74,376" />
         <NodeLayout
           Size="220,42"
           Id="Package\Merge Teradata Raw into fact sho sales by loc\merge join brand sales"
           TopLeft="313,210" />
         <NodeLayout
-          Size="205,42"
-          Id="Package\Merge Teradata Raw into fact sho sales by loc\sort location sales data"
-          TopLeft="75,148" />
-        <NodeLayout
-          Size="209,42"
-          Id="Package\Merge Teradata Raw into fact sho sales by loc\rolled up divisional sales data from raw"
-          TopLeft="72,30" />
+          Size="210,42"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc\td_sales_dly_brand_attr raw"
+          TopLeft="70,267" />
         <NodeLayout
           Size="170,42"
           Id="Package\Merge Teradata Raw into fact sho sales by loc\convert nulls for brands to zero"
           TopLeft="568,210" />
         <NodeLayout
           Size="205,42"
-          Id="Package\Merge Teradata Raw into fact sho sales by loc\Route Inserts and Updates"
-          TopLeft="538,531" />
+          Id="Package\Merge Teradata Raw into fact sho sales by loc\sort location sales data"
+          TopLeft="75,148" />
         <NodeLayout
           Size="186,42"
           Id="Package\Merge Teradata Raw into fact sho sales by loc\add manufactured cols"
@@ -13996,17 +13964,183 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           Id="Package\Merge Teradata Raw into fact sho sales by loc\Filter to only changed rows"
           TopLeft="542,605" />
         <NodeLayout
-          Size="128,42"
-          Id="Package\Merge Teradata Raw into fact sho sales by loc\Reject File"
-          TopLeft="921,434" />
+          Size="235,42"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc\Update day-loc-sales rows in fact"
+          TopLeft="530,693" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc\Route Inserts and Updates"
+          TopLeft="538,531" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc\rolled up divisional sales data from raw"
+          TopLeft="72,30" />
         <NodeLayout
           Size="203,42"
           Id="Package\Merge Teradata Raw into fact sho sales by loc\sort brand sales"
           TopLeft="77,429" />
         <NodeLayout
+          Size="128,42"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc\Reject File"
+          TopLeft="921,434" />
+        <NodeLayout
           Size="213,42"
           Id="Package\Merge Teradata Raw into fact sho sales by loc\add location lu reject reason"
           TopLeft="877,361" />
+        <NodeLayout
+          Size="210,42"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc\sort rolled up div sales data"
+          TopLeft="72,86" />
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[OLE DB Source Output]"
+          TopLeft="74,228">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="1,-59"
+              Start="0,0"
+              End="-6.5,-59">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,-4" />
+                  <mssgle:LineSegment
+                    End="-22.5,-55" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,-55"
+                    Point2="-22.5,-59"
+                    Point3="-18.5,-59" />
+                  <mssgle:LineSegment
+                    End="-6.5,-59" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Merge Join Output1]"
+          TopLeft="533,231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="35,0"
+              Start="0,0"
+              End="27.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Merge Join Output]"
+          TopLeft="422.5,158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output1]"
+          TopLeft="730,379.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="147,0"
+              Start="0,0"
+              End="139.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="139.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="13.94361328125,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output]"
+          TopLeft="743,552.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="122,0"
+              Start="0,0"
+              End="114.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="114.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="1.44361328125,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup Match Output1]"
+          TopLeft="643,573">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,6.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup Match Output]"
           TopLeft="643,398">
@@ -14222,40 +14356,6 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output]"
-          TopLeft="282,107">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="27,24.3333333333333"
-              Start="0,0"
-              End="19.5,24.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="11.605504587156,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="11.605504587156,0"
-                    Point2="15.605504587156,0"
-                    Point3="15.605504587156,4" />
-                  <mssgle:LineSegment
-                    End="15.605504587156,20.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="15.605504587156,20.3333333333333"
-                    Point2="15.605504587156,24.3333333333333"
-                    Point3="19.605504587156,24.3333333333333" />
-                  <mssgle:LineSegment
-                    End="19.5,24.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output1]"
           TopLeft="280,169">
           <EdgeLayout.Curve>
@@ -14281,6 +14381,40 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                     Point3="20.7614678899083,-26.3333333333333" />
                   <mssgle:LineSegment
                     End="21.5,-26.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output]"
+          TopLeft="282,107">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="27,24.3333333333333"
+              Start="0,0"
+              End="19.5,24.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="11.605504587156,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.605504587156,0"
+                    Point2="15.605504587156,0"
+                    Point3="15.605504587156,4" />
+                  <mssgle:LineSegment
+                    End="15.605504587156,20.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.605504587156,20.3333333333333"
+                    Point2="15.605504587156,24.3333333333333"
+                    Point3="19.605504587156,24.3333333333333" />
+                  <mssgle:LineSegment
+                    End="19.5,24.3333333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14381,156 +14515,6 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[OLE DB Source Output]"
-          TopLeft="74,228">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="1,-59"
-              Start="0,0"
-              End="-6.5,-59">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,-4" />
-                  <mssgle:LineSegment
-                    End="-22.5,-55" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,-55"
-                    Point2="-22.5,-59"
-                    Point3="-18.5,-59" />
-                  <mssgle:LineSegment
-                    End="-6.5,-59" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Merge Join Output1]"
-          TopLeft="533,231">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="35,0"
-              Start="0,0"
-              End="27.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="27.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Merge Join Output]"
-          TopLeft="422.5,158">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,52"
-              Start="0,0"
-              End="0,44.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output]"
-          TopLeft="743,552.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="122,0"
-              Start="0,0"
-              End="114.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="114.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="1.44361328125,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output1]"
-          TopLeft="730,379.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="147,0"
-              Start="0,0"
-              End="139.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="139.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="13.94361328125,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup Match Output1]"
-          TopLeft="643,573">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,32"
-              Start="0,0"
-              End="0,24.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,6.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -14592,19 +14576,6 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Merge Teradata Raw into fact sho sales by loc\rolled up divisional sales data from raw">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Merge Teradata Raw into fact sho sales by loc\Route Inserts and Updates">
     <Properties>
       <Property>
@@ -14624,6 +14595,19 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Merge Teradata Raw into fact sho sales by loc\rolled up divisional sales data from raw">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
