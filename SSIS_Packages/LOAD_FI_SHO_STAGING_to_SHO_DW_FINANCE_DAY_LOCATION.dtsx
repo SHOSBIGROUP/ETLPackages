@@ -11,433 +11,243 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_FI_SHO_STAGING_to_SHO_DW_FINANCE_DAY_LOCATION"
   DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{5FF0AF98-E951-492A-884D-65592C896DA4}">
+  DTS:VersionBuild="118"
+  DTS:VersionGUID="{3E88E2C3-E568-41E4-975A-30712BA60243}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[mssql_sho_dw]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{614E143B-F424-4B5A-BC34-B85366161108}"
-      DTS:ObjectName="mssql_sho_dw">
-      <DTS:PropertyExpression
-        DTS:Name="ServerName">@[$Package::mssql_servername]</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=AZSQL01.ads.shos.com;User ID=mssql_etl;Initial Catalog=sho_dw;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[mssql_sho_staging]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{285D36F9-9B72-4F5D-894C-B9902F56CBB0}"
-      DTS:ObjectName="mssql_sho_staging">
-      <DTS:PropertyExpression
-        DTS:Name="ServerName">@[$Package::mssql_servername]</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=AZSQL01.ads.shos.com;User ID=mssql_etl;Initial Catalog=sho_staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Reject File - div lookup failure]"
+      DTS:refId="Package.ConnectionManagers[LOAD_FI_SHO_STAGING_to_SHO_DW_FINANCE_DAY_LOCATION_REJECTS_CAT_DIV]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{F86114E4-E955-4646-84D2-63189D4DF65B}"
-      DTS:ObjectName="Reject File - div lookup failure">
+      DTS:DTSID="{a56e9e9d-1fd6-4f59-a85d-c50cb5143c2d}"
+      DTS:ObjectName="LOAD_FI_SHO_STAGING_to_SHO_DW_FINANCE_DAY_LOCATION_REJECTS_CAT_DIV">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::LOAD_FI_SHO_STAGING_to_SHO_DW_FINANCE_DAY_LOCATION_REJECTFOLDER] + "\\Reject_Category_Division_" + (DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) + RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
           DTS:LocaleID="1033"
           DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\quicktemp\development\sho datamart\etl\sales fact\rejects\fact_sho_plan_by_div_format_div_rejects.txt">
+          DTS:ConnectionString="X:\ssis_rejects\finance\Reject_Category_Division_20180928.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="10"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="div_cd"
-              DTS:DTSID="{148B565E-09A3-41B9-81E1-8177A18CF2CE}"
+              DTS:ObjectName="div_nbr"
+              DTS:DTSID="{1CB8F213-D5E5-4E56-8624-C548A5371C36}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="10"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="store_format"
-              DTS:DTSID="{75EC0B71-8690-4615-AABB-533ACC43A688}"
+              DTS:ObjectName="location_format"
+              DTS:DTSID="{E598601E-33DE-4FA0-A614-7878126CD1FD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="25"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="forecast_amt"
-              DTS:DTSID="{A8E20DAD-D098-4043-9807-29649E06A844}"
+              DTS:DTSID="{77C33F3F-2670-478C-A5FB-41083E822DAA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="25"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="plan_amt"
-              DTS:DTSID="{C73F4FBD-4061-49A1-8959-8E27A549344E}"
+              DTS:DTSID="{4D23C995-863D-4498-8B39-CA1B42A212B1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="10"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="plan_dt"
-              DTS:DTSID="{A48544FE-8797-4E22-961C-4654E14583A0}"
+              DTS:DTSID="{CD21E415-26E1-4E41-B880-02EDEE7EA82B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="8"
-              DTS:DataType="130"
-              DTS:TextQualified="True"
-              DTS:ObjectName="plan_dt_sk_id"
-              DTS:DTSID="{7533A850-5171-48D0-96D7-15415ACE3644}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="4"
-              DTS:DataType="130"
-              DTS:TextQualified="True"
-              DTS:ObjectName="div_nbr"
-              DTS:DTSID="{3E8128B8-3D1D-45B7-BFE7-5C8884C6BC75}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="casted div_nbr"
-              DTS:DTSID="{0E8B3E67-5C02-4338-B8E3-DCD3EA4DB0D6}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="10"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="casted store_format"
-              DTS:DTSID="{3F83EA3E-9864-4C27-A1D7-3C33006B5572}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="14"
-              DTS:TextQualified="True"
-              DTS:ObjectName="casted forecast_amt"
-              DTS:DTSID="{B837EF13-0304-4581-BA93-3DDAB7FE3118}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="14"
-              DTS:TextQualified="True"
-              DTS:ObjectName="casted plan_amt"
-              DTS:DTSID="{0BB218C3-F027-4D7D-8B8D-EBDFED262C6D}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="7"
-              DTS:TextQualified="True"
-              DTS:ObjectName="casted plan_dt"
-              DTS:DTSID="{2A9AA201-029E-47EF-ADE8-D61343922D4F}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="casted plan_dt_sk_id"
-              DTS:DTSID="{8A487EF3-0A48-40B1-B04F-490DBF022762}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="location_format_sk_id"
-              DTS:DTSID="{C171564E-9FF3-43E5-BF72-CF41BEC78D91}"
+              DTS:ObjectName="plan_dt_sk_id"
+              DTS:DTSID="{67B16790-32EA-4004-9B0F-33235BF15D86}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="42"
-              DTS:DataType="130"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="reject_reason"
-              DTS:DTSID="{547DF9A3-C88C-431E-80F7-657E8167D6B1}"
+              DTS:DTSID="{3EDB5DE1-3015-4396-B05D-8572E97CB386}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Reject File - Location Format LU]"
+      DTS:refId="Package.ConnectionManagers[LOAD_FI_SHO_STAGING_to_SHO_DW_FINANCE_DAY_LOCATION_REJECTS_LOCATION_FORMAT]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{3C266256-4410-46E8-B293-DB427109D7DE}"
-      DTS:ObjectName="Reject File - Location Format LU">
+      DTS:DTSID="{4a1fa800-2543-4470-a4e9-8187ec26adc1}"
+      DTS:ObjectName="LOAD_FI_SHO_STAGING_to_SHO_DW_FINANCE_DAY_LOCATION_REJECTS_LOCATION_FORMAT">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::LOAD_FI_SHO_STAGING_to_SHO_DW_FINANCE_DAY_LOCATION_REJECTFOLDER] + "\\Reject_Location_Format_" + (DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) + RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
           DTS:LocaleID="1033"
           DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\quicktemp\development\sho datamart\etl\sales fact\rejects\fact_sho_plan_forecast_by_format_rejects.txt">
+          DTS:ConnectionString="X:\ssis_rejects\finance\Reject_Location_Format_20180928.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="10"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="div_cd"
-              DTS:DTSID="{1054F111-0979-4540-8C25-58890202449C}"
+              DTS:ObjectName="div_nbr"
+              DTS:DTSID="{B1B9708D-36E0-4574-AD2B-AF6FFC8B44AB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="10"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="store_format"
-              DTS:DTSID="{97A0A8E3-7F51-4246-BBDA-E2B99345056B}"
+              DTS:ObjectName="location_format"
+              DTS:DTSID="{0D77F93F-8BD0-4698-8B65-E59442763760}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="25"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="forecast_amt"
-              DTS:DTSID="{908FB2D7-A82F-44D3-B712-01B08663D790}"
+              DTS:DTSID="{4CDBA826-C17B-4D46-90EF-92D01D649772}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="25"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="plan_amt"
-              DTS:DTSID="{23103C0F-6E40-4F84-B13F-A78B8E80AE53}"
+              DTS:DTSID="{5C5048D4-826D-434E-93A1-6B581265AC51}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="10"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="plan_dt"
-              DTS:DTSID="{5D5D8074-5687-4EE3-8A8B-3DED52F519F5}"
+              DTS:DTSID="{D666AF95-9551-45C1-B178-5371B5ADFA3E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="8"
-              DTS:DataType="130"
-              DTS:TextQualified="True"
-              DTS:ObjectName="plan_dt_sk_id"
-              DTS:DTSID="{272B72DF-8028-459C-B5A4-D69B1EE99E41}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="4"
-              DTS:DataType="130"
-              DTS:TextQualified="True"
-              DTS:ObjectName="div_nbr"
-              DTS:DTSID="{36200CBF-F357-45CB-B9A1-24C372D2DFC1}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="casted div_nbr"
-              DTS:DTSID="{D17DC6FA-11A5-4A00-974D-1E385BB4ECC6}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="10"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="casted store_format"
-              DTS:DTSID="{8A3988A6-40E9-424D-85F7-00DB18C8CCD3}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="14"
-              DTS:TextQualified="True"
-              DTS:ObjectName="casted forecast_amt"
-              DTS:DTSID="{C048E090-83CC-44D5-A05F-D417A0BE5BF0}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="14"
-              DTS:TextQualified="True"
-              DTS:ObjectName="casted plan_amt"
-              DTS:DTSID="{54A90FA9-9DF3-4469-987F-986CEF6CC3D8}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="7"
-              DTS:TextQualified="True"
-              DTS:ObjectName="casted plan_dt"
-              DTS:DTSID="{21C9E30B-49A5-4901-AD8F-AC21DEDC048E}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="casted plan_dt_sk_id"
-              DTS:DTSID="{CAD7930C-7BC5-4E06-9268-47FB004BC653}"
+              DTS:ObjectName="plan_dt_sk_id"
+              DTS:DTSID="{F0CA1F70-B9E3-461D-916C-D1D1CFC6DACF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="42"
-              DTS:DataType="130"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="reject_reason"
-              DTS:DTSID="{7633E1C3-E35F-4621-AE10-7A644AD0D0AD}"
+              DTS:DTSID="{FD742C83-3F9B-4D29-96F6-7090263FA3E1}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Reject File Connection - lu loc sk id]"
+      DTS:refId="Package.ConnectionManagers[LOAD_FI_SHO_STAGING_to_SHO_DW_FINANCE_DAY_LOCATION_REJECTS_LOCATION_SK_ID]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{2E75D65F-8D8D-4B75-BE0F-101A50C6FBBC}"
-      DTS:ObjectName="Reject File Connection - lu loc sk id">
+      DTS:DTSID="{FAAE8A8B-9E59-4B3F-9D3B-AD028833E3F7}"
+      DTS:ObjectName="LOAD_FI_SHO_STAGING_to_SHO_DW_FINANCE_DAY_LOCATION_REJECTS_LOCATION_SK_ID">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::LOAD_FI_SHO_STAGING_to_SHO_DW_FINANCE_DAY_LOCATION_REJECTFOLDER] + "\\Reject_Location_SK_ID_" + (DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) + RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
           DTS:LocaleID="1033"
           DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\quicktemp\development\sho datamart\etl\sales fact\rejects\fact_sho_plan_by_loc_rejects.txt">
+          DTS:ConnectionString="X:\ssis_rejects\finance\Reject_Location_SK_ID_20180928.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="10"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="pos_nbr"
-              DTS:DTSID="{19F6A5E4-52B2-4EFD-804D-8DD35525B4AF}"
+              DTS:DTSID="{590A1E44-C382-4CA2-8D54-8C4CC95231CE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="10"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="plan_dt"
-              DTS:DTSID="{3A893BCC-CCC1-4BD3-B2B0-389255ECA899}"
+              DTS:DTSID="{2F1FDB69-D2FF-4AAA-94E8-893CDE0E06D4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="25"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="sales_plan"
-              DTS:DTSID="{C4E381FD-AFC3-4DED-8C23-3A0382716628}"
+              DTS:DTSID="{3460F60B-C3BF-40B1-9AC8-578CDC89CF7D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="25"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="gp_plan"
-              DTS:DTSID="{3F7534C0-2C52-4F0D-9397-6E8E5D3AD4D2}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="8"
-              DTS:DataType="130"
-              DTS:TextQualified="True"
-              DTS:ObjectName="plan_dt_sk_id"
-              DTS:DTSID="{0330F39E-E848-4472-899B-6121A788B4BF}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="casted pos_nbr"
-              DTS:DTSID="{2049E7D9-D8BC-4949-85AF-E8987566ED49}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="7"
-              DTS:TextQualified="True"
-              DTS:ObjectName="casted plan_dt"
-              DTS:DTSID="{AB61A819-B656-4EFC-875E-000DBC0B685F}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="14"
-              DTS:DataScale="2"
-              DTS:TextQualified="True"
-              DTS:ObjectName="casted sales_plan"
-              DTS:DTSID="{25130C33-3794-4C18-A773-8E8F40860C5F}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="14"
-              DTS:DataScale="2"
-              DTS:TextQualified="True"
-              DTS:ObjectName="casted gp_plan"
-              DTS:DTSID="{53D225D4-718D-482C-B56B-A8BBCC22F97D}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="casted plan_dt_sk_id"
-              DTS:DTSID="{8E1A896D-568A-4F69-A094-C4F961BF1CCD}"
+              DTS:DTSID="{E0C03239-5DA9-4E24-A941-420FF0C58C62}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="38"
-              DTS:DataType="130"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="reject_reason"
-              DTS:DTSID="{774CC089-3F29-454F-AA0E-B36807883745}"
+              DTS:DTSID="{134C08D5-1B86-427A-82C0-51EE0BE7B57B}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -448,22 +258,11 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{2B7BEDBE-E3F4-4B2F-B598-5C1CBC73892E}"
-      DTS:ObjectName="mssql_servername"
-      DTS:Required="True">
+      DTS:DTSID="{4F8B9525-1746-44A8-97D8-A2364E583C4B}"
+      DTS:ObjectName="LOAD_FI_SHO_STAGING_to_SHO_DW_FINANCE_DAY_LOCATION_REJECTFOLDER">
       <DTS:Property
         DTS:DataType="8"
-        DTS:Name="ParameterValue">AZSQL01.ads.shos.com</DTS:Property>
-    </DTS:PackageParameter>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="8"
-      DTS:DTSID="{74E1747E-2B04-40AC-A078-144DC1B8E06A}"
-      DTS:ObjectName="reject_file_dir"
-      DTS:Required="True">
-      <DTS:Property
-        DTS:DataType="8"
-        DTS:Name="ParameterValue">C:\quicktemp\development\sho datamart\etl\sales fact\rejects</DTS:Property>
+        DTS:Name="ParameterValue">X:\ssis_rejects\finance</DTS:Property>
     </DTS:PackageParameter>
   </DTS:PackageParameters>
   <DTS:Variables />
@@ -504,13 +303,12 @@
                       cachedSortKeyPosition="2"
                       lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[plan_dt]" />
                     <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols.Inputs[Derived Column Input].Columns[div_cd]"
+                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols.Inputs[Derived Column Input].Columns[div_desc]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="div_cd"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[div_cd]" />
+                      cachedLength="50"
+                      cachedName="div_desc"
+                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[div_desc]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -547,26 +345,26 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols.Outputs[Derived Column Output].Columns[div_nbr]"
+                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols.Outputs[Derived Column Output].Columns[fmt_div_nbr]"
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      length="4"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols.Outputs[Derived Column Output].Columns[div_nbr]"
-                      name="div_nbr"
+                      length="3"
+                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols.Outputs[Derived Column Output].Columns[fmt_div_nbr]"
+                      name="fmt_div_nbr"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[SUBSTRING](#{Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[div_cd]},4,4)</property>
+                          name="Expression">[RIGHT]("000" + [TRIM]([REPLACE]([SUBSTRING](#{Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[div_desc]},[FINDSTRING](#{Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[div_desc]},"(",1) + 1,4),")","")),3)</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">SUBSTRING(div_cd,4,4)</property>
+                          name="FriendlyExpression">RIGHT("000" + TRIM(REPLACE(SUBSTRING(div_desc,FINDSTRING(div_desc,"(",1) + 1,4),")","")),3)</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -645,11 +443,11 @@
                       cachedName="plan_dt_sk_id"
                       lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols.Outputs[Derived Column Output].Columns[plan_dt_sk_id]" />
                     <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Inputs[Data Conversion Input].Columns[div_nbr]"
+                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Inputs[Data Conversion Input].Columns[fmt_div_nbr]"
                       cachedDataType="wstr"
-                      cachedLength="4"
-                      cachedName="div_nbr"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols.Outputs[Derived Column Output].Columns[div_nbr]" />
+                      cachedLength="3"
+                      cachedName="fmt_div_nbr"
+                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols.Outputs[Derived Column Output].Columns[fmt_div_nbr]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -663,9 +461,11 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted div_nbr]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
+                      length="3"
                       lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted div_nbr]"
                       name="casted div_nbr"
                       truncationRowDisposition="FailComponent">
@@ -674,7 +474,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols.Outputs[Derived Column Output].Columns[div_nbr]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols.Outputs[Derived Column Output].Columns[fmt_div_nbr]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -831,8 +631,8 @@
               <connections>
                 <connection
                   refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Reject File - div lookup failure]"
-                  connectionManagerRefId="Package.ConnectionManagers[Reject File - div lookup failure]"
+                  connectionManagerID="Package.ConnectionManagers[LOAD_FI_SHO_STAGING_to_SHO_DW_FINANCE_DAY_LOCATION_REJECTS_CAT_DIV]"
+                  connectionManagerRefId="Package.ConnectionManagers[LOAD_FI_SHO_STAGING_to_SHO_DW_FINANCE_DAY_LOCATION_REJECTS_CAT_DIV]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
@@ -841,23 +641,6 @@
                   hasSideEffects="true"
                   name="Flat File Destination Input">
                   <inputColumns>
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].Columns[div_cd]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="div_cd"
-                      cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[div_cd]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[div_cd]" />
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].Columns[store_format]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="store_format"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[store_format]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[store_format]" />
                     <inputColumn
                       refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].Columns[forecast_amt]"
                       cachedCodepage="1252"
@@ -891,56 +674,12 @@
                       externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[plan_dt_sk_id]"
                       lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols.Outputs[Derived Column Output].Columns[plan_dt_sk_id]" />
                     <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].Columns[div_nbr]"
+                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].Columns[fmt_div_nbr]"
                       cachedDataType="wstr"
-                      cachedLength="4"
-                      cachedName="div_nbr"
+                      cachedLength="3"
+                      cachedName="fmt_div_nbr"
                       externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[div_nbr]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols.Outputs[Derived Column Output].Columns[div_nbr]" />
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].Columns[casted div_nbr]"
-                      cachedDataType="i4"
-                      cachedName="casted div_nbr"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted div_nbr]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted div_nbr]" />
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].Columns[casted store_format]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="casted store_format"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted store_format]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted store_format]" />
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].Columns[casted forecast_amt]"
-                      cachedDataType="decimal"
-                      cachedName="casted forecast_amt"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted forecast_amt]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted forecast_amt]" />
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].Columns[casted plan_amt]"
-                      cachedDataType="decimal"
-                      cachedName="casted plan_amt"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted plan_amt]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted plan_amt]" />
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].Columns[casted plan_dt]"
-                      cachedDataType="date"
-                      cachedName="casted plan_dt"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted plan_dt]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted plan_dt]" />
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].Columns[casted plan_dt_sk_id]"
-                      cachedDataType="i4"
-                      cachedName="casted plan_dt_sk_id"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted plan_dt_sk_id]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted plan_dt_sk_id]" />
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].Columns[location_format_sk_id]"
-                      cachedDataType="i4"
-                      cachedName="location_format_sk_id"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[location_format_sk_id]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\LU Location Format SK ID.Outputs[Lookup Match Output].Columns[location_format_sk_id]" />
+                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols.Outputs[Derived Column Output].Columns[fmt_div_nbr]" />
                     <inputColumn
                       refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].Columns[reject_reason]"
                       cachedDataType="wstr"
@@ -948,84 +687,59 @@
                       cachedName="reject_reason"
                       externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[reject_reason]"
                       lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Generate Reject Reason LU Division.Outputs[Derived Column Output].Columns[reject_reason]" />
+                    <inputColumn
+                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].Columns[casted store_format]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="casted store_format"
+                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[location_format]"
+                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted store_format]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[div_cd]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      name="div_cd" />
-                    <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[store_format]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      name="store_format" />
-                    <externalMetadataColumn
                       refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[forecast_amt]"
                       codePage="1252"
                       dataType="str"
-                      length="25"
+                      length="50"
                       name="forecast_amt" />
                     <externalMetadataColumn
                       refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[plan_amt]"
                       codePage="1252"
                       dataType="str"
-                      length="25"
+                      length="50"
                       name="plan_amt" />
                     <externalMetadataColumn
                       refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[plan_dt]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
+                      length="50"
                       name="plan_dt" />
                     <externalMetadataColumn
                       refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[plan_dt_sk_id]"
-                      dataType="wstr"
-                      length="8"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
                       name="plan_dt_sk_id" />
                     <externalMetadataColumn
                       refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[div_nbr]"
-                      dataType="wstr"
-                      length="4"
-                      name="div_nbr" />
-                    <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted div_nbr]"
-                      dataType="i4"
-                      name="casted div_nbr" />
-                    <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted store_format]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
-                      name="casted store_format" />
-                    <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted forecast_amt]"
-                      dataType="decimal"
-                      name="casted forecast_amt" />
-                    <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted plan_amt]"
-                      dataType="decimal"
-                      name="casted plan_amt" />
-                    <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted plan_dt]"
-                      dataType="date"
-                      name="casted plan_dt" />
-                    <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted plan_dt_sk_id]"
-                      dataType="i4"
-                      name="casted plan_dt_sk_id" />
-                    <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[location_format_sk_id]"
-                      dataType="i4"
-                      name="location_format_sk_id" />
+                      length="50"
+                      name="div_nbr" />
                     <externalMetadataColumn
                       refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[reject_reason]"
-                      dataType="wstr"
-                      length="42"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
                       name="reject_reason" />
+                    <externalMetadataColumn
+                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input].ExternalColumns[location_format]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="location_format" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1363,8 +1077,8 @@
               <connections>
                 <connection
                   refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Insert New Rows in Fact.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[mssql_sho_dw]"
-                  connectionManagerRefId="Package.ConnectionManagers[mssql_sho_dw]"
+                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1404,7 +1118,9 @@
                       lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[store_format]" />
                     <inputColumn
                       refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Insert New Rows in Fact.Inputs[OLE DB Destination Input].Columns[casted div_nbr]"
-                      cachedDataType="i4"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
                       cachedName="casted div_nbr"
                       externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Insert New Rows in Fact.Inputs[OLE DB Destination Input].ExternalColumns[div_nbr]"
                       lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted div_nbr]" />
@@ -1528,8 +1244,8 @@
               <connections>
                 <connection
                   refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Reject File - Location Format LU]"
-                  connectionManagerRefId="Package.ConnectionManagers[Reject File - Location Format LU]"
+                  connectionManagerID="Package.ConnectionManagers[LOAD_FI_SHO_STAGING_to_SHO_DW_FINANCE_DAY_LOCATION_REJECTS_LOCATION_FORMAT]"
+                  connectionManagerRefId="Package.ConnectionManagers[LOAD_FI_SHO_STAGING_to_SHO_DW_FINANCE_DAY_LOCATION_REJECTS_LOCATION_FORMAT]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
@@ -1539,66 +1255,43 @@
                   name="Flat File Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].Columns[div_cd]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="div_cd"
-                      cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[div_cd]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[div_cd]" />
+                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].Columns[reject_reason]"
+                      cachedDataType="wstr"
+                      cachedLength="42"
+                      cachedName="reject_reason"
+                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[reject_reason]"
+                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Generate Reject Reason LU Location Format.Outputs[Derived Column Output].Columns[reject_reason]" />
                     <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].Columns[store_format]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="store_format"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[store_format]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[store_format]" />
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].Columns[forecast_amt]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="25"
-                      cachedName="forecast_amt"
+                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].Columns[casted forecast_amt]"
+                      cachedDataType="decimal"
+                      cachedName="casted forecast_amt"
                       externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[forecast_amt]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[forecast_amt]" />
+                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted forecast_amt]" />
                     <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].Columns[plan_amt]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="25"
-                      cachedName="plan_amt"
+                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].Columns[casted plan_amt]"
+                      cachedDataType="decimal"
+                      cachedName="casted plan_amt"
                       externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[plan_amt]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[plan_amt]" />
+                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted plan_amt]" />
                     <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].Columns[plan_dt]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="plan_dt"
-                      cachedSortKeyPosition="2"
+                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].Columns[casted plan_dt]"
+                      cachedDataType="date"
+                      cachedName="casted plan_dt"
                       externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[plan_dt]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[plan_dt]" />
+                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted plan_dt]" />
                     <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].Columns[plan_dt_sk_id]"
-                      cachedDataType="wstr"
-                      cachedLength="8"
-                      cachedName="plan_dt_sk_id"
+                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].Columns[casted plan_dt_sk_id]"
+                      cachedDataType="i4"
+                      cachedName="casted plan_dt_sk_id"
                       externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[plan_dt_sk_id]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols.Outputs[Derived Column Output].Columns[plan_dt_sk_id]" />
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].Columns[div_nbr]"
-                      cachedDataType="wstr"
-                      cachedLength="4"
-                      cachedName="div_nbr"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[div_nbr]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols.Outputs[Derived Column Output].Columns[div_nbr]" />
+                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted plan_dt_sk_id]" />
                     <inputColumn
                       refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].Columns[casted div_nbr]"
-                      cachedDataType="i4"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
                       cachedName="casted div_nbr"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted div_nbr]"
+                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[div_nbr]"
                       lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted div_nbr]" />
                     <inputColumn
                       refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].Columns[casted store_format]"
@@ -1606,113 +1299,53 @@
                       cachedDataType="str"
                       cachedLength="10"
                       cachedName="casted store_format"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted store_format]"
+                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[location_format]"
                       lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted store_format]" />
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].Columns[casted forecast_amt]"
-                      cachedDataType="decimal"
-                      cachedName="casted forecast_amt"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted forecast_amt]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted forecast_amt]" />
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].Columns[casted plan_amt]"
-                      cachedDataType="decimal"
-                      cachedName="casted plan_amt"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted plan_amt]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted plan_amt]" />
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].Columns[casted plan_dt]"
-                      cachedDataType="date"
-                      cachedName="casted plan_dt"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted plan_dt]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted plan_dt]" />
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].Columns[casted plan_dt_sk_id]"
-                      cachedDataType="i4"
-                      cachedName="casted plan_dt_sk_id"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted plan_dt_sk_id]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted plan_dt_sk_id]" />
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].Columns[reject_reason]"
-                      cachedDataType="wstr"
-                      cachedLength="42"
-                      cachedName="reject_reason"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[reject_reason]"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Generate Reject Reason LU Location Format.Outputs[Derived Column Output].Columns[reject_reason]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[div_cd]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      name="div_cd" />
-                    <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[store_format]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      name="store_format" />
-                    <externalMetadataColumn
                       refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[forecast_amt]"
                       codePage="1252"
                       dataType="str"
-                      length="25"
+                      length="50"
                       name="forecast_amt" />
                     <externalMetadataColumn
                       refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[plan_amt]"
                       codePage="1252"
                       dataType="str"
-                      length="25"
+                      length="50"
                       name="plan_amt" />
                     <externalMetadataColumn
                       refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[plan_dt]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
+                      length="50"
                       name="plan_dt" />
                     <externalMetadataColumn
                       refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[plan_dt_sk_id]"
-                      dataType="wstr"
-                      length="8"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
                       name="plan_dt_sk_id" />
                     <externalMetadataColumn
                       refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[div_nbr]"
-                      dataType="wstr"
-                      length="4"
-                      name="div_nbr" />
-                    <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted div_nbr]"
-                      dataType="i4"
-                      name="casted div_nbr" />
-                    <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted store_format]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
-                      name="casted store_format" />
-                    <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted forecast_amt]"
-                      dataType="decimal"
-                      name="casted forecast_amt" />
-                    <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted plan_amt]"
-                      dataType="decimal"
-                      name="casted plan_amt" />
-                    <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted plan_dt]"
-                      dataType="date"
-                      name="casted plan_dt" />
-                    <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[casted plan_dt_sk_id]"
-                      dataType="i4"
-                      name="casted plan_dt_sk_id" />
+                      length="50"
+                      name="div_nbr" />
                     <externalMetadataColumn
                       refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[reject_reason]"
-                      dataType="wstr"
-                      length="42"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
                       name="reject_reason" />
+                    <externalMetadataColumn
+                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input].ExternalColumns[location_format]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="location_format" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1748,12 +1381,12 @@ where [refTable].[div_nbr] = ?</property>
                   dataType="System.Int32"
                   description="Specifies the cache type of the lookup table."
                   name="CacheType"
-                  typeConverter="CacheType">0</property>
+                  typeConverter="CacheType">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -1769,7 +1402,7 @@ where [refTable].[div_nbr] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="cat_div_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="cat_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="cat_nm" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="div_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="div_nm" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_upd_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_eff_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_exp_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="cat_div_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="cat_nbr" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="cat_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="div_nbr" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="div_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_upd_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_eff_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_exp_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -1787,8 +1420,8 @@ where [refTable].[div_nbr] = ?</property>
               <connections>
                 <connection
                   refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\LU Category Division SK ID.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[mssql_sho_dw]"
-                  connectionManagerRefId="Package.ConnectionManagers[mssql_sho_dw]"
+                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -1799,7 +1432,9 @@ where [refTable].[div_nbr] = ?</property>
                   <inputColumns>
                     <inputColumn
                       refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\LU Category Division SK ID.Inputs[Lookup Input].Columns[casted div_nbr]"
-                      cachedDataType="i4"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
                       cachedName="casted div_nbr"
                       lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output].Columns[casted div_nbr]">
                       <properties>
@@ -1821,7 +1456,6 @@ where [refTable].[div_nbr] = ?</property>
                 <output
                   refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\LU Category Division SK ID.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\LU Category Division SK ID.Inputs[Lookup Input]">
@@ -1927,7 +1561,7 @@ where [refTable].[location_format_cd] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="sho_location_format_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="store_group_name" dataType="DT_STR" length="25" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="store_supergroup_name" dataType="DT_STR" length="25" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_format_cd" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_format_title" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_format_manager" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_upd_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="sho_location_format_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="store_group_name" dataType="DT_STR" length="25" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="store_supergroup_name" dataType="DT_STR" length="25" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_format_cd" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_format_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_format_manager" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_upd_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -1945,8 +1579,8 @@ where [refTable].[location_format_cd] = ?</property>
               <connections>
                 <connection
                   refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\LU Location Format SK ID.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[mssql_sho_dw]"
-                  connectionManagerRefId="Package.ConnectionManagers[mssql_sho_dw]"
+                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -2096,6 +1730,13 @@ where [refTable].[location_format_cd] = ?</property>
                       cachedLength="25"
                       cachedName="daily_sales"
                       lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\sort for join forecast.Outputs[Sort Output].Columns[daily_sales]" />
+                    <inputColumn
+                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Inputs[Merge Join Left Input].Columns[div_desc]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="div_desc"
+                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\sort for join forecast.Outputs[Sort Output].Columns[div_desc]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2137,22 +1778,6 @@ where [refTable].[location_format_cd] = ?</property>
                   isSorted="true"
                   name="Merge Join Output">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[div_cd]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[div_cd]"
-                      name="div_cd"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Inputs[Merge Join Left Input].Columns[div_cd]}</property>
-                      </properties>
-                    </outputColumn>
                     <outputColumn
                       refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[store_format]"
                       codePage="1252"
@@ -2214,6 +1839,37 @@ where [refTable].[location_format_cd] = ?</property>
                           name="InputColumnID">#{Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Inputs[Merge Join Left Input].Columns[day_of_month]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[div_cd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[div_cd]"
+                      name="div_cd"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Inputs[Merge Join Left Input].Columns[div_cd]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[div_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Outputs[Merge Join Output].Columns[div_desc]"
+                      name="div_desc">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream.Inputs[Merge Join Left Input].Columns[div_desc]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -2270,8 +1926,8 @@ where [refTable].[location_format_cd] = ?</property>
               <connections>
                 <connection
                   refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\raw finance div_format_daily_forecast.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[mssql_sho_staging]"
-                  connectionManagerRefId="Package.ConnectionManagers[mssql_sho_staging]"
+                  connectionManagerID="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_STAGING]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2568,8 +2224,8 @@ where [refTable].[location_format_cd] = ?</property>
               <connections>
                 <connection
                   refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\raw finance div_format_daily_plan.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[mssql_sho_staging]"
-                  connectionManagerRefId="Package.ConnectionManagers[mssql_sho_staging]"
+                  connectionManagerID="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_STAGING]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2851,7 +2507,7 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[location_format_sk_id] = ? 
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -2867,7 +2523,7 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[location_format_sk_id] = ? 
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="plan_by_div_format_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="location_format_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="cat_div_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="plan_dt_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="store_format_cd" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="div_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="plan_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="plan_amt" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="forecast_amt" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_upd_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="plan_by_div_format_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="location_format_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="cat_div_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="plan_dt_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="store_format_cd" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="div_nbr" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="plan_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="plan_amt" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="forecast_amt" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_upd_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -2885,8 +2541,8 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[location_format_sk_id] = ? 
               <connections>
                 <connection
                   refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Route Updates and Inserts.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[mssql_sho_dw]"
-                  connectionManagerRefId="Package.ConnectionManagers[mssql_sho_dw]"
+                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -2951,7 +2607,6 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[location_format_sk_id] = ? 
                 <output
                   refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Route Updates and Inserts.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Route Updates and Inserts.Inputs[Lookup Input]">
@@ -3723,8 +3378,8 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[location_format_sk_id] = ? 
               <connections>
                 <connection
                   refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Update rows in Fact.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[mssql_sho_dw]"
-                  connectionManagerRefId="Package.ConnectionManagers[mssql_sho_dw]"
+                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3855,34 +3510,34 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[location_format_sk_id] = ? 
               startId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Derived Column Output]"
-              endId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Inputs[Data Conversion Input]"
-              name="Derived Column Output"
-              startId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Derived Column Output1]"
               endId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file.Inputs[Flat File Destination Input]"
               name="Derived Column Output"
               startId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Generate Reject Reason LU Location Format.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Derived Column Output2]"
+              refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Derived Column Output1]"
               endId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file.Inputs[Flat File Destination Input]"
               name="Derived Column Output"
               startId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Generate Reject Reason LU Division.Outputs[Derived Column Output]" />
             <path
+              refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Derived Column Output2]"
+              endId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols.Outputs[Derived Column Output]" />
+            <path
               refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup Match Output]"
+              endId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Filter to only changed rows.Inputs[Conditional Split Input]"
+              name="Lookup Match Output"
+              startId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Route Updates and Inserts.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup Match Output1]"
               endId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\LU Category Division SK ID.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\LU Location Format SK ID.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup Match Output1]"
+              refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup Match Output2]"
               endId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Route Updates and Inserts.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\LU Category Division SK ID.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup Match Output2]"
-              endId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Filter to only changed rows.Inputs[Conditional Split Input]"
-              name="Lookup Match Output"
-              startId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Route Updates and Inserts.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup No Match Output]"
               endId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Generate Reject Reason LU Location Format.Inputs[Derived Column Input]"
@@ -3890,14 +3545,14 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[location_format_sk_id] = ? 
               startId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\LU Location Format SK ID.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup No Match Output1]"
-              endId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Generate Reject Reason LU Division.Inputs[Derived Column Input]"
-              name="Lookup No Match Output"
-              startId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\LU Category Division SK ID.Outputs[Lookup No Match Output]" />
-            <path
-              refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup No Match Output2]"
               endId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Insert New Rows in Fact.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
               startId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Route Updates and Inserts.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup No Match Output2]"
+              endId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Generate Reject Reason LU Division.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\LU Category Division SK ID.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Merge Join Output]"
               endId="Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols.Inputs[Derived Column Input]"
@@ -4468,8 +4123,8 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[location_format_sk_id] = ? 
               <connections>
                 <connection
                   refId="Package\Merge raw into sho_sales_plan_gp_by_loc\insert new rows to fact.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[mssql_sho_dw]"
-                  connectionManagerRefId="Package.ConnectionManagers[mssql_sho_dw]"
+                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4611,8 +4266,8 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[location_format_sk_id] = ? 
               <connections>
                 <connection
                   refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Reject File Connection - lu loc sk id]"
-                  connectionManagerRefId="Package.ConnectionManagers[Reject File Connection - lu loc sk id]"
+                  connectionManagerID="Package.ConnectionManagers[LOAD_FI_SHO_STAGING_to_SHO_DW_FINANCE_DAY_LOCATION_REJECTS_LOCATION_SK_ID]"
+                  connectionManagerRefId="Package.ConnectionManagers[LOAD_FI_SHO_STAGING_to_SHO_DW_FINANCE_DAY_LOCATION_REJECTS_LOCATION_SK_ID]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
@@ -4656,45 +4311,6 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[location_format_sk_id] = ? 
                       externalMetadataColumnId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].ExternalColumns[gp_plan]"
                       lineageId="Package\Merge raw into sho_sales_plan_gp_by_loc\Merge RawTables to stream.Outputs[Merge Join Output].Columns[gp_plan]" />
                     <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].Columns[plan_dt_sk_id]"
-                      cachedDataType="wstr"
-                      cachedLength="8"
-                      cachedName="plan_dt_sk_id"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].ExternalColumns[plan_dt_sk_id]"
-                      lineageId="Package\Merge raw into sho_sales_plan_gp_by_loc\add manufactured cols.Outputs[Derived Column Output].Columns[plan_dt_sk_id]" />
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].Columns[casted pos_nbr]"
-                      cachedDataType="i4"
-                      cachedName="casted pos_nbr"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].ExternalColumns[casted pos_nbr]"
-                      lineageId="Package\Merge raw into sho_sales_plan_gp_by_loc\Data Conversion.Outputs[Data Conversion Output].Columns[casted pos_nbr]" />
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].Columns[casted plan_dt]"
-                      cachedDataType="date"
-                      cachedName="casted plan_dt"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].ExternalColumns[casted plan_dt]"
-                      lineageId="Package\Merge raw into sho_sales_plan_gp_by_loc\Data Conversion.Outputs[Data Conversion Output].Columns[casted plan_dt]" />
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].Columns[casted sales_plan]"
-                      cachedDataType="decimal"
-                      cachedName="casted sales_plan"
-                      cachedScale="2"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].ExternalColumns[casted sales_plan]"
-                      lineageId="Package\Merge raw into sho_sales_plan_gp_by_loc\Data Conversion.Outputs[Data Conversion Output].Columns[casted sales_plan]" />
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].Columns[casted gp_plan]"
-                      cachedDataType="decimal"
-                      cachedName="casted gp_plan"
-                      cachedScale="2"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].ExternalColumns[casted gp_plan]"
-                      lineageId="Package\Merge raw into sho_sales_plan_gp_by_loc\Data Conversion.Outputs[Data Conversion Output].Columns[casted gp_plan]" />
-                    <inputColumn
-                      refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].Columns[casted plan_dt_sk_id]"
-                      cachedDataType="i4"
-                      cachedName="casted plan_dt_sk_id"
-                      externalMetadataColumnId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].ExternalColumns[casted plan_dt_sk_id]"
-                      lineageId="Package\Merge raw into sho_sales_plan_gp_by_loc\Data Conversion.Outputs[Data Conversion Output].Columns[casted plan_dt_sk_id]" />
-                    <inputColumn
                       refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].Columns[reject_reason]"
                       cachedDataType="wstr"
                       cachedLength="38"
@@ -4708,57 +4324,31 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[location_format_sk_id] = ? 
                       refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].ExternalColumns[pos_nbr]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
+                      length="50"
                       name="pos_nbr" />
                     <externalMetadataColumn
                       refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].ExternalColumns[plan_dt]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
+                      length="50"
                       name="plan_dt" />
                     <externalMetadataColumn
                       refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].ExternalColumns[sales_plan]"
                       codePage="1252"
                       dataType="str"
-                      length="25"
+                      length="50"
                       name="sales_plan" />
                     <externalMetadataColumn
                       refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].ExternalColumns[gp_plan]"
                       codePage="1252"
                       dataType="str"
-                      length="25"
+                      length="50"
                       name="gp_plan" />
                     <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].ExternalColumns[plan_dt_sk_id]"
-                      dataType="wstr"
-                      length="8"
-                      name="plan_dt_sk_id" />
-                    <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].ExternalColumns[casted pos_nbr]"
-                      dataType="i4"
-                      name="casted pos_nbr" />
-                    <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].ExternalColumns[casted plan_dt]"
-                      dataType="date"
-                      name="casted plan_dt" />
-                    <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].ExternalColumns[casted sales_plan]"
-                      dataType="decimal"
-                      name="casted sales_plan"
-                      scale="2" />
-                    <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].ExternalColumns[casted gp_plan]"
-                      dataType="decimal"
-                      name="casted gp_plan"
-                      scale="2" />
-                    <externalMetadataColumn
-                      refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].ExternalColumns[casted plan_dt_sk_id]"
-                      dataType="i4"
-                      name="casted plan_dt_sk_id" />
-                    <externalMetadataColumn
                       refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File.Inputs[Flat File Destination Input].ExternalColumns[reject_reason]"
-                      dataType="wstr"
-                      length="38"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
                       name="reject_reason" />
                   </externalMetadataColumns>
                 </input>
@@ -4816,7 +4406,7 @@ where [refTable].[pos_nbr] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="location_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="district_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ordc_loc_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="sho_location_format_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pos_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ordc_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="eis_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="location_name" dataType="DT_STR" length="75" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_format" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="operator_type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="operator_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="district" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="city" dataType="DT_STR" length="25" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="state" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="zipcode" dataType="DT_STR" length="7" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address1" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address2" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="open_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="close_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="inactive" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="location_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="district_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ordc_loc_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="sho_location_format_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pos_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ordc_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="eis_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="location_name" dataType="DT_STR" length="75" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_format" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="operator_type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="operator_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="district" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="city" dataType="DT_STR" length="25" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="state" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="zipcode" dataType="DT_STR" length="7" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address1" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address2" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="open_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="close_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="inactive" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_upd_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_eff_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_exp_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -4834,8 +4424,8 @@ where [refTable].[pos_nbr] = ?</property>
               <connections>
                 <connection
                   refId="Package\Merge raw into sho_sales_plan_gp_by_loc\LU location_sk_id.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[mssql_sho_dw]"
-                  connectionManagerRefId="Package.ConnectionManagers[mssql_sho_dw]"
+                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -5135,8 +4725,8 @@ where [refTable].[pos_nbr] = ?</property>
               <connections>
                 <connection
                   refId="Package\Merge raw into sho_sales_plan_gp_by_loc\raw finance day_location_gp_plan.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[mssql_sho_staging]"
-                  connectionManagerRefId="Package.ConnectionManagers[mssql_sho_staging]"
+                  connectionManagerID="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_STAGING]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -5529,8 +5119,8 @@ where [refTable].[pos_nbr] = ?</property>
               <connections>
                 <connection
                   refId="Package\Merge raw into sho_sales_plan_gp_by_loc\raw finance day_location_sales_plan.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[mssql_sho_staging]"
-                  connectionManagerRefId="Package.ConnectionManagers[mssql_sho_staging]"
+                  connectionManagerID="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_STAGING]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -5929,7 +5519,7 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Merge raw into sho_sales_plan_gp_by_loc\Data Conversion.Outputs[Data Conversion Output].Columns[casted plan_dt_sk_id]};#{Package\Merge raw into sho_sales_plan_gp_by_loc\518:invalid};</property>
+                  name="ParameterMap">#{Package\Merge raw into sho_sales_plan_gp_by_loc\Data Conversion.Outputs[Data Conversion Output].Columns[casted plan_dt_sk_id]};#{Package\Merge raw into sho_sales_plan_gp_by_loc\LU location_sk_id.Outputs[Lookup Match Output].Columns[location_sk_id]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -5942,8 +5532,8 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
               <connections>
                 <connection
                   refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Route Updates and Inserts.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[mssql_sho_dw]"
-                  connectionManagerRefId="Package.ConnectionManagers[mssql_sho_dw]"
+                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -7027,8 +6617,8 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
               <connections>
                 <connection
                   refId="Package\Merge raw into sho_sales_plan_gp_by_loc\Update rows in fact.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[mssql_sho_dw]"
-                  connectionManagerRefId="Package.ConnectionManagers[mssql_sho_dw]"
+                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -7239,7 +6829,7 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
         <NodeLayout
           Size="272,46"
           Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format"
-          TopLeft="415,57" />
+          TopLeft="412,60" />
         <NodeLayout
           Size="240,42"
           Id="Package\Merge raw into sho_sales_plan_gp_by_loc"
@@ -7268,25 +6858,73 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="202,42"
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\raw finance div_format_daily_forecast"
-          TopLeft="24,15" />
+          Size="201,42"
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\LU Location Format SK ID"
+          TopLeft="252,337" />
         <NodeLayout
-          Size="168,53"
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\raw finance div_format_daily_plan"
-          TopLeft="36,225" />
+          Size="207,42"
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Filter to only changed rows"
+          TopLeft="257,559" />
         <NodeLayout
           Size="148,42"
           Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\sort for join plan"
           TopLeft="51,158" />
         <NodeLayout
-          Size="152,42"
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\sort for join forecast"
-          TopLeft="50,85" />
+          Size="194,42"
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Insert New Rows in Fact"
+          TopLeft="582,474" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file"
+          TopLeft="793,335" />
         <NodeLayout
           Size="165,42"
           Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Merge Raw Tables into Stream"
           TopLeft="271,122" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Route Updates and Inserts"
+          TopLeft="255,478" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Generate Reject Reason LU Location Format"
+          TopLeft="576,334" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\sort for join forecast"
+          TopLeft="50,85" />
+        <NodeLayout
+          Size="168,53"
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\raw finance div_format_daily_plan"
+          TopLeft="36,225" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion"
+          TopLeft="290,278" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file"
+          TopLeft="795,403" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\raw finance div_format_daily_forecast"
+          TopLeft="24,15" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\LU Category Division SK ID"
+          TopLeft="251,398" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Generate Reject Reason LU Division"
+          TopLeft="580,401" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Update rows in Fact"
+          TopLeft="582,555" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols"
+          TopLeft="276,226" />
         <EdgeLayout
           Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[OLE DB Source Output]"
           TopLeft="125.5,57">
@@ -7310,19 +6948,259 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[OLE DB Source Output1]"
-          TopLeft="122.5,225">
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup No Match Output2]"
+          TopLeft="457,420.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,-25"
+              EndConnector="123,0"
               Start="0,0"
-              End="0,-17.5">
+              End="115.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-17.5" />
+                    End="115.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="1.94361328125,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup No Match Output1]"
+          TopLeft="460,497">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="122,0"
+              Start="0,0"
+              End="114.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="114.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="1.44361328125,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup No Match Output]"
+          TopLeft="453,356.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="123,0"
+              Start="0,0"
+              End="115.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="115.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="1.94361328125,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup Match Output2]"
+          TopLeft="355.75,440">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,9.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup Match Output1]"
+          TopLeft="252,358">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-1,61"
+              Start="0,0"
+              End="-8.5,61">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-19.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.5,0"
+                    Point2="-23.5,0"
+                    Point3="-23.5,4" />
+                  <mssgle:LineSegment
+                    End="-23.5,57" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-23.5,57"
+                    Point2="-23.5,61"
+                    Point3="-19.5,61" />
+                  <mssgle:LineSegment
+                    End="-8.5,61" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-71.69138671875,-17.609375,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup Match Output]"
+          TopLeft="359,520">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,9.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Derived Column Output1]"
+          TopLeft="766,423">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="29,0"
+              Start="0,0"
+              End="21.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="21.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Derived Column Output]"
+          TopLeft="769,355.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="24,0"
+              Start="0,0"
+              End="16.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="16.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Data Conversion Output]"
+          TopLeft="290,299">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="62.5,38"
+              Start="0,0"
+              End="62.5,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="58.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58.5,0"
+                    Point2="62.5,0"
+                    Point3="62.5,4" />
+                  <mssgle:LineSegment
+                    End="62.5,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Sort Output1]"
+          TopLeft="199,179">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="72,-30.3333333333333"
+              Start="0,0"
+              End="64.5,-30.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="37.6146788990825,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.6146788990825,0"
+                    Point2="41.6146788990825,0"
+                    Point3="41.6146788990825,-4" />
+                  <mssgle:LineSegment
+                    End="41.6146788990825,-26.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41.6146788990825,-26.3333333333333"
+                    Point2="41.6146788990825,-30.3333333333333"
+                    Point3="45.6146788990825,-30.3333333333333" />
+                  <mssgle:LineSegment
+                    End="64.5,-30.3333333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7366,342 +7244,6 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Sort Output1]"
-          TopLeft="199,179">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="72,-30.3333333333333"
-              Start="0,0"
-              End="64.5,-30.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="37.6146788990825,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="37.6146788990825,0"
-                    Point2="41.6146788990825,0"
-                    Point3="41.6146788990825,-4" />
-                  <mssgle:LineSegment
-                    End="41.6146788990825,-26.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="41.6146788990825,-26.3333333333333"
-                    Point2="41.6146788990825,-30.3333333333333"
-                    Point3="45.6146788990825,-30.3333333333333" />
-                  <mssgle:LineSegment
-                    End="64.5,-30.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="186,42"
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\add manufactured cols"
-          TopLeft="263,190" />
-        <EdgeLayout
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Merge Join Output]"
-          TopLeft="354.75,164">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,26"
-              Start="0,0"
-              End="0,18.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Data Conversion"
-          TopLeft="274,259" />
-        <EdgeLayout
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Derived Column Output]"
-          TopLeft="354,232">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,27"
-              Start="0,0"
-              End="0,19.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="201,42"
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\LU Location Format SK ID"
-          TopLeft="253,327" />
-        <EdgeLayout
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Data Conversion Output]"
-          TopLeft="352.75,301">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,26"
-              Start="0,0"
-              End="0,18.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="206,42"
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\LU Category Division SK ID"
-          TopLeft="251,402" />
-        <EdgeLayout
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup Match Output]"
-          TopLeft="353.75,369">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,33"
-              Start="0,0"
-              End="0,25.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,6.9453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="193,42"
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Generate Reject Reason LU Location Format"
-          TopLeft="576,334" />
-        <EdgeLayout
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup No Match Output]"
-          TopLeft="454,351.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="122,0"
-              Start="0,0"
-              End="114.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="114.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="1.44361328125,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="185,42"
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\loc format lu reject file"
-          TopLeft="793,335" />
-        <EdgeLayout
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Derived Column Output1]"
-          TopLeft="769,355.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="24,0"
-              Start="0,0"
-              End="16.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="16.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="186,42"
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Generate Reject Reason LU Division"
-          TopLeft="580,401" />
-        <EdgeLayout
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup No Match Output1]"
-          TopLeft="457,422.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="123,0"
-              Start="0,0"
-              End="115.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="115.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="1.94361328125,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="181,42"
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\div lu reject file"
-          TopLeft="795,403" />
-        <EdgeLayout
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Derived Column Output2]"
-          TopLeft="766,423">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="29,0"
-              Start="0,0"
-              End="21.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="21.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="205,42"
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Route Updates and Inserts"
-          TopLeft="255,478" />
-        <EdgeLayout
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup Match Output1]"
-          TopLeft="355.75,444">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,34"
-              Start="0,0"
-              End="0,26.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,7.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="194,42"
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Insert New Rows in Fact"
-          TopLeft="582,474" />
-        <EdgeLayout
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup No Match Output2]"
-          TopLeft="460,497">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="122,0"
-              Start="0,0"
-              End="114.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="114.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="1.44361328125,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="207,42"
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Filter to only changed rows"
-          TopLeft="257,559" />
-        <EdgeLayout
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Lookup Match Output2]"
-          TopLeft="359,520">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,39"
-              Start="0,0"
-              End="0,31.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,9.9453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="195,42"
-          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Update rows in Fact"
-          TopLeft="582,555" />
-        <EdgeLayout
           Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[rows_to_update]"
           TopLeft="464,578">
           <EdgeLayout.Curve>
@@ -7725,6 +7267,96 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[OLE DB Source Output1]"
+          TopLeft="122.5,225">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,-25"
+              Start="0,0"
+              End="0,-17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Derived Column Output2]"
+          TopLeft="462,247">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-16,52"
+              Start="0,0"
+              End="-8.5,52">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,4" />
+                  <mssgle:LineSegment
+                    End="22.5,48" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,48"
+                    Point2="22.5,52"
+                    Point3="18.5,52" />
+                  <mssgle:LineSegment
+                    End="-8.5,52" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge raw into sho_sales_plan_forecast_by_div_format.Paths[Merge Join Output]"
+          TopLeft="353.5,164">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="15.5,62"
+              Start="0,0"
+              End="15.5,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27"
+                    Point2="0,31"
+                    Point3="4,31" />
+                  <mssgle:LineSegment
+                    End="11.5,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.5,31"
+                    Point2="15.5,31"
+                    Point3="15.5,35" />
+                  <mssgle:LineSegment
+                    End="15.5,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -7734,7 +7366,7 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -7752,30 +7384,7 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Route Updates and Inserts">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[fact].[sho_sales_plan_forecast_by_div_format]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Merge raw into sho_sales_plan_forecast_by_div_format\raw finance div_format_daily_plan">
+    design-time-name="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Insert New Rows in Fact">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7788,7 +7397,30 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Insert New Rows in Fact">
+    design-time-name="Package\Merge raw into sho_sales_plan_forecast_by_div_format\Route Updates and Inserts">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[fact].[sho_sales_plan_forecast_by_div_format]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Merge raw into sho_sales_plan_forecast_by_div_format\raw finance div_format_daily_plan">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7819,7 +7451,7 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -7842,38 +7474,6 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="211,42"
-          Id="Package\Merge raw into sho_sales_plan_gp_by_loc\Merge RawTables to stream"
-          TopLeft="315,111" />
-        <NodeLayout
-          Size="234,42"
-          Id="Package\Merge raw into sho_sales_plan_gp_by_loc\raw finance day_location_gp_plan"
-          TopLeft="22,9" />
-        <NodeLayout
-          Size="187,42"
-          Id="Package\Merge raw into sho_sales_plan_gp_by_loc\insert new rows to fact"
-          TopLeft="650,380" />
-        <NodeLayout
-          Size="207,42"
-          Id="Package\Merge raw into sho_sales_plan_gp_by_loc\Filter to only changed rows"
-          TopLeft="323,462" />
-        <NodeLayout
-          Size="161,42"
-          Id="Package\Merge raw into sho_sales_plan_gp_by_loc\LU location_sk_id"
-          TopLeft="346,310" />
-        <NodeLayout
-          Size="138,42"
-          Id="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File"
-          TopLeft="868,304" />
-        <NodeLayout
-          Size="160,42"
-          Id="Package\Merge raw into sho_sales_plan_gp_by_loc\Route Updates and Inserts"
-          TopLeft="344,386" />
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Merge raw into sho_sales_plan_gp_by_loc\Data Conversion"
-          TopLeft="347,245" />
-        <NodeLayout
           Size="167,42"
           Id="Package\Merge raw into sho_sales_plan_gp_by_loc\Sort for Join gp plan"
           TopLeft="106,78" />
@@ -7886,17 +7486,85 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
           Id="Package\Merge raw into sho_sales_plan_gp_by_loc\Update rows in fact"
           TopLeft="652,458" />
         <NodeLayout
-          Size="153,42"
-          Id="Package\Merge raw into sho_sales_plan_gp_by_loc\add location lu reject reason"
-          TopLeft="649,303" />
-        <NodeLayout
           Size="240,42"
           Id="Package\Merge raw into sho_sales_plan_gp_by_loc\raw finance day_location_sales_plan"
           TopLeft="22,217" />
         <NodeLayout
+          Size="211,42"
+          Id="Package\Merge raw into sho_sales_plan_gp_by_loc\Merge RawTables to stream"
+          TopLeft="315,111" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Merge raw into sho_sales_plan_gp_by_loc\Data Conversion"
+          TopLeft="347,245" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Merge raw into sho_sales_plan_gp_by_loc\Loc LU Reject  File"
+          TopLeft="868,304" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Merge raw into sho_sales_plan_gp_by_loc\insert new rows to fact"
+          TopLeft="650,380" />
+        <NodeLayout
           Size="186,42"
           Id="Package\Merge raw into sho_sales_plan_gp_by_loc\add manufactured cols"
           TopLeft="329,180" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\Merge raw into sho_sales_plan_gp_by_loc\Filter to only changed rows"
+          TopLeft="323,462" />
+        <NodeLayout
+          Size="234,42"
+          Id="Package\Merge raw into sho_sales_plan_gp_by_loc\raw finance day_location_gp_plan"
+          TopLeft="22,9" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Merge raw into sho_sales_plan_gp_by_loc\LU location_sk_id"
+          TopLeft="346,310" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Merge raw into sho_sales_plan_gp_by_loc\Route Updates and Inserts"
+          TopLeft="344,386" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Merge raw into sho_sales_plan_gp_by_loc\add location lu reject reason"
+          TopLeft="649,303" />
+        <EdgeLayout
+          Id="Package\Merge raw into sho_sales_plan_gp_by_loc.Paths[Sort Output1]"
+          TopLeft="275,167">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="40,-29.3333333333333"
+              Start="0,0"
+              End="32.5,-29.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="19.1192660550458,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.1192660550458,0"
+                    Point2="23.1192660550458,0"
+                    Point3="23.1192660550458,-4" />
+                  <mssgle:LineSegment
+                    End="23.1192660550458,-25.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.1192660550458,-25.3333333333333"
+                    Point2="23.1192660550458,-29.3333333333333"
+                    Point3="27.1192660550458,-29.3333333333333" />
+                  <mssgle:LineSegment
+                    End="32.5,-29.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Merge raw into sho_sales_plan_gp_by_loc.Paths[Sort Output]"
           TopLeft="273,99">
@@ -7928,7 +7596,9 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7986,7 +7656,9 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8020,7 +7692,9 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8042,7 +7716,9 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8160,7 +7836,9 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8182,7 +7860,9 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8204,48 +7884,16 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge raw into sho_sales_plan_gp_by_loc.Paths[Sort Output1]"
-          TopLeft="275,167">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="40,-29.3333333333333"
-              Start="0,0"
-              End="32.5,-29.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="19.1192660550458,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="19.1192660550458,0"
-                    Point2="23.1192660550458,0"
-                    Point3="23.1192660550458,-4" />
-                  <mssgle:LineSegment
-                    End="23.1192660550458,-25.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="23.1192660550458,-25.3333333333333"
-                    Point2="23.1192660550458,-29.3333333333333"
-                    Point3="27.1192660550458,-29.3333333333333" />
-                  <mssgle:LineSegment
-                    End="32.5,-29.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Merge raw into sho_sales_plan_gp_by_loc\raw finance day_location_gp_plan">
+    design-time-name="Package\Merge raw into sho_sales_plan_gp_by_loc\raw finance day_location_sales_plan">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8259,6 +7907,19 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Merge raw into sho_sales_plan_gp_by_loc\insert new rows to fact">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Merge raw into sho_sales_plan_gp_by_loc\raw finance day_location_gp_plan">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8313,19 +7974,6 @@ where [refTable].[plan_dt_sk_id] = ? and [refTable].[sho_location_sk_id] = ?</pr
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Merge raw into sho_sales_plan_gp_by_loc\raw finance day_location_sales_plan">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
