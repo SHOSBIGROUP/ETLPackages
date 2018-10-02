@@ -12,21 +12,22 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_FI_to_SHO_STAGING_FINANCE_DAY_LOCATION"
   DTS:PackageType="5"
-  DTS:VersionBuild="94"
-  DTS:VersionGUID="{9A3CDB4C-71AB-4CAB-AB49-BE674EEAF299}">
+  DTS:VersionBuild="119"
+  DTS:VersionGUID="{B5BF8F53-DB3E-4D1D-9FF3-F5DCAEEAAE87}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LOAD_FI_to_SHO_STAGING_FINANCE_DAY_LOCATION_CURRENTFILE]"
       DTS:CreationName="EXCEL"
+      DTS:DelayValidation="True"
       DTS:DTSID="{D83C064F-0CA1-423D-ADA1-FCA97C4D8319}"
       DTS:ObjectName="LOAD_FI_to_SHO_STAGING_FINANCE_DAY_LOCATION_CURRENTFILE">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[User::curr_file]</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + @[User::STRING_DATAFILEPATH]  + ";"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=X:\ssis_incoming\finance\Daily Sales Totals - Aug18(for BI).xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=NO&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=X:\ssis_incoming\finance;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -51,7 +52,7 @@
       DTS:Required="True">
       <DTS:Property
         DTS:DataType="8"
-        DTS:Name="ParameterValue">C:\quicktemp\development\sho datamart\etl\finance raw\incoming</DTS:Property>
+        DTS:Name="ParameterValue">X:\ssis_incoming\finance</DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:CreationName=""
@@ -64,7 +65,17 @@
         DTS:Name="ParameterValue">AZSQL01.ads.shos.com</DTS:Property>
     </DTS:PackageParameter>
   </DTS:PackageParameters>
-  <DTS:Variables />
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A4DE2DA9-42B2-4A9E-BD76-8DF704D055F9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="STRING_DATAFILEPATH">
+      <DTS:VariableValue
+        DTS:DataType="8">X:\ssis_incoming\finance</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Process Finance Files"
@@ -86,7 +97,7 @@
             <FEFEProperty
               Folder="X:\ssis_incoming\finance" />
             <FEFEProperty
-              FileSpec="Daily Sales Totals*.xlsx" />
+              FileSpec="*.xlsx" />
             <FEFEProperty
               FileNameRetrievalType="0" />
             <FEFEProperty
@@ -118,8 +129,33 @@
           <DTS:Variables />
           <DTS:Executables>
             <DTS:Executable
+              DTS:refId="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Execute SQL Task"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{8811480A-2155-4737-963D-DB14CCDE2B6C}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Execute SQL Task"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
+                  SQLTask:SqlStatementSource="Truncate Table Debug;&#xA;&#xA;Insert Into Debug (VariableName,VariableValue) Values ('CurrentFile',?);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::STRING_DATAFILEPATH"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
               DTS:refId="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load div format daily forecast to raw"
               DTS:CreationName="Microsoft.Pipeline"
+              DTS:DelayValidation="True"
               DTS:Description="Data Flow Task"
               DTS:DTSID="{33AF2B17-9D32-4284-85E2-CE32A49DCD52}"
               DTS:ExecutableType="Microsoft.Pipeline"
@@ -1713,6 +1749,7 @@
             <DTS:Executable
               DTS:refId="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load div format daily plan to raw"
               DTS:CreationName="Microsoft.Pipeline"
+              DTS:DelayValidation="True"
               DTS:Description="Data Flow Task"
               DTS:DTSID="{3A4B3FED-8DF4-4B8B-97B2-07D72E75FD29}"
               DTS:ExecutableType="Microsoft.Pipeline"
@@ -2746,6 +2783,7 @@
             <DTS:Executable
               DTS:refId="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load finance day_location_gp_plan"
               DTS:CreationName="Microsoft.Pipeline"
+              DTS:DelayValidation="True"
               DTS:Description="Data Flow Task"
               DTS:DTSID="{D5B7D51C-04C1-4802-A8BA-2AE9076CBF4D}"
               DTS:ExecutableType="Microsoft.Pipeline"
@@ -4975,6 +5013,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
             <DTS:Executable
               DTS:refId="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load finance day_location_sales_plan"
               DTS:CreationName="Microsoft.Pipeline"
+              DTS:DelayValidation="True"
               DTS:Description="Data Flow Task"
               DTS:DTSID="{DAC62770-84A9-4786-B7DB-97003ED34381}"
               DTS:ExecutableType="Microsoft.Pipeline"
@@ -7283,11 +7322,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
             <DTS:PrecedenceConstraint
               DTS:refId="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
-              DTS:DTSID="{74814F0F-5C31-43C4-8EBD-11A045CEF457}"
+              DTS:DTSID="{F7B4F45B-884B-4166-94E9-F565DFEE5F67}"
               DTS:From="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\truncate finance div_format_daily_plan"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
-              DTS:To="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load div format daily plan to raw" />
+              DTS:To="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Execute SQL Task" />
             <DTS:PrecedenceConstraint
               DTS:refId="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source.PrecedenceConstraints[Constraint 1]"
               DTS:CreationName=""
@@ -7336,6 +7375,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint 6"
               DTS:To="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load finance day_location_gp_plan" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source.PrecedenceConstraints[Constraint 7]"
+              DTS:CreationName=""
+              DTS:DTSID="{706526A8-2DEC-4A9D-BCF0-48B867D1DFC1}"
+              DTS:From="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Execute SQL Task"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 7"
+              DTS:To="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load div format daily plan to raw" />
           </DTS:PrecedenceConstraints>
         </DTS:Executable>
         <DTS:Executable
@@ -7372,10 +7419,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{A89FE8AD-9404-4D3D-A815-784E7691DE33}"
-          DTS:ObjectName="{A89FE8AD-9404-4D3D-A815-784E7691DE33}"
+          DTS:DTSID="{3155BEC9-2418-4504-B403-FE24B8A356FF}"
+          DTS:ObjectName="{3155BEC9-2418-4504-B403-FE24B8A356FF}"
           DTS:ValueIndex="0"
-          DTS:VariableName="User::curr_file" />
+          DTS:VariableName="User::STRING_DATAFILEPATH" />
       </DTS:ForEachVariableMappings>
     </DTS:Executable>
   </DTS:Executables>
@@ -7394,72 +7441,38 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         <NodeLayout
           Size="252,49"
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load div format daily forecast to raw"
-          TopLeft="390,77" />
+          TopLeft="394,114" />
         <NodeLayout
           Size="235,42"
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load div format daily plan to raw"
-          TopLeft="32,72" />
+          TopLeft="126.5,155" />
         <NodeLayout
           Size="260,42"
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load finance day_location_gp_plan"
-          TopLeft="381,194" />
+          TopLeft="385,231" />
         <NodeLayout
           Size="256,42"
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load finance day_location_sales_plan"
-          TopLeft="15,192" />
+          TopLeft="8.5,256" />
         <NodeLayout
           Size="261,42"
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\truncate finance day_location_gp_plan"
-          TopLeft="381,141" />
+          TopLeft="385,178" />
         <NodeLayout
           Size="272,42"
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\truncate finance day_location_sales_plan"
-          TopLeft="12,142" />
+          TopLeft="5.5,206" />
         <NodeLayout
           Size="257,42"
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\truncate finance div_format_daily_forecast"
-          TopLeft="386,27" />
+          TopLeft="390,64" />
         <NodeLayout
           Size="262,42"
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\truncate finance div_format_daily_plan"
           TopLeft="23,19" />
         <EdgeLayout
-          Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source.PrecedenceConstraints[Constraint]"
-          TopLeft="285,40">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="-18,53"
-              Start="0,0"
-              End="-10.5,53">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.5,0"
-                    Point2="22.5,0"
-                    Point3="22.5,4" />
-                  <mssgle:LineSegment
-                    End="22.5,49" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.5,49"
-                    Point2="22.5,53"
-                    Point3="18.5,53" />
-                  <mssgle:LineSegment
-                    End="-10.5,53" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source.PrecedenceConstraints[Constraint 1]"
-          TopLeft="386,53.6666666666667">
+          TopLeft="390,90.6666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
@@ -7493,30 +7506,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source.PrecedenceConstraints[Constraint 2]"
-          TopLeft="267,98.6666666666667">
+          TopLeft="281.833333333333,155">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="119,-56.3333333333333"
+              EndConnector="236.666666666667,-49"
               Start="0,0"
-              End="111.5,-56.3333333333333">
+              End="236.666666666667,-41.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="55.5,0" />
+                    End="0,-15.7988165680473" />
                   <mssgle:CubicBezierSegment
-                    Point1="55.5,0"
-                    Point2="59.5,0"
-                    Point3="59.5,-4" />
+                    Point1="0,-15.7988165680473"
+                    Point2="0,-19.7988165680473"
+                    Point3="4,-19.7988165680473" />
                   <mssgle:LineSegment
-                    End="59.5,-52.3333333333333" />
+                    End="232.666666666667,-19.7988165680473" />
                   <mssgle:CubicBezierSegment
-                    Point1="59.5,-52.3333333333333"
-                    Point2="59.5,-56.3333333333333"
-                    Point3="63.5,-56.3333333333333" />
+                    Point1="232.666666666667,-19.7988165680473"
+                    Point2="236.666666666667,-19.7988165680473"
+                    Point3="236.666666666667,-23.7988165680473" />
                   <mssgle:LineSegment
-                    End="111.5,-56.3333333333333" />
+                    End="236.666666666667,-41.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7527,30 +7540,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source.PrecedenceConstraints[Constraint 3]"
-          TopLeft="390,108.333333333333">
+          TopLeft="520,163">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="-106,49"
+              EndConnector="-378.5,43"
               Start="0,0"
-              End="-98.5,49">
+              End="-378.5,35.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-48.66875,0" />
+                    End="0,17.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-48.66875,0"
-                    Point2="-52.66875,0"
-                    Point3="-52.66875,4" />
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="-4,21.5" />
                   <mssgle:LineSegment
-                    End="-52.66875,45" />
+                    End="-374.5,21.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-52.66875,45"
-                    Point2="-52.66875,49"
-                    Point3="-56.66875,49" />
+                    Point1="-374.5,21.5"
+                    Point2="-378.5,21.5"
+                    Point3="-378.5,25.5" />
                   <mssgle:LineSegment
-                    End="-98.5,49" />
+                    End="-378.5,35.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7561,7 +7574,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source.PrecedenceConstraints[Constraint 4]"
-          TopLeft="284,163">
+          TopLeft="277.5,227">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
@@ -7595,30 +7608,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source.PrecedenceConstraints[Constraint 5]"
-          TopLeft="271,207.333333333333">
+          TopLeft="136.5,256">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="110,-45.3333333333334"
+              EndConnector="379,-36"
               Start="0,0"
-              End="102.5,-45.3333333333334">
+              End="379,-28.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="42.4220183486239,0" />
+                    End="0,-14" />
                   <mssgle:CubicBezierSegment
-                    Point1="42.4220183486239,0"
-                    Point2="46.4220183486239,0"
-                    Point3="46.4220183486239,-4" />
+                    Point1="0,-14"
+                    Point2="0,-18"
+                    Point3="4,-18" />
                   <mssgle:LineSegment
-                    End="46.4220183486239,-41.3333333333334" />
+                    End="375,-18" />
                   <mssgle:CubicBezierSegment
-                    Point1="46.4220183486239,-41.3333333333334"
-                    Point2="46.4220183486239,-45.3333333333334"
-                    Point3="50.4220183486239,-45.3333333333334" />
+                    Point1="375,-18"
+                    Point2="379,-18"
+                    Point3="379,-22" />
                   <mssgle:LineSegment
-                    End="102.5,-45.3333333333334" />
+                    End="379,-28.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7629,7 +7642,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source.PrecedenceConstraints[Constraint 6]"
-          TopLeft="642,162">
+          TopLeft="646,199">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
@@ -7661,11 +7674,77 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Execute SQL Task"
+          TopLeft="84,92" />
+        <EdgeLayout
+          Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source.PrecedenceConstraints[Constraint]"
+          TopLeft="154,61">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="11.5,31"
+              Start="0,0"
+              End="11.5,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="4,15.5" />
+                  <mssgle:LineSegment
+                    End="7.5,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.5,15.5"
+                    Point2="11.5,15.5"
+                    Point3="11.5,19.5" />
+                  <mssgle:LineSegment
+                    End="11.5,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source.PrecedenceConstraints[Constraint 7]"
+          TopLeft="247,113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-40.8333333333333,42"
+              Start="0,0"
+              End="-40.8333333333333,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-36.8333333333333,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-36.8333333333333,0"
+                    Point2="-40.8333333333333,0"
+                    Point3="-40.8333333333333,4" />
+                  <mssgle:LineSegment
+                    End="-40.8333333333333,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="48"
           IsExpanded="True"
-          PanelSize="683,291"
-          Size="683,339"
+          PanelSize="683,353"
+          Size="683,401"
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source"
           TopLeft="26,12" />
         <NodeLayout
@@ -7674,18 +7753,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="29,377" />
         <EdgeLayout
           Id="Package\Process Finance Files.PrecedenceConstraints[Constraint]"
-          TopLeft="367.5,351">
+          TopLeft="367.5,413">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,26"
+              EndConnector="0,-36"
               Start="0,0"
-              End="0,18.5">
+              End="0,-28.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.5" />
+                    End="0,-28.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7801,13 +7880,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           Text="This Dataflow will load any rows found in Forecast by Division worksheet where data in col A starts with &quot;DIV&quot; and will load these into the staging table."
           ParentId="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load div format daily forecast to raw"
           FontInfo="{x:Null}"
-          Size="827,40"
+          Size="827,NaN"
           Id="43e9ed95-f8ea-473d-afb1-3857ec666821"
           TopLeft="316,121" />
         <AnnotationLayout
           Text="This dataflow loads Forecast By Day, Location Format, and Division Raw Table"
           ParentId="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load div format daily forecast to raw"
-          Size="410,37"
+          Size="410,NaN"
           Id="1f7edea3-7b7a-4d34-ac1c-f8a2b53a758d"
           TopLeft="316,160">
           <AnnotationLayout.FontInfo>
@@ -7856,88 +7935,52 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         <NodeLayout
           Size="163,42"
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load div format daily plan to raw\Filter to Datarows"
-          TopLeft="105,94" />
+          TopLeft="102,150" />
         <NodeLayout
           Size="220,42"
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load div format daily plan to raw\finance div_format_daily_plan"
-          TopLeft="75,226" />
+          TopLeft="72,289" />
         <NodeLayout
           Size="179,42"
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load div format daily plan to raw\convert from unicode"
-          TopLeft="95,172" />
+          TopLeft="92,225" />
         <NodeLayout
           Size="185,42"
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load div format daily plan to raw\Plan by Div Worksheet"
           TopLeft="94,40" />
         <EdgeLayout
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load div format daily plan to raw.Paths[is_valid_row]"
-          TopLeft="185.5,136">
+          TopLeft="182.5,192">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,36"
+              EndConnector="0,33"
               Start="0,0"
-              End="0,28.5">
+              End="0,25.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.5" />
+                    End="0,25.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-57.50533203125,8.4453125,115.0106640625,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load div format daily plan to raw.Paths[Excel Source Output]"
-          TopLeft="94,61">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="11,54"
-              Start="0,0"
-              End="3.5,54">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,50" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,50"
-                    Point2="-22.5,54"
-                    Point3="-18.5,54" />
-                  <mssgle:LineSegment
-                    End="3.5,54" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-47.76357421875,-17.2431640625,50.5271484375,11.2431640625"
+              BoundingBox="-27.84763671875,7.21875,55.6952734375,11.0625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load div format daily plan to raw.Paths[Data Conversion Output]"
-          TopLeft="95,193">
+          TopLeft="92,246">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="-20,54"
+              EndConnector="-20,64"
               Start="0,0"
-              End="-27.5,54">
+              End="-27.5,64">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -7948,20 +7991,20 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                     Point2="-42.5,0"
                     Point3="-42.5,4" />
                   <mssgle:LineSegment
-                    End="-42.5,50" />
+                    End="-42.5,60" />
                   <mssgle:CubicBezierSegment
-                    Point1="-42.5,50"
-                    Point2="-42.5,54"
-                    Point3="-38.5,54" />
+                    Point1="-42.5,60"
+                    Point2="-42.5,64"
+                    Point3="-38.5,64" />
                   <mssgle:LineSegment
-                    End="-27.5,54" />
+                    End="-27.5,64" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-67.76357421875,-17.228515625,50.5271484375,11.228515625"
+              BoundingBox="-50.5,-22,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -7980,6 +8023,28 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
             </mssge:FontInfo>
           </AnnotationLayout.FontInfo>
         </AnnotationLayout>
+        <EdgeLayout
+          Id="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load div format daily plan to raw.Paths[Excel Source Output]"
+          TopLeft="185,82">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -8133,7 +8198,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         <AnnotationLayout
           Text="This dataflow loads GP Plan By Day and Location Raw Table"
           ParentId="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load finance day_location_gp_plan"
-          Size="321,37"
+          Size="321,NaN"
           Id="d44903c0-e19f-4d8b-af6c-55f74f84523b"
           TopLeft="296,201">
           <AnnotationLayout.FontInfo>
@@ -8298,7 +8363,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         <AnnotationLayout
           Text="This dataflow loads Plan By Day and Location Raw Table"
           ParentId="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load finance day_location_sales_plan"
-          Size="304,37"
+          Size="304,NaN"
           Id="2fd74908-43a5-422c-9728-428bbae89664"
           TopLeft="321,231">
           <AnnotationLayout.FontInfo>
