@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="finance_raw_loads"
   DTS:PackageType="5"
-  DTS:VersionBuild="78"
-  DTS:VersionGUID="{9AE45FBE-F158-4F37-9CFB-252C057EADAE}">
+  DTS:VersionBuild="80"
+  DTS:VersionGUID="{F73F6174-6DAF-4968-8663-693CF7FF275F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -34,10 +34,9 @@
       DTS:DelayValidation="True"
       DTS:DTSID="{32799A50-92F8-457B-BFB7-F40CE98CEC04}"
       DTS:ObjectName="Finance Plan and Forecast File">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[User::curr_file]</DTS:PropertyExpression>
       <DTS:ObjectData>
-        <DTS:ConnectionManager />
+        <DTS:ConnectionManager
+          DTS:ConnectionString="X:\ssis_incoming\finance\Daily Sales Totals - Sep18(for BI).xlsx" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -45,11 +44,9 @@
       DTS:CreationName="EXCEL"
       DTS:DTSID="{1188B2B1-F9E4-48B4-B760-50A335328A33}"
       DTS:ObjectName="Finance Plan and Forecast Workbook">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[User::curr_file]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\quicktemp\development\sho datamart\etl\finance raw\sample\Daily Sales Totals - Aug18(for BI).xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=NO&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=X:\ssis_incoming\finance\Daily Sales Totals - Sep18(for BI).xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=NO&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -61,12 +58,7 @@
         DTS:Name="ServerName">@[$Package::server_name]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=AZSQL01.ads.shos.com;User ID=mssql_etl;Initial Catalog=sho_staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/BAcNlfBfEKl2/Du/ZYQqwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABkUndz3qDXZZzKzGnOEJCEnhFiAI8sgO5pn0O26xMwuAAAAAAOgAAAAAIAACAAAADmfGhdIaJ1HU8opNBmmLmETlXU+QQUMAzdc33CzEeYOzAAAACAjGpq8WTkoIDh57bRkRM805bR4sJoayNrAGG90QOh9Rjqc7oA1Nir4FLT9n/mfdhAAAAAFedonXrWCZtk67BASkdGotr+s7M6EFmf1tgNNoYK6hGx1wiLl4fBLjZGEfmw6moT5qCj1+5f46l2Qgx5FdlitA</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=AZSQL01.ads.shos.com;User ID=mssql_etl;Initial Catalog=sho_staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -8264,9 +8256,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8288,9 +8278,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8312,15 +8300,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
           Text="This dataflow loads Plan By Day and Location Raw Table"
           ParentId="Package\Process Finance Files\Load Plan and Forecast Staging Tables from Excel Source\Load finance day_location_sales_plan"
-          Size="304,NaN"
+          Size="304,37"
           Id="2fd74908-43a5-422c-9728-428bbae89664"
           TopLeft="321,231">
           <AnnotationLayout.FontInfo>
