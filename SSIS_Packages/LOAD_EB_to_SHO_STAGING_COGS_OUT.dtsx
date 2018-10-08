@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_EB_to_SHO_STAGING_COGS_OUT"
   DTS:PackageType="5"
-  DTS:VersionBuild="69"
-  DTS:VersionGUID="{5C3972B4-B707-400A-910B-46E4D81CB733}">
+  DTS:VersionBuild="70"
+  DTS:VersionGUID="{58E8DD0C-3C5F-4175-A566-759372EEB556}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -16670,7 +16670,7 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="Update [sho_staging].[finance].[week_fmt_div_outlet_cogs_stg] Set &#xA;[year_title] = TRIM([year_title]), &#xA;[format_title] = TRIM([format_title]), &#xA;[week_title] = TRIM([week_title]), &#xA;[essbase_pull_title] = TRIM([essbase_pull_title]), &#xA;[div_title] = TRIM([div_title]), &#xA;[cogs_amt] = TRIM([cogs_amt]);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DELETE FROM sho_staging.finance.week_fmt_div_outlet_cogs_stg where essbase_pull_title &lt;&gt; 'Total COGS' ;&#xA;&#xA;Update [sho_staging].[finance].[week_fmt_div_outlet_cogs_stg] Set &#xA;[year_title] = TRIM([year_title]), &#xA;[format_title] = TRIM([format_title]), &#xA;[week_title] = TRIM([week_title]), &#xA;[essbase_pull_title] = TRIM([essbase_pull_title]), &#xA;[div_title] = TRIM([div_title]), &#xA;[cogs_amt] = TRIM([cogs_amt]);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
