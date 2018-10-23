@@ -1,0 +1,138 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/15/2018 9:36:46 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LT-MPLASKOW"
+  DTS:CreatorName="SHO\mplaskow"
+  DTS:DTSID="{19A28FCE-C537-496B-A1E4-2D8A95FBF5C4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="UPDATE_SHO_STAGING_to_SHO_DW_DIM_LOC_DIST_REG"
+  DTS:PackageType="5"
+  DTS:VersionBuild="375"
+  DTS:VersionGUID="{63431112-C76F-415D-A51A-31CE1175509E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:Description="Data Source for Location Load"
+      DTS:DTSID="{43C0C160-B5C6-4826-A694-064D79C47940}"
+      DTS:ObjectName="LOCATION_DATA_SOURCE"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">N</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Update or Insert to dim_district in sho_dw from sho_staging_netsuite_district"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{35CEFD6F-B226-4DB1-BB21-A3CADFC59445}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update or Insert to dim_district in sho_dw from sho_staging_netsuite_district"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{988C1BBF-3E09-40D3-AE60-6305D2AFA7AB}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="Update sho_dw.dim.district Set &#xA;[district_nbr] = Convert(int,Trim(source.[district_nbr])),&#xA;[district_name] = Convert(varchar(50),Trim(source.[district_name])),&#xA;[district_manager] = Convert(varchar(50),Trim(source.[district_manager])),&#xA;[inactive] = CASE WHEN source.Inactive Like 'N%' THEN 1 ELSE 0 END,&#xA;[rec_upd_dt] = GetDate(),&#xA;[rec_eff_dt] = GetDate()&#xA; From sho_staging.netsuite.district source Inner Join sho_dw.dim.district On &#xA; Convert(int,Trim(source.[district_nbr])) = Convert(int,sho_dw.dim.district.district_nbr) &#xA; where IsNumeric(source.[district_nbr]) &lt;&gt; 0;&#xA;&#xA; Insert Into sho_dw.dim.district(&#xA;[district_nbr],&#xA;[district_name],&#xA;[district_manager],&#xA;[inactive],&#xA;[rec_load_dt],&#xA;[rec_upd_dt],&#xA;[rec_eff_dt]&#xA;) Select &#xA;Convert(int,Trim([district_nbr])),&#xA;Convert(varchar(50),[district_name]),&#xA;Convert(varchar(50),[district_manager]),&#xA;Convert(bit,[inactive]),&#xA;GetDate(),&#xA;GetDate(),&#xA;GetDate()&#xA; From sho_staging.netsuite.district where &#xA; Convert(int,Trim([district_nbr])) not in (select Convert(int,[district_nbr]) from sho_dw.dim.district) &#xA; and IsNumeric([district_nbr]) &lt;&gt; 0;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update or Insert to dim_location in sho_dw from sho_staging_netsuite_location"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F44EA34D-B1C4-4D85-9B41-4542C30A8FB7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update or Insert to dim_location in sho_dw from sho_staging_netsuite_location"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{988C1BBF-3E09-40D3-AE60-6305D2AFA7AB}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="update sho_staging.netsuite.location set region = trim(replace(region,'R',''));&#xA;&#xA;Use sho_dw;&#xA;&#xA;Update sho_dw.dim.location Set &#xA;[pos_nbr] = Convert(int,Trim(source.[pos_nbr])),&#xA;[eis_nbr] = Convert(int,Trim(source.[eis_nbr])),&#xA;[location_name] = Convert(varchar(75),Trim(source.[location_name])),&#xA;[location_format] = Convert(varchar(10),Trim(source.[location_format])),&#xA;[location_type] = Convert(varchar(50),Trim(source.[location_type])),&#xA;[operator_type] = Convert(varchar(50),Trim(source.[operator_type])),&#xA;[operator_name] = Convert(varchar(50),Trim(source.[operator_name])),&#xA;[district] = Convert(int,Trim(source.[district])),&#xA;[region] = Convert(int,Trim(source.[region])),&#xA;[city] = Convert(varchar(25),Trim(source.[city])),&#xA;[state] = Convert(char(2),Trim(source.[state])),&#xA;[zipcode] = Convert(char(7),Trim(source.[zipcode])),&#xA;[address1] = Convert(varchar(100),Trim(source.[address1])),&#xA;[address2] = Convert(varchar(100),Trim(source.[address2])),&#xA;[open_dt] = Convert(datetime,Trim(source.[open_dt])),&#xA;[close_dt] = Convert(datetime,Trim(source.[close_dt])),&#xA;[rec_upd_dt] = GETDATE(),&#xA;[rec_eff_dt] = GETDATE()&#xA; From sho_staging.netsuite.location source Inner Join sho_dw.dim.location target &#xA; on Convert(int,source.pos_nbr) = Convert(int,target.pos_nbr);&#xA;&#xA; Insert Into sho_dw.dim.location(&#xA; [pos_nbr],&#xA;[eis_nbr],&#xA;[location_name],&#xA;[location_format],&#xA;[location_type],&#xA;[operator_type],&#xA;[operator_name],&#xA;[district],&#xA;[region],&#xA;[city],&#xA;[state],&#xA;[zipcode],&#xA;[address1],&#xA;[address2],&#xA;[open_dt],&#xA;[close_dt],&#xA;[inactive],&#xA;[rec_load_dt],&#xA;[rec_upd_dt],&#xA;[rec_eff_dt]&#xA;) Select &#xA;Convert(int,[pos_nbr]),&#xA;Convert(int,[eis_nbr]),&#xA;Convert(varchar(75),[location_name]),&#xA;Convert(varchar(10),[location_format]),&#xA;Convert(varchar(50),[location_type]),&#xA;Convert(varchar(50),[operator_type]),&#xA;Convert(varchar(50),[operator_name]),&#xA;Convert(int,[district]),&#xA;Convert(int,[region]),&#xA;Convert(varchar(25),[city]),&#xA;Convert(char(2),[state]),&#xA;Convert(char(7),[zipcode]),&#xA;Convert(varchar(100),[address1]),&#xA;Convert(varchar(100),[address2]),&#xA;Convert(datetime,[open_dt]),&#xA;Convert(datetime,[close_dt]),&#xA;CASE WHEN Inactive Like 'N%' THEN 1 ELSE 0 END,&#xA;GETDATE(),&#xA;GETDATE(),&#xA;GETDATE()&#xA; From sho_staging.netsuite.location where &#xA; sho_staging.netsuite.location.pos_nbr not in (select pos_nbr from sho_dw.dim.location);&#xA;&#xA;update sho_dw.dim.location set &#xA;district_sk_id = -1;&#xA;&#xA;update sho_dw.dim.location set &#xA;region_sk_id = -1;&#xA;&#xA;Update sho_dw.dim.location &#xA;set ordc_nbr = -1;&#xA;&#xA;update sho_dw.dim.location set &#xA;district_sk_id = sho_dw.dim.district.district_sk_id&#xA;from sho_dw.dim.district&#xA;inner join sho_dw.dim.location loc on &#xA;sho_dw.dim.district.district_nbr = loc.district;&#xA;&#xA;update sho_dw.dim.location set &#xA;region_sk_id = sho_dw.dim.region.region_sk_id&#xA;from sho_dw.dim.region&#xA;inner join sho_dw.dim.location loc on &#xA;sho_dw.dim.region.region_nbr = loc.region;&#xA;&#xA;Update sho_dw.dim.location &#xA;set ordc_nbr = source.ordc_pos_nbr &#xA;from sho_dw.dbo.location_outlet_ordc_network source&#xA;where source.store_pos_nbr = sho_dw.dim.location.pos_nbr;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{86FAE424-3632-4E0A-9630-F122486826BA}"
+      DTS:From="Package\Update or Insert to dim_district in sho_dw from sho_staging_netsuite_district"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Update or Insert to dim_location in sho_dw from sho_staging_netsuite_location" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="454,42"
+          Id="Package\Update or Insert to dim_location in sho_dw from sho_staging_netsuite_location"
+          TopLeft="69,149" />
+        <NodeLayout
+          Size="444,42"
+          Id="Package\Update or Insert to dim_district in sho_dw from sho_staging_netsuite_district"
+          TopLeft="61,64" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="283,106">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13,43"
+              Start="0,0"
+              End="13,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="9,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9,21.5"
+                    Point2="13,21.5"
+                    Point3="13,25.5" />
+                  <mssgle:LineSegment
+                    End="13,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_to_SHO_STAGING_NETSUITE_LOCATION"
   DTS:PackageType="5"
-  DTS:VersionBuild="367"
-  DTS:VersionGUID="{23888BB9-3FCC-4A47-922C-80E30DE0EC48}">
+  DTS:VersionBuild="370"
+  DTS:VersionGUID="{41648F10-A5AE-4ECA-BEC2-65BFF7B5FC36}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -3538,7 +3538,7 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D4DB7566-E808-4A83-98F5-0992AFCCE9B8}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="Use sho_staging;&#xA;&#xA;delete from netsuite.location where pos_nbr IS NULL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="Use sho_staging;&#xA;&#xA;delete from netsuite.location where pos_nbr IS NULL;&#xA;&#xA;update sho_staging.netsuite.location_raw set region = trim(replace(region,'R',''));" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -3876,7 +3876,7 @@
         <NodeLayout
           Size="299,43"
           Id="Package\Populate sho_staging_netsuite_location Table\Perform Initial String Truncation for Insert"
-          TopLeft="244,185" />
+          TopLeft="151,141" />
         <NodeLayout
           Size="335,42"
           Id="Package\Populate sho_staging_netsuite_location Table\Read Records from NetSuite Flat File Locations Source"
@@ -3884,37 +3884,31 @@
         <NodeLayout
           Size="304,42"
           Id="Package\Populate sho_staging_netsuite_location Table\Insert Into sho_staging_netsuite_location Table"
-          TopLeft="332,367" />
+          TopLeft="161,284" />
         <NodeLayout
           Size="307,53"
           Id="Package\Populate sho_staging_netsuite_location Table\Convert Unicode to ASCII Values"
-          TopLeft="309.5,260.5" />
+          TopLeft="159.5,206.5" />
         <EdgeLayout
           Id="Package\Populate sho_staging_netsuite_location Table.Paths[Flat File Source Output]"
           TopLeft="313.5,119">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="80,66"
+              EndConnector="136.5,43.5"
               Start="0,0"
-              End="80,58.5">
+              End="129,43.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29" />
+                    End="0,39.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,29"
-                    Point2="0,33"
-                    Point3="4,33" />
+                    Point1="0,39.5"
+                    Point2="0,43.5"
+                    Point3="4,43.5" />
                   <mssgle:LineSegment
-                    End="76,33" />
-                  <mssgle:CubicBezierSegment
-                    Point1="76,33"
-                    Point2="80,33"
-                    Point3="80,37" />
-                  <mssgle:LineSegment
-                    End="80,58.5" />
+                    End="129,43.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3925,30 +3919,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Populate sho_staging_netsuite_location Table.Paths[Derived Column Output]"
-          TopLeft="393.5,228">
+          TopLeft="151,162.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="69.5,32.5"
+              EndConnector="8.5,70.5"
               Start="0,0"
-              End="69.5,25">
+              End="1,70.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12.25" />
+                    End="-18.5,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,12.25"
-                    Point2="0,16.25"
-                    Point3="4,16.25" />
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
                   <mssgle:LineSegment
-                    End="65.5,16.25" />
+                    End="-22.5,66.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="65.5,16.25"
-                    Point2="69.5,16.25"
-                    Point3="69.5,20.25" />
+                    Point1="-22.5,66.5"
+                    Point2="-22.5,70.5"
+                    Point3="-18.5,70.5" />
                   <mssgle:LineSegment
-                    End="69.5,25" />
+                    End="1,70.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3959,30 +3953,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Populate sho_staging_netsuite_location Table.Paths[Data Conversion Output]"
-          TopLeft="463,313.5">
+          TopLeft="313,259.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="21,53.5"
+              EndConnector="0,24.5"
               Start="0,0"
-              End="21,46">
+              End="0,17">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.75"
-                    Point2="0,26.75"
-                    Point3="4,26.75" />
-                  <mssgle:LineSegment
-                    End="17,26.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="17,26.75"
-                    Point2="21,26.75"
-                    Point3="21,30.75" />
-                  <mssgle:LineSegment
-                    End="21,46" />
+                    End="0,17" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

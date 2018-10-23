@@ -1,0 +1,2752 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/14/2018 3:23:06 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LT-SELVI-TEST"
+  DTS:CreatorName="LT-SELVI-TEST\User"
+  DTS:DTSID="{F5CE9297-D669-4A05-9865-BF95A014A342}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LOAD_NS_to_SHO_DW_DIM_PRODUCT"
+  DTS:PackageType="5"
+  DTS:VersionBuild="131"
+  DTS:VersionGUID="{D0B3344E-9FA5-4E3B-BD2C-A21A2BDC7080}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Populate sho_staging_netsuite_product Table"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0D7F8872-BC5D-467D-8A4B-0F12407120F0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Populate sho_staging_netsuite_product Table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Internal ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Internal ID"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Internal ID]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Date Created]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Date Created"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Date Created]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Inactive]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Inactive"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Inactive]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Contract Item Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Contract Item Type"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Contract Item Type]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Item Brand]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Item Brand"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Item Brand]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Product Brand ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Product Brand ID"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Product Brand ID]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Manufacturer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Manufacturer"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Manufacturer]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Item Mfgn Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Item Mfgn Number"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Item Mfgn Number]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[UPC Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="UPC Code"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[UPC Code]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[SKU #]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SKU #"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[SKU #]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Description"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Category No]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Category No"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Category No]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Category Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Category Name"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Category Name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Line No]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Line No"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Line No]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Line Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Line Name"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Line Name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Class No]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Class No"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Class No]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Class Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Class Name"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Class Name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Regular Price (3H)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Regular Price (3H)"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Regular Price (3H)]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[List Price (Outlet)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="List Price (Outlet)"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[List Price (Outlet)]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[MSRP]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MSRP"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[MSRP]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Average Cost]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Average Cost"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Average Cost]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Height (in )]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Height (in )"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Height (in )]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Shipping Height]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Shipping Height"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Shipping Height]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Width (in )]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Width (in )"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Width (in )]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Shipping Width]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Shipping Width"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Shipping Width]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Item No]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Item No"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Item No]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Division #]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Division #"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Division #]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Div No]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Div No"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Div No]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Div Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Div Name"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Div Name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Subline No]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Subline No"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Subline No]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[Subline Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Subline Name"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Subline Name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Internal ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Internal ID]"
+                      name="Internal ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Internal ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Date Created]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Date Created]"
+                      name="Date Created"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Date Created]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Inactive]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="5"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Inactive]"
+                      name="Inactive"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Inactive]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Contract Item Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Contract Item Type]"
+                      name="Contract Item Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Contract Item Type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Item Brand]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Item Brand]"
+                      name="Item Brand"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Item Brand]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Product Brand ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Product Brand ID]"
+                      name="Product Brand ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Product Brand ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Manufacturer]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Manufacturer]"
+                      name="Manufacturer"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Manufacturer]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Item Mfgn Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Item Mfgn Number]"
+                      name="Item Mfgn Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Item Mfgn Number]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[UPC Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[UPC Code]"
+                      name="UPC Code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[UPC Code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[SKU #]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[SKU #]"
+                      name="SKU #"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[SKU #]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="150"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Description]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Category No]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Category No]"
+                      name="Category No"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Category No]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Category Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Category Name]"
+                      name="Category Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Category Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Line No]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Line No]"
+                      name="Line No"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Line No]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Line Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Line Name]"
+                      name="Line Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Line Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Class No]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Class No]"
+                      name="Class No"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Class No]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Class Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Class Name]"
+                      name="Class Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Class Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Regular Price (3H)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Regular Price (3H)]"
+                      name="Regular Price (3H)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Regular Price (3H)]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[List Price (Outlet)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[List Price (Outlet)]"
+                      name="List Price (Outlet)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[List Price (Outlet)]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[MSRP]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[MSRP]"
+                      name="MSRP"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[MSRP]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Average Cost]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Average Cost]"
+                      name="Average Cost"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Average Cost]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Height (in )]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Height (in )]"
+                      name="Height (in )"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Height (in )]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Shipping Height]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Shipping Height]"
+                      name="Shipping Height"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Shipping Height]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Width (in )]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Width (in )]"
+                      name="Width (in )"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Width (in )]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Shipping Width]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Shipping Width]"
+                      name="Shipping Width"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Shipping Width]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Item No]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Item No]"
+                      name="Item No"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Item No]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Division #]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Division #]"
+                      name="Division #"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Division #]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Div No]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Div No]"
+                      name="Div No"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Div No]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Div Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Div Name]"
+                      name="Div Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Div Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Subline No]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Subline No]"
+                      name="Subline No"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Subline No]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Subline Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Subline Name]"
+                      name="Subline Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Subline Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="{FDBB8A7F-FB2B-4066-A9EF-C848BBB47693}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LOAD_NS_to_SHO_DW_DIM_PRODUCT_FF_DATASOURCE]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Internal ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Internal ID]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Internal ID]"
+                      name="Internal ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Date Created]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Date Created]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Date Created]"
+                      name="Date Created"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Inactive]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Inactive]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Inactive]"
+                      name="Inactive"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Contract Item Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Contract Item Type]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Contract Item Type]"
+                      name="Contract Item Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Item Brand]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Item Brand]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Item Brand]"
+                      name="Item Brand"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Product Brand ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Product Brand ID]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Product Brand ID]"
+                      name="Product Brand ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Manufacturer]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Manufacturer]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Manufacturer]"
+                      name="Manufacturer"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Item Mfgn Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Item Mfgn Number]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Item Mfgn Number]"
+                      name="Item Mfgn Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[UPC Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[UPC Code]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[UPC Code]"
+                      name="UPC Code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[SKU #]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SKU #]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[SKU #]"
+                      name="SKU #"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Description]"
+                      length="200"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Category No]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Category No]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Category No]"
+                      name="Category No"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Category Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Category Name]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Category Name]"
+                      name="Category Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Line No]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Line No]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Line No]"
+                      name="Line No"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Line Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Line Name]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Line Name]"
+                      name="Line Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Class No]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Class No]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Class No]"
+                      name="Class No"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Class Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Class Name]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Class Name]"
+                      name="Class Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Regular Price (3H)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Regular Price (3H)]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Regular Price (3H)]"
+                      name="Regular Price (3H)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[List Price (Outlet)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[List Price (Outlet)]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[List Price (Outlet)]"
+                      name="List Price (Outlet)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[MSRP]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MSRP]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[MSRP]"
+                      name="MSRP"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Average Cost]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Average Cost]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Average Cost]"
+                      name="Average Cost"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Height (in )]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Height (in )]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Height (in )]"
+                      name="Height (in )"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Shipping Height]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Shipping Height]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Shipping Height]"
+                      name="Shipping Height"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Width (in )]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Width (in )]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Width (in )]"
+                      name="Width (in )"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Shipping Width]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Shipping Width]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Shipping Width]"
+                      name="Shipping Width"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Item No]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Item No]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Item No]"
+                      name="Item No"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Division #]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Division #]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Division #]"
+                      name="Division #"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Div No]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Div No]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Div No]"
+                      name="Div No"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Div Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Div Name]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Div Name]"
+                      name="Div Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Subline No]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Subline No]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Subline No]"
+                      name="Subline No"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Subline Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Subline Name]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Subline Name]"
+                      name="Subline Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Internal ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Internal ID" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Date Created]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Date Created" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Inactive]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Inactive" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Contract Item Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Contract Item Type" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Item Brand]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Item Brand" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Product Brand ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Product Brand ID" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Manufacturer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Manufacturer" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Item Mfgn Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Item Mfgn Number" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[UPC Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="UPC Code" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SKU #]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SKU #" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Category No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Category No" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Category Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Category Name" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Line No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Line No" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Line Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Line Name" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Class No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Class No" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Class Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Class Name" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Regular Price (3H)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Regular Price (3H)" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[List Price (Outlet)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="List Price (Outlet)" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MSRP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MSRP" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Average Cost]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Average Cost" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Height (in )]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Height (in )" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Shipping Height]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Shipping Height" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Width (in )]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Width (in )" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Shipping Width]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Shipping Width" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Item No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Item No" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Division #]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Division #" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Div No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Div No" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Div Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Div Name" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Subline No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Subline No" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Subline Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Subline Name" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[netsuite].[product]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_STAGING]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Inactive]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="Inactive"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Inactive]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Inactive]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Contract Item Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Contract Item Type"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Contract Item Type]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Contract Item Type]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Item Brand]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Item Brand"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Item Brand]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Item Brand]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Product Brand ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Product Brand ID"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product Brand ID]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Product Brand ID]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Manufacturer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Manufacturer"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Manufacturer]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Manufacturer]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Item Mfgn Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Item Mfgn Number"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Item Mfgn Number]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Item Mfgn Number]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UPC Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="UPC Code"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UPC Code]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[UPC Code]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SKU #]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SKU #"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SKU #]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[SKU #]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Item No]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Item No"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Item No]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Item No]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Description"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Category No]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Category No"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Category No]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Category No]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Category Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Category Name"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Category Name]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Category Name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Division #]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Division #"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Division #]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Division #]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Div No]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Div No"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Div No]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Div No]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Div Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Div Name"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Div Name]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Div Name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Line No]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Line No"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Line No]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Line No]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Line Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Line Name"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Line Name]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Line Name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Subline No]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Subline No"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Subline No]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Subline No]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Subline Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Subline Name"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Subline Name]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Subline Name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Class No]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Class No"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Class No]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Class No]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Class Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Class Name"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Class Name]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Class Name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Regular Price (3H)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Regular Price (3H)"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Regular Price (3H)]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Regular Price (3H)]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[List Price (Outlet)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="List Price (Outlet)"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[List Price (Outlet)]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[List Price (Outlet)]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MSRP]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="MSRP"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MSRP]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[MSRP]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Average Cost]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Average Cost"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Average Cost]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Average Cost]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Height (in )]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Height (in )"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Height (in.)]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Height (in )]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Shipping Height]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Shipping Height"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Shipping Height]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Shipping Height]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Width (in )]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Width (in )"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Width (in.)]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Width (in )]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Shipping Width]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Shipping Width"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Shipping Width]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Shipping Width]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Inactive]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="Inactive" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Contract Item Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Contract Item Type" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Item Brand]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Item Brand" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product Brand ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Product Brand ID" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Manufacturer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Manufacturer" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Item Mfgn Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Item Mfgn Number" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UPC Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="UPC Code" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SKU #]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SKU #" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Item No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Item No" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Category No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Category No" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Category Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Category Name" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Division #]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Division #" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Div No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Div No" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Div Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Div Name" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Line No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Line No" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Line Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Line Name" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Subline No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Subline No" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Subline Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Subline Name" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Class No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Class No" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Class Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Class Name" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Regular Price (3H)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Regular Price (3H)" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[List Price (Outlet)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="List Price (Outlet)" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MSRP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="MSRP" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Average Cost]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Average Cost" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Height (in.)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Height (in.)" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Shipping Height]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Shipping Height" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Width (in.)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Width (in.)" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Shipping Width]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Shipping Width" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rec_load_dt]"
+                      dataType="dbTimeStamp"
+                      name="rec_load_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cat_div_sk_id]"
+                      dataType="i8"
+                      name="cat_div_sk_id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Populate sho_staging_netsuite_product Table.Paths[Data Conversion Output]"
+              endId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Populate sho_staging_netsuite_product Table.Paths[Flat File Source Output]"
+              endId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input]"
+              name="Flat File Source Output"
+              startId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Prepare Valid Data in sho_staging_netsuite_product Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{bf20678e-729c-428d-82c0-5fe38eee4b2b}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Prepare Valid Data in sho_staging_netsuite_product Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="UPDATE sho_staging.netsuite.product SET cat_div_sk_id = -1;&#xA;&#xA;UPDATE sho_staging.netsuite.product SET cat_div_sk_id = sho_dw.dim.category_division.cat_div_sk_id FROM sho_dw.dim.category_division INNER JOIN sho_staging.netsuite.product ON sho_dw.dim.category_division.cat_nbr = sho_staging.netsuite.product.[Category No] and sho_dw.dim.category_division.div_nbr = sho_staging.netsuite.product.[Div No];&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trim Values in sho_staging_netsuite_product Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{69f6724b-f8e6-49f2-9707-5890a319a43c}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trim Values in sho_staging_netsuite_product Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="Use sho_staging;&#xA;&#xA;Update netsuite.product set [Inactive] = TRIM([Inactive]);&#xA;&#xA;Update netsuite.product set [Contract Item Type] = TRIM([Contract Item Type]);&#xA;&#xA;Update netsuite.product set [Item Brand] = TRIM([Item Brand]);&#xA;&#xA;Update netsuite.product set [Product Brand ID] = TRIM([Product Brand ID]);&#xA;&#xA;Update netsuite.product set [Manufacturer] = TRIM([Manufacturer]);&#xA;&#xA;Update netsuite.product set [Item Mfgn Number] = TRIM([Item Mfgn Number]);&#xA;&#xA;Update netsuite.product set [UPC Code] = TRIM([UPC Code]);&#xA;&#xA;Update netsuite.product set [SKU #] = TRIM([SKU #]);&#xA;&#xA;Update netsuite.product set [Item No] = TRIM([Item No]);&#xA;&#xA;Update netsuite.product set [Description] = TRIM([Description]);&#xA;&#xA;Update netsuite.product set [Category No] = TRIM([Category No]);&#xA;&#xA;Update netsuite.product set [Category Name] = TRIM([Category Name]);&#xA;&#xA;Update netsuite.product set [Division #] = TRIM([Division #]);&#xA;&#xA;Update netsuite.product set [Div No] = TRIM([Div No]);&#xA;&#xA;Update netsuite.product set [Div Name] = TRIM([Div Name]);&#xA;&#xA;Update netsuite.product set [Line No] = TRIM([Line No]);&#xA;&#xA;Update netsuite.product set [Line Name] = TRIM([Line Name]);&#xA;&#xA;Update netsuite.product set [Subline No] = TRIM([Subline No]);&#xA;&#xA;Update netsuite.product set [Subline Name] = TRIM([Subline Name]);&#xA;&#xA;Update netsuite.product set [Class No] = TRIM([Class No])&#xA;&#xA;Update netsuite.product set [Class Name] = TRIM([Class Name]);&#xA;&#xA;Update netsuite.product set [Regular Price (3H)] = TRIM([Regular Price (3H)]);&#xA;&#xA;Update netsuite.product set [List Price (Outlet)] = TRIM([List Price (Outlet)]);&#xA;&#xA;Update netsuite.product set [MSRP] = TRIM([MSRP]);&#xA;&#xA;Update netsuite.product set [Average Cost] = TRIM([Average Cost]);&#xA;&#xA;Update netsuite.product set [Height (in.)] = TRIM([Height (in.)]);&#xA;Update netsuite.product set [Shipping Height] = TRIM([Shipping Height]);&#xA;&#xA;Update netsuite.product set [Width (in.)] = TRIM([Width (in.)]);&#xA;&#xA;Update netsuite.product set [Shipping Width] = TRIM([Shipping Width]);&#xA;&#xA;Update netsuite.product set [Regular Price (3H)] = '0' WHERE [Regular Price (3H)] = '';&#xA;&#xA;Update netsuite.product set [List Price (Outlet)] = '0' WHERE [List Price (Outlet)] = '';&#xA;&#xA;Update netsuite.product set [MSRP] = '0' WHERE [MSRP] = '';&#xA;&#xA;Update netsuite.product set [Average Cost] = '0' WHERE [Average Cost]  = '';&#xA;&#xA;Update netsuite.product set [Height (in.)] = '0' WHERE [Height (in.)]  = '';&#xA;&#xA;Update netsuite.product set [Shipping Height]  = '0' WHERE [Shipping Height]  = '';&#xA;&#xA;Update netsuite.product set [Width (in.)] = '0' WHERE [Width (in.)]  = '';&#xA;&#xA;Update netsuite.product set [Shipping Width] = '0' WHERE [Shipping Width]  = '';&#xA;&#xA;Update netsuite.product set [Regular Price (3H)] = '0' WHERE [Regular Price (3H)] = '';&#xA;&#xA;Update netsuite.product set [List Price (Outlet)] = '0' WHERE [List Price (Outlet)] = '';&#xA;&#xA;Update netsuite.product set [MSRP] = '0' WHERE [MSRP] = '';&#xA;&#xA;Update netsuite.product set [Average Cost] = '0' WHERE [Average Cost]  = '';&#xA;&#xA;Update netsuite.product set [Height (in.)] = '0' WHERE [Height (in.)]  = '';&#xA;&#xA;Update netsuite.product set [Shipping Height]  = '0' WHERE [Shipping Height]  = '';&#xA;&#xA;Update netsuite.product set [Width (in.)] = '0' WHERE [Width (in.)]  = '';&#xA;&#xA;Update netsuite.product set [Shipping Width] = '0' WHERE [Shipping Width]  = '';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate sho_staging_netsuite_product Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{542C593F-4BEE-462D-9CC6-8CD40997BA87}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate sho_staging_netsuite_product Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
+          SQLTask:SqlStatementSource="Truncate table [SHO_STAGING].[netsuite].[product]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A36DB11F-42DA-4CFB-8A4E-9D95D04CDBB1}"
+      DTS:From="Package\Truncate sho_staging_netsuite_product Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Populate sho_staging_netsuite_product Table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{849E6B35-8493-4926-9BEC-EC6217075AB4}"
+      DTS:From="Package\Trim Values in sho_staging_netsuite_product Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Prepare Valid Data in sho_staging_netsuite_product Table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{49651E22-33DE-4254-8962-5ADBB3B313B0}"
+      DTS:From="Package\Populate sho_staging_netsuite_product Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Trim Values in sho_staging_netsuite_product Table" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="294,42"
+          Id="Package\Populate sho_staging_netsuite_product Table"
+          TopLeft="231.333326207267,93.253334694333" />
+        <NodeLayout
+          Size="352,42"
+          Id="Package\Prepare Valid Data in sho_staging_netsuite_product Table"
+          TopLeft="210.333325968849,252" />
+        <NodeLayout
+          Size="320,42"
+          Id="Package\Trim Values in sho_staging_netsuite_product Table"
+          TopLeft="208,173" />
+        <NodeLayout
+          Size="295,42"
+          Id="Package\Truncate sho_staging_netsuite_product Table"
+          TopLeft="227.333325968849,20.480000512441" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="376.583326088058,62.480000512441">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.773334181892"
+              Start="0,0"
+              End="0,23.273334181892">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.273334181892" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="368,215">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.333325968849,37"
+              Start="0,0"
+              End="18.333325968849,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="4,18.5" />
+                  <mssgle:LineSegment
+                    End="14.333325968849,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.333325968849,18.5"
+                    Point2="18.333325968849,18.5"
+                    Point3="18.333325968849,22.5" />
+                  <mssgle:LineSegment
+                    End="18.333325968849,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="378.333326207267,135.253334694333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.333326207267,37.746665305667"
+              Start="0,0"
+              End="-10.333326207267,30.246665305667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.8733326528335" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.8733326528335"
+                    Point2="0,18.8733326528335"
+                    Point3="-4,18.8733326528335" />
+                  <mssgle:LineSegment
+                    End="-6.33332620726696,18.8733326528335" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.33332620726696,18.8733326528335"
+                    Point2="-10.333326207267,18.8733326528335"
+                    Point3="-10.333326207267,22.8733326528335" />
+                  <mssgle:LineSegment
+                    End="-10.333326207267,30.246665305667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Populate sho_staging_netsuite_product Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Populate sho_staging_netsuite_product Table\Flat File Source"
+          TopLeft="161.499994754792,5.64666662809583" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination"
+          TopLeft="125.999994913737,175.426668132358" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Populate sho_staging_netsuite_product Table\Data Conversion"
+          TopLeft="146,83" />
+        <EdgeLayout
+          Id="Package\Populate sho_staging_netsuite_product Table.Paths[Flat File Source Output]"
+          TopLeft="236.999994754792,47.6466666280958">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.999994754792,35.3533333719042"
+              Start="0,0"
+              End="-12.999994754792,27.8533333719042">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.6766666859521" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.6766666859521"
+                    Point2="0,17.6766666859521"
+                    Point3="-4,17.6766666859521" />
+                  <mssgle:LineSegment
+                    End="-8.999994754792,17.6766666859521" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.999994754792,17.6766666859521"
+                    Point2="-12.999994754792,17.6766666859521"
+                    Point3="-12.999994754792,21.6766666859521" />
+                  <mssgle:LineSegment
+                    End="-12.999994754792,27.8533333719042" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Populate sho_staging_netsuite_product Table.Paths[Data Conversion Output]"
+          TopLeft="224,125">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.500005086263,50.426668132358"
+              Start="0,0"
+              End="-12.500005086263,42.926668132358">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.213334066179" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.213334066179"
+                    Point2="0,25.213334066179"
+                    Point3="-4,25.213334066179" />
+                  <mssgle:LineSegment
+                    End="-8.500005086263,25.213334066179" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.500005086263,25.213334066179"
+                    Point2="-12.500005086263,25.213334066179"
+                    Point3="-12.500005086263,29.213334066179" />
+                  <mssgle:LineSegment
+                    End="-12.500005086263,42.926668132358" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

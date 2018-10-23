@@ -26,12 +26,13 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">LT-MPLASKO</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1w42Lua59Ea9oJqFFqWa2gAAAAACAAAAAAADZgAAwAAAABAAAADNBC2+sP6SwYrwdm+/3So0AAAAAASAAACgAAAAEAAAADrU1WOGE47grNOKJzlLHbeIAAAAK/sa12idumR3k60ZGDFtF31Kgc6pasOT071BGspysrKIjB0AtqGAG+3iuDCK9mTJYGHoL/GNtgCJEbsh5nqJcIu0Ykac55T8hObTqkQZubZJJGgVUgZU9vLRWlTuC8a3eRbE9oMVgQhM3VKdWAqU1Z6WavAUoKU35oen8YY1dEgxL6LTJMbeWhQAAABZoXP098kx3Goul6sAXoxBbe6AAg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1w42Lua59Ea9oJqFFqWa2gAAAAACAAAAAAADZgAAwAAAABAAAACxLZ/mDGWdxpdivffluGoNAAAAAASAAACgAAAAEAAAAGjed+ms22esJEuVQNYuIzaIAAAAPZ2qrP4HNAahYc+mEXE9Wzd2WF0LFQ3fTKNF5+zmgxGjWk6xH+VFFxcegFBCcNM0w6tnJlM75G2qNKcUu7kRwVZadNBuXHpfOhNyASKM1jGCMlj1qms3RDE1W8nmXOhbcm66xrG44TL9uEMr2wUibIyZXV2f/3soYRBQLLugbGQu0/3Ol+nMPhQAAABdU8XDdMwGmlaAM3VlcMG8dY4lsQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
           <SSIS:Package SSIS:Name="LOAD_NS_to_SHO_STAGING_NETSUITE_LOCATION.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="LOAD_SHO_STAGING_LOCATON_to_SHO_DW_DIM_LOC_DIST_REG.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="UPDATE_SHO_STAGING_to_SHO_DW_DIM_LOC_DIST_REG.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="SHO_STAGING_OLEDB.conmgr" />
@@ -1202,10 +1203,10 @@
                 <SSIS:Property SSIS:Name="Name">LOAD_NS_to_SHO_STAGING_NETSUITE_LOCATION</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">366</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">370</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{BFB1DB88-1C18-4FDE-836A-E7B916AB85D1}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{41648F10-A5AE-4ECA-BEC2-65BFF7B5FC36}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -1246,6 +1247,37 @@
                 <SSIS:Parameter SSIS:Name="LOCATION_DATA_SOURCE">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">{5408E080-987C-4330-AD93-41EDE1E84542}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">Data Source for Location Load</SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">N</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="UPDATE_SHO_STAGING_to_SHO_DW_DIM_LOC_DIST_REG.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{19A28FCE-C537-496B-A1E4-2D8A95FBF5C4}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">UPDATE_SHO_STAGING_to_SHO_DW_DIM_LOC_DIST_REG</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">375</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{63431112-C76F-415D-A51A-31CE1175509E}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="LOCATION_DATA_SOURCE">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{43C0C160-B5C6-4826-A694-064D79C47940}</SSIS:Property>
                     <SSIS:Property SSIS:Name="CreationName">
                     </SSIS:Property>
                     <SSIS:Property SSIS:Name="Description">Data Source for Location Load</SSIS:Property>

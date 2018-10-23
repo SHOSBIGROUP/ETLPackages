@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="9/21/2018 1:07:40 PM"
+  DTS:CreationDate="10/18/2018 3:01:30 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="LT-MPLASKO"
   DTS:CreatorName="SHO\mplaskow"
-  DTS:DTSID="{1E0EEBE1-C684-45D6-80B7-9E4FD4E876B9}"
+  DTS:DTSID="{5549573C-87BB-4A89-AE8E-711826CEF937}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="14.0.3002.107"
   DTS:LocaleID="1033"
-  DTS:ObjectName="LOAD_EB_to_SHO_STAGING_COGS_3H"
+  DTS:ObjectName="LOAD_FI_EBIDTA_to_SHO_STAGING"
   DTS:PackageType="5"
-  DTS:VersionBuild="68"
-  DTS:VersionGUID="{7C403882-10E6-416A-B3F8-F0374C06A034}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{9DA7D347-4AF1-42BA-B484-04CAF717FF1B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -21,7 +21,7 @@
       DTS:refId="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{9683185D-B20C-4B15-A2BC-008095C7B85C}"
+      DTS:DTSID="{d1e927bc-50b3-4971-9b5c-777703ca925c}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg"
@@ -4681,7 +4681,7 @@
       DTS:refId="Package\Trim Staging Strings in sho_staging_finance_week_loc_div_3h_cogs_stg"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{64eb7fe1-0985-4a4e-92c5-a0a39d36f9a4}"
+      DTS:DTSID="{015c0e44-a653-4409-93b8-f656dde98641}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Trim Staging Strings in sho_staging_finance_week_loc_div_3h_cogs_stg"
@@ -4695,38 +4695,12 @@
           SQLTask:SqlStatementSource="Update [sho_staging].[finance].[week_loc_div_3h_cogs_stg] Set &#xA;[year_title] = TRIM([year_title]), &#xA;[loc_title] = TRIM([loc_title]), &#xA;[week_title] = TRIM([week_title]), &#xA;[essbase_pull_title] = TRIM([essbase_pull_title]), &#xA;[div_title] = TRIM([div_title]), &#xA;[cogs_amt] = TRIM([cogs_amt]);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Truncate Table sho_staging_finance_week_loc_div_3h_cogs_stg"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{ABAB1A18-CFDD-496E-8BEF-C44177B194B6}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Truncate Table sho_staging_finance_week_loc_div_3h_cogs_stg"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
-          SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="--Truncate Table [sho_staging].[finance].[week_loc_div_3h_cogs_stg];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint]"
-      DTS:CreationName=""
-      DTS:DTSID="{450781DB-1E70-4B17-BD99-E1A11F8BDCA8}"
-      DTS:From="Package\Truncate Table sho_staging_finance_week_loc_div_3h_cogs_stg"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint"
-      DTS:To="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{51225C37-93D7-4B11-A58F-CE02CB67F043}"
+      DTS:DTSID="{9acd94a7-b939-4976-839f-c67ce1dbdf4a}"
       DTS:From="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -4743,79 +4717,41 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="382,42"
           Id="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg"
-          TopLeft="84,154" />
+          TopLeft="153,185" />
         <NodeLayout
           Size="420,42"
           Id="Package\Trim Staging Strings in sho_staging_finance_week_loc_div_3h_cogs_stg"
-          TopLeft="79,236" />
-        <NodeLayout
-          Size="383,42"
-          Id="Package\Truncate Table sho_staging_finance_week_loc_div_3h_cogs_stg"
-          TopLeft="113,74" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="304.5,116">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-29.5,38"
-              Start="0,0"
-              End="-29.5,30.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15"
-                    Point2="0,19"
-                    Point3="-4,19" />
-                  <mssgle:LineSegment
-                    End="-25.5,19" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-25.5,19"
-                    Point2="-29.5,19"
-                    Point3="-29.5,23" />
-                  <mssgle:LineSegment
-                    End="-29.5,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="115,275" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="275,196">
+          TopLeft="344,227">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="14,40"
+              EndConnector="-19,48"
               Start="0,0"
-              End="14,32.5">
+              End="-19,40.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16" />
+                    End="0,20" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16"
-                    Point2="0,20"
-                    Point3="4,20" />
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="-4,24" />
                   <mssgle:LineSegment
-                    End="10,20" />
+                    End="-15,24" />
                   <mssgle:CubicBezierSegment
-                    Point1="10,20"
-                    Point2="14,20"
-                    Point3="14,24" />
+                    Point1="-15,24"
+                    Point2="-19,24"
+                    Point3="-19,28" />
                   <mssgle:LineSegment
-                    End="14,32.5" />
+                    End="-19,40.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4909,102 +4845,6 @@
           Id="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg\Convert Data Types for sho_staging_finance_week_loc_div_3h_cogs_stg Table"
           TopLeft="368,569" />
         <EdgeLayout
-          Id="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg.Paths[Sort Output1]"
-          TopLeft="700,455">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-49.5,31"
-              Start="0,0"
-              End="-49.5,23.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-45.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-45.5,0"
-                    Point2="-49.5,0"
-                    Point3="-49.5,4" />
-                  <mssgle:LineSegment
-                    End="-49.5,23.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg.Paths[Sort Output2]"
-          TopLeft="385.5,230">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-97.1666666666667,36"
-              Start="0,0"
-              End="-97.1666666666667,28.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.4167550371156" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.4167550371156"
-                    Point2="0,21.4167550371156"
-                    Point3="-4,21.4167550371156" />
-                  <mssgle:LineSegment
-                    End="-93.1666666666667,21.4167550371156" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-93.1666666666667,21.4167550371156"
-                    Point2="-97.1666666666667,21.4167550371156"
-                    Point3="-97.1666666666667,25.4167550371156" />
-                  <mssgle:LineSegment
-                    End="-97.1666666666667,28.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg.Paths[Sort Output5]"
-          TopLeft="107.5,239">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="121.166666666667,27"
-              Start="0,0"
-              End="121.166666666667,19.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.0625662778367" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.0625662778367"
-                    Point2="0,16.0625662778367"
-                    Point3="4,16.0625662778367" />
-                  <mssgle:LineSegment
-                    End="117.166666666667,16.0625662778367" />
-                  <mssgle:CubicBezierSegment
-                    Point1="117.166666666667,16.0625662778367"
-                    Point2="121.166666666667,16.0625662778367"
-                    Point3="121.166666666667,20.0625662778367" />
-                  <mssgle:LineSegment
-                    End="121.166666666667,19.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg.Paths[Sort Output4]"
           TopLeft="804.5,236">
           <EdgeLayout.Curve>
@@ -5058,6 +4898,102 @@
                     Point3="3.66666666666669,4" />
                   <mssgle:LineSegment
                     End="3.66666666666669,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg.Paths[Sort Output2]"
+          TopLeft="385.5,230">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-97.1666666666667,36"
+              Start="0,0"
+              End="-97.1666666666667,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.4167550371156" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.4167550371156"
+                    Point2="0,21.4167550371156"
+                    Point3="-4,21.4167550371156" />
+                  <mssgle:LineSegment
+                    End="-93.1666666666667,21.4167550371156" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-93.1666666666667,21.4167550371156"
+                    Point2="-97.1666666666667,21.4167550371156"
+                    Point3="-97.1666666666667,25.4167550371156" />
+                  <mssgle:LineSegment
+                    End="-97.1666666666667,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg.Paths[Sort Output1]"
+          TopLeft="700,455">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-49.5,31"
+              Start="0,0"
+              End="-49.5,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-45.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-45.5,0"
+                    Point2="-49.5,0"
+                    Point3="-49.5,4" />
+                  <mssgle:LineSegment
+                    End="-49.5,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg.Paths[Sort Output]"
+          TopLeft="592,240">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-122.666666666667,147"
+              Start="0,0"
+              End="-122.666666666667,139.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,83.3870967741935" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,83.3870967741935"
+                    Point2="0,87.3870967741935"
+                    Point3="-4,87.3870967741935" />
+                  <mssgle:LineSegment
+                    End="-118.666666666667,87.3870967741935" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-118.666666666667,87.3870967741935"
+                    Point2="-122.666666666667,87.3870967741935"
+                    Point3="-122.666666666667,91.3870967741935" />
+                  <mssgle:LineSegment
+                    End="-122.666666666667,139.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5337,28 +5273,6 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg.Paths[Unpivot Output]"
-          TopLeft="595.75,170">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28"
-              Start="0,0"
-              End="0,20.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg.Paths[Unpivot Output2]"
           TopLeft="818,170">
           <EdgeLayout.Curve>
@@ -5427,31 +5341,53 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg.Paths[Sort Output]"
-          TopLeft="592,240">
+          Id="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg.Paths[Unpivot Output]"
+          TopLeft="595.75,170">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-122.666666666667,147"
+              EndConnector="0,28"
               Start="0,0"
-              End="-122.666666666667,139.5">
+              End="0,20.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,83.3870967741935" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,83.3870967741935"
-                    Point2="0,87.3870967741935"
-                    Point3="-4,87.3870967741935" />
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg.Paths[Sort Output5]"
+          TopLeft="107.5,239">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="121.166666666667,27"
+              Start="0,0"
+              End="121.166666666667,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-118.666666666667,87.3870967741935" />
+                    End="0,12.0625662778367" />
                   <mssgle:CubicBezierSegment
-                    Point1="-118.666666666667,87.3870967741935"
-                    Point2="-122.666666666667,87.3870967741935"
-                    Point3="-122.666666666667,91.3870967741935" />
+                    Point1="0,12.0625662778367"
+                    Point2="0,16.0625662778367"
+                    Point3="4,16.0625662778367" />
                   <mssgle:LineSegment
-                    End="-122.666666666667,139.5" />
+                    End="117.166666666667,16.0625662778367" />
+                  <mssgle:CubicBezierSegment
+                    Point1="117.166666666667,16.0625662778367"
+                    Point2="121.166666666667,16.0625662778367"
+                    Point3="121.166666666667,20.0625662778367" />
+                  <mssgle:LineSegment
+                    End="121.166666666667,19.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5463,57 +5399,5 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg\Load 3H COGS Data Rows">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg\Load 3H COGS Years">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg\Populate sho_staging_finance_week_loc_div_3h_cogs_stg Table">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Populate Table sho_staging_finance_week_loc_div_3h_cogs_stg\Load 3H COGS Divisions">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

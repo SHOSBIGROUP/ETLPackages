@@ -26,11 +26,10 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-PBEJN2M</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1w42Lua59Ea9oJqFFqWa2gAAAAACAAAAAAADZgAAwAAAABAAAABYvHNjtfcxDC8qThQ/l8XjAAAAAASAAACgAAAAEAAAALPCQ4wQlgPAcFYp1+70MliIAAAAQsl0siDFiHfqX6R19v5RS9w8YQrux9sWT+pk0bY+QutxriD+zB9C7lCbMU9xHKqrXV2MKUKG/wKmgdrzLdxs6tTl4EAzPZDkWOj0VLaMynGEShBZnpevByHY9P7NRwVWgEmliO1DKnfg0nbr3fGQ992BGEYWv3LVUpxFzrAZ1yVLhwpd0c/6LhQAAAAaOL3Cgj2qMCD6PDGMSHN5bU72SQ==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1w42Lua59Ea9oJqFFqWa2gAAAAACAAAAAAADZgAAwAAAABAAAAAZTZYMQidDM1+dwIgFXNjfAAAAAASAAACgAAAAEAAAAKzB2WDm5NSQS2399844dGSIAAAApJmk/+Gq+oKnctZN0DVQ9Mr7nUkTs0GUfYC7KGfndsLNwwwO21au2eVODN747k2YNRW97qE+q+Pvr2mU/YzYy/hbXT7Me/N+eXahbU3cioZqKoRRLWUcOyj54ScArpTwgyx6MlDbBGLxpWWbzFLRDgAd8Zz+B/Jb3JHQAFRbqb1x2v+v5AhppxQAAACA0MhPwIt0bZdEli4T2kovPQkj8A==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
-          <SSIS:Package SSIS:Name="LOAD_NS_to_SHO_DW_DIM_PRODUCT.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="LOAD_TD_to_SHO_DW_FACT_SALES.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="LOAD_EB_to_SHO_STAGING_COGS_3H.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="LOAD_EB_to_SHO_STAGING_COGS_OUT.dtsx" SSIS:EntryPoint="1" />
@@ -40,6 +39,10 @@
           <SSIS:Package SSIS:Name="LOAD_FI_GPPLANLOCATIONDAY_to_DW_STAGING.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="LOAD_FI_SALESPLANLOCATIONDAY_to_DW_STAGING.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="LOAD_FI_PLANFORECAST_DW_STAGING_TO_DW_FACT.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LOAD_NS_to_SHO_STAGING_NETSUITE_PRODUCT.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LOAD_NS_SHO_STAGING_to_SHO_DW_DIM_PRODUCT.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LOAD_NS_SHO_STAGING_to_SHO_DW_DIM_PRODUCT_SQL.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LOAD_FI_EBIDTA_to_SHO_STAGING.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="OLEDB_MSSQL_SHO_DW.conmgr" />
@@ -1273,23 +1276,6 @@
             </SSIS:Parameter>
           </SSIS:ProjectConnectionParameters>
           <SSIS:PackageInfo>
-            <SSIS:PackageMetaData SSIS:Name="LOAD_NS_to_SHO_DW_DIM_PRODUCT.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{F5CE9297-D669-4A05-9865-BF95A014A342}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">LOAD_NS_to_SHO_DW_DIM_PRODUCT</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">124</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{1A69746B-B913-4CFD-8932-37790989824A}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters />
-            </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="LOAD_TD_to_SHO_DW_FACT_SALES.dtsx">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">{88D2DED3-822B-46B2-8404-D07230FB21D1}</SSIS:Property>
@@ -1364,10 +1350,10 @@
                 <SSIS:Property SSIS:Name="Name">LOAD_FI_to_SHO_STAGING_FINANCE_DAY_LOCATION</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">114</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">115</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{DB0327FF-8496-4921-978F-6A8B32226918}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{A55968D4-D899-4EB8-9656-076E4514FF84}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -1413,7 +1399,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">X:\ssis_incoming\finance\Daily Sales Totals - Sep18(for BI).xlsx</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">X:\ssis_incoming\finance\Daily Sales Totals - Oct18(for BI).xlsx</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1486,7 +1472,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">X:\ssis_incoming\finance\Daily Sales Totals - Sep18(for BI).xlsx</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">X:\ssis_incoming\finance\Daily Sales Totals - Oct18(for BI).xlsx</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -2841,6 +2827,74 @@
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionGUID">{DEDE7A1A-D301-4121-B515-2DB0C0579454}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LOAD_NS_to_SHO_STAGING_NETSUITE_PRODUCT.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{F5CE9297-D669-4A05-9865-BF95A014A342}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LOAD_NS_to_SHO_DW_DIM_PRODUCT</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">127</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{9BD95CE8-4085-444D-B170-2E073B06AFE6}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LOAD_NS_SHO_STAGING_to_SHO_DW_DIM_PRODUCT.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{6F748263-E06F-4CC2-9AE4-7707DB8EBF8B}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LOAD_NS_to_SHO_DW_DIM_PRODUCT</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">131</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{047BE941-F670-483C-A2CF-65DD5D2A6071}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LOAD_NS_SHO_STAGING_to_SHO_DW_DIM_PRODUCT_SQL.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{4C62D204-7DEA-4496-A1A8-8BEF49F25252}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LOAD_NS_SHO_STAGING_to_SHO_DW_DIM_PRODUCT_SQL</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">2</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{3CFE173A-C561-4278-A6D1-7BC024B01B4C}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LOAD_FI_EBIDTA_to_SHO_STAGING.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{5549573C-87BB-4A89-AE8E-711826CEF937}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LOAD_FI_EBIDTA_to_SHO_STAGING</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{F23D8D0C-8075-44B4-B6C7-6DC6C26EADAC}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
