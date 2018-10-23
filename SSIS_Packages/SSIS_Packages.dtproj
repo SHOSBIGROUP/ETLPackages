@@ -26,11 +26,10 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-PBEJN2M</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1w42Lua59Ea9oJqFFqWa2gAAAAACAAAAAAADZgAAwAAAABAAAAAZTZYMQidDM1+dwIgFXNjfAAAAAASAAACgAAAAEAAAAKzB2WDm5NSQS2399844dGSIAAAApJmk/+Gq+oKnctZN0DVQ9Mr7nUkTs0GUfYC7KGfndsLNwwwO21au2eVODN747k2YNRW97qE+q+Pvr2mU/YzYy/hbXT7Me/N+eXahbU3cioZqKoRRLWUcOyj54ScArpTwgyx6MlDbBGLxpWWbzFLRDgAd8Zz+B/Jb3JHQAFRbqb1x2v+v5AhppxQAAACA0MhPwIt0bZdEli4T2kovPQkj8A==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1w42Lua59Ea9oJqFFqWa2gAAAAACAAAAAAADZgAAwAAAABAAAAAdDznj3+Pq26qPzReNsc0lAAAAAASAAACgAAAAEAAAAAoJ3/TGgGS2Egy/xdJk/5CIAAAAPPL43UIFu0ZHZdfYdAlm74N8y8QAElTq6s3aS1APXNO2ZtusmXXq9u/9zPjymEn5c42ZoIFU6yXD1HdPHThkSnHTJ5/DJxaxMQfTsT6nRJh/GEKnL0SL/4zBZWBZfWD0IwdBLLbyu5CYl0DcgTPW1X/dGrasQR4AyD9OaNBQct0Sf5DzP6WIHRQAAADw4/+NQ3K8eyUkLPa6QEHZ9g0uHg==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
-          <SSIS:Package SSIS:Name="LOAD_TD_to_SHO_DW_FACT_SALES.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="LOAD_EB_to_SHO_STAGING_COGS_3H.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="LOAD_EB_to_SHO_STAGING_COGS_OUT.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="LOAD_SHO_STAGING_to_SHO_DW_COGS_3H.dtsx" SSIS:EntryPoint="1" />
@@ -43,6 +42,9 @@
           <SSIS:Package SSIS:Name="LOAD_NS_SHO_STAGING_to_SHO_DW_DIM_PRODUCT.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="LOAD_NS_SHO_STAGING_to_SHO_DW_DIM_PRODUCT_SQL.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="LOAD_FI_EBIDTA_to_SHO_STAGING.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LOAD_TD_to_SHO_DW_FACT_SALES_Old.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LOAD_TD_to_SHO_DW_FACT_SALES.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LOAD_TD_to_SHO_DW_FACT_SALES_Backup_102318.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="OLEDB_MSSQL_SHO_DW.conmgr" />
@@ -1276,23 +1278,6 @@
             </SSIS:Parameter>
           </SSIS:ProjectConnectionParameters>
           <SSIS:PackageInfo>
-            <SSIS:PackageMetaData SSIS:Name="LOAD_TD_to_SHO_DW_FACT_SALES.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{88D2DED3-822B-46B2-8404-D07230FB21D1}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">LOAD_TD_to_SHO_DW_FACT_SALES</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">126</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{95D70688-B848-4A03-BEE8-27CD6D566FAA}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters />
-            </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="LOAD_EB_to_SHO_STAGING_COGS_3H.dtsx">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">{1E0EEBE1-C684-45D6-80B7-9E4FD4E876B9}</SSIS:Property>
@@ -2895,6 +2880,57 @@
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionGUID">{F23D8D0C-8075-44B4-B6C7-6DC6C26EADAC}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LOAD_TD_to_SHO_DW_FACT_SALES_Old.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{95416ADC-54F9-48F3-9590-BC28BD491910}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LOAD_TD_to_SHO_DW_FACT_SALES_Old</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">145</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{AA57EBD0-B211-468E-B078-9A23F2576999}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LOAD_TD_to_SHO_DW_FACT_SALES.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{6CD970D7-562C-4356-B537-34F9CC7E9C62}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LOAD_TD_to_SHO_DW_FACT_SALES</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">139</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{D8E2237F-DF12-4A5F-A8CF-F822CED41AD7}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LOAD_TD_to_SHO_DW_FACT_SALES_Backup_102318.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{AB3C291F-F638-43C6-83DB-B647B16A72EF}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LOAD_TD_to_SHO_DW_FACT_SALES_Backup_102318</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">127</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{CF114B0B-B4C7-4CE4-AC78-1D9ACA0F3E14}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
