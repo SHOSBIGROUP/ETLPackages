@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_TD_to_SHO_DW_FACT_SALES"
   DTS:PackageType="5"
-  DTS:VersionBuild="141"
-  DTS:VersionGUID="{5DA1091A-9D22-41CA-B799-6AFD83696027}">
+  DTS:VersionBuild="142"
+  DTS:VersionGUID="{73235AF1-B7C3-43DA-813D-22C3467E9532}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1574,89 +1574,6 @@
                       refId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Merge Teradata Raw into fact sho sales\Derived Column"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Merge Teradata Raw into fact sho sales\Derived Column.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Derived Column.Inputs[Derived Column Input].Columns[FMT_DIV_NO]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="3"
-                      cachedName="FMT_DIV_NO"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\add manufactured cols.Outputs[Derived Column Output].Columns[FMT_DIV_NO]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">#{Package\Merge Teradata Raw into fact sho sales\Lookup.Outputs[Lookup Match Output].Columns[FMT_DIV_MISC]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">FMT_DIV_MISC</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Derived Column.Inputs[Derived Column Input].Columns[FMT_DIV_MISC]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="3"
-                      cachedName="FMT_DIV_MISC"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Lookup.Outputs[Lookup Match Output].Columns[FMT_DIV_MISC]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Merge Teradata Raw into fact sho sales\Derived Column.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\Merge Teradata Raw into fact sho sales\Derived Column.Inputs[Derived Column Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Merge Teradata Raw into fact sho sales\Derived Column.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\Merge Teradata Raw into fact sho sales\Derived Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -3380,11 +3297,11 @@ UNION select DIV_NO, LOC_NO, TRS_DT FROM sho_staging.teradata.td_sales_dly_lease
               </inputs>
             </component>
             <component
-              refId="Package\Merge Teradata Raw into fact sho sales\Lookup"
+              refId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Lookup"
+              name="Lookup for Miscellaneous Category"
               usesDispositions="true"
               version="6">
               <properties>
@@ -3448,7 +3365,7 @@ where [refTable].[div_nbr] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Merge Teradata Raw into fact sho sales\Lookup.Connections[OleDbConnection]"
+                  refId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Connections[OleDbConnection]"
                   connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
                   connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
                   description="Connection manager used to access lookup data."
@@ -3456,11 +3373,11 @@ where [refTable].[div_nbr] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Merge Teradata Raw into fact sho sales\Lookup.Inputs[Lookup Input]"
+                  refId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Lookup.Inputs[Lookup Input].Columns[FMT_DIV_NO]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Inputs[Lookup Input].Columns[FMT_DIV_NO]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="3"
@@ -3483,19 +3400,19 @@ where [refTable].[div_nbr] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Merge Teradata Raw into fact sho sales\Lookup.Outputs[Lookup Match Output]"
+                  refId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Merge Teradata Raw into fact sho sales\Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Lookup.Outputs[Lookup Match Output].Columns[FMT_DIV_MISC]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Outputs[Lookup Match Output].Columns[FMT_DIV_MISC]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Copy Column"
                       length="3"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Lookup.Outputs[Lookup Match Output].Columns[FMT_DIV_MISC]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Outputs[Lookup Match Output].Columns[FMT_DIV_MISC]"
                       name="FMT_DIV_MISC"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -3509,30 +3426,30 @@ where [refTable].[div_nbr] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Merge Teradata Raw into fact sho sales\Lookup.Outputs[Lookup No Match Output]"
+                  refId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Merge Teradata Raw into fact sho sales\Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Merge Teradata Raw into fact sho sales\Lookup.Outputs[Lookup Error Output]"
+                  refId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Merge Teradata Raw into fact sho sales\Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -5195,6 +5112,89 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
               </outputs>
             </component>
             <component
+              refId="Package\Merge Teradata Raw into fact sho sales\Set Miscellaneous Category"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Set Miscellaneous Category"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Merge Teradata Raw into fact sho sales\Set Miscellaneous Category.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales\Set Miscellaneous Category.Inputs[Derived Column Input].Columns[FMT_DIV_NO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="FMT_DIV_NO"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\add manufactured cols.Outputs[Derived Column Output].Columns[FMT_DIV_NO]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Outputs[Lookup Match Output].Columns[FMT_DIV_MISC]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FMT_DIV_MISC</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales\Set Miscellaneous Category.Inputs[Derived Column Input].Columns[FMT_DIV_MISC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="FMT_DIV_MISC"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Outputs[Lookup Match Output].Columns[FMT_DIV_MISC]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Merge Teradata Raw into fact sho sales\Set Miscellaneous Category.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Merge Teradata Raw into fact sho sales\Set Miscellaneous Category.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Merge Teradata Raw into fact sho sales\Set Miscellaneous Category.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Merge Teradata Raw into fact sho sales\Set Miscellaneous Category.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales\Set Miscellaneous Category.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Set Miscellaneous Category.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales\Set Miscellaneous Category.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Set Miscellaneous Category.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Merge Teradata Raw into fact sho sales\sort brand sales"
               componentClassID="Microsoft.Sort"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -6041,136 +6041,136 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[trs_dt_sk_id]"
                       cachedDataType="i4"
                       cachedName="trs_dt_sk_id"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[trs_dt_sk_id]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[trs_dt_sk_id]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[LOC_NO]"
                       cachedDataType="i4"
                       cachedName="LOC_NO"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[LOC_NO]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[LOC_NO]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[net_sales]"
                       cachedDataType="r8"
                       cachedName="net_sales"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[net_sales]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[net_sales]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[net_units]"
                       cachedDataType="i4"
                       cachedName="net_units"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[net_units]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[net_units]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[pa_sales]"
                       cachedDataType="r8"
                       cachedName="pa_sales"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pa_sales]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pa_sales]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[pa_units]"
                       cachedDataType="i4"
                       cachedName="pa_units"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pa_units]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pa_units]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[pam_sales]"
                       cachedDataType="r8"
                       cachedName="pam_sales"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pam_sales]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pam_sales]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[pam_units]"
                       cachedDataType="i4"
                       cachedName="pam_units"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pam_units]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pam_units]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[total_markdowns]"
                       cachedDataType="r8"
                       cachedName="total_markdowns"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[total_markdowns]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[total_markdowns]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[avg_ticket_amt]"
                       cachedDataType="r8"
                       cachedName="avg_ticket_amt"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[avg_ticket_amt]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[avg_ticket_amt]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[avg_ticket_units]"
                       cachedDataType="i4"
                       cachedName="avg_ticket_units"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[avg_ticket_units]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[avg_ticket_units]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[lease_sales]"
                       cachedDataType="r8"
                       cachedName="lease_sales"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[lease_sales]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[lease_sales]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[lease_units]"
                       cachedDataType="i4"
                       cachedName="lease_units"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[lease_units]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[lease_units]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[kenmore_net_sale]"
                       cachedDataType="r8"
                       cachedName="kenmore_net_sale"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[kenmore_net_sale]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[kenmore_net_sale]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[craftsman_net_sale]"
                       cachedDataType="r8"
                       cachedName="craftsman_net_sale"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[craftsman_net_sale]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[craftsman_net_sale]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[diehard_net_sale]"
                       cachedDataType="r8"
                       cachedName="diehard_net_sale"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[diehard_net_sale]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[diehard_net_sale]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[kenmore_net_units]"
                       cachedDataType="i8"
                       cachedName="kenmore_net_units"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[kenmore_net_units]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[kenmore_net_units]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[craftsman_net_units]"
                       cachedDataType="i8"
                       cachedName="craftsman_net_units"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[craftsman_net_units]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[craftsman_net_units]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[diehard_net_units]"
                       cachedDataType="i8"
                       cachedName="diehard_net_units"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[diehard_net_units]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[diehard_net_units]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[guardsman_sales]"
                       cachedDataType="r8"
                       cachedName="guardsman_sales"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[guardsman_sales]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[guardsman_sales]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[guardsman_units]"
                       cachedDataType="i4"
                       cachedName="guardsman_units"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[guardsman_units]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[guardsman_units]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[pos_source_system]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="3"
                       cachedName="pos_source_system"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pos_source_system]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pos_source_system]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[gross_profit]"
                       cachedDataType="i4"
                       cachedName="gross_profit"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[gross_profit]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[gross_profit]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[DIV_NO]"
                       cachedDataType="i4"
                       cachedName="DIV_NO"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[DIV_NO]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[DIV_NO]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[TRS_DT]"
                       cachedDataType="dbDate"
                       cachedName="TRS_DT"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[TRS_DT]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[TRS_DT]" />
                     <inputColumn
                       refId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1].Columns[FMT_DIV_NO]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="3"
                       cachedName="FMT_DIV_NO"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[FMT_DIV_NO]" />
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[FMT_DIV_NO]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -6201,7 +6201,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[trs_dt_sk_id]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[trs_dt_sk_id]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6227,7 +6227,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[LOC_NO]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[LOC_NO]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6253,7 +6253,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[net_sales]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[net_sales]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6279,7 +6279,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[net_units]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[net_units]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6305,7 +6305,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pa_sales]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pa_sales]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6331,7 +6331,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pa_units]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pa_units]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6357,7 +6357,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pam_sales]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pam_sales]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6383,7 +6383,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pam_units]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pam_units]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6409,7 +6409,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[total_markdowns]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[total_markdowns]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6435,7 +6435,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[avg_ticket_amt]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[avg_ticket_amt]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6461,7 +6461,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[avg_ticket_units]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[avg_ticket_units]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6487,7 +6487,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[lease_sales]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[lease_sales]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6513,7 +6513,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[lease_units]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[lease_units]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6539,7 +6539,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[kenmore_net_sale]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[kenmore_net_sale]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6565,7 +6565,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[craftsman_net_sale]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[craftsman_net_sale]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6591,7 +6591,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[diehard_net_sale]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[diehard_net_sale]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6617,7 +6617,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[kenmore_net_units]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[kenmore_net_units]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6643,7 +6643,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[craftsman_net_units]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[craftsman_net_units]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6669,7 +6669,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[diehard_net_units]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[diehard_net_units]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6695,7 +6695,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[guardsman_sales]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[guardsman_sales]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6721,7 +6721,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[guardsman_units]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[guardsman_units]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6749,7 +6749,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pos_source_system]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pos_source_system]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6775,7 +6775,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[gross_profit]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[gross_profit]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6801,7 +6801,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[TRS_DT]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[TRS_DT]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6829,7 +6829,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[FMT_DIV_NO]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[FMT_DIV_NO]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -6855,7 +6855,7 @@ where [refTable].[trs_dt_sk_id] = ? and [refTable].[prod_cat_div_sk_id] = ? and 
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[DIV_NO]}</property>
+                          name="AggregationColumnId">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[DIV_NO]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -7107,19 +7107,19 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
               </outputs>
             </component>
             <component
-              refId="Package\Merge Teradata Raw into fact sho sales\Union All"
+              refId="Package\Merge Teradata Raw into fact sho sales\Union All Results"
               componentClassID="Microsoft.UnionAll"
               contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
-              name="Union All"
+              name="Union All Results"
               version="1">
               <inputs>
                 <input
-                  refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1]"
+                  refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1]"
                   name="Union All Input 1">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[TRS_DT]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[TRS_DT]"
                       cachedDataType="dbDate"
                       cachedName="TRS_DT"
                       cachedSortKeyPosition="1"
@@ -7129,11 +7129,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[TRS_DT]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[TRS_DT]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[LOC_NO]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[LOC_NO]"
                       cachedDataType="i4"
                       cachedName="LOC_NO"
                       cachedSortKeyPosition="2"
@@ -7143,11 +7143,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[LOC_NO]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[LOC_NO]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[DIV_NO]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[DIV_NO]"
                       cachedDataType="i4"
                       cachedName="DIV_NO"
                       cachedSortKeyPosition="3"
@@ -7157,11 +7157,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[DIV_NO]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[DIV_NO]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[net_sales]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[net_sales]"
                       cachedDataType="r8"
                       cachedName="net_sales"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[net_sales]">
@@ -7170,11 +7170,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[net_sales]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[net_sales]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[net_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[net_units]"
                       cachedDataType="i4"
                       cachedName="net_units"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[net_units]">
@@ -7183,11 +7183,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[net_units]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[net_units]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[pa_sales]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[pa_sales]"
                       cachedDataType="r8"
                       cachedName="pa_sales"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[pa_sales]">
@@ -7196,11 +7196,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pa_sales]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pa_sales]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[pa_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[pa_units]"
                       cachedDataType="i4"
                       cachedName="pa_units"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[pa_units]">
@@ -7209,11 +7209,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pa_units]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pa_units]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[pam_sales]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[pam_sales]"
                       cachedDataType="r8"
                       cachedName="pam_sales"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[pam_sales]">
@@ -7222,11 +7222,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pam_sales]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pam_sales]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[pam_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[pam_units]"
                       cachedDataType="i4"
                       cachedName="pam_units"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[pam_units]">
@@ -7235,11 +7235,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pam_units]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pam_units]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[total_markdowns]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[total_markdowns]"
                       cachedDataType="r8"
                       cachedName="total_markdowns"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[total_markdowns]">
@@ -7248,11 +7248,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[total_markdowns]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[total_markdowns]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[avg_ticket_amt]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[avg_ticket_amt]"
                       cachedDataType="r8"
                       cachedName="avg_ticket_amt"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[avg_ticket_amt]">
@@ -7261,11 +7261,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[avg_ticket_amt]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[avg_ticket_amt]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[avg_ticket_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[avg_ticket_units]"
                       cachedDataType="i4"
                       cachedName="avg_ticket_units"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[avg_ticket_units]">
@@ -7274,11 +7274,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[avg_ticket_units]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[avg_ticket_units]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[lease_sales]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[lease_sales]"
                       cachedDataType="r8"
                       cachedName="lease_sales"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[lease_sales]">
@@ -7287,11 +7287,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[lease_sales]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[lease_sales]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[lease_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[lease_units]"
                       cachedDataType="i4"
                       cachedName="lease_units"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[lease_units]">
@@ -7300,11 +7300,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[lease_units]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[lease_units]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[kenmore_net_sale]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[kenmore_net_sale]"
                       cachedDataType="r8"
                       cachedName="kenmore_net_sale"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[kenmore_net_sale]">
@@ -7313,11 +7313,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[kenmore_net_sale]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[kenmore_net_sale]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[craftsman_net_sale]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[craftsman_net_sale]"
                       cachedDataType="r8"
                       cachedName="craftsman_net_sale"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[craftsman_net_sale]">
@@ -7326,11 +7326,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[craftsman_net_sale]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[craftsman_net_sale]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[diehard_net_sale]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[diehard_net_sale]"
                       cachedDataType="r8"
                       cachedName="diehard_net_sale"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[diehard_net_sale]">
@@ -7339,11 +7339,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[diehard_net_sale]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[diehard_net_sale]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[kenmore_net_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[kenmore_net_units]"
                       cachedDataType="i8"
                       cachedName="kenmore_net_units"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[kenmore_net_units]">
@@ -7352,11 +7352,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[kenmore_net_units]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[kenmore_net_units]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[craftsman_net_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[craftsman_net_units]"
                       cachedDataType="i8"
                       cachedName="craftsman_net_units"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[craftsman_net_units]">
@@ -7365,11 +7365,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[craftsman_net_units]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[craftsman_net_units]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[diehard_net_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[diehard_net_units]"
                       cachedDataType="i8"
                       cachedName="diehard_net_units"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[diehard_net_units]">
@@ -7378,11 +7378,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[diehard_net_units]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[diehard_net_units]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[guardsman_sales]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[guardsman_sales]"
                       cachedDataType="r8"
                       cachedName="guardsman_sales"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[guardsman_sales]">
@@ -7391,11 +7391,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[guardsman_sales]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[guardsman_sales]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[guardsman_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[guardsman_units]"
                       cachedDataType="i4"
                       cachedName="guardsman_units"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[guardsman_units]">
@@ -7404,11 +7404,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[guardsman_units]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[guardsman_units]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[pos_source_system]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[pos_source_system]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="3"
@@ -7419,11 +7419,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pos_source_system]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pos_source_system]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[trs_dt_sk_id]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[trs_dt_sk_id]"
                       cachedDataType="i4"
                       cachedName="trs_dt_sk_id"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\add manufactured cols.Outputs[Derived Column Output].Columns[trs_dt_sk_id]">
@@ -7432,11 +7432,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[trs_dt_sk_id]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[trs_dt_sk_id]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[gross_profit]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[gross_profit]"
                       cachedDataType="i4"
                       cachedName="gross_profit"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\add manufactured cols.Outputs[Derived Column Output].Columns[gross_profit]">
@@ -7445,11 +7445,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[gross_profit]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[gross_profit]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1].Columns[FMT_DIV_NO]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1].Columns[FMT_DIV_NO]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="3"
@@ -7460,19 +7460,19 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[FMT_DIV_NO]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[FMT_DIV_NO]}</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
                 <input
-                  refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2]"
+                  refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2]"
                   hasSideEffects="true"
                   name="Union All Input 2">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[TRS_DT]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[TRS_DT]"
                       cachedDataType="dbDate"
                       cachedName="TRS_DT"
                       cachedSortKeyPosition="1"
@@ -7482,11 +7482,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[TRS_DT]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[TRS_DT]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[LOC_NO]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[LOC_NO]"
                       cachedDataType="i4"
                       cachedName="LOC_NO"
                       cachedSortKeyPosition="2"
@@ -7496,11 +7496,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[LOC_NO]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[LOC_NO]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[DIV_NO]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[DIV_NO]"
                       cachedDataType="i4"
                       cachedName="DIV_NO"
                       cachedSortKeyPosition="3"
@@ -7510,11 +7510,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[DIV_NO]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[DIV_NO]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[net_sales]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[net_sales]"
                       cachedDataType="r8"
                       cachedName="net_sales"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[net_sales]">
@@ -7523,11 +7523,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[net_sales]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[net_sales]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[net_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[net_units]"
                       cachedDataType="i4"
                       cachedName="net_units"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[net_units]">
@@ -7536,11 +7536,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[net_units]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[net_units]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[pa_sales]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[pa_sales]"
                       cachedDataType="r8"
                       cachedName="pa_sales"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[pa_sales]">
@@ -7549,11 +7549,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pa_sales]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pa_sales]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[pa_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[pa_units]"
                       cachedDataType="i4"
                       cachedName="pa_units"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[pa_units]">
@@ -7562,11 +7562,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pa_units]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pa_units]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[pam_sales]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[pam_sales]"
                       cachedDataType="r8"
                       cachedName="pam_sales"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[pam_sales]">
@@ -7575,11 +7575,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pam_sales]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pam_sales]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[pam_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[pam_units]"
                       cachedDataType="i4"
                       cachedName="pam_units"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[pam_units]">
@@ -7588,11 +7588,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pam_units]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pam_units]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[total_markdowns]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[total_markdowns]"
                       cachedDataType="r8"
                       cachedName="total_markdowns"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[total_markdowns]">
@@ -7601,11 +7601,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[total_markdowns]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[total_markdowns]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[avg_ticket_amt]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[avg_ticket_amt]"
                       cachedDataType="r8"
                       cachedName="avg_ticket_amt"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[avg_ticket_amt]">
@@ -7614,11 +7614,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[avg_ticket_amt]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[avg_ticket_amt]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[avg_ticket_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[avg_ticket_units]"
                       cachedDataType="i4"
                       cachedName="avg_ticket_units"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[avg_ticket_units]">
@@ -7627,11 +7627,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[avg_ticket_units]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[avg_ticket_units]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[lease_sales]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[lease_sales]"
                       cachedDataType="r8"
                       cachedName="lease_sales"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[lease_sales]">
@@ -7640,11 +7640,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[lease_sales]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[lease_sales]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[lease_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[lease_units]"
                       cachedDataType="i4"
                       cachedName="lease_units"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[lease_units]">
@@ -7653,11 +7653,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[lease_units]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[lease_units]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[kenmore_net_sale]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[kenmore_net_sale]"
                       cachedDataType="r8"
                       cachedName="kenmore_net_sale"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[kenmore_net_sale]">
@@ -7666,11 +7666,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[kenmore_net_sale]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[kenmore_net_sale]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[craftsman_net_sale]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[craftsman_net_sale]"
                       cachedDataType="r8"
                       cachedName="craftsman_net_sale"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[craftsman_net_sale]">
@@ -7679,11 +7679,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[craftsman_net_sale]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[craftsman_net_sale]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[diehard_net_sale]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[diehard_net_sale]"
                       cachedDataType="r8"
                       cachedName="diehard_net_sale"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[diehard_net_sale]">
@@ -7692,11 +7692,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[diehard_net_sale]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[diehard_net_sale]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[kenmore_net_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[kenmore_net_units]"
                       cachedDataType="i8"
                       cachedName="kenmore_net_units"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[kenmore_net_units]">
@@ -7705,11 +7705,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[kenmore_net_units]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[kenmore_net_units]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[craftsman_net_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[craftsman_net_units]"
                       cachedDataType="i8"
                       cachedName="craftsman_net_units"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[craftsman_net_units]">
@@ -7718,11 +7718,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[craftsman_net_units]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[craftsman_net_units]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[diehard_net_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[diehard_net_units]"
                       cachedDataType="i8"
                       cachedName="diehard_net_units"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[diehard_net_units]">
@@ -7731,11 +7731,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[diehard_net_units]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[diehard_net_units]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[guardsman_sales]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[guardsman_sales]"
                       cachedDataType="r8"
                       cachedName="guardsman_sales"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[guardsman_sales]">
@@ -7744,11 +7744,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[guardsman_sales]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[guardsman_sales]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[guardsman_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[guardsman_units]"
                       cachedDataType="i4"
                       cachedName="guardsman_units"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Outputs[Merge Join Output].Columns[guardsman_units]">
@@ -7757,11 +7757,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[guardsman_units]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[guardsman_units]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[pos_source_system]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[pos_source_system]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="3"
@@ -7772,11 +7772,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pos_source_system]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pos_source_system]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[trs_dt_sk_id]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[trs_dt_sk_id]"
                       cachedDataType="i4"
                       cachedName="trs_dt_sk_id"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\add manufactured cols.Outputs[Derived Column Output].Columns[trs_dt_sk_id]">
@@ -7785,11 +7785,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[trs_dt_sk_id]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[trs_dt_sk_id]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[gross_profit]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[gross_profit]"
                       cachedDataType="i4"
                       cachedName="gross_profit"
                       lineageId="Package\Merge Teradata Raw into fact sho sales\add manufactured cols.Outputs[Derived Column Output].Columns[gross_profit]">
@@ -7798,11 +7798,11 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[gross_profit]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[gross_profit]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2].Columns[FMT_DIV_NO]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2].Columns[FMT_DIV_NO]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="3"
@@ -7813,14 +7813,14 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[FMT_DIV_NO]}</property>
+                          name="OutputColumnLineageID">#{Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[FMT_DIV_NO]}</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
                 <input
-                  refId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 3]"
+                  refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 3]"
                   dangling="true"
                   hasSideEffects="true"
                   name="Union All Input 3">
@@ -7829,142 +7829,142 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1]"
+                  refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1]"
                   name="Union All Output 1">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[TRS_DT]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[TRS_DT]"
                       dataType="dbDate"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[TRS_DT]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[TRS_DT]"
                       name="TRS_DT" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[LOC_NO]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[LOC_NO]"
                       dataType="i4"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[LOC_NO]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[LOC_NO]"
                       name="LOC_NO" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[DIV_NO]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[DIV_NO]"
                       dataType="i4"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[DIV_NO]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[DIV_NO]"
                       name="DIV_NO" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[net_sales]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[net_sales]"
                       dataType="r8"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[net_sales]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[net_sales]"
                       name="net_sales" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[net_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[net_units]"
                       dataType="i4"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[net_units]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[net_units]"
                       name="net_units" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pa_sales]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pa_sales]"
                       dataType="r8"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pa_sales]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pa_sales]"
                       name="pa_sales" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pa_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pa_units]"
                       dataType="i4"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pa_units]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pa_units]"
                       name="pa_units" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pam_sales]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pam_sales]"
                       dataType="r8"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pam_sales]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pam_sales]"
                       name="pam_sales" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pam_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pam_units]"
                       dataType="i4"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pam_units]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pam_units]"
                       name="pam_units" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[total_markdowns]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[total_markdowns]"
                       dataType="r8"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[total_markdowns]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[total_markdowns]"
                       name="total_markdowns" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[avg_ticket_amt]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[avg_ticket_amt]"
                       dataType="r8"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[avg_ticket_amt]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[avg_ticket_amt]"
                       name="avg_ticket_amt" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[avg_ticket_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[avg_ticket_units]"
                       dataType="i4"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[avg_ticket_units]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[avg_ticket_units]"
                       name="avg_ticket_units" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[lease_sales]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[lease_sales]"
                       dataType="r8"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[lease_sales]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[lease_sales]"
                       name="lease_sales" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[lease_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[lease_units]"
                       dataType="i4"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[lease_units]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[lease_units]"
                       name="lease_units" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[kenmore_net_sale]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[kenmore_net_sale]"
                       dataType="r8"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[kenmore_net_sale]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[kenmore_net_sale]"
                       name="kenmore_net_sale" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[craftsman_net_sale]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[craftsman_net_sale]"
                       dataType="r8"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[craftsman_net_sale]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[craftsman_net_sale]"
                       name="craftsman_net_sale" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[diehard_net_sale]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[diehard_net_sale]"
                       dataType="r8"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[diehard_net_sale]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[diehard_net_sale]"
                       name="diehard_net_sale" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[kenmore_net_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[kenmore_net_units]"
                       dataType="i8"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[kenmore_net_units]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[kenmore_net_units]"
                       name="kenmore_net_units" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[craftsman_net_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[craftsman_net_units]"
                       dataType="i8"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[craftsman_net_units]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[craftsman_net_units]"
                       name="craftsman_net_units" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[diehard_net_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[diehard_net_units]"
                       dataType="i8"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[diehard_net_units]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[diehard_net_units]"
                       name="diehard_net_units" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[guardsman_sales]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[guardsman_sales]"
                       dataType="r8"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[guardsman_sales]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[guardsman_sales]"
                       name="guardsman_sales" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[guardsman_units]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[guardsman_units]"
                       dataType="i4"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[guardsman_units]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[guardsman_units]"
                       name="guardsman_units" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pos_source_system]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pos_source_system]"
                       codePage="1252"
                       dataType="str"
                       length="3"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[pos_source_system]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[pos_source_system]"
                       name="pos_source_system" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[trs_dt_sk_id]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[trs_dt_sk_id]"
                       dataType="i4"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[trs_dt_sk_id]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[trs_dt_sk_id]"
                       name="trs_dt_sk_id" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[gross_profit]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[gross_profit]"
                       dataType="i4"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[gross_profit]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[gross_profit]"
                       name="gross_profit" />
                     <outputColumn
-                      refId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[FMT_DIV_NO]"
+                      refId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[FMT_DIV_NO]"
                       codePage="1252"
                       dataType="str"
                       length="3"
-                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1].Columns[FMT_DIV_NO]"
+                      lineageId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1].Columns[FMT_DIV_NO]"
                       name="FMT_DIV_NO" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -8533,12 +8533,12 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
               startId="Package\Merge Teradata Raw into fact sho sales\add location lu reject reason.Outputs[Derived Column Output]" />
             <path
               refId="Package\Merge Teradata Raw into fact sho sales.Paths[Derived Column Output3]"
-              endId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 2]"
+              endId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 2]"
               name="Derived Column Output"
-              startId="Package\Merge Teradata Raw into fact sho sales\Derived Column.Outputs[Derived Column Output]" />
+              startId="Package\Merge Teradata Raw into fact sho sales\Set Miscellaneous Category.Outputs[Derived Column Output]" />
             <path
               refId="Package\Merge Teradata Raw into fact sho sales.Paths[Derived Column Output4]"
-              endId="Package\Merge Teradata Raw into fact sho sales\Lookup.Inputs[Lookup Input]"
+              endId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Inputs[Lookup Input]"
               name="Derived Column Output"
               startId="Package\Merge Teradata Raw into fact sho sales\add manufactured cols.Outputs[Derived Column Output]" />
             <path
@@ -8547,30 +8547,30 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
               name="Derived Column Output"
               startId="Package\Merge Teradata Raw into fact sho sales\add lu Category Division reject reason.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output2]"
-              endId="Package\Merge Teradata Raw into fact sho sales\Filter to only changed rows.Inputs[Conditional Split Input]"
-              name="Lookup Match Output"
-              startId="Package\Merge Teradata Raw into fact sho sales\Route inserts and updates.Outputs[Lookup Match Output]" />
-            <path
               refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output3]"
-              endId="Package\Merge Teradata Raw into fact sho sales\lu Category Division sk id.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output]"
-              endId="Package\Merge Teradata Raw into fact sho sales\Derived Column.Inputs[Derived Column Input]"
-              name="Lookup Match Output"
-              startId="Package\Merge Teradata Raw into fact sho sales\Lookup.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output1]"
               endId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Inputs[Data Conversion Input]"
               name="Lookup Match Output"
               startId="Package\Merge Teradata Raw into fact sho sales\lu Category Division sk id.Outputs[Lookup Match Output]" />
             <path
+              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output2]"
+              endId="Package\Merge Teradata Raw into fact sho sales\Set Miscellaneous Category.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output]"
+              endId="Package\Merge Teradata Raw into fact sho sales\Filter to only changed rows.Inputs[Conditional Split Input]"
+              name="Lookup Match Output"
+              startId="Package\Merge Teradata Raw into fact sho sales\Route inserts and updates.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output1]"
+              endId="Package\Merge Teradata Raw into fact sho sales\lu Category Division sk id.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Outputs[Lookup Match Output]" />
+            <path
               refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup No Match Output]"
-              endId="Package\Merge Teradata Raw into fact sho sales\Union All.Inputs[Union All Input 1]"
+              endId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1]"
               name="Lookup No Match Output"
-              startId="Package\Merge Teradata Raw into fact sho sales\Lookup.Outputs[Lookup No Match Output]" />
+              startId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup No Match Output1]"
               endId="Package\Merge Teradata Raw into fact sho sales\add location lu reject reason.Inputs[Derived Column Input]"
@@ -8607,20 +8607,20 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
               name="rows_to_update"
               startId="Package\Merge Teradata Raw into fact sho sales\Filter to only changed rows.Outputs[rows_to_update]" />
             <path
-              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Sort Output]"
-              endId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\Merge Teradata Raw into fact sho sales\sort division sales.Outputs[Sort Output]" />
-            <path
               refId="Package\Merge Teradata Raw into fact sho sales.Paths[Sort Output1]"
               endId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\Merge Teradata Raw into fact sho sales\sort brand sales.Outputs[Sort Output]" />
             <path
+              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Sort Output]"
+              endId="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Merge Teradata Raw into fact sho sales\sort division sales.Outputs[Sort Output]" />
+            <path
               refId="Package\Merge Teradata Raw into fact sho sales.Paths[Union All Output 1]"
               endId="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,.Inputs[Aggregate Input 1]"
               name="Union All Output 1"
-              startId="Package\Merge Teradata Raw into fact sho sales\Union All.Outputs[Union All Output 1]" />
+              startId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Outputs[Union All Output 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -15711,14 +15711,14 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
               startId="Package\Merge Teradata Raw into fact sho sales by loc\Route Inserts and Updates.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output1]"
-              endId="Package\Merge Teradata Raw into fact sho sales by loc\add location lu reject reason.Inputs[Derived Column Input]"
-              name="Lookup No Match Output"
-              startId="Package\Merge Teradata Raw into fact sho sales by loc\lu sho location sk id.Outputs[Lookup No Match Output]" />
-            <path
-              refId="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output]"
               endId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
               startId="Package\Merge Teradata Raw into fact sho sales by loc\Route Inserts and Updates.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output]"
+              endId="Package\Merge Teradata Raw into fact sho sales by loc\add location lu reject reason.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\Merge Teradata Raw into fact sho sales by loc\lu sho location sk id.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Merge Join Output]"
               endId="Package\Merge Teradata Raw into fact sho sales by loc\merge join brand sales.Inputs[Merge Join Left Input]"
@@ -15751,14 +15751,14 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
               startId="Package\Merge Teradata Raw into fact sho sales by loc\Filter to only changed rows.Outputs[rows_to_update]" />
             <path
               refId="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output1]"
-              endId="Package\Merge Teradata Raw into fact sho sales by loc\merge join rolld div sales and loc sales.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\Merge Teradata Raw into fact sho sales by loc\sort location sales data.Outputs[Sort Output]" />
-            <path
-              refId="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output]"
               endId="Package\Merge Teradata Raw into fact sho sales by loc\merge join rolld div sales and loc sales.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\Merge Teradata Raw into fact sho sales by loc\sort rolled up div sales data.Outputs[Sort Output]" />
+            <path
+              refId="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output]"
+              endId="Package\Merge Teradata Raw into fact sho sales by loc\merge join rolld div sales and loc sales.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Merge Teradata Raw into fact sho sales by loc\sort location sales data.Outputs[Sort Output]" />
             <path
               refId="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output2]"
               endId="Package\Merge Teradata Raw into fact sho sales by loc\merge join brand sales.Inputs[Merge Join Right Input]"
@@ -15813,102 +15813,110 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="199,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\td_sales_dly_brand_attr raw"
-          TopLeft="181,303" />
-        <NodeLayout
-          Size="202,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\Route inserts and updates"
-          TopLeft="256,540" />
-        <NodeLayout
-          Size="254,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact"
-          TopLeft="618,522" />
-        <NodeLayout
-          Size="201,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\compute brand name"
-          TopLeft="180,246" />
-        <NodeLayout
-          Size="267,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format"
-          TopLeft="390,412" />
-        <NodeLayout
-          Size="154,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\Derived Column"
-          TopLeft="399,265" />
-        <NodeLayout
-          Size="207,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\Filter to only changed rows"
-          TopLeft="378,602" />
-        <NodeLayout
-          Size="268,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup"
-          TopLeft="428,58" />
-        <NodeLayout
-          Size="181,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\convert nulls for brands to zero"
-          TopLeft="438,120" />
-        <NodeLayout
-          Size="113,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\Lookup"
-          TopLeft="690,182" />
-        <NodeLayout
-          Size="121,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\Union All"
-          TopLeft="579,268" />
-        <NodeLayout
-          Size="207,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\sort division sales"
-          TopLeft="171,69" />
-        <NodeLayout
-          Size="200,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\sort brand sales"
-          TopLeft="181,142" />
-        <NodeLayout
-          Size="178,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,"
-          TopLeft="402,347" />
-        <NodeLayout
-          Size="186,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\add manufactured cols"
-          TopLeft="435,164" />
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\Data Conversion"
-          TopLeft="221.5,483.5" />
-        <NodeLayout
           Size="198,42"
           Id="Package\Merge Teradata Raw into fact sho sales\lu Category Division sk id"
           TopLeft="592,464" />
         <NodeLayout
-          Size="198,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\rollup to brand name"
-          TopLeft="182,193" />
+          Size="235,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\Update day-loc-sales rows in fact"
+          TopLeft="417,677" />
         <NodeLayout
           Size="200,42"
           Id="Package\Merge Teradata Raw into fact sho sales\Location Reject File"
           TopLeft="828,338" />
         <NodeLayout
-          Size="213,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\add location lu reject reason"
-          TopLeft="775,282" />
+          Size="181,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\convert nulls for brands to zero"
+          TopLeft="438,120" />
+        <NodeLayout
+          Size="254,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact"
+          TopLeft="618,522" />
         <NodeLayout
           Size="219,42"
           Id="Package\Merge Teradata Raw into fact sho sales\divisional sales data from raw"
           TopLeft="168,15" />
         <NodeLayout
-          Size="235,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\Update day-loc-sales rows in fact"
-          TopLeft="417,677" />
+          Size="178,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\Sum by trs_dt_sk_id,"
+          TopLeft="402,347" />
+        <NodeLayout
+          Size="267,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format"
+          TopLeft="390,412" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\add manufactured cols"
+          TopLeft="435,164" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\rollup to brand name"
+          TopLeft="182,193" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\Data Conversion"
+          TopLeft="221.5,483.5" />
+        <NodeLayout
+          Size="268,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\Merge merge div sales with brand rollup"
+          TopLeft="428,58" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category"
+          TopLeft="690,182" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\td_sales_dly_brand_attr raw"
+          TopLeft="181,303" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\Union All Results"
+          TopLeft="619,268" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\sort division sales"
+          TopLeft="171,69" />
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\add lu Category Division reject reason"
+          TopLeft="824,442" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\divcat reject file"
+          TopLeft="881,508" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\Route inserts and updates"
+          TopLeft="256,540" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\sort brand sales"
+          TopLeft="181,142" />
+        <NodeLayout
+          Size="201,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\compute brand name"
+          TopLeft="180,246" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\Filter to only changed rows"
+          TopLeft="378,602" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\add location lu reject reason"
+          TopLeft="775,282" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\Merge Teradata Raw into fact sho sales\Set Miscellaneous Category"
+          TopLeft="399,265" />
         <EdgeLayout
           Id="Package\Merge Teradata Raw into fact sho sales.Paths[Union All Output 1]"
-          TopLeft="639.5,310">
+          TopLeft="698,310">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="-148.5,37"
+              EndConnector="-207,37"
               Start="0,0"
-              End="-148.5,29.5">
+              End="-207,29.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -15919,13 +15927,13 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                     Point2="0,18.5"
                     Point3="-4,18.5" />
                   <mssgle:LineSegment
-                    End="-144.5,18.5" />
+                    End="-203,18.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-144.5,18.5"
-                    Point2="-148.5,18.5"
-                    Point3="-148.5,22.5" />
+                    Point1="-203,18.5"
+                    Point2="-207,18.5"
+                    Point3="-207,22.5" />
                   <mssgle:LineSegment
-                    End="-148.5,29.5" />
+                    End="-207,29.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16135,6 +16143,42 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup No Match Output3]"
+          TopLeft="790,485">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="34,-22"
+              Start="0,0"
+              End="26.5,-22">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="13,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13,0"
+                    Point2="17,0"
+                    Point3="17,-4" />
+                  <mssgle:LineSegment
+                    End="17,-18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17,-18"
+                    Point2="17,-22"
+                    Point3="21,-22" />
+                  <mssgle:LineSegment
+                    End="26.5,-22" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-38.80638671875,1,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup No Match Output2]"
           TopLeft="458,555.333333333333">
           <EdgeLayout.Curve>
@@ -16208,102 +16252,42 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup No Match Output]"
-          TopLeft="764,224">
+          TopLeft="850.666666666667,224">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="-124.5,44"
+              EndConnector="-127.666666666667,44"
               Start="0,0"
-              End="-124.5,36.5">
+              End="-127.666666666667,36.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.9685863874346" />
+                    End="0,17.9045821002143" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,13.9685863874346"
-                    Point2="0,17.9685863874346"
-                    Point3="-4,17.9685863874346" />
+                    Point1="0,17.9045821002143"
+                    Point2="0,21.9045821002143"
+                    Point3="-4,21.9045821002143" />
                   <mssgle:LineSegment
-                    End="-120.5,17.9685863874346" />
+                    End="-123.666666666667,21.9045821002143" />
                   <mssgle:CubicBezierSegment
-                    Point1="-120.5,17.9685863874346"
-                    Point2="-124.5,17.9685863874346"
-                    Point3="-124.5,21.9685863874346" />
+                    Point1="-123.666666666667,21.9045821002143"
+                    Point2="-127.666666666667,21.9045821002143"
+                    Point3="-127.666666666667,25.9045821002143" />
                   <mssgle:LineSegment
-                    End="-124.5,36.5" />
+                    End="-127.666666666667,36.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-118.05638671875,22.9685863874346,111.6127734375,11.609375"
+              BoundingBox="-119.639720052083,26.9045821002143,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output3]"
-          TopLeft="657,433">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="34,31"
-              Start="0,0"
-              End="34,23.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="30,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="30,0"
-                    Point2="34,0"
-                    Point3="34,4" />
-                  <mssgle:LineSegment
-                    End="34,23.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-14.19138671875,-17.609375,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output2]"
-          TopLeft="458,566.666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="23.5,35.3333333333334"
-              Start="0,0"
-              End="23.5,27.8333333333334">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="19.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="19.5,0"
-                    Point2="23.5,0"
-                    Point3="23.5,4" />
-                  <mssgle:LineSegment
-                    End="23.5,27.8333333333334" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-24.69138671875,-17.609375,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output1]"
           TopLeft="592,485">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -16339,39 +16323,121 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output]"
-          TopLeft="729,224">
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output2]"
+          TopLeft="772.333333333333,224">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="-253,41"
+              EndConnector="-236.666666666667,41"
               Start="0,0"
-              End="-253,33.5">
+              End="-236.666666666667,33.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12.7434554973822" />
+                    End="0,16.4711724380383" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,12.7434554973822"
-                    Point2="0,16.7434554973822"
-                    Point3="-4,16.7434554973822" />
+                    Point1="0,16.4711724380383"
+                    Point2="0,20.4711724380383"
+                    Point3="-4,20.4711724380383" />
                   <mssgle:LineSegment
-                    End="-249,16.7434554973822" />
+                    End="-232.666666666667,20.4711724380383" />
                   <mssgle:CubicBezierSegment
-                    Point1="-249,16.7434554973822"
-                    Point2="-253,16.7434554973822"
-                    Point3="-253,20.7434554973822" />
+                    Point1="-232.666666666667,20.4711724380383"
+                    Point2="-236.666666666667,20.4711724380383"
+                    Point3="-236.666666666667,24.4711724380383" />
                   <mssgle:LineSegment
-                    End="-253,33.5" />
+                    End="-236.666666666667,33.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-174.69138671875,21.7434554973822,96.3827734375,11.609375"
+              BoundingBox="-166.524720052083,25.4711724380383,96.3827734375,11.609375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output1]"
+          TopLeft="657,433">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="34,31"
+              Start="0,0"
+              End="34,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="30,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30,0"
+                    Point2="34,0"
+                    Point3="34,4" />
+                  <mssgle:LineSegment
+                    End="34,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-14.19138671875,-17.609375,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output]"
+          TopLeft="458,566.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="23.5,35.3333333333334"
+              Start="0,0"
+              End="23.5,27.8333333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="19.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.5,0"
+                    Point2="23.5,0"
+                    Point3="23.5,4" />
+                  <mssgle:LineSegment
+                    End="23.5,27.8333333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-24.69138671875,-17.609375,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Derived Column Output5]"
+          TopLeft="955.5,484">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,24"
+              Start="0,0"
+              End="0,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16410,18 +16476,30 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Merge Teradata Raw into fact sho sales.Paths[Derived Column Output3]"
-          TopLeft="553,287.5">
+          TopLeft="469.333333333333,265">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="26,0"
+              EndConnector="203.666666666667,3"
               Start="0,0"
-              End="18.5,0">
+              End="203.666666666667,-4.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="18.5,0" />
+                    End="0,-18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-18.5"
+                    Point2="0,-22.5"
+                    Point3="4,-22.5" />
+                  <mssgle:LineSegment
+                    End="199.666666666667,-22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="199.666666666667,-22.5"
+                    Point2="203.666666666667,-22.5"
+                    Point3="203.666666666667,-18.5" />
+                  <mssgle:LineSegment
+                    End="203.666666666667,-4.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16622,75 +16700,22 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="154,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\divcat reject file"
-          TopLeft="881,508" />
-        <NodeLayout
-          Size="258,42"
-          Id="Package\Merge Teradata Raw into fact sho sales\add lu Category Division reject reason"
-          TopLeft="824,442" />
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Derived Column Output5]"
-          TopLeft="955.5,484">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,24"
-              Start="0,0"
-              End="0,16.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup No Match Output3]"
-          TopLeft="790,485">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="34,-22"
-              Start="0,0"
-              End="26.5,-22">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="13,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13,0"
-                    Point2="17,0"
-                    Point3="17,-4" />
-                  <mssgle:LineSegment
-                    End="17,-18" />
-                  <mssgle:CubicBezierSegment
-                    Point1="17,-18"
-                    Point2="17,-22"
-                    Point3="21,-22" />
-                  <mssgle:LineSegment
-                    End="26.5,-22" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-38.80638671875,1,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Merge Teradata Raw into fact sho sales\Route inserts and updates">
     <Properties>
@@ -16711,19 +16736,6 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Merge Teradata Raw into fact sho sales\Insert New day-loc sales rows to fact">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -16847,7 +16859,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output]"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output1]"
           TopLeft="282,107">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -16881,7 +16893,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output1]"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Sort Output]"
           TopLeft="280,169">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -17079,7 +17091,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output]"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output1]"
           TopLeft="743,552.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -17103,7 +17115,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output1]"
+          Id="Package\Merge Teradata Raw into fact sho sales by loc.Paths[Lookup No Match Output]"
           TopLeft="733,415.333333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
