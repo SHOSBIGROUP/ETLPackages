@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="OLEDB_MSSQL_SHO_STAGING"
+  DTS:DTSID="{D9B09D08-B9EF-42EE-9D24-99F0A50C54F0}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">"Data Source=" + @[$Project::DB_SERVERNAME] + ";User ID=" +  @[$Project::DB_USERNAME]+";Password=" +  @[$Project::DB_PASSWORD] + ";Initial Catalog=" +  @[$Project::DB_STAGING_NAME] + ";Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;"</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=AZSQL01.ads.shos.com;User ID=mssql_etl;Initial Catalog=sho_staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1w42Lua59Ea9oJqFFqWa2gAAAAACAAAAAAADZgAAwAAAABAAAACfoSh7e0dZHajubDp2iFt1AAAAAASAAACgAAAAEAAAADaoz1Jtj/6qlTjXc3XJtA2AAAAAfpw0UTQ3jg9NRnX/KQb/4VTVYqOWkXYaMXTyMVO8TI9RtLa4TgzeweLbWSIPUaQWV7bZGXHh1X15dIUsNB3Wm4m6/t/IDw7Tuj6q+96WYhp4FdVwp0Hk4db1/ONg+ANNvhlYHzaF2MGaAFxalkdWCRzPLjjVZsiKPWoQoWTTC3UUAAAA+SHXv2BWWWdorMJg0nFwUY9IjLA=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
