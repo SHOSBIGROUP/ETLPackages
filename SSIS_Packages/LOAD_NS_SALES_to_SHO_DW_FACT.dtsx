@@ -11,32 +11,10 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_SALES_to_SHO_DW_FACT"
   DTS:PackageType="5"
-  DTS:VersionBuild="138"
-  DTS:VersionGUID="{1A1C9E95-FAFC-4511-BE77-F63AA413B982}">
+  DTS:VersionBuild="142"
+  DTS:VersionGUID="{DEC9E78B-7BEC-4692-8288-D64610AF49D3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[AZSQL01.ads.shos.com.sho_staging.smuthuk]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{0C2B0C66-F058-4312-930E-5FBB77497F5C}"
-      DTS:ObjectName="AZSQL01.ads.shos.com.sho_staging.smuthuk">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=AZSQL01.ads.shos.com;User ID=smuthuk;Initial Catalog=sho_staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[AZSQL01.ads.shos.com.smuthuk]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{DBA69B30-2B15-4374-BF50-CED8DE32050E}"
-      DTS:ObjectName="AZSQL01.ads.shos.com.smuthuk">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=AZSQL01.ads.shos.com;User ID=smuthuk;Initial Catalog=sho_dw;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -6651,7 +6629,7 @@ where [refTable].[calendar_dt] = ?</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[fact].[sho_sales_ns]</property>
+                  name="OpenRowset">[fact].[sho_sales]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -7078,7 +7056,7 @@ where [refTable].[calendar_dt] = ?</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[fact].[sho_sales_by_item_ns]</property>
+                  name="OpenRowset">[fact].[sho_sales_by_item]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -7308,19 +7286,6 @@ where [refTable].[calendar_dt] = ?</property>
                       externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[pos_source_system]"
                       lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of Transaction_Source]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].Columns[Copy of guardsman_sales]"
-                      cachedDataType="decimal"
-                      cachedName="Copy of guardsman_sales"
-                      cachedScale="2"
-                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[guardsman_sales]"
-                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of guardsman_sales]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].Columns[Copy of guardsman_units]"
-                      cachedDataType="i8"
-                      cachedName="Copy of guardsman_units"
-                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[guardsman_units]"
-                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of guardsman_units]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].Columns[Copy of markdown_sales]"
                       cachedDataType="decimal"
                       cachedName="Copy of markdown_sales"
@@ -7330,10 +7295,6 @@ where [refTable].[calendar_dt] = ?</property>
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[sales_fact_by_item_ns_sk_id]"
-                      dataType="i4"
-                      name="sales_fact_by_item_ns_sk_id" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[trs_dt_sk_id]"
                       dataType="i4"
@@ -7475,27 +7436,13 @@ where [refTable].[calendar_dt] = ?</property>
                       dataType="dbTimeStamp"
                       name="rec_upd_dt" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[rec_eff_dt]"
-                      dataType="dbTimeStamp"
-                      name="rec_eff_dt" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[rec_exp_dt]"
-                      dataType="dbTimeStamp"
-                      name="rec_exp_dt" />
-                    <externalMetadataColumn
                       refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[itm_no]"
                       dataType="i8"
                       name="itm_no" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[guardsman_sales]"
-                      dataType="numeric"
-                      name="guardsman_sales"
-                      precision="11"
-                      scale="2" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[guardsman_units]"
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[sales_fact_by_item_sk_id]"
                       dataType="i4"
-                      name="guardsman_units" />
+                      name="sales_fact_by_item_sk_id" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -7553,7 +7500,7 @@ where [refTable].[calendar_dt] = ?</property>
 cast(trim(store) as varchar) as store,trim(location) as location,RIGHT('000'+CAST(a.division AS VARCHAR(3)),3) as division,
 RIGHT('000'+CAST(line AS VARCHAR(3)),3) as line,cast(trim(category) as varchar) as category,  
 case when  a.[item name] is not null then RIGHT('000000000'+CAST(a.[item name] AS VARCHAR(9)),6) else '-1' end  as  item_name,
- cast(trim(a.[Net Amount]) as float)  as net_amount ,cast(trim([Qty]) as int) as qty,
+ cast(trim(a.[Net Amount]) as decimal(12,2))  as net_amount ,cast(trim([Qty]) as int) as qty,
 case when upper([brand]) like '%KENMORE%' then a.[Net amount] end as brand_sales,
 case when upper([brand]) like '%KENMORE%' then [qty] end as brand_units,
 case when upper([brand]) like '%CRAFTSMAN%' then a.[Net amount] end as craftsman_sales,
@@ -7584,12 +7531,12 @@ case when upper([brand]) like '%DIEHARD%' then [qty] end as diehard_units,
 0 as other_card_units,
 			 case when upper([Bulk Sale Tran]) like 'T' then a.[Net amount] else '0' end  as bulk_sales,
 			 case when upper([Bulk Sale Tran]) like 'T' then [qty] else '0' end  as bulk_units,
-			  cast(trim([Gross Profit]) as float)  as Gross_Profit ,
+			  cast(trim([Gross Profit]) as decimal(12,2))  as Gross_Profit ,
 			  case when  ( a.[division] = 25 and   RIGHT('000000'+CAST(isnull(a.[item name],0) AS VARCHAR(6)),6) in (12430, 12431, 12432, 12434, 12435, 12436, 99111,99112, 99113, 99114, 99115, 99116, 99117, 99118, 99119, 99110))
 			  then a.[Net Amount] end guardsman_sales,
 			   case when  ( a.[division] = 25 and   RIGHT('000000'+CAST(isnull(a.[item name],0) AS VARCHAR(6)),6) in (12430, 12431, 12432, 12434, 12435, 12436, 99111,99112, 99113, 99114, 99115, 99116, 99117, 99118, 99119, 99110))
 			  then [Qty] end guardsman_units,
-			  case when  cast(trim(a.[Net Amount]) as float) &gt;=0 then cast(trim([Amount]) as float)-cast(trim(a.[Net Amount]) as float) else 0 end as markdown_sales,
+			  case when  cast(trim(a.[Net Amount]) as decimal(12,2)) &gt;=0 then cast(trim([Amount]) as decimal(12,2))-cast(trim(a.[Net Amount]) as decimal(12,2)) else 0 end as markdown_sales,
 'N' Transaction_Source
 from [dbo].[NS_Daily File_Sales_Orders] a 
 left outer join
@@ -8207,8 +8154,10 @@ where a.[SHO Type] &lt;&gt;' '    and a.category &lt;&gt; ' '   and isnumeric(a.
                       name="item_name" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[net_amount]"
-                      dataType="r8"
-                      name="net_amount" />
+                      dataType="numeric"
+                      name="net_amount"
+                      precision="12"
+                      scale="2" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[sho type]"
                       codePage="1252"
@@ -8273,8 +8222,10 @@ where a.[SHO Type] &lt;&gt;' '    and a.category &lt;&gt; ' '   and isnumeric(a.
                       name="bulk_units" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[Gross_Profit]"
-                      dataType="r8"
-                      name="Gross_Profit" />
+                      dataType="numeric"
+                      name="Gross_Profit"
+                      precision="12"
+                      scale="2" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[guardsman_sales]"
                       codePage="1252"
@@ -8289,8 +8240,10 @@ where a.[SHO Type] &lt;&gt;' '    and a.category &lt;&gt; ' '   and isnumeric(a.
                       name="guardsman_units" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[markdown_sales]"
-                      dataType="r8"
-                      name="markdown_sales" />
+                      dataType="numeric"
+                      name="markdown_sales"
+                      precision="13"
+                      scale="2" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[Transaction_Source]"
                       codePage="1252"
@@ -8367,9 +8320,11 @@ where a.[SHO Type] &lt;&gt;' '    and a.category &lt;&gt; ' '   and isnumeric(a.
                       name="item_name" />
                     <outputColumn
                       refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[net_amount]"
-                      dataType="r8"
+                      dataType="numeric"
                       lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[net_amount]"
-                      name="net_amount" />
+                      name="net_amount"
+                      precision="12"
+                      scale="2" />
                     <outputColumn
                       refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[qty]"
                       dataType="i4"
@@ -8539,9 +8494,11 @@ where a.[SHO Type] &lt;&gt;' '    and a.category &lt;&gt; ' '   and isnumeric(a.
                       name="bulk_units" />
                     <outputColumn
                       refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[Gross_Profit]"
-                      dataType="r8"
+                      dataType="numeric"
                       lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[Gross_Profit]"
-                      name="Gross_Profit" />
+                      name="Gross_Profit"
+                      precision="12"
+                      scale="2" />
                     <outputColumn
                       refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[guardsman_sales]"
                       codePage="1252"
@@ -8558,9 +8515,11 @@ where a.[SHO Type] &lt;&gt;' '    and a.category &lt;&gt; ' '   and isnumeric(a.
                       name="guardsman_units" />
                     <outputColumn
                       refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[markdown_sales]"
-                      dataType="r8"
+                      dataType="numeric"
                       lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[markdown_sales]"
-                      name="markdown_sales" />
+                      name="markdown_sales"
+                      precision="13"
+                      scale="2" />
                     <outputColumn
                       refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[Transaction_Source]"
                       codePage="1252"
@@ -8601,7 +8560,7 @@ where a.[SHO Type] &lt;&gt;' '    and a.category &lt;&gt; ' '   and isnumeric(a.
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[fact].[sho_sales_by_loc_ns]</property>
+                  name="OpenRowset">[fact].[sho_sales_by_loc]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -8803,24 +8762,12 @@ where a.[SHO Type] &lt;&gt;' '    and a.category &lt;&gt; ' '   and isnumeric(a.
                       externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input].ExternalColumns[spp_sales]"
                       lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Copy of spp_Sales]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input].Columns[Copy of spp_units]"
-                      cachedDataType="i8"
-                      cachedName="Copy of spp_units"
-                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input].ExternalColumns[spp_units]"
-                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Copy of spp_units]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input].Columns[Copy of spp_merch_Sales]"
                       cachedDataType="decimal"
                       cachedName="Copy of spp_merch_Sales"
                       cachedScale="2"
                       externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input].ExternalColumns[spp_merch_sales]"
                       lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Copy of spp_merch_Sales]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input].Columns[Copy of spp_merch_units]"
-                      cachedDataType="i8"
-                      cachedName="Copy of spp_merch_units"
-                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input].ExternalColumns[spp_merch_units]"
-                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Copy of spp_merch_units]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input].Columns[Copy of bulk_sales]"
                       cachedDataType="decimal"
@@ -9000,19 +8947,11 @@ where a.[SHO Type] &lt;&gt;' '    and a.category &lt;&gt; ' '   and isnumeric(a.
                       precision="11"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input].ExternalColumns[spp_units]"
-                      dataType="i4"
-                      name="spp_units" />
-                    <externalMetadataColumn
                       refId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input].ExternalColumns[spp_merch_sales]"
                       dataType="numeric"
                       name="spp_merch_sales"
                       precision="11"
                       scale="2" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input].ExternalColumns[spp_merch_units]"
-                      dataType="i4"
-                      name="spp_merch_units" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input].ExternalColumns[bulk_sales]"
                       dataType="numeric"
@@ -9044,13 +8983,11 @@ where a.[SHO Type] &lt;&gt;' '    and a.category &lt;&gt; ' '   and isnumeric(a.
                       dataType="dbTimeStamp"
                       name="rec_upd_dt" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input].ExternalColumns[rec_eff_dt]"
-                      dataType="dbTimeStamp"
-                      name="rec_eff_dt" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input].ExternalColumns[rec_exp_dt]"
-                      dataType="dbTimeStamp"
-                      name="rec_exp_dt" />
+                      refId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input].ExternalColumns[gross_profit]"
+                      dataType="numeric"
+                      name="gross_profit"
+                      precision="11"
+                      scale="2" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -10731,9 +10668,9 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           Id="Package\Data Flow Task\Netsuite Sales by location"
           TopLeft="863.809497432105,542.171431735811" />
         <NodeLayout
-          Size="262,42"
-          Id="Package\Data Flow Task\Sort by calendar and location - payment"
-          TopLeft="958.28568283717,295.695239291721" />
+          Size="174,42"
+          Id="Package\Data Flow Task\Product Item Lookup"
+          TopLeft="614.304748557106,162.834287008375" />
         <NodeLayout
           Size="191,44"
           Id="Package\Data Flow Task\Location Lookup"
@@ -10751,21 +10688,17 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           Id="Package\Data Flow Task\Location lookup"
           TopLeft="1051.80948959835,107.580953081525" />
         <NodeLayout
-          Size="155,42"
-          Id="Package\Data Flow Task\Payment Source"
-          TopLeft="1051.58091596725,13.9123797259862" />
-        <NodeLayout
           Size="197,42"
           Id="Package\Data Flow Task\Category Division Lookup"
           TopLeft="67.0666674349043,85.8742863967533" />
         <NodeLayout
-          Size="220,42"
-          Id="Package\Data Flow Task\Netsuite Sales by item Staging"
-          TopLeft="50.590477613419,7.62666672727801" />
-        <NodeLayout
           Size="182,42"
           Id="Package\Data Flow Task\Agg Sales by Location"
           TopLeft="696.876167171721,419.420955256446" />
+        <NodeLayout
+          Size="262,42"
+          Id="Package\Data Flow Task\Sort by calendar and location - payment"
+          TopLeft="958.28568283717,295.695239291721" />
         <NodeLayout
           Size="164,42"
           Id="Package\Data Flow Task\Data Conversion 2"
@@ -10774,6 +10707,10 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           Size="153,42"
           Id="Package\Data Flow Task\Derived Column"
           TopLeft="233.009520081868,260.457144132341" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\Data Flow Task\Netsuite Sales by item Staging"
+          TopLeft="50.590477613419,7.62666672727801" />
         <NodeLayout
           Size="182,42"
           Id="Package\Data Flow Task\Netsuite Sales by Item"
@@ -10791,339 +10728,13 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           Id="Package\Data Flow Task\Agg Sales by loc , div and category"
           TopLeft="231.352375192491,420.670479438297" />
         <NodeLayout
-          Size="174,42"
-          Id="Package\Data Flow Task\Product Item Lookup"
-          TopLeft="614.304748557106,162.834287008375" />
-        <NodeLayout
           Size="259,42"
           Id="Package\Data Flow Task\Sort by calendar and location - all sales"
           TopLeft="754.476167126309,237.257143589201" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output1]"
-          TopLeft="385.809520081868,278.0838111489">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="227.866650109822,0"
-              Start="0,0"
-              End="220.366650109822,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="220.366650109822,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="994.438070790731,199.085715702602">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="59.1428440298364,29.5390453551761"
-              Start="0,0"
-              End="51.6428440298364,29.5390453551761">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="25.5714220149182,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="25.5714220149182,0"
-                    Point2="29.5714220149182,0"
-                    Point3="29.5714220149182,4" />
-                  <mssgle:LineSegment
-                    End="29.5714220149182,25.5390453551761" />
-                  <mssgle:CubicBezierSegment
-                    Point1="29.5714220149182,25.5390453551761"
-                    Point2="29.5714220149182,29.5390453551761"
-                    Point3="33.5714220149182,29.5390453551761" />
-                  <mssgle:LineSegment
-                    End="51.6428440298364,29.5390453551761" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Data Conversion Output1]"
-          TopLeft="895.142840680623,52.8952381818257">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-215.452381709265,42.1904765053401"
-              Start="0,0"
-              End="-215.452381709265,34.6904765053401">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.0952382526701" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.0952382526701"
-                    Point2="0,21.0952382526701"
-                    Point3="-4,21.0952382526701" />
-                  <mssgle:LineSegment
-                    End="-211.452381709265,21.0952382526701" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-211.452381709265,21.0952382526701"
-                    Point2="-215.452381709265,21.0952382526701"
-                    Point3="-215.452381709265,25.0952382526701" />
-                  <mssgle:LineSegment
-                    End="-215.452381709265,34.6904765053401" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
-          TopLeft="416.247609151356,47.2457143305824">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-250.780941716451,38.6285720661709"
-              Start="0,0"
-              End="-250.780941716451,31.1285720661709">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.3142860330855" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.3142860330855"
-                    Point2="0,19.3142860330855"
-                    Point3="-4,19.3142860330855" />
-                  <mssgle:LineSegment
-                    End="-246.780941716451,19.3142860330855" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-246.780941716451,19.3142860330855"
-                    Point2="-250.780941716451,19.3142860330855"
-                    Point3="-250.780941716451,23.3142860330855" />
-                  <mssgle:LineSegment
-                    End="-250.780941716451,31.1285720661709" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Aggregate Output 13]"
-          TopLeft="355.247613323681,462.270479438297">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,82.4533333719035"
-              Start="0,0"
-              End="0,74.9533333719035">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,74.9533333719035" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Aggregate Output 12]"
-          TopLeft="1116.78091482057,249.424761057778">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-27.6952319833974,46.270478233943"
-              Start="0,0"
-              End="-27.6952319833974,38.770478233943">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.1352391169715" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.1352391169715"
-                    Point2="0,23.1352391169715"
-                    Point3="-4,23.1352391169715" />
-                  <mssgle:LineSegment
-                    End="-23.6952319833974,23.1352391169715" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-23.6952319833974,23.1352391169715"
-                    Point2="-27.6952319833974,23.1352391169715"
-                    Point3="-27.6952319833974,27.1352391169715" />
-                  <mssgle:LineSegment
-                    End="-27.6952319833974,38.770478233943" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Aggregate Output 11]"
-          TopLeft="816.609500505054,419.420955256446">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="25.5999999545882,-140.563811667245"
-              Start="0,0"
-              End="25.5999999545882,-133.063811667245">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-66.5093766167958" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-66.5093766167958"
-                    Point2="0,-70.5093766167958"
-                    Point3="4,-70.5093766167958" />
-                  <mssgle:LineSegment
-                    End="21.5999999545882,-70.5093766167958" />
-                  <mssgle:CubicBezierSegment
-                    Point1="21.5999999545882,-70.5093766167958"
-                    Point2="25.5999999545882,-70.5093766167958"
-                    Point3="25.5999999545882,-74.5093766167958" />
-                  <mssgle:LineSegment
-                    End="25.5999999545882,-133.063811667245" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Aggregate Output 1]"
-          TopLeft="595.88569782348,465.866669669681">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,73.7904764463023"
-              Start="0,0"
-              End="0,66.2904764463023">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,66.2904764463023" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output1]"
-          TopLeft="1089.08568283717,337.295239291721">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-101.923807291001,94.095239173647"
-              Start="0,0"
-              End="-101.923807291001,86.595239173647">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51.7686417541371" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,51.7686417541371"
-                    Point2="0,55.7686417541371"
-                    Point3="-4,55.7686417541371" />
-                  <mssgle:LineSegment
-                    End="-97.9238072910007,55.7686417541371" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-97.9238072910007,55.7686417541371"
-                    Point2="-101.923807291001,55.7686417541371"
-                    Point3="-101.923807291001,59.7686417541371" />
-                  <mssgle:LineSegment
-                    End="-101.923807291001,86.595239173647" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output]"
-          TopLeft="925.942833792975,278.857143589201">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="20.6857084198605,152.533334876167"
-              Start="0,0"
-              End="20.6857084198605,145.033334876167">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,71.6915040335729" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,71.6915040335729"
-                    Point2="0,75.6915040335729"
-                    Point3="4,75.6915040335729" />
-                  <mssgle:LineSegment
-                    End="16.6857084198605,75.6915040335729" />
-                  <mssgle:CubicBezierSegment
-                    Point1="16.6857084198605,75.6915040335729"
-                    Point2="20.6857084198605,75.6915040335729"
-                    Point3="20.6857084198605,79.6915040335729" />
-                  <mssgle:LineSegment
-                    End="20.6857084198605,145.033334876167" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
-          TopLeft="270.590477613419,27.4361905289302">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="64.8571315379367,0"
-              Start="0,0"
-              End="57.3571315379367,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="57.3571315379367,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task\Payment Source"
+          TopLeft="1051.58091596725,13.9123797259862" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
           TopLeft="1051.58091596725,33.2038089539059">
@@ -11450,6 +11061,332 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output1]"
+          TopLeft="385.809520081868,278.0838111489">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="227.866650109822,0"
+              Start="0,0"
+              End="220.366650109822,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="220.366650109822,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="994.438070790731,199.085715702602">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="59.1428440298364,29.5390453551761"
+              Start="0,0"
+              End="51.6428440298364,29.5390453551761">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="25.5714220149182,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.5714220149182,0"
+                    Point2="29.5714220149182,0"
+                    Point3="29.5714220149182,4" />
+                  <mssgle:LineSegment
+                    End="29.5714220149182,25.5390453551761" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.5714220149182,25.5390453551761"
+                    Point2="29.5714220149182,29.5390453551761"
+                    Point3="33.5714220149182,29.5390453551761" />
+                  <mssgle:LineSegment
+                    End="51.6428440298364,29.5390453551761" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output1]"
+          TopLeft="895.142840680623,52.8952381818257">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-215.452381709265,42.1904765053401"
+              Start="0,0"
+              End="-215.452381709265,34.6904765053401">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.0952382526701" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.0952382526701"
+                    Point2="0,21.0952382526701"
+                    Point3="-4,21.0952382526701" />
+                  <mssgle:LineSegment
+                    End="-211.452381709265,21.0952382526701" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-211.452381709265,21.0952382526701"
+                    Point2="-215.452381709265,21.0952382526701"
+                    Point3="-215.452381709265,25.0952382526701" />
+                  <mssgle:LineSegment
+                    End="-215.452381709265,34.6904765053401" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="416.247609151356,47.2457143305824">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-250.780941716451,38.6285720661709"
+              Start="0,0"
+              End="-250.780941716451,31.1285720661709">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.3142860330855" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.3142860330855"
+                    Point2="0,19.3142860330855"
+                    Point3="-4,19.3142860330855" />
+                  <mssgle:LineSegment
+                    End="-246.780941716451,19.3142860330855" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-246.780941716451,19.3142860330855"
+                    Point2="-250.780941716451,19.3142860330855"
+                    Point3="-250.780941716451,23.3142860330855" />
+                  <mssgle:LineSegment
+                    End="-250.780941716451,31.1285720661709" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Aggregate Output 13]"
+          TopLeft="355.247613323681,462.270479438297">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,82.4533333719035"
+              Start="0,0"
+              End="0,74.9533333719035">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,74.9533333719035" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Aggregate Output 12]"
+          TopLeft="1116.78091482057,249.424761057778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-27.6952319833974,46.270478233943"
+              Start="0,0"
+              End="-27.6952319833974,38.770478233943">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.1352391169715" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.1352391169715"
+                    Point2="0,23.1352391169715"
+                    Point3="-4,23.1352391169715" />
+                  <mssgle:LineSegment
+                    End="-23.6952319833974,23.1352391169715" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-23.6952319833974,23.1352391169715"
+                    Point2="-27.6952319833974,23.1352391169715"
+                    Point3="-27.6952319833974,27.1352391169715" />
+                  <mssgle:LineSegment
+                    End="-27.6952319833974,38.770478233943" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Aggregate Output 11]"
+          TopLeft="816.609500505054,419.420955256446">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="25.5999999545882,-140.563811667245"
+              Start="0,0"
+              End="25.5999999545882,-133.063811667245">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-66.5093766167958" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-66.5093766167958"
+                    Point2="0,-70.5093766167958"
+                    Point3="4,-70.5093766167958" />
+                  <mssgle:LineSegment
+                    End="21.5999999545882,-70.5093766167958" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21.5999999545882,-70.5093766167958"
+                    Point2="25.5999999545882,-70.5093766167958"
+                    Point3="25.5999999545882,-74.5093766167958" />
+                  <mssgle:LineSegment
+                    End="25.5999999545882,-133.063811667245" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Aggregate Output 1]"
+          TopLeft="595.88569782348,465.866669669681">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73.7904764463023"
+              Start="0,0"
+              End="0,66.2904764463023">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.2904764463023" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output1]"
+          TopLeft="1089.08568283717,337.295239291721">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-101.923807291001,94.095239173647"
+              Start="0,0"
+              End="-101.923807291001,86.595239173647">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.7686417541371" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.7686417541371"
+                    Point2="0,55.7686417541371"
+                    Point3="-4,55.7686417541371" />
+                  <mssgle:LineSegment
+                    End="-97.9238072910007,55.7686417541371" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-97.9238072910007,55.7686417541371"
+                    Point2="-101.923807291001,55.7686417541371"
+                    Point3="-101.923807291001,59.7686417541371" />
+                  <mssgle:LineSegment
+                    End="-101.923807291001,86.595239173647" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output]"
+          TopLeft="925.942833792975,278.857143589201">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.6857084198605,152.533334876167"
+              Start="0,0"
+              End="20.6857084198605,145.033334876167">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.6915040335729" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,71.6915040335729"
+                    Point2="0,75.6915040335729"
+                    Point3="4,75.6915040335729" />
+                  <mssgle:LineSegment
+                    End="16.6857084198605,75.6915040335729" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.6857084198605,75.6915040335729"
+                    Point2="20.6857084198605,75.6915040335729"
+                    Point3="20.6857084198605,79.6915040335729" />
+                  <mssgle:LineSegment
+                    End="20.6857084198605,145.033334876167" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+          TopLeft="270.590477613419,27.4361905289302">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="64.8571315379367,0"
+              Start="0,0"
+              End="57.3571315379367,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="57.3571315379367,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -11463,6 +11400,29 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Product Item Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dim].[product]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -11530,14 +11490,6 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
         <Value
           type="q4:string">0</Value>
       </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Payment Source">
-    <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
@@ -11624,23 +11576,8 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Product Item Lookup">
+    design-time-name="Package\Data Flow Task\Payment Source">
     <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dim].[product]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
