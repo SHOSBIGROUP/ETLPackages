@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_SALES_to_SHO_STAGING"
   DTS:PackageType="5"
-  DTS:VersionBuild="136"
-  DTS:VersionGUID="{6240EA27-C93D-4821-B1BD-C6B9F4F7A2A0}">
+  DTS:VersionBuild="137"
+  DTS:VersionGUID="{D6E846E1-CA8D-442E-944D-6D7F25356606}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -32,7 +32,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite\ns_daily_sales_transaction_Line_20181109.txt">
+          DTS:ConnectionString="\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite\ns_daily_sales_transaction_Line_20181112.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -540,7 +540,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\archive\ns_daily_sales_transaction_Line_20181109.txt">
+          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\archive\ns_daily_sales_transaction_Line_20181112.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1048,7 +1048,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\ns_daily_sales_transaction_Line_20181109.txt">
+          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\ns_daily_sales_transaction_Line_20181112.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -5615,7 +5615,7 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="update [dbo].[NS_Daily File_Sales_Orders] set line=trim(substring([line],1,case when  CHARINDEX('-', line)=0 then 0 else  (CHARINDEX('-', line) -1) end));&#xA;&#xA;update [dbo].[NS_Daily File_Sales_Orders] set division=trim(substring([division],1,case when  CHARINDEX('-', [division])=0 then 0 else  (CHARINDEX('-', [division]) -1) end));&#xA;&#xA;update [dbo].[NS_Daily File_Sales_Orders] set division=REPLACE(division,'&quot;','');&#xA;&#xA;update [dbo].[NS_Daily File_Sales_Orders] set category=trim(substring([category],1,case when  CHARINDEX('-', [category])=0 then 0 else  (CHARINDEX('-', [category]) -1) end));&#xA;&#xA;-- update [dbo].[NS_Daily File_Sales_Orders] set [Payment Method ]=REPLACE([Payment Method ],'&quot;','');&#xA;&#xA;update [dbo].[NS_Daily File_Sales_Orders] set [item name]=SUBSTRING([item name],5,5);&#xA;&#xA;update [dbo].[NS_Daily File_Sales_Orders] set [store]=trim([store]);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="update [dbo].[NS_Daily File_Sales_Orders] set line=trim(substring([line],1,case when  CHARINDEX('-', line)=0 then 0 else  (CHARINDEX('-', line) -1) end));&#xA;&#xA;update [dbo].[NS_Daily File_Sales_Orders] set division=trim(substring([division],1,case when  CHARINDEX('-', [division])=0 then 0 else  (CHARINDEX('-', [division]) -1) end));&#xA;&#xA;update [dbo].[NS_Daily File_Sales_Orders] set division=REPLACE(division,'&quot;','');&#xA;&#xA;update [dbo].[NS_Daily File_Sales_Orders] set category=trim(substring([category],1,case when  CHARINDEX('-', [category])=0 then 0 else  (CHARINDEX('-', [category]) -1) end));&#xA;&#xA;-- update [dbo].[NS_Daily File_Sales_Orders] set [Payment Method ]=REPLACE([Payment Method ],'&quot;','');&#xA;&#xA;update [dbo].[NS_Daily File_Sales_Orders] set [item name]=SUBSTRING([item name],5,5);&#xA;&#xA;update [dbo].[NS_Daily File_Sales_Orders] set [store]=trim([store]);&#xA;&#xA;insert into [netsuite].[NS_Daily_File_Sales_Orders_history]&#xA;([Transaction Date]&#xA;      ,[Paid Date]&#xA;      ,[Type]&#xA;      ,[Transaction Status]&#xA;      ,[Transaction Source]&#xA;      ,[Transaction Document Number]&#xA;      ,[Accounting Unit]&#xA;      ,[Location format type]&#xA;      ,[Store Region]&#xA;      ,[Store District]&#xA;      ,[Store]&#xA;      ,[Location]&#xA;      ,[Category]&#xA;      ,[Division]&#xA;      ,[Line]&#xA;      ,[Subline]&#xA;      ,[Class]&#xA;      ,[Item Name]&#xA;      ,[Discription]&#xA;      ,[Designation]&#xA;      ,[SKU#]&#xA;      ,[SHO Type]&#xA;      ,[Brand]&#xA;      ,[Is PA]&#xA;      ,[Available PA]&#xA;      ,[Bulk Sale Tran]&#xA;      ,[Net Amount]&#xA;      ,[Qty]&#xA;      ,[Avg_Cost]&#xA;      ,[List_Price]&#xA;      ,[Regular_price]&#xA;      ,[cadence 3H]&#xA;      ,[Cadence outlet]&#xA;      ,[Amount]&#xA;      ,[Gross Profit]&#xA;      ,[Store Indicator]&#xA;      ,[Fulfilment method]&#xA;      ,[Fulfilment Selected]&#xA;      ,[Customer First Name]&#xA;      ,[Customer Last Name]&#xA;      ,[Customer Address_1]&#xA;      ,[Customer Address_2]&#xA;      ,[Customer City]&#xA;      ,[Customer State]&#xA;      ,[Customer Zip]&#xA;      ,[Email]&#xA;      ,[Alt  Email]&#xA;      ,[Acc Email]&#xA;      ,[Shipping Email]&#xA;      ,[Phone]&#xA;      ,[Mobile]&#xA;      ,[Home Phone ])&#xA;SELECT [Transaction Date]&#xA;      ,[Paid Date]&#xA;      ,[Type]&#xA;      ,[Transaction Status]&#xA;      ,[Transaction Source]&#xA;      ,[Transaction Document Number]&#xA;      ,[Accounting Unit]&#xA;      ,[Location format type]&#xA;      ,[Store Region]&#xA;      ,[Store District]&#xA;      ,[Store]&#xA;      ,[Location]&#xA;      ,[Category]&#xA;      ,[Division]&#xA;      ,[Line]&#xA;      ,[Subline]&#xA;      ,[Class]&#xA;      ,[Item Name]&#xA;      ,[Discription]&#xA;      ,[Designation]&#xA;      ,[SKU#]&#xA;      ,[SHO Type]&#xA;      ,[Brand]&#xA;      ,[Is PA]&#xA;      ,[Available PA]&#xA;      ,[Bulk Sale Tran]&#xA;      ,[Net Amount]&#xA;      ,[Qty]&#xA;      ,[Avg_Cost]&#xA;      ,[List_Price]&#xA;      ,[Regular_price]&#xA;      ,[cadence 3H]&#xA;      ,[Cadence outlet]&#xA;      ,[Amount]&#xA;      ,[Gross Profit]&#xA;      ,[Store Indicator]&#xA;      ,[Fulfilment method]&#xA;      ,[Fulfilment Selected]&#xA;      ,[Customer First Name]&#xA;      ,[Customer Last Name]&#xA;      ,[Customer Address_1]&#xA;      ,[Customer Address_2]&#xA;      ,[Customer City]&#xA;      ,[Customer State]&#xA;      ,[Customer Zip]&#xA;      ,[Email]&#xA;      ,[Alt  Email]&#xA;      ,[Acc Email]&#xA;      ,[Shipping Email]&#xA;      ,[Phone]&#xA;      ,[Mobile]&#xA;      ,[Home Phone ]&#xA;  FROM [dbo].[NS_Daily File_Sales_Orders];&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
