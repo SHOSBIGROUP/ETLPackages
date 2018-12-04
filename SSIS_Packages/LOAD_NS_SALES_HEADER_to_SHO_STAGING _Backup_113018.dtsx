@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_SALES_HEADER_to_SHO_STAGING"
   DTS:PackageType="5"
-  DTS:VersionBuild="154"
-  DTS:VersionGUID="{88D4F860-2810-4CCD-AFCA-BC0F36FE6B4B}">
+  DTS:VersionBuild="150"
+  DTS:VersionGUID="{DA965B98-3794-46ED-B93C-069B533A5495}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3460,6 +3460,58 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Delete Source File After Sucessfull Load"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{1F974BC8-A749-4B66-BF64-31A553ED6609}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete Source File After Sucessfull Load"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteFile"
+          TaskSourcePath="{44F9BE16-04F2-48A1-A5D1-ACE466E0E10C}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delete SSIS INCOMING File After Sucessfull Processing"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{CD5E274A-F559-4379-AEE7-E71CA477A146}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete SSIS INCOMING File After Sucessfull Processing"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteFile"
+          TaskSourcePath="{D0DE0D4E-F4E7-4CF9-A71C-B543BC1866D1}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Move the file to archive location"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{48D6320F-848E-4CC6-8073-6493836A2CBF}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Move the file to archive location"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="{D0DE0D4E-F4E7-4CF9-A71C-B543BC1866D1}"
+          TaskDestinationPath="{D327D4C1-0B6D-4FA5-89A3-D248D7F72582}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Post Load Formatting"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -3521,6 +3573,30 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\Data Flow Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{A2BEF404-396D-404D-A98C-9DA9DE6EF24F}"
+      DTS:From="Package\Post Load Formatting"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Move the file to archive location" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{BD4CC0E5-A885-42EA-BF6C-F8287CE65AE4}"
+      DTS:From="Package\Post Load Formatting"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Delete Source File After Sucessfull Load" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{A5ECBF0E-0B4F-4595-AB35-B7FA0E4516AA}"
+      DTS:From="Package\Move the file to archive location"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Delete SSIS INCOMING File After Sucessfull Processing" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -3533,7 +3609,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="248,42"
           Id="Package\Copy File FTP server to SSIS Server"
@@ -3542,6 +3618,18 @@
           Size="237,43"
           Id="Package\Data Flow Task"
           TopLeft="234.666657341852,133.813334396786" />
+        <NodeLayout
+          Size="265,42"
+          Id="Package\Delete Source File After Sucessfull Load"
+          TopLeft="389.999984502793,266.933335454729" />
+        <NodeLayout
+          Size="410,46"
+          Id="Package\Delete SSIS INCOMING File After Sucessfull Processing"
+          TopLeft="47.9999980926513,367.893336231656" />
+        <NodeLayout
+          Size="242,42"
+          Id="Package\Move the file to archive location"
+          TopLeft="105.999995787938,270.400002148947" />
         <NodeLayout
           Size="248,42"
           Id="Package\Post Load Formatting"
@@ -3632,6 +3720,108 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,20.9266672231882" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="307.333324458864,234.34666819848">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-80.5333286709254,36.0533339504667"
+              Start="0,0"
+              End="-80.5333286709254,28.5533339504667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.5600002492269" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.5600002492269"
+                    Point2="0,14.5600002492269"
+                    Point3="-4,14.5600002492269" />
+                  <mssgle:LineSegment
+                    End="-76.5333286709254,14.5600002492269" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-76.5333286709254,14.5600002492269"
+                    Point2="-80.5333286709254,14.5600002492269"
+                    Point3="-80.5333286709254,18.5600002492269" />
+                  <mssgle:LineSegment
+                    End="-80.5333286709254,28.5533339504667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="387.333324458864,234.34666819848">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="135.066660043929,32.5866672562491"
+              Start="0,0"
+              End="135.066660043929,25.0866672562491">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.16000023810061" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.16000023810061"
+                    Point2="0,13.1600002381006"
+                    Point3="4,13.1600002381006" />
+                  <mssgle:LineSegment
+                    End="131.066660043929,13.1600002381006" />
+                  <mssgle:CubicBezierSegment
+                    Point1="131.066660043929,13.1600002381006"
+                    Point2="135.066660043929,13.1600002381006"
+                    Point3="135.066660043929,17.1600002381006" />
+                  <mssgle:LineSegment
+                    End="135.066660043929,25.0866672562491" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="226.799995787938,312.000002148947">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26.4000023047129,55.8933340827096"
+              Start="0,0"
+              End="26.4000023047129,48.3933340827096">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.9466670413548" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.9466670413548"
+                    Point2="0,27.9466670413548"
+                    Point3="4,27.9466670413548" />
+                  <mssgle:LineSegment
+                    End="22.4000023047129,27.9466670413548" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.4000023047129,27.9466670413548"
+                    Point2="26.4000023047129,27.9466670413548"
+                    Point3="26.4000023047129,31.9466670413548" />
+                  <mssgle:LineSegment
+                    End="26.4000023047129,48.3933340827096" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
