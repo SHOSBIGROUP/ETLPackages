@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_SALES_to_SHO_STAGING"
   DTS:PackageType="5"
-  DTS:VersionBuild="159"
-  DTS:VersionGUID="{9A5BDC90-EACC-40A6-9085-A7C129AEB857}">
+  DTS:VersionBuild="161"
+  DTS:VersionGUID="{555CDAEC-EEE2-40BC-BBFB-5A2E703E621C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -32,7 +32,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite\ns_daily_sales_transaction_Line_20181205.txt">
+          DTS:ConnectionString="\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite\ns_daily_sales_transaction_Line_20181207.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -540,7 +540,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\archive\ns_daily_sales_transaction_Line_20181205.txt">
+          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\archive\ns_daily_sales_transaction_Line_20181207.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1048,7 +1048,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\ns_daily_sales_transaction_Line_20181205.txt">
+          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\ns_daily_sales_transaction_Line_20181207.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -5465,6 +5465,14 @@
                       cachedName="Copy of Description"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
                       lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SHO Item Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of SHO Item Type"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SHO Type]"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SHO Item Type]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5879,7 +5887,7 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="update [netsuite].[NS_Daily File_Sales_Orders] set line=trim(substring([line],1,case when  CHARINDEX('-', line)=0 then 0 else  (CHARINDEX('-', line) -1) end));&#xA;&#xA;update [netsuite].[NS_Daily File_Sales_Orders] set division=trim(substring([division],1,case when  CHARINDEX('-', [division])=0 then 0 else  (CHARINDEX('-', [division]) -1) end));&#xA;&#xA;update [netsuite].[NS_Daily File_Sales_Orders] set division=REPLACE(division,'&quot;','');&#xA;&#xA;update [netsuite].[NS_Daily File_Sales_Orders] set category=trim(substring([category],1,case when  CHARINDEX('-', [category])=0 then 0 else  (CHARINDEX('-', [category]) -1) end));&#xA;&#xA;-- update [netsuite].[NS_Daily File_Sales_Orders] set [Payment Method ]=REPLACE([Payment Method ],'&quot;','');&#xA;&#xA;update [netsuite].[NS_Daily File_Sales_Orders] set [item name]=SUBSTRING([item name],5,5);&#xA;&#xA;update [netsuite].[NS_Daily File_Sales_Orders] set [store]=trim([store]);&#xA;&#xA;insert into [netsuite].[NS_Daily_File_Sales_Orders_history]&#xA;([Transaction Date]&#xA;      ,[Paid Date]&#xA;      ,[Type]&#xA;      ,[Transaction Status]&#xA;      ,[Transaction Source]&#xA;      ,[Transaction Document Number]&#xA;      ,[Accounting Unit]&#xA;      ,[Location format type]&#xA;      ,[Store Region]&#xA;      ,[Store District]&#xA;      ,[Store]&#xA;      ,[Location]&#xA;      ,[Category]&#xA;      ,[Division]&#xA;      ,[Line]&#xA;      ,[Subline]&#xA;      ,[Class]&#xA;      ,[Item Name]&#xA;      ,[Discription]&#xA;      ,[Designation]&#xA;      ,[SKU#]&#xA;      ,[SHO Type]&#xA;      ,[Brand]&#xA;      ,[Is PA]&#xA;      ,[Available PA]&#xA;      ,[Bulk Sale Tran]&#xA;      ,[Net Amount]&#xA;      ,[Qty]&#xA;      ,[Avg_Cost]&#xA;      ,[List_Price]&#xA;      ,[Regular_price]&#xA;      ,[cadence 3H]&#xA;      ,[Cadence outlet]&#xA;      ,[Amount]&#xA;      ,[Gross Profit]&#xA;      ,[Store Indicator]&#xA;      ,[Fulfilment method]&#xA;      ,[Fulfilment Selected]&#xA;      ,[Customer First Name]&#xA;      ,[Customer Last Name]&#xA;      ,[Customer Address_1]&#xA;      ,[Customer Address_2]&#xA;      ,[Customer City]&#xA;      ,[Customer State]&#xA;      ,[Customer Zip]&#xA;      ,[Email]&#xA;      ,[Alt  Email]&#xA;      ,[Acc Email]&#xA;      ,[Shipping Email]&#xA;      ,[Phone]&#xA;      ,[Mobile]&#xA;      ,[Home Phone ])&#xA;SELECT [Transaction Date]&#xA;      ,[Paid Date]&#xA;      ,[Type]&#xA;      ,[Transaction Status]&#xA;      ,[Transaction Source]&#xA;      ,[Transaction Document Number]&#xA;      ,[Accounting Unit]&#xA;      ,[Location format type]&#xA;      ,[Store Region]&#xA;      ,[Store District]&#xA;      ,[Store]&#xA;      ,[Location]&#xA;      ,[Category]&#xA;      ,[Division]&#xA;      ,[Line]&#xA;      ,[Subline]&#xA;      ,[Class]&#xA;      ,[Item Name]&#xA;      ,[Discription]&#xA;      ,[Designation]&#xA;      ,[SKU#]&#xA;      ,[SHO Type]&#xA;      ,[Brand]&#xA;      ,[Is PA]&#xA;      ,[Available PA]&#xA;      ,[Bulk Sale Tran]&#xA;      ,[Net Amount]&#xA;      ,[Qty]&#xA;      ,[Avg_Cost]&#xA;      ,[List_Price]&#xA;      ,[Regular_price]&#xA;      ,[cadence 3H]&#xA;      ,[Cadence outlet]&#xA;      ,[Amount]&#xA;      ,[Gross Profit]&#xA;      ,[Store Indicator]&#xA;      ,[Fulfilment method]&#xA;      ,[Fulfilment Selected]&#xA;      ,[Customer First Name]&#xA;      ,[Customer Last Name]&#xA;      ,[Customer Address_1]&#xA;      ,[Customer Address_2]&#xA;      ,[Customer City]&#xA;      ,[Customer State]&#xA;      ,[Customer Zip]&#xA;      ,[Email]&#xA;      ,[Alt  Email]&#xA;      ,[Acc Email]&#xA;      ,[Shipping Email]&#xA;      ,[Phone]&#xA;      ,[Mobile]&#xA;      ,[Home Phone ]&#xA;  FROM [netsuite].[NS_Daily File_Sales_Orders];&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="update [netsuite].[NS_Daily File_Sales_Orders] set line=trim(substring([line],1,case when  CHARINDEX('-', line)=0 then 0 else  (CHARINDEX('-', line) -1) end));&#xA;&#xA;update [netsuite].[NS_Daily File_Sales_Orders] set division=trim(substring([division],1,case when  CHARINDEX('-', [division])=0 then 0 else  (CHARINDEX('-', [division]) -1) end));&#xA;&#xA;update [netsuite].[NS_Daily File_Sales_Orders] set division=REPLACE(division,'&quot;','');&#xA;&#xA;update [netsuite].[NS_Daily File_Sales_Orders] set category=trim(substring([category],1,case when  CHARINDEX('-', [category])=0 then 0 else  (CHARINDEX('-', [category]) -1) end));&#xA;&#xA;-- update [netsuite].[NS_Daily File_Sales_Orders] set [Payment Method ]=REPLACE([Payment Method ],'&quot;','');&#xA;&#xA;update [netsuite].[NS_Daily File_Sales_Orders] set [item name]=SUBSTRING([item name],5,5);&#xA;&#xA;update [netsuite].[NS_Daily File_Sales_Orders] set [store]=trim([store]);&#xA;&#xA;INSERT INTO [netsuite].[NS_Daily_File_Sales_Orders_History]&#xA;           ([Transaction Date]&#xA;           ,[Paid Date]&#xA;           ,[Type]&#xA;           ,[Transaction Status]&#xA;           ,[Transaction Source]&#xA;           ,[Transaction Document Number]&#xA;           ,[Accounting Unit]&#xA;           ,[Location format type]&#xA;           ,[Store Region]&#xA;           ,[Store District]&#xA;           ,[Store]&#xA;           ,[Location]&#xA;           ,[Category]&#xA;           ,[Division]&#xA;           ,[Line]&#xA;           ,[Subline]&#xA;           ,[Class]&#xA;           ,[Item Name]&#xA;           ,[Designation]&#xA;           ,[SKU#]&#xA;           ,[SHO Type]&#xA;           ,[Brand]&#xA;           ,[Is PA]&#xA;           ,[Available PA]&#xA;           ,[Bulk Sale Tran]&#xA;           ,[Net Amount]&#xA;           ,[Qty]&#xA;           ,[Avg_Cost]&#xA;           ,[List_Price]&#xA;           ,[Regular_price]&#xA;           ,[cadence 3H]&#xA;           ,[Cadence outlet]&#xA;           ,[Amount]&#xA;           ,[Gross Profit]&#xA;           ,[Store Indicator]&#xA;           ,[Fulfilment method]&#xA;           ,[Fulfilment Selected]&#xA;           ,[Customer First Name]&#xA;           ,[Customer Last Name]&#xA;           ,[Customer Address_1]&#xA;           ,[Customer Address_2]&#xA;           ,[Customer City]&#xA;           ,[Customer State]&#xA;           ,[Customer Zip]&#xA;           ,[Email]&#xA;           ,[Alt  Email]&#xA;           ,[Acc Email]&#xA;           ,[Shipping Email]&#xA;           ,[Phone]&#xA;           ,[Mobile]&#xA;           ,[Home Phone ]&#xA;           ,[Line Sequence Number]&#xA;           ,[Amount_Tax]&#xA;           ,[UPC_Code]&#xA;           ,[REC_LOAD_DTM])&#xA;     SELECT&#xA;&#x9;&#x9;&#x9;[Transaction Date]&#xA;           ,[Paid Date]&#xA;           ,[Type]&#xA;           ,[Transaction Status]&#xA;           ,[Transaction Source]&#xA;           ,[Transaction Document Number]&#xA;           ,[Accounting Unit]&#xA;           ,[Location format type]&#xA;           ,[Store Region]&#xA;           ,[Store District]&#xA;           ,[Store]&#xA;           ,[Location]&#xA;           ,[Category]&#xA;           ,[Division]&#xA;           ,[Line]&#xA;           ,[Subline]&#xA;           ,[Class]&#xA;           ,[Item Name]&#xA;           ,[Designation]&#xA;           ,[SKU#]&#xA;           ,[SHO Type]&#xA;           ,[Brand]&#xA;           ,[Is PA]&#xA;           ,[Available PA]&#xA;           ,[Bulk Sale Tran]&#xA;           ,[Net Amount]&#xA;           ,[Qty]&#xA;           ,[Avg_Cost]&#xA;           ,[List_Price]&#xA;           ,[Regular_price]&#xA;           ,[cadence 3H]&#xA;           ,[Cadence outlet]&#xA;           ,[Amount]&#xA;           ,[Gross Profit]&#xA;           ,[Store Indicator]&#xA;           ,[Fulfilment method]&#xA;           ,[Fulfilment Selected]&#xA;           ,[Customer First Name]&#xA;           ,[Customer Last Name]&#xA;           ,[Customer Address_1]&#xA;           ,[Customer Address_2]&#xA;           ,[Customer City]&#xA;           ,[Customer State]&#xA;           ,[Customer Zip]&#xA;           ,[Email]&#xA;           ,[Alt  Email]&#xA;           ,[Acc Email]&#xA;           ,[Shipping Email]&#xA;           ,[Phone]&#xA;           ,[Mobile]&#xA;           ,[Home Phone ]&#xA;           ,[Line Sequence Number]&#xA;           ,[Amount_Tax]&#xA;           ,[UPC_Code]&#xA;           ,[REC_LOAD_DTM] &#xA;      FROM [netsuite].[NS_Daily File_Sales_Orders];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -5952,7 +5960,7 @@
           Id="Package\Post Load Formatting"
           TopLeft="137.999994516372,250.293335322486" />
         <NodeLayout
-          Size="250,42"
+          Size="253,42"
           Id="Package\Truncate Staging Netsuite Line Table"
           TopLeft="128.666661553913,16.6400001322429" />
         <EdgeLayout
@@ -5979,13 +5987,13 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="253.666661553913,58.6400001322429">
+          TopLeft="255.166661553913,58.6400001322429">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-27.6666644944086,25.9466672066582"
+              EndConnector="-29.1666644944086,25.9466672066582"
               Start="0,0"
-              End="-27.6666644944086,18.4466672066582">
+              End="-29.1666644944086,18.4466672066582">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -5996,13 +6004,13 @@
                     Point2="0,12.9733336033291"
                     Point3="-4,12.9733336033291" />
                   <mssgle:LineSegment
-                    End="-23.6666644944086,12.9733336033291" />
+                    End="-25.1666644944086,12.9733336033291" />
                   <mssgle:CubicBezierSegment
-                    Point1="-23.6666644944086,12.9733336033291"
-                    Point2="-27.6666644944086,12.9733336033291"
-                    Point3="-27.6666644944086,16.9733336033291" />
+                    Point1="-25.1666644944086,12.9733336033291"
+                    Point2="-29.1666644944086,12.9733336033291"
+                    Point3="-29.1666644944086,16.9733336033291" />
                   <mssgle:LineSegment
-                    End="-27.6666644944086,18.4466672066582" />
+                    End="-29.1666644944086,18.4466672066582" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6042,13 +6050,13 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="168,54"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="107.499995946885,173.286668000115" />
-        <NodeLayout
           Size="151,42"
           Id="Package\Data Flow Task\Flat File Source"
           TopLeft="137.999994516373,25.7733335206774" />
+        <NodeLayout
+          Size="168,54"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="107.499995946885,173.286668000115" />
         <NodeLayout
           Size="156,42"
           Id="Package\Data Flow Task\Data Conversion"

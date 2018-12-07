@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_TD_to_SHO_DW_FACT_SALES"
   DTS:PackageType="5"
-  DTS:VersionBuild="161"
-  DTS:VersionGUID="{9DDAA068-7276-4F1D-B2BC-FF4794CA75D6}">
+  DTS:VersionBuild="163"
+  DTS:VersionGUID="{5BAA536B-8CD4-4151-80E8-C37FBB4A9831}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -8595,24 +8595,24 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
               startId="Package\Merge Teradata Raw into fact sho sales\add lu Category Division reject reason.Outputs[Derived Column Output]" />
             <path
               refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output3]"
-              endId="Package\Merge Teradata Raw into fact sho sales\Set Miscellaneous Category.Inputs[Derived Column Input]"
-              name="Lookup Match Output"
-              startId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output2]"
               endId="Package\Merge Teradata Raw into fact sho sales\Data Conversion.Inputs[Data Conversion Input]"
               name="Lookup Match Output"
               startId="Package\Merge Teradata Raw into fact sho sales\lu Category Division sk id.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output]"
-              endId="Package\Merge Teradata Raw into fact sho sales\lu Category Division sk id.Inputs[Lookup Input]"
+              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output2]"
+              endId="Package\Merge Teradata Raw into fact sho sales\Set Miscellaneous Category.Inputs[Derived Column Input]"
               name="Lookup Match Output"
-              startId="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Outputs[Lookup Match Output]" />
+              startId="Package\Merge Teradata Raw into fact sho sales\Lookup for Miscellaneous Category.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output1]"
+              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output]"
               endId="Package\Merge Teradata Raw into fact sho sales\Filter to only changed rows.Inputs[Conditional Split Input]"
               name="Lookup Match Output"
               startId="Package\Merge Teradata Raw into fact sho sales\Route inserts and updates.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output1]"
+              endId="Package\Merge Teradata Raw into fact sho sales\lu Category Division sk id.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Merge Teradata Raw into fact sho sales\lu sho location sk id and location format.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup No Match Output]"
               endId="Package\Merge Teradata Raw into fact sho sales\Union All Results.Inputs[Union All Input 1]"
@@ -15901,7 +15901,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="Insert Into sho_dw.fact.sho_sales_sku&#xA;(&#xA;[trs_dt_sk_id],&#xA;[prod_sku_sk_id],&#xA;[cat_div_sk_id],&#xA;[location_sk_id],&#xA;[trs_dt],&#xA;[pos_nbr],&#xA;[div_nbr],&#xA;[item_nbr],&#xA;[sku_nbr],&#xA;[net_sales],&#xA;[net_units],&#xA;[rec_load_dt],&#xA;[rec_upd_dt]&#xA;) Select &#xA;cal.calendar_dt_sk_id,&#xA;prod.prod_sku_sk_id,&#xA;prod.cat_div_sk_id,&#xA;loc.location_sk_id,&#xA;cal.calendar_dt,&#xA;loc.pos_nbr,&#xA;prod.div_nbr,&#xA;prod.item_nbr,&#xA;prod.sku_nbr,&#xA;Convert(decimal,sku.netsales),&#xA;Convert(int,sku.netunits),&#xA;GETDATE(),&#xA;GETDATE()&#xA; From &#xA; sho_staging.teradata.td_sales_dly_sales_sku sku &#xA;&#x9;inner join sho_dw.dim.calendar cal on convert(date,sku.TRS_DT) = cal.calendar_dt &#xA;&#x9;inner join sho_dw.dim.product prod on convert(int,sku.div_no) = convert(int, prod.div_nbr)&#xA;&#x9;&#x9;AND convert(int,sku.item_nbr) = convert(int,prod.item_nbr) &#xA;&#x9;inner join sho_dw.dim.location loc on Convert(int,sku.LOC_NO) = loc.pos_nbr &#xA;&#x9;and cal.calendar_dt_sk_id &gt; (Select Max(trs_dt_sk_id) from sho_dw.fact.sho_sales_sku);&#xA;&#xA;--*** Populate SKU History Table and Truncate SKU Table ***&#xA;use sho_staging;&#xA;&#xA;BEGIN TRAN&#xA;&#xA;insert into teradata.td_sales_dly_sales_sku_history &#xA;select * from teradata.td_sales_dly_sales_sku where trs_dt &gt; (Select Max(trs_dt) from teradata.td_sales_dly_sales_sku_history);&#xA;&#xA;truncate table teradata.td_sales_dly_sales_sku;&#xA;&#xA;COMMIT TRAN" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="Update sho_staging.teradata.td_sales_dly_sales_sku &#xA;set sku_nbr = '000' where sku_nbr = '0';&#xA;&#xA;&#xA;Insert Into sho_dw.fact.sho_sales_sku&#xA;(&#xA;[trs_dt_sk_id],&#xA;[prod_sku_sk_id],&#xA;[cat_div_sk_id],&#xA;[location_sk_id],&#xA;[trs_dt],&#xA;[pos_nbr],&#xA;[div_nbr],&#xA;[item_nbr],&#xA;[sku_nbr],&#xA;[net_sales],&#xA;[net_units],&#xA;[rec_load_dt],&#xA;[rec_upd_dt]&#xA;) Select &#xA;cal.calendar_dt_sk_id,&#xA;prod.prod_sku_sk_id,&#xA;prod.cat_div_sk_id,&#xA;loc.location_sk_id,&#xA;cal.calendar_dt,&#xA;loc.pos_nbr,&#xA;prod.div_nbr,&#xA;prod.item_nbr,&#xA;prod.sku_nbr,&#xA;Convert(decimal,sku.netsales),&#xA;Convert(int,sku.netunits),&#xA;GETDATE(),&#xA;GETDATE()&#xA; From &#xA; sho_staging.teradata.td_sales_dly_sales_sku sku &#xA;&#x9;inner join sho_dw.dim.calendar cal on convert(date,sku.TRS_DT) = cal.calendar_dt &#xA;&#x9;inner join sho_dw.dim.product prod on convert(int,sku.div_no) = convert(int, prod.div_nbr)&#xA;&#x9;&#x9;AND convert(int,sku.item_nbr) = convert(int,prod.item_nbr) &#xA;&#x9;inner join sho_dw.dim.location loc on Convert(int,sku.LOC_NO) = loc.pos_nbr &#xA;&#x9;and cal.calendar_dt_sk_id &gt; (Select Max(trs_dt_sk_id) from sho_dw.fact.sho_sales_sku);&#xA;&#xA;--*** Populate SKU History Table and Truncate SKU Table ***&#xA;use sho_staging;&#xA;&#xA;BEGIN TRAN&#xA;&#xA;insert into teradata.td_sales_dly_sales_sku_history &#xA;select * from teradata.td_sales_dly_sales_sku where trs_dt &gt; (Select Max(trs_dt) from teradata.td_sales_dly_sales_sku_history);&#xA;&#xA;truncate table teradata.td_sales_dly_sales_sku;&#xA;&#xA;COMMIT TRAN" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -16551,7 +16551,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output3]"
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output2]"
           TopLeft="690,208.666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -16587,7 +16587,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output2]"
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output3]"
           TopLeft="592,485">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -16623,7 +16623,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output1]"
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output]"
           TopLeft="458,566.666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -16653,7 +16653,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output]"
+          Id="Package\Merge Teradata Raw into fact sho sales.Paths[Lookup Match Output1]"
           TopLeft="657,433">
           <EdgeLayout.Curve>
             <mssgle:Curve

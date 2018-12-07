@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_SALES_HEADER_to_SHO_STAGING"
   DTS:PackageType="5"
-  DTS:VersionBuild="162"
-  DTS:VersionGUID="{FAEBC95E-F38A-4243-9024-3D90966D91E2}">
+  DTS:VersionBuild="163"
+  DTS:VersionGUID="{4BEF7E4F-97DC-47C5-8153-488DD876C002}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -32,7 +32,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite\ns_daily_sales_transaction_header_20181205.txt">
+          DTS:ConnectionString="\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite\ns_daily_sales_transaction_header_20181206.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -396,7 +396,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\ns_daily_sales_transaction_header_20181205.txt">
+          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\ns_daily_sales_transaction_header_20181206.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -760,7 +760,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\ns_daily_sales_transaction_header_20181205.txt">
+          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\ns_daily_sales_transaction_header_20181206.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -4579,7 +4579,7 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="insert into netsuite.NS_Daily_File_Sales_Orders_Header_History &#xA;([Transaction Date]&#xA;      ,[Paid Date]&#xA;      ,[Transaction Type]&#xA;      ,[Transaction Status]&#xA;      ,[Transaction Source]&#xA;      ,[Transaction Document Number]&#xA;      ,[Sales Check nummber]&#xA;      ,[Accounting Unit]&#xA;      ,[Accounting Unit (no hierarchy)]&#xA;      ,[Location format type]&#xA;      ,[Store Region]&#xA;      ,[Store District]&#xA;      ,[Store]&#xA;      ,[Location]&#xA;      ,[Subtotal]&#xA;      ,[Discount amount]&#xA;      ,[Tax total]&#xA;      ,[Shipping cost]&#xA;      ,[Gift certificate amount]&#xA;      ,[Total]&#xA;      ,[Amount due]&#xA;      ,[Payment or Refund Method]&#xA;      ,[Payment Amount]&#xA;      ,[Comp Store Flag]&#xA;      ,[Customer First Name]&#xA;      ,[Customer Last Name]&#xA;      ,[Customer Address_1]&#xA;      ,[Customer Address_2]&#xA;      ,[Customer City]&#xA;      ,[Customer State]&#xA;      ,[Customer Zip]&#xA;      ,[Email]&#xA;      ,[Alt  Email]&#xA;      ,[Acc Email]&#xA;      ,[Shipping Email]&#xA;      ,[Phone]&#xA;      ,[Mobile]&#xA;      ,[Home Phone]&#xA;      ,[Promotion]&#xA;      ,[Applied Promotion]&#xA;      ,[SHO_REASON_CODE]&#xA;      ,[SHO_POS_READON_CODE_COMMENT ])&#xA;SELECT --[Load Date]&#xA;      [Transaction Date]&#xA;      ,[Paid Date]&#xA;      ,[Transaction Type]&#xA;      ,[Transaction Status]&#xA;      ,[Transaction Source]&#xA;      ,[Transaction Document Number]&#xA;      ,[Sales Check nummber]&#xA;      ,[Accounting Unit]&#xA;      ,[Accounting Unit (no hierarchy)]&#xA;      ,[Location format type]&#xA;      ,[Store Region]&#xA;      ,[Store District]&#xA;      ,[Store]&#xA;      ,[Location]&#xA;      ,[Subtotal]&#xA;      ,[Discount amount]&#xA;      ,[Tax total]&#xA;      ,[Shipping cost]&#xA;      ,[Gift certificate amount]&#xA;      ,[Total]&#xA;      ,[Amount due]&#xA;      ,[Payment or Refund Method]&#xA;      ,[Payment Amount]&#xA;      ,[Comp Store Flag]&#xA;      ,[Customer First Name]&#xA;      ,[Customer Last Name]&#xA;      ,[Customer Address_1]&#xA;      ,[Customer Address_2]&#xA;      ,[Customer City]&#xA;      ,[Customer State]&#xA;      ,[Customer Zip]&#xA;      ,[Email]&#xA;      ,[Alt  Email]&#xA;      ,[Acc Email]&#xA;      ,[Shipping Email]&#xA;      ,[Phone]&#xA;      ,[Mobile]&#xA;      ,[Home Phone]&#xA;      ,[Promotion]&#xA;      ,[Applied Promotion]&#xA;      ,[SHO_REASON_CODE]&#xA;      ,[SHO_POS_READON_CODE_COMMENT ]&#xA;  FROM [netsuite].[NS_Daily_File_Sales_Orders_Header];&#xA;&#xA;&#xA;--update [netsuite].[NS_Daily File_Sales_Orders] set [Payment Method ]=REPLACE([Payment Method ],'&quot;','');&#xA;&#xA;&#xA;--update [netsuite].[NS_Daily File_Sales_Orders] set [store]=trim([store]);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="INSERT INTO [netsuite].[NS_Daily_File_Sales_Orders_Header_History]&#xA;           ([Transaction Date]&#xA;           ,[Paid Date]&#xA;           ,[Transaction Type]&#xA;           ,[Transaction Status]&#xA;           ,[Transaction Source]&#xA;           ,[Transaction Document Number]&#xA;           ,[Sales Check nummber]&#xA;           ,[Accounting Unit]&#xA;           ,[Accounting Unit (no hierarchy)]&#xA;           ,[Location format type]&#xA;           ,[Store Region]&#xA;           ,[Store District]&#xA;           ,[Store]&#xA;           ,[Location]&#xA;           ,[Subtotal]&#xA;           ,[Discount amount]&#xA;           ,[Tax total]&#xA;           ,[Shipping cost]&#xA;           ,[Gift certificate amount]&#xA;           ,[Total]&#xA;           ,[Amount due]&#xA;           ,[Payment or Refund Method]&#xA;           ,[Payment Amount]&#xA;           ,[Comp Store Flag]&#xA;           ,[Customer First Name]&#xA;           ,[Customer Last Name]&#xA;           ,[Customer Address_1]&#xA;           ,[Customer Address_2]&#xA;           ,[Customer City]&#xA;           ,[Customer State]&#xA;           ,[Customer Zip]&#xA;           ,[Email]&#xA;           ,[Alt  Email]&#xA;           ,[Acc Email]&#xA;           ,[Shipping Email]&#xA;           ,[Phone]&#xA;           ,[Mobile]&#xA;           ,[Home Phone]&#xA;           ,[Sho_syw_memberid]&#xA;           ,[Sho_maskedcard]&#xA;           ,[Payment_Document_Number]&#xA;           ,[Payment_date]&#xA;           ,[Sales_Rep]&#xA;           ,[Amount_Net_of_Tax]&#xA;           ,[REC_LOAD_DTM])&#xA; SELECT&#xA;          [Transaction Date]&#xA;           ,[Paid Date]&#xA;           ,[Transaction Type]&#xA;           ,[Transaction Status]&#xA;           ,[Transaction Source]&#xA;           ,[Transaction Document Number]&#xA;           ,[Sales Check nummber]&#xA;           ,[Accounting Unit]&#xA;           ,[Accounting Unit (no hierarchy)]&#xA;           ,[Location format type]&#xA;           ,[Store Region]&#xA;           ,[Store District]&#xA;           ,[Store]&#xA;           ,[Location]&#xA;           ,[Subtotal]&#xA;           ,[Discount amount]&#xA;           ,[Tax total]&#xA;           ,[Shipping cost]&#xA;           ,[Gift certificate amount]&#xA;           ,[Total]&#xA;           ,[Amount due]&#xA;           ,[Payment or Refund Method]&#xA;           ,[Payment Amount]&#xA;           ,[Comp Store Flag]&#xA;           ,[Customer First Name]&#xA;           ,[Customer Last Name]&#xA;           ,[Customer Address_1]&#xA;           ,[Customer Address_2]&#xA;           ,[Customer City]&#xA;           ,[Customer State]&#xA;           ,[Customer Zip]&#xA;           ,[Email]&#xA;           ,[Alt  Email]&#xA;           ,[Acc Email]&#xA;           ,[Shipping Email]&#xA;           ,[Phone]&#xA;           ,[Mobile]&#xA;           ,[Home Phone]&#xA;           ,[Sho_syw_memberid]&#xA;           ,[Sho_maskedcard]&#xA;           ,[Payment_Document_Number]&#xA;           ,[Payment_date]&#xA;           ,[Sales_Rep]&#xA;           ,[Amount_Net_of_Tax]&#xA;           ,[REC_LOAD_DTM] &#xA;FROM [netsuite].[NS_Daily_File_Sales_Orders_Header];&#xA;&#xA;&#xA;--update [netsuite].[NS_Daily File_Sales_Orders] set [Payment Method ]=REPLACE([Payment Method ],'&quot;','');&#xA;&#xA;&#xA;--update [netsuite].[NS_Daily File_Sales_Orders] set [store]=trim([store]);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4752,19 +4752,43 @@
     design-time-name="Package\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="151,42"
-          Id="Package\Data Flow Task\Flat File Source"
-          TopLeft="145.999994198482,16.6400001322428" />
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="168,54"
           Id="Package\Data Flow Task\OLE DB Destination"
           TopLeft="107.499995946885,173.286668000115" />
         <NodeLayout
+          Size="151,42"
+          Id="Package\Data Flow Task\Flat File Source"
+          TopLeft="145.999994198482,16.6400001322428" />
+        <NodeLayout
           Size="156,42"
           Id="Package\Data Flow Task\Data Conversion"
           TopLeft="115.333328750399,99.5333341323" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="192.416662348642,141.5333341323">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.753333867815"
+              Start="0,0"
+              End="0,24.253333867815">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.253333867815" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Flat File Source Output]"
           TopLeft="221.499994198482,58.6400001322428">
@@ -4796,29 +4820,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
-          TopLeft="192.416662348642,141.5333341323">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,31.753333867815"
-              Start="0,0"
-              End="0,24.253333867815">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.253333867815" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
