@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_SALES_to_SHO_DW_FACT"
   DTS:PackageType="5"
-  DTS:VersionBuild="151"
-  DTS:VersionGUID="{71DEEC60-EC4F-4541-879A-2E36F9866EFD}">
+  DTS:VersionBuild="155"
+  DTS:VersionGUID="{C22176C5-D562-4E8B-A7A9-E3E4E43C7AB1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -253,6 +253,17 @@
                       cachedLength="1"
                       cachedName="Copy of Transaction_Source"
                       lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Transaction_Source]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc , div and category.Inputs[Aggregate Input 1].Columns[Copy of online_sales]"
+                      cachedDataType="decimal"
+                      cachedName="Copy of online_sales"
+                      cachedScale="2"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of online_sales]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc , div and category.Inputs[Aggregate Input 1].Columns[Copy of online_units]"
+                      cachedDataType="i4"
+                      cachedName="Copy of online_units"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of online_units]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1173,6 +1184,59 @@
                           name="AggregationComparisonFlags">0</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc , div and category.Outputs[Aggregate Output 1].Columns[Copy of online_sales]"
+                      dataType="decimal"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc , div and category.Outputs[Aggregate Output 1].Columns[Copy of online_sales]"
+                      name="Copy of online_sales"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of online_sales]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc , div and category.Outputs[Aggregate Output 1].Columns[Copy of online_units]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc , div and category.Outputs[Aggregate Output 1].Columns[Copy of online_units]"
+                      name="Copy of online_units">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of online_units]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1388,6 +1452,17 @@
                       cachedDataType="i4"
                       cachedName="dr_cat_div_sk_id"
                       lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_cat_div_sk_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Inputs[Aggregate Input 1].Columns[Copy of online_units]"
+                      cachedDataType="i4"
+                      cachedName="Copy of online_units"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of online_units]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Inputs[Aggregate Input 1].Columns[Copy of online_sales]"
+                      cachedDataType="decimal"
+                      cachedName="Copy of online_sales"
+                      cachedScale="2"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of online_sales]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2254,6 +2329,59 @@
                           name="AggregationComparisonFlags">0</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of online_units]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of online_units]"
+                      name="Copy of online_units">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of online_units]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of online_sales]"
+                      dataType="decimal"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of online_sales]"
+                      name="Copy of online_sales"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of online_sales]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -2466,6 +2594,17 @@
                       cachedLength="1"
                       cachedName="Copy of Transaction_Source"
                       lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Transaction_Source]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agg Sales by Location.Inputs[Aggregate Input 1].Columns[Copy of online_sales]"
+                      cachedDataType="decimal"
+                      cachedName="Copy of online_sales"
+                      cachedScale="2"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of online_sales]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agg Sales by Location.Inputs[Aggregate Input 1].Columns[Copy of online_units]"
+                      cachedDataType="i4"
+                      cachedName="Copy of online_units"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of online_units]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -3308,6 +3447,59 @@
                           name="AggregationComparisonFlags">0</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agg Sales by Location.Outputs[Aggregate Output 1].Columns[Copy of online_sales]"
+                      dataType="decimal"
+                      lineageId="Package\Data Flow Task\Agg Sales by Location.Outputs[Aggregate Output 1].Columns[Copy of online_sales]"
+                      name="Copy of online_sales"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of online_sales]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agg Sales by Location.Outputs[Aggregate Output 1].Columns[Copy of online_units]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Agg Sales by Location.Outputs[Aggregate Output 1].Columns[Copy of online_units]"
+                      name="Copy of online_units">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of online_units]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -4110,6 +4302,20 @@ where [refTable].[div_nbr] = ? and [refTable].[cat_nbr] = ?</property>
                       cachedLength="1"
                       cachedName="Transaction_Source"
                       lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[Transaction_Source]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[online_sales]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="online_sales"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[online_sales]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[online_units]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="online_units"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[online_units]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -4893,6 +5099,47 @@ where [refTable].[div_nbr] = ? and [refTable].[cat_nbr] = ?</property>
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
                           name="SourceInputColumnLineageID">#{Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[Transaction_Source]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of online_sales]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of online_sales]"
+                      name="Copy of online_sales"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[online_sales]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of online_units]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of online_units]"
+                      name="Copy of online_units"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[online_units]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -6073,6 +6320,17 @@ where [refTable].[calendar_dt] = ?</property>
                       cachedName="Copy of markdown_sales"
                       cachedScale="2"
                       lineageId="Package\Data Flow Task\Sort by calendar and location - all sales.Outputs[Sort Output].Columns[Copy of markdown_sales]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[Copy of online_sales]"
+                      cachedDataType="decimal"
+                      cachedName="Copy of online_sales"
+                      cachedScale="2"
+                      lineageId="Package\Data Flow Task\Sort by calendar and location - all sales.Outputs[Sort Output].Columns[Copy of online_sales]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[Copy of online_units]"
+                      cachedDataType="i8"
+                      cachedName="Copy of online_units"
+                      lineageId="Package\Data Flow Task\Sort by calendar and location - all sales.Outputs[Sort Output].Columns[Copy of online_units]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -6564,6 +6822,33 @@ where [refTable].[calendar_dt] = ?</property>
                           name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[Copy of markdown_sales]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Copy of online_sales]"
+                      dataType="decimal"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Copy of online_sales]"
+                      name="Copy of online_sales"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[Copy of online_sales]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Copy of online_units]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Copy of online_units]"
+                      name="Copy of online_units">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[Copy of online_units]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -6860,6 +7145,19 @@ where [refTable].[calendar_dt] = ?</property>
                       cachedScale="2"
                       externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by division and category.Inputs[OLE DB Destination Input].ExternalColumns[gross_profit]"
                       lineageId="Package\Data Flow Task\Agg Sales by loc , div and category.Outputs[Aggregate Output 1].Columns[Copy of Gross_Profit]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by division and category.Inputs[OLE DB Destination Input].Columns[Copy of online_sales]"
+                      cachedDataType="decimal"
+                      cachedName="Copy of online_sales"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by division and category.Inputs[OLE DB Destination Input].ExternalColumns[online_sales]"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc , div and category.Outputs[Aggregate Output 1].Columns[Copy of online_sales]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by division and category.Inputs[OLE DB Destination Input].Columns[Copy of online_units]"
+                      cachedDataType="i8"
+                      cachedName="Copy of online_units"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by division and category.Inputs[OLE DB Destination Input].ExternalColumns[online_units]"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc , div and category.Outputs[Aggregate Output 1].Columns[Copy of online_units]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -7305,6 +7603,19 @@ where [refTable].[calendar_dt] = ?</property>
                       cachedScale="2"
                       externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[total_md_amt]"
                       lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of markdown_sales]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].Columns[Copy of online_units]"
+                      cachedDataType="i8"
+                      cachedName="Copy of online_units"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[online_sales]"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of online_units]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].Columns[Copy of online_sales]"
+                      cachedDataType="decimal"
+                      cachedName="Copy of online_sales"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[online_units]"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of online_sales]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -7456,6 +7767,18 @@ where [refTable].[calendar_dt] = ?</property>
                       refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[sales_fact_by_item_sk_id]"
                       dataType="i4"
                       name="sales_fact_by_item_sk_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[online_sales]"
+                      dataType="numeric"
+                      name="online_sales"
+                      precision="12"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[online_units]"
+                      dataType="numeric"
+                      name="online_units"
+                      precision="12"
+                      scale="2" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -7549,7 +7872,9 @@ case when upper([Bulk Sale Tran]) like 'T' then [qty] else '0' end  as bulk_unit
    case when  ( a.[division] = 25 and   RIGHT('000000'+CAST(isnull(a.[item name],0) AS VARCHAR(6)),6) in (12430, 12431, 12432, 12434, 12435, 12436, 99111,99112, 99113, 99114, 99115, 99116, 99117, 99118, 99119, 99110))
   then [Qty] end guardsman_units,
   case when  cast(trim(a.[Net Amount]) as decimal(12,2)) &gt;=0 then cast(trim([Amount]) as decimal(12,2))-cast(trim(a.[Net Amount]) as decimal(12,2)) else 0 end as markdown_sales,
-'N' Transaction_Source
+'N' Transaction_Source,
+case when upper([Transaction Source]) like '%E-Commerce%' then a.[Net amount] else '0' end  as online_sales,
+case when upper([Transaction Source]) like '%E-Commerce%' then [qty] else '0' end  as online_units
 from [netsuite].[NS_Daily File_Sales_Orders] as a 
 left outer  join
 (
@@ -8041,6 +8366,28 @@ where a.[SHO Type] &lt;&gt;' '    and a.category &lt;&gt; ' '    and isnumeric(a
                       lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[Transaction Document Number]"
                       name="Transaction Document Number"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[online_sales]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[online_sales]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[online_sales]"
+                      name="online_sales"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[online_units]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[online_units]"
+                      length="500"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[online_units]"
+                      name="online_units"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -8280,6 +8627,18 @@ where a.[SHO Type] &lt;&gt;' '    and a.category &lt;&gt; ' '    and isnumeric(a
                       dataType="str"
                       length="500"
                       name="Transaction Document Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[online_sales]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="online_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[online_units]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="online_units" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -8564,6 +8923,20 @@ where a.[SHO Type] &lt;&gt;' '    and a.category &lt;&gt; ' '    and isnumeric(a
                       length="1"
                       lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[Transaction_Source]"
                       name="Transaction_Source" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[online_sales]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[online_sales]"
+                      name="online_sales" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[online_units]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[online_units]"
+                      name="online_units" />
                     <outputColumn
                       refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -8859,6 +9232,19 @@ where a.[SHO Type] &lt;&gt;' '    and a.category &lt;&gt; ' '    and isnumeric(a
                       cachedScale="2"
                       externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input].ExternalColumns[gross_profit]"
                       lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Copy of Gross_Profit]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input].Columns[Copy of online_sales]"
+                      cachedDataType="decimal"
+                      cachedName="Copy of online_sales"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input].ExternalColumns[online_sales]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Copy of online_sales]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input].Columns[Copy of online_units]"
+                      cachedDataType="i8"
+                      cachedName="Copy of online_units"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input].ExternalColumns[online_units]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Copy of online_units]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -9989,6 +10375,39 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort by calendar and location - all sales.Inputs[Sort Input].Columns[Copy of online_sales]"
+                      cachedDataType="decimal"
+                      cachedName="Copy of online_sales"
+                      cachedScale="2"
+                      lineageId="Package\Data Flow Task\Agg Sales by Location.Outputs[Aggregate Output 1].Columns[Copy of online_sales]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort by calendar and location - all sales.Inputs[Sort Input].Columns[Copy of online_units]"
+                      cachedDataType="i8"
+                      cachedName="Copy of online_units"
+                      lineageId="Package\Data Flow Task\Agg Sales by Location.Outputs[Aggregate Output 1].Columns[Copy of online_units]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -10420,6 +10839,33 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
                           name="SortColumnId">#{Package\Data Flow Task\Agg Sales by Location.Outputs[Aggregate Output 1].Columns[Copy of markdown_sales]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort by calendar and location - all sales.Outputs[Sort Output].Columns[Copy of online_sales]"
+                      dataType="decimal"
+                      lineageId="Package\Data Flow Task\Sort by calendar and location - all sales.Outputs[Sort Output].Columns[Copy of online_sales]"
+                      name="Copy of online_sales"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Agg Sales by Location.Outputs[Aggregate Output 1].Columns[Copy of online_sales]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort by calendar and location - all sales.Outputs[Sort Output].Columns[Copy of online_units]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Sort by calendar and location - all sales.Outputs[Sort Output].Columns[Copy of online_units]"
+                      name="Copy of online_units">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Agg Sales by Location.Outputs[Aggregate Output 1].Columns[Copy of online_units]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -10731,57 +11177,57 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           Id="Package\Data Flow Task\Merge Join"
           TopLeft="902.095208879503,431.390478465368" />
         <NodeLayout
+          Size="182,42"
+          Id="Package\Data Flow Task\Agg Sales by Location"
+          TopLeft="696.876167171721,419.420955256446" />
+        <NodeLayout
           Size="162,42"
           Id="Package\Data Flow Task\Data Conversion"
           TopLeft="335.447609151356,5.64571433058239" />
         <NodeLayout
-          Size="119,42"
-          Id="Package\Data Flow Task\Multicast"
-          TopLeft="613.676170191691,254.11047816546" />
-        <NodeLayout
-          Size="220,42"
-          Id="Package\Data Flow Task\Netsuite Sales by item Staging"
-          TopLeft="50.590477613419,7.62666672727801" />
-        <NodeLayout
-          Size="198,42"
-          Id="Package\Data Flow Task\Agg Sales by loc and item"
-          TopLeft="494.590459970445,424.266669669681" />
-        <NodeLayout
-          Size="179,42"
-          Id="Package\Data Flow Task\derive location for null"
-          TopLeft="815.238070790731,178.285715702602" />
-        <NodeLayout
-          Size="174,42"
-          Id="Package\Data Flow Task\Product Item Lookup"
-          TopLeft="614.304748557106,162.834287008375" />
+          Size="262,42"
+          Id="Package\Data Flow Task\Sort by calendar and location - payment"
+          TopLeft="958.28568283717,295.695239291721" />
         <NodeLayout
           Size="151,42"
           Id="Package\Data Flow Task\Location lookup"
           TopLeft="1051.80948959835,107.580953081525" />
         <NodeLayout
+          Size="174,42"
+          Id="Package\Data Flow Task\Product Item Lookup"
+          TopLeft="614.304748557106,162.834287008375" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\Data Flow Task\Lookup"
+          TopLeft="623.190458971358,95.0857146871658" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\Data Flow Task\Netsuite Sales by item Staging"
+          TopLeft="51.590477613419,6.62666672727801" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Data Flow Task\Netsuite Sales by location"
+          TopLeft="863.809497432105,542.171431735811" />
+        <NodeLayout
           Size="126,42"
           Id="Package\Data Flow Task\Aggregate"
           TopLeft="1053.58091482057,207.824761057778" />
         <NodeLayout
-          Size="158,42"
-          Id="Package\Data Flow Task\Calendar Lookup"
-          TopLeft="397.142842474439,159.763810793497" />
-        <NodeLayout
-          Size="191,44"
-          Id="Package\Data Flow Task\Location Lookup"
-          TopLeft="66.9714293434505,165.310477504246" />
-        <NodeLayout
-          Size="197,42"
-          Id="Package\Data Flow Task\Category Division Lookup"
-          TopLeft="67.0666674349043,85.8742863967533" />
+          Size="259,42"
+          Id="Package\Data Flow Task\Sort by calendar and location - all sales"
+          TopLeft="754.476167126309,237.257143589201" />
         <NodeLayout
           Size="155,42"
           Id="Package\Data Flow Task\Payment Source"
           TopLeft="1051.58091596725,13.9123797259862" />
         <NodeLayout
-          Size="182,42"
-          Id="Package\Data Flow Task\Agg Sales by Location"
-          TopLeft="696.876167171721,419.420955256446" />
+          Size="158,42"
+          Id="Package\Data Flow Task\Calendar Lookup"
+          TopLeft="397.142842474439,159.763810793497" />
+        <NodeLayout
+          Size="259,42"
+          Id="Package\Data Flow Task\Netsuite Sales by division and category"
+          TopLeft="229.542851454871,544.723812810201" />
         <NodeLayout
           Size="164,42"
           Id="Package\Data Flow Task\Data Conversion 2"
@@ -10791,33 +11237,33 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           Id="Package\Data Flow Task\Derived Column"
           TopLeft="233.009520081868,260.457144132341" />
         <NodeLayout
+          Size="197,42"
+          Id="Package\Data Flow Task\Category Division Lookup"
+          TopLeft="67.0666674349043,85.8742863967533" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Data Flow Task\Multicast"
+          TopLeft="613.676170191691,254.11047816546" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Data Flow Task\Agg Sales by loc and item"
+          TopLeft="494.590459970445,424.266669669681" />
+        <NodeLayout
+          Size="191,44"
+          Id="Package\Data Flow Task\Location Lookup"
+          TopLeft="66.9714293434505,165.310477504246" />
+        <NodeLayout
           Size="182,42"
           Id="Package\Data Flow Task\Netsuite Sales by Item"
           TopLeft="506.780935676516,539.657146115983" />
-        <NodeLayout
-          Size="262,42"
-          Id="Package\Data Flow Task\Sort by calendar and location - payment"
-          TopLeft="958.28568283717,295.695239291721" />
-        <NodeLayout
-          Size="113,42"
-          Id="Package\Data Flow Task\Lookup"
-          TopLeft="623.190458971358,95.0857146871658" />
-        <NodeLayout
-          Size="259,42"
-          Id="Package\Data Flow Task\Netsuite Sales by division and category"
-          TopLeft="229.542851454871,544.723812810201" />
         <NodeLayout
           Size="240,42"
           Id="Package\Data Flow Task\Agg Sales by loc , div and category"
           TopLeft="231.352375192491,420.670479438297" />
         <NodeLayout
-          Size="259,42"
-          Id="Package\Data Flow Task\Sort by calendar and location - all sales"
-          TopLeft="754.476167126309,237.257143589201" />
-        <NodeLayout
-          Size="198,42"
-          Id="Package\Data Flow Task\Netsuite Sales by location"
-          TopLeft="863.809497432105,542.171431735811" />
+          Size="179,42"
+          Id="Package\Data Flow Task\derive location for null"
+          TopLeft="815.238070790731,178.285715702602" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Derived Column Output]"
           TopLeft="994.438070790731,199.085715702602">
@@ -11102,18 +11548,18 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
-          TopLeft="270.590477613419,27.4361905289302">
+          TopLeft="271.590477613419,27.1361905289302">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="64.8571315379367,0"
+              EndConnector="63.857131537937,0"
               Start="0,0"
-              End="57.3571315379367,0">
+              End="56.357131537937,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="57.3571315379367,0" />
+                    End="56.357131537937,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11290,7 +11736,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="17.5443198467443,5,96.3827734375,11.609375"
+              BoundingBox="17.5443198467445,5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -11350,7 +11796,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,9.36340805374614,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,9.36340805374615,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -11476,8 +11922,23 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Netsuite Sales by item Staging">
+    design-time-name="Package\Data Flow Task\Location lookup">
     <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dim].[location]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
@@ -11507,30 +11968,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Location lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dim].[location]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Calendar Lookup">
+    design-time-name="Package\Data Flow Task\Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -11553,53 +11991,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Location Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dim].[location]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Category Division Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dim].[category_division]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Payment Source">
+    design-time-name="Package\Data Flow Task\Netsuite Sales by item Staging">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -11607,7 +11999,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Netsuite Sales by Item">
+    design-time-name="Package\Data Flow Task\Netsuite Sales by location">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -11620,7 +12012,15 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Lookup">
+    design-time-name="Package\Data Flow Task\Payment Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Calendar Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -11656,7 +12056,53 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Netsuite Sales by location">
+    design-time-name="Package\Data Flow Task\Category Division Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dim].[category_division]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Location Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dim].[location]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Netsuite Sales by Item">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

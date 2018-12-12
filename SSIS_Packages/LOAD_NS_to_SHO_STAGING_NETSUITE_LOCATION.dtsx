@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_to_SHO_STAGING_NETSUITE_LOCATION"
   DTS:PackageType="5"
-  DTS:VersionBuild="397"
-  DTS:VersionGUID="{BBB79EB9-69DF-4BD8-B758-6022D8C6C27D}">
+  DTS:VersionBuild="400"
+  DTS:VersionGUID="{17FEF3C9-8062-432D-B96A-E6CA9731EAA3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -98,6 +98,8 @@
       DTS:Description="NS_LOCATION_FLATFILE"
       DTS:DTSID="{7871D383-BE56-4871-BC55-50D1AD90FE0B}"
       DTS:ObjectName="LOAD_NS_to_SHO_DW_DIM_LOC_DIST_REG_FF_LOC_DATA">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"\\\\10.1.0.22\\ssis_incoming\\netsuite\\ns_daily_location_store_"  +(DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -107,7 +109,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="X:\ssis_incoming\netsuite\ns_locations_20181031.csv">
+          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\ns_daily_location_store_20181212.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -115,8 +117,17 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
+              DTS:ObjectName="Internal ID"
+              DTS:DTSID="{B088C3F6-BC59-496E-A669-5EDA3DCBF658}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
               DTS:ObjectName="Inactive"
-              DTS:DTSID="{35FABAF0-4CBC-47B1-A206-B9C743DDDAE1}"
+              DTS:DTSID="{62AEB0E7-74D9-4730-91D5-0AC1C3A18D6B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -125,7 +136,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Close Date"
-              DTS:DTSID="{947090C7-2C93-4B65-B1F8-EA88EDD44A58}"
+              DTS:DTSID="{CF893539-F419-419F-BBD9-67B22C91C3FC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -134,7 +145,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Location Desc"
-              DTS:DTSID="{EAE380A3-5499-48DC-A49A-9CCEA03A05B5}"
+              DTS:DTSID="{39993E4C-862C-440A-B539-424127683FCA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -143,7 +154,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Format"
-              DTS:DTSID="{F9095C66-B112-44ED-BCAF-59D22F6D5B49}"
+              DTS:DTSID="{B9A3AAD6-31DA-45B0-8D56-03B011C91845}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -152,7 +163,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Ownership Type"
-              DTS:DTSID="{7D4CD0B6-BE4B-408A-822F-12D7CD665A04}"
+              DTS:DTSID="{B8664F8D-0C8C-484F-950D-55E5BAA78E03}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -161,7 +172,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Name (no hierarchy)"
-              DTS:DTSID="{447C0712-9B6F-4D52-8EE1-9CE6EAC77F58}"
+              DTS:DTSID="{A024FF1D-F6F7-41AA-86AE-2F3647FEDAD2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -170,7 +181,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="POS Number"
-              DTS:DTSID="{6B70D9DA-4243-4185-AEA9-431CE301E4E9}"
+              DTS:DTSID="{C02D8A3B-BE23-456E-B367-FA7B34C5AB2C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -179,7 +190,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="EIS Number"
-              DTS:DTSID="{79220C2E-567D-4778-8E1D-41EDC98C4589}"
+              DTS:DTSID="{48C4BC20-B06E-4425-AE85-7127378C58A3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -188,7 +199,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Region"
-              DTS:DTSID="{D42C33DC-6804-410B-B308-2524ECB01962}"
+              DTS:DTSID="{A8A93592-D0E2-4399-82BF-74F00548DF28}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -197,7 +208,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="District"
-              DTS:DTSID="{797E9913-2CF2-4205-B871-925E01C9D5DA}"
+              DTS:DTSID="{88A473EE-26A4-41FD-98AD-31EC4984E9B4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -206,7 +217,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="District Manager Name"
-              DTS:DTSID="{2EB064AC-0A1A-4A70-8830-62E32F745E24}"
+              DTS:DTSID="{4D913B20-6E2C-4F3D-9C94-9F6E7CB94EE9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -215,7 +226,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="City"
-              DTS:DTSID="{1A057AB8-5521-4CED-ABC6-93ADC5D2DCA2}"
+              DTS:DTSID="{A8B87CCB-F9B6-4CE1-A34F-CF3E5F563CD6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -224,7 +235,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="State Province"
-              DTS:DTSID="{7D59C00D-D721-49A5-BA7A-CBEB37AA57DC}"
+              DTS:DTSID="{B028A859-4BDA-490A-A560-4C4870B7E3D9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -233,7 +244,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Zip"
-              DTS:DTSID="{9E588C15-82F7-4852-A4CD-9AE893F717E7}"
+              DTS:DTSID="{99715B6C-4FFC-49D9-9481-AF2A838AADDB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -242,7 +253,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Address 1"
-              DTS:DTSID="{316E1E2E-BAFD-4F6E-9EC1-61B88E739AB3}"
+              DTS:DTSID="{DA51FC7F-4C2C-471E-AA4A-1F5020444436}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -251,7 +262,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Address 2"
-              DTS:DTSID="{70C813A2-E065-4892-AF76-EF81EE27B46E}"
+              DTS:DTSID="{07353CD5-83FF-48C8-AE4A-6D72B3694CCA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -260,7 +271,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Latitude"
-              DTS:DTSID="{29765A4E-112B-4B58-9341-9763BE385E54}"
+              DTS:DTSID="{68C9DFC9-2FC8-4CFB-B9B6-D607F2A89F8F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -269,7 +280,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Longitude"
-              DTS:DTSID="{47F5434C-D458-4F46-BC48-6D029ACC9009}"
+              DTS:DTSID="{1587F564-032C-4165-9E35-227DACD67C42}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -278,7 +289,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Open Date"
-              DTS:DTSID="{3D0D8BB1-5F6E-4253-99BC-B7D854D6F638}"
+              DTS:DTSID="{E003EF47-E46E-4DE2-8081-7D7E00631A9E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -287,7 +298,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Change of Owner   Takeover Date"
-              DTS:DTSID="{F527C29C-8753-4A64-8CDC-42CF325E1B4E}"
+              DTS:DTSID="{7EB27139-382D-4FED-B874-D14BC1723FFD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -296,7 +307,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Franchisee   Dealer"
-              DTS:DTSID="{8C23E54B-7961-40E5-84C9-8F6A206C0DFA}"
+              DTS:DTSID="{04045073-CA20-444A-A392-322A09C703F5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -305,7 +316,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Location Type"
-              DTS:DTSID="{972AE055-1BDB-48AB-9A84-C75B92DAE656}"
+              DTS:DTSID="{276A7156-08DA-433C-BBBD-E483CF4DA15A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -314,7 +325,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Issue Date"
-              DTS:DTSID="{0C857003-01AC-40A9-9995-06E7840A9E02}"
+              DTS:DTSID="{5E64607A-5B06-43B6-825D-46F29D350B15}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -323,7 +334,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Expiration Date "
-              DTS:DTSID="{D9E2E039-D415-4273-A64A-9D90F82D1C76}"
+              DTS:DTSID="{C4C5FC46-EB64-4028-A1C3-DE3A199E8B1A}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -2979,6 +2990,28 @@
                           name="UseBinaryFormat">false</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_location Table\Read Records from NetSuite Flat File Locations Source.Outputs[Flat File Source Output].Columns[Internal ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_location Table\Read Records from NetSuite Flat File Locations Source.Outputs[Flat File Source Output].ExternalColumns[Internal ID]"
+                      length="50"
+                      lineageId="Package\Populate sho_staging_netsuite_location Table\Read Records from NetSuite Flat File Locations Source.Outputs[Flat File Source Output].Columns[Internal ID]"
+                      name="Internal ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3126,6 +3159,12 @@
                       dataType="str"
                       length="50"
                       name="Expiration Date " />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_location Table\Read Records from NetSuite Flat File Locations Source.Outputs[Flat File Source Output].ExternalColumns[Internal ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Internal ID" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -4251,7 +4290,7 @@
     design-time-name="Package\Populate sho_staging_netsuite_district Table">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="297,45"
           Id="Package\Populate sho_staging_netsuite_district Table\Read Records from NetSuite Flat File Districts Source"
@@ -4299,7 +4338,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4333,7 +4374,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4355,7 +4398,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

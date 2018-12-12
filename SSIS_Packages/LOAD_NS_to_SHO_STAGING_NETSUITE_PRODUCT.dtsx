@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_to_SHO_DW_DIM_PRODUCT"
   DTS:PackageType="5"
-  DTS:VersionBuild="137"
-  DTS:VersionGUID="{8C55DD10-065F-40A1-A8C8-96B90D486804}">
+  DTS:VersionBuild="142"
+  DTS:VersionGUID="{53BEBCB5-2C2B-4F37-B9AA-3E1688B8A72E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -21,6 +21,8 @@
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{962642CF-5CB6-47F1-8514-4DE32B131DFA}"
       DTS:ObjectName="LOAD_NS_to_SHO_STAGING_NETSUITE_PRODUCT_FF">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"\\\\10.1.0.22\\ssis_incoming\\netsuite\\ns_daily_product_feed_"  +(DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -30,7 +32,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="V:\ns_daily_product_deltas_20181112.csv">
+          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\ns_daily_product_feed_20181212.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -39,7 +41,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Internal ID"
-              DTS:DTSID="{0572DE3A-A168-4AFE-BEB8-BFDC46E81843}"
+              DTS:DTSID="{457B3B63-7F0B-45BC-9B01-75556621333C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -48,7 +50,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Date Created"
-              DTS:DTSID="{E3221AFF-70D7-4B81-80CD-4961B9079E4A}"
+              DTS:DTSID="{3AF68D39-BE44-4D60-8B35-A6DB97A475D7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -57,7 +59,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Inactive"
-              DTS:DTSID="{C542ECE6-D05B-4437-B176-BB4B434B51E7}"
+              DTS:DTSID="{E1E61E62-5173-4806-89E8-2E6E99024D24}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -66,7 +68,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Contract Item Type"
-              DTS:DTSID="{04053AF3-60DC-4F62-B4C4-48AD88EB5A48}"
+              DTS:DTSID="{FCDC7624-8B6A-4B38-A5AD-7939D9A935C9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -75,7 +77,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Item Brand"
-              DTS:DTSID="{A1219E44-AFC1-4EF2-81AD-9C97E1487939}"
+              DTS:DTSID="{040E3C9C-E9BD-4F54-882D-839EDB17D443}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -84,7 +86,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Product Brand ID"
-              DTS:DTSID="{23E1B00E-705E-4324-AA5B-AF82C721A909}"
+              DTS:DTSID="{38076009-FC5E-4CF7-9790-4CE9B0F5425F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -93,7 +95,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Manufacturer"
-              DTS:DTSID="{E76E44AF-A74D-41B8-8E86-80CD3BA70416}"
+              DTS:DTSID="{628EBEA6-EBDD-4FE3-9FD8-95DAEAFD12EE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -102,7 +104,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Item Mfgn Number"
-              DTS:DTSID="{CBAEE028-98BB-4036-9604-08B596F4A204}"
+              DTS:DTSID="{DF7F3A16-0B55-4BB4-96EC-CFD0B5A54F6C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -111,7 +113,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="UPC Code"
-              DTS:DTSID="{CF97082B-8ABA-42F4-B4B4-6E04D642DFFB}"
+              DTS:DTSID="{6476EBF9-44F4-4E06-A3E8-317B229EF2D1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -120,7 +122,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SKU #"
-              DTS:DTSID="{67B92DAF-FC15-4B87-AC52-A72FE26E8BEC}"
+              DTS:DTSID="{7365AAC9-69E4-4F97-B347-5554736FED72}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -129,7 +131,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Item Name"
-              DTS:DTSID="{3E58CC6C-C3D3-4FE3-B65E-4FE3D1055FC3}"
+              DTS:DTSID="{769BC0AF-F2E6-45B8-B6CC-0D1102D82F82}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -138,7 +140,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Description"
-              DTS:DTSID="{538BD5FE-5C89-43F5-9F25-BE81EEBB4017}"
+              DTS:DTSID="{8A3A6DAC-35BF-47A0-AB3B-1B989E8D354F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -147,7 +149,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Category No"
-              DTS:DTSID="{519A141B-C286-4AA3-A46B-8E7D80EBBB80}"
+              DTS:DTSID="{94388142-7304-4075-B06F-F1A456F6D8ED}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -156,7 +158,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Category Name"
-              DTS:DTSID="{C558EDA4-F5CF-494F-88FB-C963B73ADFB4}"
+              DTS:DTSID="{2A658A2B-26FC-429D-8DF8-C4ACEB77C192}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -165,7 +167,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Division No"
-              DTS:DTSID="{25934CB7-28CC-43E9-BCD5-DAB9A6B1261B}"
+              DTS:DTSID="{D4A3D005-BF38-4517-A988-44F58E26BFD2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -174,7 +176,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Division Name"
-              DTS:DTSID="{887346A2-4A07-4828-8BAE-C5D371C0B0EA}"
+              DTS:DTSID="{B2B6C324-40B9-4917-94EE-FDF7D129C6DB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -183,7 +185,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Line No"
-              DTS:DTSID="{898A648B-70D3-4620-AEC9-998100456DC6}"
+              DTS:DTSID="{5573C670-BBBB-4CB6-9703-F8839020D855}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -192,7 +194,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Line Name"
-              DTS:DTSID="{2DADE294-AA60-49B6-BF1A-428B59960502}"
+              DTS:DTSID="{1EBBF62E-0CB4-4DDC-9BC7-DE90811EE65D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -201,7 +203,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SubLine No"
-              DTS:DTSID="{9F556CC2-21FA-4A8A-9A4F-3FC5794FD152}"
+              DTS:DTSID="{3CA177F2-EA53-4589-BAD2-00BF4D1AAA50}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -210,7 +212,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SubLine Name"
-              DTS:DTSID="{8E179297-C469-45FB-86D5-48B145862398}"
+              DTS:DTSID="{D7F8B6FE-24FC-440F-91B7-DD25C814B56E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -219,7 +221,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Class No"
-              DTS:DTSID="{3C8E0542-1A83-4BCA-A9FC-0710E33FD378}"
+              DTS:DTSID="{61D4B9C4-BA6A-4A1B-9A9F-832E959EDCC1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -228,7 +230,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Class Name"
-              DTS:DTSID="{FC8BF7C7-D3DA-4F5C-BEF5-F85A85D4019E}"
+              DTS:DTSID="{1D8DBB21-19C3-42F0-94E5-FAF213F93B65}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -237,7 +239,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Regular Price (3H)"
-              DTS:DTSID="{4F778578-F305-4749-903E-5E56263CC47A}"
+              DTS:DTSID="{C9C44F62-6E0B-4226-A08D-4B8F435008E0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -246,7 +248,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="List Price (Outlet)"
-              DTS:DTSID="{E0262081-AAC9-4FD0-9046-56A3728CDDE2}"
+              DTS:DTSID="{0E223929-9F78-4E90-AD7E-73966E6564AC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -255,7 +257,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MSRP"
-              DTS:DTSID="{A2009A66-B986-4D1A-B731-912D78A33919}"
+              DTS:DTSID="{3C657D88-E481-4D0E-B478-28E91B5D4266}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -264,7 +266,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Average Cost"
-              DTS:DTSID="{CC6D9370-22E8-4A4E-9EB6-49E96DA884BF}"
+              DTS:DTSID="{9AD0E23D-597C-4E3C-9DB9-0C72057D8CF4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -273,7 +275,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Height (in )"
-              DTS:DTSID="{44D18D42-2564-4D44-9528-7A68A23DCF97}"
+              DTS:DTSID="{9467CDB5-8E3F-46AA-8B15-51D3BCE897B9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -282,7 +284,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Shipping Height"
-              DTS:DTSID="{0CD171A1-69EC-4315-B12E-D4A3F6576B8A}"
+              DTS:DTSID="{C58A2237-1E20-4921-881C-C175428EE2FB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -291,7 +293,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Width (in )"
-              DTS:DTSID="{9810F155-B9E3-455B-A7C2-CD477DCACABF}"
+              DTS:DTSID="{3D84CA30-4FD0-4C7C-A6D3-748A4082AB41}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -300,7 +302,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Shipping Width"
-              DTS:DTSID="{1B7BA055-3F34-4069-B2A5-7F4D73BC8F85}"
+              DTS:DTSID="{734BD0BB-3688-45C3-BCF6-D39241A0BADD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -309,7 +311,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Item Designation"
-              DTS:DTSID="{CCF96B5A-D744-4C1F-A356-85B41A8A2005}"
+              DTS:DTSID="{EBC867F5-6F9A-4A40-8954-D4DA2CC927D8}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -2607,7 +2609,7 @@
                       refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Shipping Height]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
+                      length="15"
                       name="Shipping Height" />
                     <externalMetadataColumn
                       refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Width (in.)]"
@@ -2688,7 +2690,7 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="UPDATE sho_staging.netsuite.product SET cat_div_sk_id = -1;&#xA;&#xA;UPDATE sho_staging.netsuite.product SET cat_div_sk_id = sho_dw.dim.category_division.cat_div_sk_id FROM sho_dw.dim.category_division INNER JOIN sho_staging.netsuite.product ON sho_dw.dim.category_division.cat_nbr = sho_staging.netsuite.product.[Category No] and sho_dw.dim.category_division.div_nbr = sho_staging.netsuite.product.[Div No];&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE sho_staging.netsuite.product SET cat_div_sk_id = -1;&#xA;&#xA;UPDATE sho_staging.netsuite.product SET [Div No] = Right('000' + Trim([Div no]),3);&#xA;&#xA;UPDATE sho_staging.netsuite.product SET cat_div_sk_id = sho_dw.dim.category_division.cat_div_sk_id FROM sho_dw.dim.category_division INNER JOIN sho_staging.netsuite.product ON convert(int,sho_dw.dim.category_division.cat_nbr) = convert(int,sho_staging.netsuite.product.[Category No]) and convert(int,sho_dw.dim.category_division.div_nbr) = convert(int,sho_staging.netsuite.product.[Div No]);&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
