@@ -1,0 +1,2937 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/21/2018 3:42:49 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LT-SELVI-TEST"
+  DTS:CreatorName="LT-SELVI-TEST\User"
+  DTS:DTSID="{E6F305F1-844F-4F5B-BF8C-736ECEAE592D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LOAD_NS_SALES_to_SHO_DW_SKU_FACT"
+  DTS:PackageType="5"
+  DTS:VersionBuild="161"
+  DTS:VersionGUID="{0D92E2A9-AEA0-47DB-8D44-1D95DEA8D960}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{8B7812B3-2923-4E94-8735-29C47D12E084}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Agg Sales by loc and item"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Agg Sales by loc and item"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Agg Sales by loc and item.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Inputs[Aggregate Input 1].Columns[Copy of Qty]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Qty"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Qty]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Inputs[Aggregate Input 1].Columns[Copy of store]"
+                      cachedDataType="i4"
+                      cachedName="Copy of store"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of store]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Inputs[Aggregate Input 1].Columns[Copy of paid_date]"
+                      cachedDataType="dbDate"
+                      cachedName="Copy of paid_date"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of paid_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Inputs[Aggregate Input 1].Columns[Copy of item_name]"
+                      cachedDataType="i8"
+                      cachedName="Copy of item_name"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of item_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Inputs[Aggregate Input 1].Columns[Copy of net_amount]"
+                      cachedDataType="decimal"
+                      cachedName="Copy of net_amount"
+                      cachedScale="2"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of net_amount]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Inputs[Aggregate Input 1].Columns[Copy of division]"
+                      cachedDataType="i4"
+                      cachedName="Copy of division"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of division]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Inputs[Aggregate Input 1].Columns[Copy of category]"
+                      cachedDataType="i4"
+                      cachedName="Copy of category"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of category]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Inputs[Aggregate Input 1].Columns[dr_sho_loc_sk_id]"
+                      cachedDataType="i4"
+                      cachedName="dr_sho_loc_sk_id"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_sho_loc_sk_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Inputs[Aggregate Input 1].Columns[dr_cal_sk_id]"
+                      cachedDataType="i4"
+                      cachedName="dr_cal_sk_id"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_cal_sk_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Inputs[Aggregate Input 1].Columns[dr_prod_sku_sk_id]"
+                      cachedDataType="i4"
+                      cachedName="dr_prod_sku_sk_id"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_prod_sku_sk_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Inputs[Aggregate Input 1].Columns[dr_cat_div_sk_id]"
+                      cachedDataType="i4"
+                      cachedName="dr_cat_div_sk_id"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_cat_div_sk_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Inputs[Aggregate Input 1].Columns[trs_typ_cd]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="trs_typ_cd"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[trs_typ_cd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Inputs[Aggregate Input 1].Columns[Copy of sku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Copy of sku"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sku]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of Qty]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of Qty]"
+                      name="Copy of Qty">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Qty]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of item_name]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of item_name]"
+                      name="Copy of item_name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of item_name]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of net_amount]"
+                      dataType="decimal"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of net_amount]"
+                      name="Copy of net_amount"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of net_amount]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of paid_date]"
+                      dataType="dbDate"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of paid_date]"
+                      name="Copy of paid_date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of paid_date]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of division]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of division]"
+                      name="Copy of division">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of division]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of store]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of store]"
+                      name="Copy of store">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of store]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of category]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of category]"
+                      name="Copy of category">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of category]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[dr_sho_loc_sk_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[dr_sho_loc_sk_id]"
+                      name="dr_sho_loc_sk_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_sho_loc_sk_id]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[dr_cal_sk_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[dr_cal_sk_id]"
+                      name="dr_cal_sk_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_cal_sk_id]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[dr_prod_sku_sk_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[dr_prod_sku_sk_id]"
+                      name="dr_prod_sku_sk_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_prod_sku_sk_id]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[dr_cat_div_sk_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[dr_cat_div_sk_id]"
+                      name="dr_cat_div_sk_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_cat_div_sk_id]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[trs_typ_cd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[trs_typ_cd]"
+                      name="trs_typ_cd">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[trs_typ_cd]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of sku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of sku]"
+                      name="Copy of sku">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sku]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Calendar Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Calendar Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dim].[calendar]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dim].[calendar]) [refTable]
+where [refTable].[calendar_dt] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="load_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="calendar_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="calendar_dt_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="calendar_day_of_week_desc" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="calendar_day_of_week_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="calendar_day_of_year_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="calendar_week_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="calendar_week_desc" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="calendar_week_start_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="calendar_week_end_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="calendar_week_of_month_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="calendar_weeks_in_month_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="calendar_week_of_quarter_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="calendar_month_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="calendar_month_desc" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="calendar_quarter_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="calendar_quarter_desc" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="calendar_year_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_day_of_month_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_day_of_year_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_week_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_week_start_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_week_end_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_week_of_month_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_weeks_in_month_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_week_of_quarter_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_week_year_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_month_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_month_start_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_month_end_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_month_year_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_quarter_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_quarter_desc" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="fiscal_quarter_start_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_quarter_end_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_quarter_year_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_year_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_year_start_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_year_end_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="comparable_last_year_calendar_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="comparable_last_year_calendar_dt_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="comparable_last_year_week_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="comparable_l2y_year_week_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="comparable_l3y_year_week_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="comparable_last_year_month_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="comparable_last_year_quarter_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="comparable_last_year_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="comparable_last_year_week_start_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="comparable_last_year_week_end_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="comparable_last_year_month_start_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="comparable_last_year_month_end_dt" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="holiday_nm" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="holiday_2_nm" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="holiday_3_nm" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="sprs_date_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="marketing_weekday_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="marketing_week_year_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fiscal_month_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of paid_date]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Calendar Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Calendar Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Calendar Lookup.Inputs[Lookup Input].Columns[Copy of paid_date]"
+                      cachedDataType="dbDate"
+                      cachedName="Copy of paid_date"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of paid_date]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">calendar_dt</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Calendar Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\Calendar Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Calendar Lookup.Outputs[Lookup Match Output].Columns[calendar_dt_sk_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task\Calendar Lookup.Outputs[Lookup Match Output].Columns[calendar_dt_sk_id]"
+                      name="calendar_dt_sk_id"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">calendar_dt_sk_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Calendar Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\Calendar Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Calendar Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\Calendar Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Calendar Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Calendar Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Calendar Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Calendar Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Category Division Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Category Division Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dim].[category_division]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dim].[category_division]) [refTable]
+where [refTable].[div_nbr] = ? and [refTable].[cat_nbr] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">100</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="cat_div_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="cat_nbr" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="cat_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="div_nbr" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="div_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_upd_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_eff_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_exp_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[division]};#{Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[category]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Category Division Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Category Division Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Category Division Lookup.Inputs[Lookup Input].Columns[division]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="division"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[division]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">div_nbr</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Category Division Lookup.Inputs[Lookup Input].Columns[category]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="category"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[category]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">cat_nbr</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Category Division Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\Category Division Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Category Division Lookup.Outputs[Lookup Match Output].Columns[cat_div_sk_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task\Category Division Lookup.Outputs[Lookup Match Output].Columns[cat_div_sk_id]"
+                      name="cat_div_sk_id"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">cat_div_sk_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Category Division Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\Category Division Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Category Division Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\Category Division Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Category Division Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Category Division Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Category Division Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Category Division Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[qty]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="qty"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[qty]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[store]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="store"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[store]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[division]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="division"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[division]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[line]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="line"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[line]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[category]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="category"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[category]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[paid_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="paid_date"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[paid_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[item_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="item_name"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[item_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[net_amount]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="net_amount"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[net_amount]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[location]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="location"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[location]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[sku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="sku"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[sku]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[trs_typ_cd]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="trs_typ_cd"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[trs_typ_cd]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Qty]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Qty]"
+                      name="Copy of Qty"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[qty]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of store]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of store]"
+                      name="Copy of store"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[store]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of division]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of division]"
+                      name="Copy of division"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[division]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of line]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of line]"
+                      name="Copy of line"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[line]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of category]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of category]"
+                      name="Copy of category"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[category]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of paid_date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of paid_date]"
+                      name="Copy of paid_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[paid_date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of item_name]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of item_name]"
+                      name="Copy of item_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[item_name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of net_amount]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of net_amount]"
+                      name="Copy of net_amount"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[net_amount]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of location]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of location]"
+                      name="Copy of location"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[location]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sku]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sku]"
+                      name="Copy of sku"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[sku]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of trs_typ_cd]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of trs_typ_cd]"
+                      name="Copy of trs_typ_cd"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[trs_typ_cd]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[calendar_dt_sk_id]"
+                      cachedDataType="i4"
+                      cachedName="calendar_dt_sk_id"
+                      lineageId="Package\Data Flow Task\Calendar Lookup.Outputs[Lookup Match Output].Columns[calendar_dt_sk_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[prod_sku_sk_id]"
+                      cachedDataType="i4"
+                      cachedName="prod_sku_sk_id"
+                      lineageId="Package\Data Flow Task\Product Item Lookup.Outputs[Lookup Match Output].Columns[prod_sku_sk_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[cat_div_sk_id]"
+                      cachedDataType="i4"
+                      cachedName="cat_div_sk_id"
+                      lineageId="Package\Data Flow Task\Category Division Lookup.Outputs[Lookup Match Output].Columns[cat_div_sk_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[location_sk_id]"
+                      cachedDataType="i4"
+                      cachedName="location_sk_id"
+                      lineageId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Match Output].Columns[location_sk_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_sho_loc_sk_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_sho_loc_sk_id]"
+                      name="dr_sho_loc_sk_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Data Flow Task\Location Lookup.Outputs[Lookup Match Output].Columns[location_sk_id]},-1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(location_sk_id,-1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_cal_sk_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_cal_sk_id]"
+                      name="dr_cal_sk_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Data Flow Task\Calendar Lookup.Outputs[Lookup Match Output].Columns[calendar_dt_sk_id]},-1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(calendar_dt_sk_id,-1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_prod_sku_sk_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_prod_sku_sk_id]"
+                      name="dr_prod_sku_sk_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Data Flow Task\Product Item Lookup.Outputs[Lookup Match Output].Columns[prod_sku_sk_id]},-1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(prod_sku_sk_id,-1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_cat_div_sk_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_cat_div_sk_id]"
+                      name="dr_cat_div_sk_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Data Flow Task\Category Division Lookup.Outputs[Lookup Match Output].Columns[cat_div_sk_id]},-1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(cat_div_sk_id,-1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_rec_load_dt]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_rec_load_dt]"
+                      name="dr_rec_load_dt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_transaction_source]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dr_transaction_source]"
+                      name="dr_transaction_source"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Location Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Location Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dim].[location]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dim].[location]) [refTable]
+where [refTable].[eis_nbr] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="location_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="district_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ordc_loc_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pos_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ordc_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="eis_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="location_name" dataType="DT_STR" length="75" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="operator_type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="operator_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="district" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="city" dataType="DT_STR" length="25" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="state" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="zipcode" dataType="DT_STR" length="7" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address1" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address2" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="open_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="close_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="inactive" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_upd_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_eff_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_exp_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of store]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Location Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Location Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Location Lookup.Inputs[Lookup Input].Columns[Copy of store]"
+                      cachedDataType="i4"
+                      cachedName="Copy of store"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of store]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">eis_nbr</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\Location Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Match Output].Columns[location_sk_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Match Output].Columns[location_sk_id]"
+                      name="location_sk_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">location_sk_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Location Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\Location Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\Location Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 2]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 4]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 4"
+                  synchronousInputId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Netsuite Sales by Item"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Netsuite Sales by Item"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[fact].[sho_sales_sku]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Netsuite Sales by Item.Connections[OleDbConnection]"
+                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].Columns[Copy of paid_date]"
+                      cachedDataType="dbDate"
+                      cachedName="Copy of paid_date"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[trs_dt]"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of paid_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].Columns[Copy of store]"
+                      cachedDataType="i4"
+                      cachedName="Copy of store"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[pos_nbr]"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of store]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].Columns[Copy of Qty]"
+                      cachedDataType="i8"
+                      cachedName="Copy of Qty"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[net_units]"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of Qty]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].Columns[Copy of division]"
+                      cachedDataType="i4"
+                      cachedName="Copy of division"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[div_nbr]"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of division]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].Columns[Copy of net_amount]"
+                      cachedDataType="decimal"
+                      cachedName="Copy of net_amount"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[net_sales]"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of net_amount]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].Columns[dr_cal_sk_id]"
+                      cachedDataType="i4"
+                      cachedName="dr_cal_sk_id"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[trs_dt_sk_id]"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[dr_cal_sk_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].Columns[dr_prod_sku_sk_id]"
+                      cachedDataType="i4"
+                      cachedName="dr_prod_sku_sk_id"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[prod_sku_sk_id]"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[dr_prod_sku_sk_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].Columns[trs_typ_cd]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="trs_typ_cd"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[trs_typ_cd]"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[trs_typ_cd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].Columns[dr_cat_div_sk_id]"
+                      cachedDataType="i4"
+                      cachedName="dr_cat_div_sk_id"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[cat_div_sk_id]"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[dr_cat_div_sk_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].Columns[dr_sho_loc_sk_id]"
+                      cachedDataType="i4"
+                      cachedName="dr_sho_loc_sk_id"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[location_sk_id]"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[dr_sho_loc_sk_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].Columns[Copy of item_name]"
+                      cachedDataType="i8"
+                      cachedName="Copy of item_name"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[item_nbr]"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of item_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].Columns[Copy of sku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Copy of sku"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[sku_nbr]"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of sku]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[trs_dt_sk_id]"
+                      dataType="i4"
+                      name="trs_dt_sk_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[prod_sku_sk_id]"
+                      dataType="i4"
+                      name="prod_sku_sk_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[trs_dt]"
+                      dataType="dbDate"
+                      name="trs_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[pos_nbr]"
+                      dataType="i4"
+                      name="pos_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[div_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="div_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[net_sales]"
+                      dataType="numeric"
+                      name="net_sales"
+                      precision="11"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[net_units]"
+                      dataType="i4"
+                      name="net_units" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[rec_load_dt]"
+                      dataType="dbTimeStamp"
+                      name="rec_load_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[rec_upd_dt]"
+                      dataType="dbTimeStamp"
+                      name="rec_upd_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[sho_sales_sku_fact_sk_id]"
+                      dataType="i4"
+                      name="sho_sales_sku_fact_sk_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[cat_div_sk_id]"
+                      dataType="i4"
+                      name="cat_div_sk_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[location_sk_id]"
+                      dataType="i4"
+                      name="location_sk_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[item_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="item_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[sku_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="sku_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[trs_typ_cd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="trs_typ_cd" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Netsuite Sales by Item.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by Item.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by Item.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Netsuite Sales by item Staging"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Netsuite Sales by item Staging"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[NS_Daily File_Sales_Orders]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select   a.[Transaction Document Number] ,[sho type],[transaction status], cast(trim([paid date]) as date) as paid_date ,
+cast(trim(store) as varchar) as store,trim(location) as location,RIGHT('000'+CAST(a.division AS VARCHAR(3)),3) as division,
+RIGHT('000'+CAST(line AS VARCHAR(3)),3) as line,cast(trim(category) as varchar) as category,  
+case when  a.[item name] is not null then RIGHT('000000000'+CAST(a.[item name] AS VARCHAR(9)),6) else '-1' end  as  item_name,
+a.sku# as sku,
+case when a.[transaction status] like 'applied%' then 'R' else 'S' end as trs_typ_cd,
+ cast(trim(a.[Net Amount]) as decimal(12,2))  as net_amt_decimal,
+ a.[Net Amount]  as net_amount ,cast(trim([Qty]) as int) as qty from [netsuite].[NS_Daily_File_Sales_Orders_history] as a 
+where a.[SHO Type] like 'Merch%'    and a.category &lt;&gt; ' '    and isnumeric(a.[Item Name]) =1  
+ and (TRIM(upper(a.[Transaction Status])) not like  '%open%'   and TRIM(upper(a.[Transaction Status])) not like  '%NOT%DEPOSITED' )
+ and [paid date] &lt;&gt; 'NEW ITEM' ;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Netsuite Sales by item Staging.Connections[OleDbConnection]"
+                  connectionManagerID="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_STAGING]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[store]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[store]"
+                      length="500"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[store]"
+                      name="store"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[location]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[location]"
+                      length="500"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[location]"
+                      name="location"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[division]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[division]"
+                      length="500"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[division]"
+                      name="division"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[line]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[line]"
+                      length="500"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[line]"
+                      name="line"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[category]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[category]"
+                      length="500"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[category]"
+                      name="category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[qty]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[qty]"
+                      length="500"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[qty]"
+                      name="qty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[paid_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[paid_date]"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[paid_date]"
+                      name="paid_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[item_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[item_name]"
+                      length="500"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[item_name]"
+                      name="item_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[net_amount]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[net_amount]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[net_amount]"
+                      name="net_amount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[sho type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[sho type]"
+                      length="500"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[sho type]"
+                      name="sho type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[transaction status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[transaction status]"
+                      length="500"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[transaction status]"
+                      name="transaction status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[Transaction Document Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[Transaction Document Number]"
+                      length="500"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[Transaction Document Number]"
+                      name="Transaction Document Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[sku]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[sku]"
+                      length="500"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[sku]"
+                      name="sku"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[net_amt_decimal]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[net_amt_decimal]"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[net_amt_decimal]"
+                      name="net_amt_decimal"
+                      precision="12"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[trs_typ_cd]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[trs_typ_cd]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[trs_typ_cd]"
+                      name="trs_typ_cd"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[store]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="store" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="location" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[division]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="division" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[line]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="line" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[category]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="category" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[qty]"
+                      dataType="i4"
+                      name="qty" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[paid_date]"
+                      dataType="dbDate"
+                      name="paid_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[item_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="item_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[net_amount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="net_amount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[sho type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="sho type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[transaction status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="transaction status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[Transaction Document Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Transaction Document Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[sku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="sku" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[net_amt_decimal]"
+                      dataType="numeric"
+                      name="net_amt_decimal"
+                      precision="12"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[trs_typ_cd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="trs_typ_cd" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[Transaction Document Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[Transaction Document Number]"
+                      name="Transaction Document Number" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[sho type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[sho type]"
+                      name="sho type" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[transaction status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[transaction status]"
+                      name="transaction status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[paid_date]"
+                      dataType="dbDate"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[paid_date]"
+                      name="paid_date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[store]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[store]"
+                      name="store" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[location]"
+                      name="location" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[division]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[division]"
+                      name="division" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[line]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[line]"
+                      name="line" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[category]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[category]"
+                      name="category" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[item_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[item_name]"
+                      name="item_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[sku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[sku]"
+                      name="sku" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[trs_typ_cd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[trs_typ_cd]"
+                      name="trs_typ_cd" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[net_amt_decimal]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[net_amt_decimal]"
+                      name="net_amt_decimal"
+                      precision="12"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[net_amount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[net_amount]"
+                      name="net_amount" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[qty]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[qty]"
+                      name="qty" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Product Item Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Product Item Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dim].[product]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dim].[product]) [refTable]
+where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="prod_sku_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="cat_div_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="inactive" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="cat_nbr" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="cat_name" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="div_nbr" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="div_name" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ln_nbr" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ln_desc" dataType="DT_STR" length="200" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="sbl_nbr" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="sbl_desc" dataType="DT_STR" length="200" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="cls_nbr" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="cls_desc" dataType="DT_STR" length="200" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="item_nbr" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="item_desc" dataType="DT_STR" length="200" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="sku_nbr" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="upc_code" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="manufacturer_nbr" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="manufacturer_name" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="brand_id" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="brand_desc" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="contract_item_type" dataType="DT_STR" length="5" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="height" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="width" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="shipping_height" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="shipping_width" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="list_price" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="regular_price" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="msrp_price" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="weighted_avg_cost" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_upd_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_eff_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_exp_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[item_name]};#{Package\Data Flow Task\Category Division Lookup.Outputs[Lookup Match Output].Columns[cat_div_sk_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Product Item Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Product Item Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Product Item Lookup.Inputs[Lookup Input].Columns[cat_div_sk_id]"
+                      cachedDataType="i4"
+                      cachedName="cat_div_sk_id"
+                      lineageId="Package\Data Flow Task\Category Division Lookup.Outputs[Lookup Match Output].Columns[cat_div_sk_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">cat_div_sk_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Product Item Lookup.Inputs[Lookup Input].Columns[item_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="item_name"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[item_name]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">item_nbr</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Product Item Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\Product Item Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Product Item Lookup.Outputs[Lookup Match Output].Columns[prod_sku_sk_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task\Product Item Lookup.Outputs[Lookup Match Output].Columns[prod_sku_sk_id]"
+                      name="prod_sku_sk_id"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">prod_sku_sk_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Product Item Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\Product Item Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Product Item Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\Product Item Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Product Item Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Product Item Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Product Item Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Product Item Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Aggregate Output 1]"
+              endId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input]"
+              name="Aggregate Output 1"
+              startId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task\Category Division Lookup.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Output]"
+              endId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Match Output]"
+              endId="Package\Data Flow Task\Calendar Lookup.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Match Output1]"
+              endId="Package\Data Flow Task\Location Lookup.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow Task\Category Division Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Match Output2]"
+              endId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow Task\Product Item Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Match Output3]"
+              endId="Package\Data Flow Task\Product Item Lookup.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow Task\Calendar Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Multicast Output 2]"
+              endId="Package\Data Flow Task\Agg Sales by loc and item.Inputs[Aggregate Input 1]"
+              name="Multicast Output 2"
+              startId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 2]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Data Flow Task"
+          TopLeft="175.666659726037,137.280001091004" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Data Flow Task\Product Item Lookup"
+          TopLeft="614.304748557106,162.834287008375" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\Data Flow Task\Category Division Lookup"
+          TopLeft="67.0666674349043,85.8742863967533" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Data Flow Task\Netsuite Sales by Item"
+          TopLeft="506.780935676516,539.657146115983" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Data Flow Task\Multicast"
+          TopLeft="613.676170191691,254.11047816546" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Data Flow Task\Data Conversion"
+          TopLeft="335.447609151356,5.64571433058239" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Data Flow Task\Derived Column"
+          TopLeft="233.009520081868,260.457144132341" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Data Flow Task\Calendar Lookup"
+          TopLeft="397.142842474439,159.763810793497" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\Data Flow Task\Netsuite Sales by item Staging"
+          TopLeft="51.590477613419,6.62666672727801" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Data Flow Task\Agg Sales by loc and item"
+          TopLeft="494.590459970445,424.266669669681" />
+        <NodeLayout
+          Size="191,44"
+          Id="Package\Data Flow Task\Location Lookup"
+          TopLeft="66.9714293434505,165.310477504246" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="271.590477613419,27.1361905289302">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="63.857131537937,0"
+              Start="0,0"
+              End="56.357131537937,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="56.357131537937,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Multicast Output 2]"
+          TopLeft="673.276170191691,295.71047816546">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-79.4857102212465,128.556191504221"
+              Start="0,0"
+              End="-79.4857102212465,121.056191504221">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.2780957521105" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,60.2780957521105"
+                    Point2="0,64.2780957521105"
+                    Point3="-4,64.2780957521105" />
+                  <mssgle:LineSegment
+                    End="-75.4857102212465,64.2780957521105" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-75.4857102212465,64.2780957521105"
+                    Point2="-79.4857102212465,64.2780957521105"
+                    Point3="-79.4857102212465,68.2780957521105" />
+                  <mssgle:LineSegment
+                    End="-79.4857102212465,121.056191504221" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output3]"
+          TopLeft="554.742842474439,182.099048900936">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="59.5619060826672,0"
+              Start="0,0"
+              End="52.0619060826672,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="52.0619060826672,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-22.1604336774164,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output2]"
+          TopLeft="701.504748557106,204.434287008375">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-392.095228475238,56.0228571239655"
+              Start="0,0"
+              End="-392.095228475238,48.5228571239655">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.0114285619828" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.0114285619828"
+                    Point2="0,28.0114285619828"
+                    Point3="-4,28.0114285619828" />
+                  <mssgle:LineSegment
+                    End="-388.095228475238,28.0114285619828" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-388.095228475238,28.0114285619828"
+                    Point2="-392.095228475238,28.0114285619828"
+                    Point3="-392.095228475238,32.0114285619828" />
+                  <mssgle:LineSegment
+                    End="-392.095228475238,48.5228571239655" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-244.239000956369,33.0114285619828,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output1]"
+          TopLeft="164.019048389177,127.474286396753">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,37.8361911074923"
+              Start="0,0"
+              End="0,30.3361911074923">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.3361911074923" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,9.36340805374615,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
+          TopLeft="258.17142934345,183.937144148871">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="138.971413130989,0"
+              Start="0,0"
+              End="131.471413130989,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="131.471413130989,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="17.5443198467445,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="385.809520081868,278.0838111489">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="227.866650109822,0"
+              Start="0,0"
+              End="220.366650109822,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="220.366650109822,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="416.247609151356,47.2457143305824">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-250.780941716451,38.6285720661709"
+              Start="0,0"
+              End="-250.780941716451,31.1285720661709">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.3142860330855" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.3142860330855"
+                    Point2="0,19.3142860330855"
+                    Point3="-4,19.3142860330855" />
+                  <mssgle:LineSegment
+                    End="-246.780941716451,19.3142860330855" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-246.780941716451,19.3142860330855"
+                    Point2="-250.780941716451,19.3142860330855"
+                    Point3="-250.780941716451,23.3142860330855" />
+                  <mssgle:LineSegment
+                    End="-250.780941716451,31.1285720661709" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Aggregate Output 1]"
+          TopLeft="595.88569782348,465.866669669681">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,73.7904764463023"
+              Start="0,0"
+              End="0,66.2904764463023">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.2904764463023" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Product Item Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dim].[product]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Category Division Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dim].[category_division]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Netsuite Sales by Item">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Calendar Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dim].[calendar]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Netsuite Sales by item Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Location Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dim].[location]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
