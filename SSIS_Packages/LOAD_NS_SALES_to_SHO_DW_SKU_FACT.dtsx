@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="LT-SELVI-TEST"
   DTS:CreatorName="LT-SELVI-TEST\User"
-  DTS:DTSID="{E6F305F1-844F-4F5B-BF8C-736ECEAE592D}"
+  DTS:DTSID="{DC048F5C-19EC-4B0B-8124-FC4183E0CBDE}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="14.0.3002.107"
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_SALES_to_SHO_DW_SKU_FACT"
   DTS:PackageType="5"
-  DTS:VersionBuild="161"
-  DTS:VersionGUID="{0D92E2A9-AEA0-47DB-8D44-1D95DEA8D960}">
+  DTS:VersionBuild="162"
+  DTS:VersionGUID="{91766355-19C3-4328-A6C8-D6323B67C313}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -21,7 +21,7 @@
       DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{8B7812B3-2923-4E94-8735-29C47D12E084}"
+      DTS:DTSID="{4B1F5D6A-FA6E-49DA-A78C-136518C59775}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Data Flow Task"
@@ -137,6 +137,13 @@
                       cachedLength="3"
                       cachedName="Copy of sku"
                       lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sku]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Inputs[Aggregate Input 1].Columns[Copy of pos_source_system]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Copy of pos_source_system"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pos_source_system]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -485,6 +492,34 @@
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
                           name="AggregationColumnId">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sku]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of pos_source_system]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of pos_source_system]"
+                      name="Copy of pos_source_system">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pos_source_system]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -928,6 +963,13 @@ where [refTable].[div_nbr] = ? and [refTable].[cat_nbr] = ?</property>
                       cachedLength="1"
                       cachedName="trs_typ_cd"
                       lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[trs_typ_cd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[pos_source_system]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="pos_source_system"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[pos_source_system]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1158,6 +1200,28 @@ where [refTable].[div_nbr] = ? and [refTable].[cat_nbr] = ?</property>
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
                           name="SourceInputColumnLineageID">#{Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[trs_typ_cd]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pos_source_system]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pos_source_system]"
+                      name="Copy of pos_source_system"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[pos_source_system]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -1734,6 +1798,14 @@ where [refTable].[eis_nbr] = ?</property>
                       cachedName="Copy of sku"
                       externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[sku_nbr]"
                       lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of sku]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].Columns[Copy of pos_source_system]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Copy of pos_source_system"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[pos_source_system]"
+                      lineageId="Package\Data Flow Task\Agg Sales by loc and item.Outputs[Aggregate Output 1].Columns[Copy of pos_source_system]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1807,6 +1879,12 @@ where [refTable].[eis_nbr] = ?</property>
                       dataType="str"
                       length="1"
                       name="trs_typ_cd" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[pos_source_system]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="pos_source_system" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1867,7 +1945,7 @@ case when  a.[item name] is not null then RIGHT('000000000'+CAST(a.[item name] A
 a.sku# as sku,
 case when a.[transaction status] like 'applied%' then 'R' else 'S' end as trs_typ_cd,
  cast(trim(a.[Net Amount]) as decimal(12,2))  as net_amt_decimal,
- a.[Net Amount]  as net_amount ,cast(trim([Qty]) as int) as qty from [netsuite].[NS_Daily_File_Sales_Orders_history] as a 
+ a.[Net Amount]  as net_amount ,cast(trim([Qty]) as int) as qty, 'N' as pos_source_system from [netsuite].[NS_Daily_File_Sales_Orders_history] as a 
 where a.[SHO Type] like 'Merch%'    and a.category &lt;&gt; ' '    and isnumeric(a.[Item Name]) =1  
  and (TRIM(upper(a.[Transaction Status])) not like  '%open%'   and TRIM(upper(a.[Transaction Status])) not like  '%NOT%DEPOSITED' )
  and [paid date] &lt;&gt; 'NEW ITEM' ;</property>
@@ -2069,6 +2147,17 @@ where a.[SHO Type] like 'Merch%'    and a.category &lt;&gt; ' '    and isnumeric
                       lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[trs_typ_cd]"
                       name="trs_typ_cd"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[pos_source_system]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[pos_source_system]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].Columns[pos_source_system]"
+                      name="pos_source_system"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2158,6 +2247,12 @@ where a.[SHO Type] like 'Merch%'    and a.category &lt;&gt; ' '    and isnumeric
                       dataType="str"
                       length="1"
                       name="trs_typ_cd" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[pos_source_system]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="pos_source_system" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -2266,6 +2361,13 @@ where a.[SHO Type] like 'Merch%'    and a.category &lt;&gt; ' '    and isnumeric
                       dataType="i4"
                       lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[qty]"
                       name="qty" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[pos_source_system]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[pos_source_system]"
+                      name="pos_source_system" />
                     <outputColumn
                       refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -2526,7 +2628,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
         <NodeLayout
           Size="150,42"
           Id="Package\Data Flow Task"
-          TopLeft="175.666659726037,137.280001091004" />
+          TopLeft="176.666659726037,137.280001091004" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -2534,7 +2636,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
     design-time-name="Package\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="174,42"
           Id="Package\Data Flow Task\Product Item Lookup"
@@ -2580,7 +2682,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="271.590477613419,27.1361905289302">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="63.857131537937,0"
               Start="0,0"
               End="56.357131537937,0">
@@ -2602,7 +2704,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="673.276170191691,295.71047816546">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-79.4857102212465,128.556191504221"
               Start="0,0"
               End="-79.4857102212465,121.056191504221">
@@ -2636,7 +2738,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="554.742842474439,182.099048900936">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="59.5619060826672,0"
               Start="0,0"
               End="52.0619060826672,0">
@@ -2660,7 +2762,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="701.504748557106,204.434287008375">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-392.095228475238,56.0228571239655"
               Start="0,0"
               End="-392.095228475238,48.5228571239655">
@@ -2696,7 +2798,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="164.019048389177,127.474286396753">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,37.8361911074923"
               Start="0,0"
               End="0,30.3361911074923">
@@ -2720,7 +2822,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="258.17142934345,183.937144148871">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="138.971413130989,0"
               Start="0,0"
               End="131.471413130989,0">
@@ -2744,7 +2846,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="385.809520081868,278.0838111489">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="227.866650109822,0"
               Start="0,0"
               End="220.366650109822,0">
@@ -2766,7 +2868,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="416.247609151356,47.2457143305824">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-250.780941716451,38.6285720661709"
               Start="0,0"
               End="-250.780941716451,31.1285720661709">
@@ -2800,7 +2902,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="595.88569782348,465.866669669681">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,73.7904764463023"
               Start="0,0"
               End="0,66.2904764463023">
