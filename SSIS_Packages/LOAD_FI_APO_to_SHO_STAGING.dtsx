@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_FI_APO_to_SHO_STAGING"
   DTS:PackageType="5"
-  DTS:VersionBuild="32"
-  DTS:VersionGUID="{3C670A53-C493-4197-8FC5-733804D16A60}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{B6F74763-3917-4E82-9ADC-0F425C7BB238}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -21,9 +21,11 @@
       DTS:CreationName="EXCEL"
       DTS:DTSID="{DE2571C4-483A-401D-9302-CAB6B93EB330}"
       DTS:ObjectName="Excel Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\mssql_etl\\Sears Hometown &amp; Outlet Stores\\DEPT_SHOS Analytics - Misc\\APO_" + (DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".xlsx;Extended Properties=\"EXCEL 12.0 XML;HDR=NO\";"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\10.1.0.22\ssis_incoming\finance\APO_20181203.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=NO&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\mssql_etl\Sears Hometown &amp; Outlet Stores\DEPT_SHOS Analytics - Misc\APO_20190102.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=NO&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager

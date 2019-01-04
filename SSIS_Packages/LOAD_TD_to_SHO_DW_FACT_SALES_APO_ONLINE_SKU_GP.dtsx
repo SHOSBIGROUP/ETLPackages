@@ -1,0 +1,245 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/3/2019 9:29:22 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LT-MPLASKO"
+  DTS:CreatorName="SHO\mplaskow"
+  DTS:DTSID="{D5E2C56E-9C70-41F7-AF13-C7AF40693E3E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LOAD_TD_to_SHO_DW_FACT_SALES_APO_ONLINE_SKU_GP"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{CA657AB5-C42B-4A51-85B7-1E7296C6B286}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Update Gross Profit Production"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DisableEventHandlers="True"
+      DTS:DTSID="{91353f93-7938-4842-9908-647e653f3abd}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Gross Profit Production"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="BEGIN TRY&#xA;&#xA;-- *** Update sho_dw.fact.sho_sales with Gross Profit for 3H in Production ***&#xA;update sho_dw.fact.sho_sales set gross_profit = (net_sales) - ((COGS.cogs_amt / (COGS.net_sales_week + COGS.total_md_amt_week)) * (net_sales + total_md_amt))&#xA;--select count(*)&#xA;FROM&#xA;(&#xA;select ss.location_sk_id, HHH.div_nbr, HHH.cogs_amt, HHH.fiscal_year_nbr, HHH.fiscal_week_nbr, sum(ss.net_sales) as net_sales_week, sum(ss.total_md_amt) as total_md_amt_week, max(ss.trs_dt) as trs_dt&#xA;from sho_dw.fact.sho_sales ss&#xA;inner join &#xA;(&#xA;select fiscal_year_nbr, fiscal_week_nbr, location_sk_id, div_nbr, calendar_dt_sk_id, cogs_amt from [AZSQL01.ads.shos.com].sho_dw.sales.vw_sls_wkly_loc_div_cogs_hhh&#xA;)&#xA;HHH &#xA;on ss.location_sk_id = HHH.location_sk_id and ss.trs_dt_sk_id = HHH.calendar_dt_sk_id and ss.div_nbr = HHH.div_nbr group by ss.location_sk_id, HHH.fiscal_year_nbr, HHH.fiscal_week_nbr, HHH.div_nbr, HHH.cogs_amt&#xA;having sum(ss.net_sales) &gt; 0&#xA;)&#xA;as COGS &#xA;INNER JOIN sho_dw.fact.sho_sales sales on COGS.location_sk_id = sales.location_sk_id and COGS.div_nbr = sales.div_nbr --and DATEPART(week,COGS.trs_dt) = DATEPART(week,sales.trs_dt)&#xA;Inner Join [AZSQL01.ads.shos.com].sho_dw.sales.vw_sls_wkly_loc_div_cogs_hhh vw on vw.calendar_dt_sk_id = sales.trs_dt_sk_id and vw.location_sk_id = sales.location_sk_id and vw.div_nbr = sales.div_nbr&#xA;WHERE &#xA;sales.pos_source_system &lt;&gt; 'N'&#xA;and &#xA;COGS.net_sales_week &gt; 0 and COGS.total_md_amt_week &gt; 0;&#xA;&#xA;&#xA;&#xA;-- *** Update sho_dw.fact.sho_sales with Gross Profit for Outlet in Production ***&#xA;update sho_dw.fact.sho_sales set gross_profit = (net_sales) - ((COGS.cogs_amt / (COGS.net_sales_week + COGS.total_md_amt_week)) * (net_sales + total_md_amt)) &#xA;FROM&#xA;(&#xA;select ss.div_nbr, OUT.fiscal_year_nbr, OUT.fiscal_week_nbr, OUT.cogs_amt, sum(ss.net_sales) as net_sales_week, sum(ss.total_md_amt) as total_md_amt_week&#xA;from sho_dw.fact.sho_sales ss&#xA;inner join &#xA;(&#xA;select div_nbr, fiscal_year_nbr, fiscal_week_nbr, calendar_dt_sk_id, cogs_amt from [AZSQL01.ads.shos.com].sho_dw.sales.vw_sls_wkly_loc_div_cogs_out&#xA;)&#xA;OUT&#xA;on ss.trs_dt_sk_id = OUT.calendar_dt_sk_id and ss.div_nbr = OUT.div_nbr&#xA;where ss.location_sk_id in (select location_sk_id from sho_dw.dim.location where region_sk_id in (select region_sk_id from sho_dw.dim.region where location_format_cd = 'Outlet'))&#xA;group by ss.div_nbr, OUT.fiscal_year_nbr, OUT.fiscal_week_nbr, OUT.cogs_amt &#xA;having sum(ss.net_sales) &gt; 0&#xA;)&#xA;as COGS &#xA;INNER JOIN  sho_dw.fact.sho_sales sales ON COGS.div_nbr = sales.div_nbr&#xA;INNER JOIN [AZSQL01.ads.shos.com].sho_dw.sales.vw_sls_wkly_loc_div_cogs_out OUT on OUT.calendar_dt_sk_id = sales.trs_dt_sk_id and OUT.div_nbr = sales.div_nbr&#xA;WHERE &#xA;sales.location_sk_id in (select location_sk_id from sho_dw.dim.location where region_sk_id in (select region_sk_id from sho_dw.dim.region where location_format_cd = 'Outlet'))&#xA;and sales.pos_source_system &lt;&gt; 'N' and COGS.net_sales_week &gt; 0 and COGS.total_md_amt_week &gt; 0;&#xA;&#xA;-- *** Update sho_dw.fact.sho_sales_by_loc with Gross Profit ***&#xA;update sho_dw.fact.sho_sales_by_loc set gross_profit = COGS.gross_profit &#xA;FROM&#xA;(&#xA;SELECT trs_dt_sk_id, location_sk_id, SUM(gross_profit) as gross_profit from sho_dw.fact.sho_sales&#xA;group by trs_dt_sk_id, location_sk_id&#xA;)&#xA;COGS&#xA;inner join sho_dw.fact.sho_sales_by_loc sales &#xA;on COGS.trs_dt_sk_id = sales.trs_dt_sk_id and COGS.location_sk_id = sales.location_sk_id;&#xA;&#xA;END TRY&#xA;&#xA;BEGIN CATCH&#xA;&#xA;END CATCH&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Gross Profit Test"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DisableEventHandlers="True"
+      DTS:DTSID="{c991acdb-443c-45ae-9863-25771d2c5e80}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Gross Profit Test"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
+          SQLTask:SqlStatementSource="-- *** Update sho_dw.fact.sho_sales with Gross Profit for 3H ***&#xA;update sho_dw.fact.sho_sales set gross_profit = (net_sales) - ((COGS.cogs_amt / (COGS.net_sales_week + COGS.total_md_amt_week)) * (net_sales + total_md_amt))&#xA;--select count(*)&#xA;FROM&#xA;(&#xA;select ss.location_sk_id, HHH.div_nbr, HHH.cogs_amt, HHH.fiscal_year_nbr, HHH.fiscal_week_nbr, sum(ss.net_sales) as net_sales_week, sum(ss.total_md_amt) as total_md_amt_week, max(ss.trs_dt) as trs_dt&#xA;from sho_dw.fact.sho_sales ss&#xA;inner join &#xA;(&#xA;select fiscal_year_nbr, fiscal_week_nbr, location_sk_id, div_nbr, calendar_dt_sk_id, cogs_amt from sho_dw.sales.vw_sls_wkly_loc_div_cogs_hhh&#xA;)&#xA;HHH &#xA;on ss.location_sk_id = HHH.location_sk_id and ss.trs_dt_sk_id = HHH.calendar_dt_sk_id and ss.div_nbr = HHH.div_nbr group by ss.location_sk_id, HHH.fiscal_year_nbr, HHH.fiscal_week_nbr, HHH.div_nbr, HHH.cogs_amt&#xA;)&#xA;as COGS &#xA;INNER JOIN sho_dw.fact.sho_sales sales on COGS.location_sk_id = sales.location_sk_id and COGS.div_nbr = sales.div_nbr --and DATEPART(week,COGS.trs_dt) = DATEPART(week,sales.trs_dt)&#xA;Inner Join sho_dw.sales.vw_sls_wkly_loc_div_cogs_hhh vw on vw.calendar_dt_sk_id = sales.trs_dt_sk_id and vw.location_sk_id = sales.location_sk_id and vw.div_nbr = sales.div_nbr&#xA;WHERE &#xA;sales.pos_source_system &lt;&gt; 'N'&#xA;and &#xA;COGS.net_sales_week &gt; 0 and COGS.total_md_amt_week &gt; 0;&#xA;&#xA;-- *** Update sho_dw.fact.sho_sales with Gross Profit for Outlet ***&#xA;--Select sales.trs_dt_sk_id, (COGS.cogs_amt / (COGS.net_sales_week + COGS.total_md_amt_week)), sales.net_sales, (sales.net_sales) - ((COGS.cogs_amt / (COGS.net_sales_week + COGS.total_md_amt_week)) * (sales.net_sales + sales.total_md_amt))&#xA;--from sho_dw.fact.sho_sales sales INNER JOIN&#xA;update sho_dw.fact.sho_sales set gross_profit = (net_sales) - ((COGS.cogs_amt / (COGS.net_sales_week + COGS.total_md_amt_week)) * (net_sales + total_md_amt)) &#xA;FROM&#xA;(&#xA;select ss.div_nbr, OUT.fiscal_year_nbr, OUT.fiscal_week_nbr, OUT.cogs_amt, sum(ss.net_sales) as net_sales_week, sum(ss.total_md_amt) as total_md_amt_week&#xA;from sho_dw.fact.sho_sales ss&#xA;inner join &#xA;(&#xA;select div_nbr, fiscal_year_nbr, fiscal_week_nbr, calendar_dt_sk_id, cogs_amt from sho_dw.sales.vw_sls_wkly_loc_div_cogs_out&#xA;)&#xA;OUT&#xA;on ss.trs_dt_sk_id = OUT.calendar_dt_sk_id and ss.div_nbr = OUT.div_nbr&#xA;where ss.location_sk_id in (select location_sk_id from sho_dw.dim.location where region_sk_id in (select region_sk_id from sho_dw.dim.region where location_format_cd = 'Outlet'))&#xA;group by ss.div_nbr, OUT.fiscal_year_nbr, OUT.fiscal_week_nbr, OUT.cogs_amt&#xA;)&#xA;as COGS &#xA;INNER JOIN  sho_dw.fact.sho_sales sales ON COGS.div_nbr = sales.div_nbr&#xA;INNER JOIN sho_dw.sales.vw_sls_wkly_loc_div_cogs_out OUT on OUT.calendar_dt_sk_id = sales.trs_dt_sk_id and OUT.div_nbr = sales.div_nbr&#xA;WHERE &#xA;sales.location_sk_id in (select location_sk_id from sho_dw.dim.location where region_sk_id in (select region_sk_id from sho_dw.dim.region where location_format_cd = 'Outlet'))&#xA;and sales.pos_source_system &lt;&gt; 'N' and COGS.net_sales_week &gt; 0 and COGS.total_md_amt_week &gt; 0;&#xA;&#xA;-- *** Update sho_dw.fact.sho_sales_by_loc with Gross Profit ***&#xA;update sho_dw.fact.sho_sales_by_loc set gross_profit = COGS.gross_profit &#xA;FROM&#xA;(&#xA;SELECT trs_dt_sk_id, location_sk_id, SUM(gross_profit) as gross_profit from sho_dw.fact.sho_sales&#xA;group by trs_dt_sk_id, location_sk_id&#xA;)&#xA;COGS&#xA;inner join sho_dw.fact.sho_sales_by_loc sales &#xA;on COGS.trs_dt_sk_id = sales.trs_dt_sk_id and COGS.location_sk_id = sales.location_sk_id;&#xA;&#xA;---- *** Insert Previous Weeks from finance.week_fmt_div_outlet_cogs_stg into finance.week_fmt_div_outlet_cogs_stg_history ***&#xA;--Insert Into sho_staging.finance.week_loc_div_3h_cogs_stg_history&#xA;-- Select * FROM sho_staging.finance.week_loc_div_3h_cogs_stg WHERE CONVERT(int, REPLACE(trim(week_title), 'Week', '')) &lt; &#xA;--(SELECT FISCAL_WEEK_NBR FROM sho_dw.dim.calendar where calendar_dt = convert(date,GETDATE()));&#xA;&#xA;---- *** Delete Previous Weeks from finance.week_fmt_div_outlet_cogs_stg ***&#xA;--DELETE FROM sho_staging.finance.week_loc_div_3h_cogs_stg WHERE CONVERT(int, REPLACE(trim(week_title), 'Week', '')) &lt; &#xA;--(SELECT FISCAL_WEEK_NBR FROM sho_dw.dim.calendar where calendar_dt = convert(date,GETDATE()));&#xA;&#xA;---- *** Insert Previous Weeks from finance.week_fmt_div_outlet_cogs_stg into finance.week_fmt_div_outlet_cogs_stg_history ***&#xA;--Insert Into finance.week_fmt_div_outlet_cogs_stg_history&#xA;-- Select * FROM sho_staging.finance.week_fmt_div_outlet_cogs_stg WHERE CONVERT(int, REPLACE(trim(week_title), 'Week', '')) &lt; &#xA;--(SELECT FISCAL_WEEK_NBR FROM sho_dw.dim.calendar where calendar_dt = convert(date,GETDATE()));&#xA;&#xA;---- *** Delete Previous Weeks from finance.week_fmt_div_outlet_cogs_stg ***&#xA;--DELETE FROM sho_staging.finance.week_fmt_div_outlet_cogs_stg  WHERE CONVERT(int, REPLACE(trim(week_title), 'Week', '')) &lt; &#xA;--(SELECT FISCAL_WEEK_NBR FROM sho_dw.dim.calendar where calendar_dt = convert(date,GETDATE()));" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Online Sales in sho_sales and sho_sales_by_loc"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DisableEventHandlers="True"
+      DTS:DTSID="{22d1873f-4be8-4f4e-ab3c-2ea7307dbaba}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Online Sales in sho_sales and sho_sales_by_loc"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{45a5110b-53ae-4bb5-85f0-14588469e03e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="-- *** Update sho_dw.fact.sho_sales with Online Sales ***&#xA;update sho_dw.fact.sho_sales set online_sales = staging.amount, online_units = staging.quantity&#xA;from&#xA;(&#xA;select Convert(date,TRS_DT) as TRS_DT,  Convert(int,div_nbr) as div_nbr, convert(int,store) as pos_nbr, sum(amount) as amount, sum(quantity) as quantity From &#xA;[sho_staging].[teradata].[td_sales_dly_online_sales] &#xA;group by Convert(date,TRS_DT),  Convert(int,div_nbr), convert(int,store)&#xA;)&#xA;staging&#xA;inner join sho_dw.fact.sho_sales fact &#xA;on staging.trs_dt = fact.trs_dt and staging.pos_nbr = fact.pos_nbr and staging.div_nbr = fact.div_nbr where fact.pos_source_system &lt;&gt; 'N';&#xA;&#xA;-- *** Update sho_dw.fact.sho_sales_by_loc with Online Sales ***&#xA;update sho_dw.fact.sho_sales_by_loc set online_sales = COGS.online_sales, online_units = COGS.online_units  &#xA;FROM&#xA;(&#xA;SELECT trs_dt_sk_id, location_sk_id, SUM(online_sales) as online_sales,  SUM(online_units) as online_units from sho_dw.fact.sho_sales&#xA;group by trs_dt_sk_id, location_sk_id&#xA;)&#xA;COGS&#xA;inner join sho_dw.fact.sho_sales_by_loc sales &#xA;on COGS.trs_dt_sk_id = sales.trs_dt_sk_id and COGS.location_sk_id = sales.location_sk_id where sales.pos_source_system &lt;&gt; 'N';&#xA;&#xA;update sho_dw.fact.sho_sales set online_sales = 0, online_units = 0 where online_sales IS NULL;&#xA;&#xA;update sho_dw.fact.sho_sales_by_loc set online_sales = 0, online_units = 0 where online_sales IS NULL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update SKU Sales in sho_sales_sku"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DisableEventHandlers="True"
+      DTS:DTSID="{10f46f8a-2365-449d-8a47-6a32c87587c5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update SKU Sales in sho_sales_sku"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="update  sho_staging.teradata.td_sales_dly_sales_sku set sku_nbr = right('000' + trim(sku_nbr),3);&#xA;&#xA;update sho_dw.dim.product set cat_nbr = '' where cat_nbr = '0-1';&#xA;update sho_dw.dim.product set div_nbr = '' where div_nbr = '0-1';&#xA;&#xA;BEGIN TRY&#xA;&#xA;--*** Populate SKU Fact Table ***&#xA;Insert Into sho_dw.fact.sho_sales_sku&#xA;(&#xA;[trs_dt_sk_id],&#xA;[prod_sku_sk_id],&#xA;[cat_div_sk_id],&#xA;[location_sk_id],&#xA;[trs_dt],&#xA;[pos_nbr],&#xA;[div_nbr],&#xA;[item_nbr],&#xA;[sku_nbr],&#xA;[net_sales],&#xA;[net_units],&#xA;[trs_typ_cd],&#xA;[pos_source_system]&#xA;) Select &#xA;cal.calendar_dt_sk_id,&#xA;prod.prod_sku_sk_id,&#xA;prod.cat_div_sk_id,&#xA;loc.location_sk_id,&#xA;cal.calendar_dt,&#xA;loc.pos_nbr,&#xA;prod.div_nbr,&#xA;prod.item_nbr,&#xA;sku.sku_nbr,&#xA;SUM(Case when trs_typ_cd &lt;&gt; 'S' then (Convert(decimal,sku.netsales) * -1) else Convert(decimal,sku.netsales) end) net_sales,&#xA;SUM(Case when trs_typ_cd &lt;&gt; 'S' then (Convert(int,sku.netunits) * -1) else Convert(int,sku.netunits) end) as net_units,&#xA;trs_typ_cd,&#xA;'T'&#xA; From &#xA; sho_staging.teradata.td_sales_dly_sales_sku sku &#xA;&#x9;inner join sho_dw.dim.calendar cal on convert(date,sku.TRS_DT) = cal.calendar_dt &#xA;&#x9;inner join sho_dw.dim.product prod on convert(int,sku.div_no) = convert(int, prod.div_nbr)&#xA;&#x9;&#x9;AND convert(int,sku.item_nbr) = convert(int,prod.item_nbr) &#xA;&#x9;inner join sho_dw.dim.location loc on Convert(int,sku.LOC_NO) = loc.pos_nbr &#xA;where isnumeric(sku.item_nbr) &lt;&gt; 0 and isnumeric(prod.item_nbr) &lt;&gt; 0 &#xA;GROUP BY cal.calendar_dt_sk_id,prod.prod_sku_sk_id,prod.cat_div_sk_id,loc.location_sk_id,&#xA;cal.calendar_dt,loc.pos_nbr,prod.div_nbr,prod.item_nbr,sku.sku_nbr,trs_typ_cd;&#xA;&#xA;END TRY&#xA;&#xA;BEGIN CATCH&#xA;&#xA;END CATCH&#xA;&#xA;&#xA;&#xA;--*** Populate SKU History Table and Truncate SKU Table ***&#xA;use sho_staging;&#xA;&#xA;BEGIN TRAN&#xA;&#xA;INSERT INTO [sho_staging].[teradata].[td_sales_dly_sales_sku_history]&#xA;SELECT * FROM [sho_staging].[teradata].[td_sales_dly_sales_sku];&#xA;&#xA;truncate table [sho_staging].teradata.td_sales_dly_sales_sku;&#xA;&#xA;COMMIT TRAN" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{e21b00d6-07ff-48ec-ba39-76e91ce199cb}"
+      DTS:From="Package\Update Online Sales in sho_sales and sho_sales_by_loc"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Update SKU Sales in sho_sales_sku" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{850febed-54d4-4cf1-946e-305ee5114904}"
+      DTS:From="Package\Update SKU Sales in sho_sales_sku"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Update Gross Profit Test" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{2a0d70d7-3a8e-4b6a-b25e-8e0bd0fb74f0}"
+      DTS:From="Package\Update Gross Profit Test"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Update Gross Profit Production" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="224,42"
+          Id="Package\Update Gross Profit Production"
+          TopLeft="233,359" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Update Gross Profit Test"
+          TopLeft="215,289" />
+        <NodeLayout
+          Size="340,42"
+          Id="Package\Update Online Sales in sho_sales and sho_sales_by_loc"
+          TopLeft="164,126" />
+        <NodeLayout
+          Size="245,42"
+          Id="Package\Update SKU Sales in sho_sales_sku"
+          TopLeft="213,210" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="334.75,168">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="335.5,252">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-23.5,37"
+              Start="0,0"
+              End="-23.5,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="-4,18.5" />
+                  <mssgle:LineSegment
+                    End="-19.5,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.5,18.5"
+                    Point2="-23.5,18.5"
+                    Point3="-23.5,22.5" />
+                  <mssgle:LineSegment
+                    End="-23.5,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="312,331">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="33,28"
+              Start="0,0"
+              End="33,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10"
+                    Point2="0,14"
+                    Point3="4,14" />
+                  <mssgle:LineSegment
+                    End="29,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29,14"
+                    Point2="33,14"
+                    Point3="33,18" />
+                  <mssgle:LineSegment
+                    End="33,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
