@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_SALES_to_SHO_DW_SKU_FACT"
   DTS:PackageType="5"
-  DTS:VersionBuild="178"
-  DTS:VersionGUID="{12E93341-F6A7-4B3F-A437-F70E0817D090}">
+  DTS:VersionBuild="179"
+  DTS:VersionGUID="{509693CD-CAED-499A-A83B-8749AAB0F6A0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2270,7 +2270,7 @@ case when  a.[item name] is not null then RIGHT('000000000'+CAST(a.[item name] A
 a.sku# as sku,
 case when a.[transaction status] like 'applied%' then 'R' else 'S' end as trs_typ_cd,
  cast(trim(a.[Net Amount]) as decimal(12,2))  as net_amt_decimal,
- a.[Net Amount]  as net_amount ,cast(trim([Qty]) as int) as qty, 'N' as pos_source_system from [sho_staging].[netsuite].[NS_Daily_File_Sales_Orders_History] as a 
+ a.[Net Amount]  as net_amount ,cast(trim([Qty]) as int) as qty, 'N' as pos_source_system from [sho_staging].[netsuite].[NS_Daily File_Sales_Orders] as a 
 where a.[SHO Type] like 'Merch%'    and a.category &lt;&gt; ' '    and isnumeric(a.[Item Name]) =1  
  and (TRIM(upper(a.[Transaction Status])) not like  '%open%'   and TRIM(upper(a.[Transaction Status])) not like  '%NOT%DEPOSITED' )
  and [paid date] &lt;&gt; 'NEW ITEM' ;</property>

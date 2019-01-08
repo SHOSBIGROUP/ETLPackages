@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_SALES_to_SHO_DW_FACT"
   DTS:PackageType="5"
-  DTS:VersionBuild="173"
-  DTS:VersionGUID="{837D2583-BA98-49D7-845F-36CACAFC928C}">
+  DTS:VersionBuild="184"
+  DTS:VersionGUID="{92EBFB98-93E3-4CAB-993C-FB2F9F7BB7DC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -3768,7 +3768,7 @@ where [refTable].[calendar_dt] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Calendar Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerID="{B25EC4D8-1D6D-45E1-839D-3EBC3D7CA123}:external"
                   connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
@@ -3926,7 +3926,7 @@ where [refTable].[div_nbr] = ? and [refTable].[cat_nbr] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Category Division Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerID="{B25EC4D8-1D6D-45E1-839D-3EBC3D7CA123}:external"
                   connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
@@ -5619,164 +5619,6 @@ where [refTable].[div_nbr] = ? and [refTable].[cat_nbr] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Location Lookup"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Location Lookup"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dim].[location]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dim].[location]) [refTable]
-where [refTable].[eis_nbr] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="location_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="district_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ordc_loc_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pos_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ordc_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="eis_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="location_name" dataType="DT_STR" length="75" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="operator_type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="operator_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="district" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="city" dataType="DT_STR" length="25" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="state" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="zipcode" dataType="DT_STR" length="7" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address1" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address2" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="open_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="close_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="inactive" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_upd_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_eff_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_exp_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of store]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow Task\Location Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task\Location Lookup.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task\Location Lookup.Inputs[Lookup Input].Columns[Copy of store]"
-                      cachedDataType="i4"
-                      cachedName="Copy of store"
-                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of store]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">eis_nbr</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="IgnoreFailure"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\Data Flow Task\Location Lookup.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Match Output].Columns[location_sk_id]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Match Output].Columns[location_sk_id]"
-                      name="location_sk_id"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">location_sk_id</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Data Flow Task\Location Lookup.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\Data Flow Task\Location Lookup.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\Data Flow Task\Location Lookup.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Data Flow Task\Location lookup"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
@@ -5846,7 +5688,7 @@ where [refTable].[eis_nbr] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Location lookup.Connections[OleDbConnection]"
-                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerID="{B25EC4D8-1D6D-45E1-839D-3EBC3D7CA123}:external"
                   connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
@@ -5935,6 +5777,164 @@ where [refTable].[eis_nbr] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\Data Flow Task\Location Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Location Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dim].[location]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dim].[location]) [refTable]
+where [refTable].[eis_nbr] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="location_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="district_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ordc_loc_sk_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pos_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ordc_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="eis_nbr" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="location_name" dataType="DT_STR" length="75" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location_type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="operator_type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="operator_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="district" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="city" dataType="DT_STR" length="25" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="state" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="zipcode" dataType="DT_STR" length="7" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address1" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address2" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="open_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="close_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="inactive" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_load_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_upd_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_eff_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rec_exp_dt" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of store]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Location Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{B25EC4D8-1D6D-45E1-839D-3EBC3D7CA123}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Location Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Location Lookup.Inputs[Lookup Input].Columns[Copy of store]"
+                      cachedDataType="i4"
+                      cachedName="Copy of store"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of store]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">eis_nbr</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\Location Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Match Output].Columns[location_sk_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Match Output].Columns[location_sk_id]"
+                      name="location_sk_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">location_sk_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Location Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\Location Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\Location Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Data Flow Task\Lookup"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
@@ -6004,7 +6004,7 @@ where [refTable].[calendar_dt] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerID="{B25EC4D8-1D6D-45E1-839D-3EBC3D7CA123}:external"
                   connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
@@ -6935,7 +6935,7 @@ where [refTable].[calendar_dt] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Netsuite Sales by division and category.Connections[OleDbConnection]"
-                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerID="{B25EC4D8-1D6D-45E1-839D-3EBC3D7CA123}:external"
                   connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -7387,7 +7387,7 @@ where [refTable].[calendar_dt] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Netsuite Sales by Item.Connections[OleDbConnection]"
-                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerID="{B25EC4D8-1D6D-45E1-839D-3EBC3D7CA123}:external"
                   connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -7740,7 +7740,9 @@ where [refTable].[calendar_dt] = ?</property>
                       name="rec_upd_dt" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[itm_no]"
-                      dataType="i8"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
                       name="itm_no" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Netsuite Sales by Item.Inputs[OLE DB Destination Input].ExternalColumns[sales_fact_by_item_sk_id]"
@@ -7893,7 +7895,7 @@ where a.[SHO Type] &lt;&gt;' '    and
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Netsuite Sales by item Staging.Connections[OleDbConnection]"
-                  connectionManagerID="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}:external"
+                  connectionManagerID="{B3E81C13-A77F-4EF8-9AD6-9EDF3434FC82}:external"
                   connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_STAGING]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -9043,7 +9045,7 @@ where a.[SHO Type] &lt;&gt;' '    and
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Netsuite Sales by location.Connections[OleDbConnection]"
-                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerID="{B25EC4D8-1D6D-45E1-839D-3EBC3D7CA123}:external"
                   connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -9575,7 +9577,7 @@ group by [Store],[tran_date];</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Payment Source.Connections[OleDbConnection]"
-                  connectionManagerID="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}:external"
+                  connectionManagerID="{B3E81C13-A77F-4EF8-9AD6-9EDF3434FC82}:external"
                   connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_STAGING]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -9762,7 +9764,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Product Item Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="{45a5110b-53ae-4bb5-85f0-14588469e03e}:external"
+                  connectionManagerID="{B25EC4D8-1D6D-45E1-839D-3EBC3D7CA123}:external"
                   connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_DW]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
@@ -11103,34 +11105,34 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
               startId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Lookup Match Output5]"
-              endId="Package\Data Flow Task\Product Item Lookup.Inputs[Lookup Input]"
+              endId="Package\Data Flow Task\Calendar Lookup.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Data Flow Task\Calendar Lookup.Outputs[Lookup Match Output]" />
+              startId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Lookup Match Output4]"
-              endId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
-              name="Lookup Match Output"
-              startId="Package\Data Flow Task\Product Item Lookup.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Data Flow Task.Paths[Lookup Match Output3]"
-              endId="Package\Data Flow Task\Location lookup.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Data Flow Task.Paths[Lookup Match Output2]"
-              endId="Package\Data Flow Task\Location Lookup.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Data Flow Task\Category Division Lookup.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Data Flow Task.Paths[Lookup Match Output1]"
               endId="Package\Data Flow Task\derive location for null.Inputs[Derived Column Input]"
               name="Lookup Match Output"
               startId="Package\Data Flow Task\Location lookup.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Lookup Match Output]"
-              endId="Package\Data Flow Task\Calendar Lookup.Inputs[Lookup Input]"
+              refId="Package\Data Flow Task.Paths[Lookup Match Output3]"
+              endId="Package\Data Flow Task\Location Lookup.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Data Flow Task\Location Lookup.Outputs[Lookup Match Output]" />
+              startId="Package\Data Flow Task\Category Division Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Match Output2]"
+              endId="Package\Data Flow Task\Location lookup.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Match Output1]"
+              endId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow Task\Product Item Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Match Output]"
+              endId="Package\Data Flow Task\Product Item Lookup.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow Task\Calendar Lookup.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Merge Join Output]"
               endId="Package\Data Flow Task\Netsuite Sales by location.Inputs[OLE DB Destination Input]"
@@ -11199,7 +11201,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
     design-time-name="Package\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="119,42"
           Id="Package\Data Flow Task\Multicast"
@@ -11221,9 +11223,9 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           Id="Package\Data Flow Task\Product Item Lookup"
           TopLeft="614.304748557106,162.834287008375" />
         <NodeLayout
-          Size="191,44"
-          Id="Package\Data Flow Task\Location Lookup"
-          TopLeft="66.9714293434505,165.310477504246" />
+          Size="151,42"
+          Id="Package\Data Flow Task\Location lookup"
+          TopLeft="1051.80948959835,107.580953081525" />
         <NodeLayout
           Size="198,42"
           Id="Package\Data Flow Task\Netsuite Sales by location"
@@ -11289,15 +11291,15 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           Id="Package\Data Flow Task\Agg Sales by loc , div and category"
           TopLeft="231.352375192491,420.670479438297" />
         <NodeLayout
-          Size="151,42"
-          Id="Package\Data Flow Task\Location lookup"
-          TopLeft="1051.80948959835,107.580953081525" />
+          Size="191,44"
+          Id="Package\Data Flow Task\Location Lookup"
+          TopLeft="66.9714293434505,165.310477504246" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Data Conversion Output]"
           TopLeft="416.247609151356,47.2457143305824">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-250.780941716451,38.6285720661709"
               Start="0,0"
               End="-250.780941716451,31.1285720661709">
@@ -11331,7 +11333,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="355.247613323681,462.270479438297">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,82.4533333719035"
               Start="0,0"
               End="0,74.9533333719035">
@@ -11353,7 +11355,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="1116.78091482057,249.424761057778">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-27.6952319833974,46.270478233943"
               Start="0,0"
               End="-27.6952319833974,38.770478233943">
@@ -11387,7 +11389,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="816.609500505054,419.420955256446">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="25.5999999545882,-140.563811667245"
               Start="0,0"
               End="25.5999999545882,-133.063811667245">
@@ -11421,7 +11423,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="595.88569782348,465.866669669681">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,73.7904764463023"
               Start="0,0"
               End="0,66.2904764463023">
@@ -11443,7 +11445,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="1089.08568283717,337.295239291721">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-101.923807291001,94.095239173647"
               Start="0,0"
               End="-101.923807291001,86.595239173647">
@@ -11477,7 +11479,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="925.942833792975,278.857143589201">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="20.6857084198605,152.533334876167"
               Start="0,0"
               End="20.6857084198605,145.033334876167">
@@ -11511,7 +11513,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="271.590477613419,27.1361905289302">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="63.857131537937,0"
               Start="0,0"
               End="56.357131537937,0">
@@ -11533,7 +11535,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="1051.58091596725,33.2038089539059">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-74.4380752866242,0"
               Start="0,0"
               End="-66.9380752866242,0">
@@ -11555,7 +11557,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="701.076170191691,295.71047816546">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="57.6666636466967,123.710477090986"
               Start="0,0"
               End="57.6666636466967,116.210477090986">
@@ -11589,7 +11591,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="673.276170191691,295.71047816546">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-79.4857102212465,128.556191504221"
               Start="0,0"
               End="-79.4857102212465,121.056191504221">
@@ -11623,7 +11625,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="645.476170191691,295.71047816546">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-294.123794999199,124.960001272837"
               Start="0,0"
               End="-294.123794999199,117.460001272837">
@@ -11657,7 +11659,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="964.752353155804,472.990478465368">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,69.1809532704429"
               Start="0,0"
               End="0,61.6809532704429">
@@ -11671,137 +11673,39 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8,22.8404766352214,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Lookup Match Output5]"
-          TopLeft="554.742842474439,182.099048900936">
+          TopLeft="258.17142934345,183.937144148871">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="59.5619060826672,0"
+              StartConnector="{assembly:Null}"
+              EndConnector="138.971413130989,0"
               Start="0,0"
-              End="52.0619060826672,0">
+              End="131.471413130989,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="52.0619060826672,0" />
+                    End="131.471413130989,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-22.1604336774164,5,96.3827734375,11.609375"
+              BoundingBox="17.5443198467445,5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Lookup Match Output4]"
-          TopLeft="701.504748557106,204.434287008375">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="-392.095228475238,56.0228571239655"
-              Start="0,0"
-              End="-392.095228475238,48.5228571239655">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.0114285619828" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.0114285619828"
-                    Point2="0,28.0114285619828"
-                    Point3="-4,28.0114285619828" />
-                  <mssgle:LineSegment
-                    End="-388.095228475238,28.0114285619828" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-388.095228475238,28.0114285619828"
-                    Point2="-392.095228475238,28.0114285619828"
-                    Point3="-392.095228475238,32.0114285619828" />
-                  <mssgle:LineSegment
-                    End="-392.095228475238,48.5228571239655" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-244.239000956369,33.0114285619828,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output3]"
-          TopLeft="736.190458971358,116.085714687166">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="315.619030626992,12.4952383943592"
-              Start="0,0"
-              End="308.119030626992,12.4952383943592">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="153.809515313496,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="153.809515313496,0"
-                    Point2="157.809515313496,0"
-                    Point3="157.809515313496,4" />
-                  <mssgle:LineSegment
-                    End="157.809515313496,8.49523839435919" />
-                  <mssgle:CubicBezierSegment
-                    Point1="157.809515313496,8.49523839435919"
-                    Point2="157.809515313496,12.4952383943592"
-                    Point3="161.809515313496,12.4952383943592" />
-                  <mssgle:LineSegment
-                    End="308.119030626992,12.4952383943592" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="109.618128594746,-17.609375,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output2]"
-          TopLeft="164.019048389177,127.474286396753">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,37.8361911074923"
-              Start="0,0"
-              End="0,30.3361911074923">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.3361911074923" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,9.36340805374615,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output1]"
           TopLeft="1127.40948959835,149.180953081525">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-222.57141880762,29.1047626210773"
               Start="0,0"
               End="-222.57141880762,21.6047626210773">
@@ -11833,26 +11737,122 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
-          TopLeft="258.17142934345,183.937144148871">
+          Id="Package\Data Flow Task.Paths[Lookup Match Output3]"
+          TopLeft="164.019048389177,127.474286396753">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="138.971413130989,0"
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.8361911074923"
               Start="0,0"
-              End="131.471413130989,0">
+              End="0,30.3361911074923">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="131.471413130989,0" />
+                    End="0,30.3361911074923" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="17.5443198467445,5,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,9.36340805374615,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output2]"
+          TopLeft="736.190458971358,116.085714687166">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="315.619030626992,12.4952383943592"
+              Start="0,0"
+              End="308.119030626992,12.4952383943592">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="153.809515313496,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="153.809515313496,0"
+                    Point2="157.809515313496,0"
+                    Point3="157.809515313496,4" />
+                  <mssgle:LineSegment
+                    End="157.809515313496,8.49523839435919" />
+                  <mssgle:CubicBezierSegment
+                    Point1="157.809515313496,8.49523839435919"
+                    Point2="157.809515313496,12.4952383943592"
+                    Point3="161.809515313496,12.4952383943592" />
+                  <mssgle:LineSegment
+                    End="308.119030626992,12.4952383943592" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="109.618128594746,-17.609375,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output1]"
+          TopLeft="701.504748557106,204.434287008375">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-392.095228475238,56.0228571239655"
+              Start="0,0"
+              End="-392.095228475238,48.5228571239655">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.0114285619828" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.0114285619828"
+                    Point2="0,28.0114285619828"
+                    Point3="-4,28.0114285619828" />
+                  <mssgle:LineSegment
+                    End="-388.095228475238,28.0114285619828" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-388.095228475238,28.0114285619828"
+                    Point2="-392.095228475238,28.0114285619828"
+                    Point3="-392.095228475238,32.0114285619828" />
+                  <mssgle:LineSegment
+                    End="-392.095228475238,48.5228571239655" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-244.239000956369,33.0114285619828,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
+          TopLeft="554.742842474439,182.099048900936">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="59.5619060826672,0"
+              Start="0,0"
+              End="52.0619060826672,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="52.0619060826672,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-22.1604336774164,5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -11861,7 +11861,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="385.809520081868,278.0838111489">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="227.866650109822,0"
               Start="0,0"
               End="220.366650109822,0">
@@ -11883,7 +11883,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="994.438070790731,199.085715702602">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="59.1428440298364,29.5390453551761"
               Start="0,0"
               End="51.6428440298364,29.5390453551761">
@@ -11917,7 +11917,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           TopLeft="895.142840680623,52.8952381818257">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-215.452381709265,42.1904765053401"
               Start="0,0"
               End="-215.452381709265,34.6904765053401">
@@ -11973,7 +11973,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Location Lookup">
+    design-time-name="Package\Data Flow Task\Location lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -12120,7 +12120,7 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Location lookup">
+    design-time-name="Package\Data Flow Task\Location Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>

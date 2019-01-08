@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_SALES_HEADER_to_SHO_STAGING_MANUAL"
   DTS:PackageType="5"
-  DTS:VersionBuild="190"
-  DTS:VersionGUID="{C9C3C15C-5B4B-4C22-8654-1F4CE83EAE98}">
+  DTS:VersionBuild="204"
+  DTS:VersionGUID="{01E6E7D6-2404-4A3E-B1A3-7F2D817E10D0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -32,7 +32,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite\ns_daily_sales_transaction_header_20181228.txt">
+          DTS:ConnectionString="\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite\ns_daily_sales_transaction_header_20190107.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -381,370 +381,6 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[SSIS ARCHIVE]"
-      DTS:CreationName="FLATFILE"
-      DTS:DTSID="{C2DB8BE2-5D20-4174-A87A-AA670867DF61}"
-      DTS:ObjectName="SSIS ARCHIVE">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">"\\\\10.1.0.22\\ssis_incoming\\netsuite\\ns_daily_sales_transaction_header_" +(DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".txt"</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
-          DTS:ColumnNamesInFirstDataRow="True"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\ns_daily_sales_transaction_header_20181228.txt">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Transaction Date"
-              DTS:DTSID="{1421DA77-B2BD-420E-B765-CFF2F6B25169}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Paid Date"
-              DTS:DTSID="{67529DF5-D318-42E4-90E6-5672890E96BE}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Transaction Type"
-              DTS:DTSID="{09B8F9A1-EEA5-4141-941F-54ADCB500868}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Transaction Status"
-              DTS:DTSID="{81F696BC-3ADF-4194-BE1F-3FBAC55FF837}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Transaction Source"
-              DTS:DTSID="{9805F70C-D465-4D13-8557-4D22D26C523E}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Transaction Document Number"
-              DTS:DTSID="{CF015724-9D25-4553-9C9A-DE9760C4A9E2}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Sales Check nummber"
-              DTS:DTSID="{B2AE526B-D7E0-403F-8A73-020086C9468E}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Accounting Unit"
-              DTS:DTSID="{90806742-38E7-408E-B898-B034389CE056}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Accounting Unit (no hierarchy)"
-              DTS:DTSID="{A9926462-B3BE-42BD-A1BA-C7238889A4EE}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Location format type"
-              DTS:DTSID="{74044BE2-6E78-4E15-8CB3-4BFB67AE805A}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Store Region"
-              DTS:DTSID="{E596BE2A-D59B-45C1-AED6-89E0759B792E}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Store District"
-              DTS:DTSID="{E5A28E86-F632-4DF8-953B-9E39F7743ADA}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Store"
-              DTS:DTSID="{C0A0B206-E88C-4594-89F9-B9FE0D6CC76D}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Location"
-              DTS:DTSID="{E2457543-CB6A-436F-A5A6-BF63DD5EC427}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Subtotal"
-              DTS:DTSID="{27E4609C-64CB-42FF-84B7-519C16EEA6B2}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Discount amount"
-              DTS:DTSID="{EB25C950-DACF-4FF6-ABEE-716CB179E611}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Tax total"
-              DTS:DTSID="{4F2D756E-9381-462D-A909-09D5C71A3EA2}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Shipping cost"
-              DTS:DTSID="{9F2709E3-D5FB-429E-9B37-05642DF45EB4}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Gift certificate amount"
-              DTS:DTSID="{515F3DD1-ED7D-4CA0-99A8-570B5D588301}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Total"
-              DTS:DTSID="{3815BF70-4BE1-43B8-A7E1-B101E62E7040}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Amount due"
-              DTS:DTSID="{C3F791EF-3C1B-4782-8822-C6B1C65FF981}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Payment or Refund Method"
-              DTS:DTSID="{C6038CDA-9CCC-4BDB-8008-4650057F5CA0}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Payment Amount"
-              DTS:DTSID="{22041FD1-86E2-4EE9-8805-B87C4C0C3AD2}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Comp Store Flag"
-              DTS:DTSID="{26DD66B0-E9FE-4D34-86C2-0D0FC0752F7F}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Customer First Name"
-              DTS:DTSID="{E09F0FCA-A1AD-4621-B73B-88DBB3DEB41A}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Customer Last Name"
-              DTS:DTSID="{43A1997B-FCD4-4EDB-9D06-46486426CEC3}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Customer Address_1"
-              DTS:DTSID="{9FB61F26-B70C-4777-9641-DBCCC7A96D2B}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Customer Address_2"
-              DTS:DTSID="{F4719BA1-D5B0-4B37-839F-8C08E31DF441}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Customer City"
-              DTS:DTSID="{5DFB9BBE-FD4C-47DD-B407-4F0F9DE09F65}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Customer State"
-              DTS:DTSID="{1A2EDE7A-583E-403B-BD89-E27DEF9A6017}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Customer Zip"
-              DTS:DTSID="{025BFA9A-951F-4AAC-83DE-3073D8497505}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Email"
-              DTS:DTSID="{86970966-7EDC-4F33-942F-FAE709898EFA}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Alt  Email"
-              DTS:DTSID="{4D0E9150-9B50-4E57-A359-774490C9255A}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Acc Email"
-              DTS:DTSID="{D8468771-9579-4C06-8FE2-8715EE611F7A}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Shipping Email"
-              DTS:DTSID="{A8080966-07CF-47CD-94C8-DE2E1760C5BE}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Phone"
-              DTS:DTSID="{1F6A6116-F706-46A2-95F9-55504521A88B}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x007C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Mobile"
-              DTS:DTSID="{49816DC8-3BF4-4E55-BBBE-B39EBFFF6B49}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Home Phone "
-              DTS:DTSID="{AB469F9A-5A38-4BE2-A5EB-FC7AD37972DF}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[SSIS INCOMING]"
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{5233E44D-20A9-4300-9E18-0D5FD3EFE9D4}"
@@ -758,7 +394,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Projects\Interim-Data-Platform\NetsuiteSales\ns_daily_sales_transaction_header_20181206.txt">
+          DTS:ConnectionString="C:\Projects\Interim-Data-Platform\NetsuiteSales\ns_daily_sales_transaction_header_20181231.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -767,7 +403,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Transaction Date"
-              DTS:DTSID="{D8C7AE4E-5085-47E3-9A19-C10B14A0B1AE}"
+              DTS:DTSID="{87E0A9E2-B748-49D5-9BAB-C35189285F17}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -776,7 +412,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Paid Date"
-              DTS:DTSID="{D8A4DC96-8255-44E3-8F7F-B4B0AE033C2D}"
+              DTS:DTSID="{DD801564-6EE3-4138-BDBA-45A17B8C6AFB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -785,7 +421,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Transaction Type"
-              DTS:DTSID="{CBD5B496-F76F-4C39-8F85-2D524148323D}"
+              DTS:DTSID="{140011F2-97C1-4A90-8F0F-662B8C7C71EE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -794,7 +430,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Transaction Status"
-              DTS:DTSID="{7FA0B104-2E4F-4585-BAC7-BCB4D31C9991}"
+              DTS:DTSID="{5386E2D9-C476-4EAA-B498-E575C252EFFB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -803,7 +439,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Transaction Source"
-              DTS:DTSID="{B44E15C0-C920-4774-B5EB-085FB27A3873}"
+              DTS:DTSID="{34F03CB6-5B2D-4A2A-95BE-E50F7A17EC94}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -812,7 +448,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Transaction Document Number"
-              DTS:DTSID="{4EAD0637-0913-437A-8B68-A1518E3EE525}"
+              DTS:DTSID="{F55CB81B-2609-4407-A9D4-00F1EEB07281}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -821,7 +457,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Sales Check nummber"
-              DTS:DTSID="{5BEA7939-6E73-4198-A521-DA2DAF48D564}"
+              DTS:DTSID="{305F9B22-075F-46BE-9CA3-CD721062C557}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -830,7 +466,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Accounting Unit"
-              DTS:DTSID="{E65A13F3-4B7F-4FB4-B00D-17412139D25E}"
+              DTS:DTSID="{8CC302F0-6F81-4358-9550-8569D8396C1F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -839,7 +475,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Accounting Unit (no hierarchy)"
-              DTS:DTSID="{27542B64-ACA3-4EE6-9174-B21C19A010FF}"
+              DTS:DTSID="{01265E8F-02D1-4288-B92C-2F02C1FCBEFD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -848,7 +484,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Location format type"
-              DTS:DTSID="{51C05416-86AD-48D6-A47D-308FA69695F3}"
+              DTS:DTSID="{CD96523A-9986-4602-BEAD-6C84C04BF227}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -857,7 +493,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Store Region"
-              DTS:DTSID="{BEAB28C8-782B-480F-B0FA-8C948ACD24FD}"
+              DTS:DTSID="{A041A055-AF6A-49A7-8763-7B6CDF75D982}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -866,7 +502,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Store District"
-              DTS:DTSID="{1D73D0AF-E3AA-4639-9ABB-7E05B63FE3FD}"
+              DTS:DTSID="{CA3D48F0-0065-4575-8467-DA92C3E027CB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -875,7 +511,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Store"
-              DTS:DTSID="{52C65E44-2EE6-4727-8AB1-81096549B005}"
+              DTS:DTSID="{D5D14705-AD80-4EB1-9A55-87FA2253060C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -884,7 +520,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Location"
-              DTS:DTSID="{74969629-16D6-4AC9-B262-9701F7A6DFA4}"
+              DTS:DTSID="{AECC1C74-6B56-4CB8-9CEF-7FAFF979D766}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -893,7 +529,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Subtotal"
-              DTS:DTSID="{1E5BD9E7-9C62-4FA3-9043-90F2B1EC6E63}"
+              DTS:DTSID="{71AEA961-D343-461A-83AB-4E170EB86367}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -902,7 +538,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Discount amount"
-              DTS:DTSID="{4F667879-1331-41EC-84E5-4B59E7DBEF90}"
+              DTS:DTSID="{D23B2DBB-7246-49A0-9F63-2FB4543AC262}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -911,7 +547,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Tax total"
-              DTS:DTSID="{82FD147F-F5CE-4907-BE2A-1E7EDDD3DFE9}"
+              DTS:DTSID="{242E3C3F-32B6-4FF4-B18A-5B761D8B6E62}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -920,7 +556,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Shipping cost"
-              DTS:DTSID="{41B06FD3-AE02-42F6-8128-40A7BC6A5992}"
+              DTS:DTSID="{A5C8FC7B-E673-4ED0-A1A1-77B6FA6E167C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -929,7 +565,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Gift certificate amount"
-              DTS:DTSID="{9CC6B8CC-924D-41EF-B415-FB6D0B53360B}"
+              DTS:DTSID="{DE9443C1-5EB1-41D7-96A7-8218FDAE67E4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -938,7 +574,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Total"
-              DTS:DTSID="{368A7F7E-4FC5-457F-8065-E34ED0F53A2E}"
+              DTS:DTSID="{0FE32AD9-BF5C-42E4-A82A-0808A36025CC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -947,7 +583,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Amount due"
-              DTS:DTSID="{AA87EE04-2336-451E-BC19-A7177FB1BABC}"
+              DTS:DTSID="{30D8FB15-7D07-4696-B142-0F2BB95B6B39}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -956,7 +592,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Payment or Refund Method"
-              DTS:DTSID="{1FDAD914-6644-49AD-B898-A6328714339B}"
+              DTS:DTSID="{7076E5D6-A60E-4C23-BD78-CD93A40DA8EF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -965,7 +601,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Payment Amount"
-              DTS:DTSID="{9006FAFA-26B8-4229-BD19-96576D1A7A64}"
+              DTS:DTSID="{D670B31C-07BC-4836-82B1-024B9D0D4771}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -974,7 +610,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Comp Store Flag"
-              DTS:DTSID="{BA0A03B0-B888-4826-9C5F-1B8DB71AFB24}"
+              DTS:DTSID="{63334FB6-54BE-4062-87C6-C3D13D555D29}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -983,7 +619,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Customer First Name"
-              DTS:DTSID="{18D0E48F-C057-4465-AD74-563A48491718}"
+              DTS:DTSID="{791E2A01-D193-4306-961B-43EB07B5FB66}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -992,7 +628,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Customer Last Name"
-              DTS:DTSID="{7C71039A-EEFE-4A07-8B13-7EF66877B2C6}"
+              DTS:DTSID="{732F52F2-910C-404B-B515-735A1E3A5F7B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1001,7 +637,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Customer Address_1"
-              DTS:DTSID="{2DDBCA81-63FB-4471-8985-2A7B63F6BB54}"
+              DTS:DTSID="{D0F8AD41-7FDF-43BE-B8E7-7686C2B5382D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1010,7 +646,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Customer Address_2"
-              DTS:DTSID="{A225549B-5223-4F0D-ACFC-B56D64FB7C1A}"
+              DTS:DTSID="{84CFD0E2-CA58-4D7E-A89A-602664AB88C9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1019,7 +655,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Customer City"
-              DTS:DTSID="{383A43B0-8D05-4591-BB12-251DEE8D5099}"
+              DTS:DTSID="{9B611423-005C-4592-8E9A-E74D384079EF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1028,7 +664,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Customer State"
-              DTS:DTSID="{7505C94D-3F3A-44CE-85AD-B1B7F8B685CF}"
+              DTS:DTSID="{07714A1F-373E-4579-8181-5A8C8EE3B68F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1037,7 +673,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Customer Zip"
-              DTS:DTSID="{5473C94A-0424-4281-ACA5-536D32559EFF}"
+              DTS:DTSID="{3204B614-06DC-4CEC-932F-03A776092932}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1046,7 +682,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Email"
-              DTS:DTSID="{BBD7E559-860C-491F-9CD1-6EB4BDA60C05}"
+              DTS:DTSID="{92E9639B-ED72-4998-8016-2338E11CA139}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1055,7 +691,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Alt  Email"
-              DTS:DTSID="{2CEBC9F5-AC4C-46E7-BC92-A28F73A0FD3B}"
+              DTS:DTSID="{09CAA6F9-D570-4A3C-A717-9534E7221D23}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1064,7 +700,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Acc Email"
-              DTS:DTSID="{41ED8BCE-8D61-42F1-BC9A-1F26FE12DC1F}"
+              DTS:DTSID="{18B579FF-5F12-42A3-9640-86D1B4F8D5B8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1073,7 +709,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Shipping Email"
-              DTS:DTSID="{5F0F340F-3DEA-4A54-AC1A-FF8FD5150C06}"
+              DTS:DTSID="{299EE286-C366-46A9-BBFB-D523C0F3ED22}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1082,7 +718,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Phone"
-              DTS:DTSID="{08A44A2E-B4D7-4862-AECF-BB6231D0169B}"
+              DTS:DTSID="{1ACB4E2F-8D63-4C31-ABBA-E5C88314E473}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1091,7 +727,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Mobile"
-              DTS:DTSID="{013C4D44-8346-429F-89C9-0C57DBB01BD8}"
+              DTS:DTSID="{59A0BBB7-6199-47A1-B15D-EB0BCD98124F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1100,7 +736,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Home Phone"
-              DTS:DTSID="{38AE90E0-F815-4948-AF0F-D6DD67FE84D7}"
+              DTS:DTSID="{8C605DE4-F82D-4F13-BE67-BFC1AAAF7986}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1109,7 +745,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Sho_syw_memberid"
-              DTS:DTSID="{54C8933B-63DE-42EE-A47D-B8214D67B240}"
+              DTS:DTSID="{D5557A39-4109-4042-BA76-5F6E25953AE1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1118,7 +754,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Sho_maskedcard"
-              DTS:DTSID="{FE9BC347-526C-41C2-B7E0-38C1D6E94FD8}"
+              DTS:DTSID="{9836AA17-90C7-4296-AF03-96018B5E94AB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1127,7 +763,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Payment Document Number"
-              DTS:DTSID="{70ABC48F-98EB-44C5-A953-950BDE0967DC}"
+              DTS:DTSID="{8414B6EE-FAA7-41E3-A48C-96DD8EECC9F7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1136,7 +772,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Payment date"
-              DTS:DTSID="{F04DF10A-1F2E-4E40-A43D-6159A620DCB8}"
+              DTS:DTSID="{CC2530BA-AA9A-48D7-906F-B68FEC6CB582}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1145,7 +781,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Sales Rep"
-              DTS:DTSID="{80F7D515-CC42-4A55-84E5-759BCF4F3C0D}"
+              DTS:DTSID="{035F48F4-F96B-4D6D-9719-DF80DCFC81C3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1154,7 +790,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Amount (Net of Tax)  "
-              DTS:DTSID="{C5C49BEE-351E-4E05-B5E5-8826116DF66E}"
+              DTS:DTSID="{E56F0A95-FBBF-4157-BE37-0B62C75AEFE8}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -4404,39 +4040,39 @@
           Id="Package\Data Flow Task"
           TopLeft="234.666657341852,133.813334396786" />
         <NodeLayout
-          Size="248,42"
+          Size="179,42"
           Id="Package\Post Load Formatting"
-          TopLeft="223.333324458864,192.74666819848" />
+          TopLeft="280.333324458864,205.74666819848" />
         <NodeLayout
           Size="223,42"
           Id="Package\Truncate Staging Header Table"
           TopLeft="241.999990383785,2.8421709430404E-14" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="471.466657341852,155.413334396786">
+          TopLeft="353.166657341852,176.813334396786">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-0.133332882987872,58.1333338016941"
+              EndConnector="16.666667117012,28.933333801694"
               Start="0,0"
-              End="7.36666711701213,58.1333338016941">
+              End="16.666667117012,21.433333801694">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="18.5,0" />
+                    End="0,10.466666900847" />
                   <mssgle:CubicBezierSegment
-                    Point1="18.5,0"
-                    Point2="22.5,0"
-                    Point3="22.5,4" />
+                    Point1="0,10.466666900847"
+                    Point2="0,14.466666900847"
+                    Point3="4,14.466666900847" />
                   <mssgle:LineSegment
-                    End="22.5,54.1333338016941" />
+                    End="12.666667117012,14.466666900847" />
                   <mssgle:CubicBezierSegment
-                    Point1="22.5,54.1333338016941"
-                    Point2="22.5,58.1333338016941"
-                    Point3="18.5,58.1333338016941" />
+                    Point1="12.666667117012,14.466666900847"
+                    Point2="16.666667117012,14.466666900847"
+                    Point3="16.666667117012,18.466666900847" />
                   <mssgle:LineSegment
-                    End="7.36666711701213,58.1333338016941" />
+                    End="16.666667117012,21.433333801694" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
