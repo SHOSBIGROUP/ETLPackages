@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_TD_to_SHO_DW_FACT_SALES_APO_ONLINE_SKU_GP"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{CA657AB5-C42B-4A51-85B7-1E7296C6B286}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{1C690F15-4A91-4A67-87B5-C2C78152282E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -75,6 +75,42 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Update sho_dw_dim_location Data"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{b140f366-622b-49ed-8edc-5e2f9c4c999c}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update sho_dw_dim_location Data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="--*** Update sho_dw.dim.location ***&#xA;&#xA;update sho_staging.netsuite.location set region = trim(replace(region,'R',''));&#xA;&#xA;Use sho_dw;&#xA;&#xA;Update sho_dw.dim.location Set &#xA;[pos_nbr] = Convert(int,Trim(source.[pos_nbr])),&#xA;[eis_nbr] = Convert(int,Trim(source.[eis_nbr])),&#xA;[location_name] = Convert(varchar(75),Trim(source.[location_name])),&#xA;[location_type] = Convert(varchar(50),Trim(source.[location_type])),&#xA;[operator_type] = Convert(varchar(50),Trim(source.[operator_type])),&#xA;[operator_name] = Convert(varchar(50),Trim(source.[operator_name])),&#xA;[city] = Convert(varchar(25),Trim(source.[city])),&#xA;[state] = Convert(char(2),Trim(source.[state])),&#xA;[zipcode] = Convert(char(7),Trim(source.[zipcode])),&#xA;[address1] = Convert(varchar(100),Trim(source.[address1])),&#xA;[address2] = Convert(varchar(100),Trim(source.[address2])),&#xA;[open_dt] = Convert(datetime,Trim(source.[open_dt])),&#xA;[close_dt] = Convert(datetime,Trim(source.[close_dt])),&#xA;[rec_upd_dt] = GETDATE(),&#xA;[rec_eff_dt] = GETDATE()&#xA; From sho_staging.netsuite.location source Inner Join sho_dw.dim.location target &#xA; on Convert(int,source.pos_nbr) = Convert(int,target.pos_nbr);&#xA;&#xA; Insert Into sho_dw.dim.location(&#xA; [pos_nbr],&#xA;[eis_nbr],&#xA;[location_name],&#xA;[location_type],&#xA;[operator_type],&#xA;[operator_name],&#xA;[city],&#xA;[state],&#xA;[zipcode],&#xA;[address1],&#xA;[address2],&#xA;[open_dt],&#xA;[close_dt],&#xA;[inactive],&#xA;[rec_load_dt],&#xA;[rec_upd_dt],&#xA;[rec_eff_dt]&#xA;) Select &#xA;Convert(int,[pos_nbr]),&#xA;Convert(int,[eis_nbr]),&#xA;Convert(varchar(75),[location_name]),&#xA;Convert(varchar(50),[location_type]),&#xA;Convert(varchar(50),[operator_type]),&#xA;Convert(varchar(50),[operator_name]),&#xA;Convert(varchar(25),[city]),&#xA;Convert(char(2),[state]),&#xA;Convert(char(7),[zipcode]),&#xA;Convert(varchar(100),[address1]),&#xA;Convert(varchar(100),[address2]),&#xA;Convert(datetime,[open_dt]),&#xA;Convert(datetime,[close_dt]),&#xA;CASE WHEN Inactive Like 'N%' THEN 1 ELSE 0 END,&#xA;GETDATE(),&#xA;GETDATE(),&#xA;GETDATE()&#xA; From sho_staging.netsuite.location where &#xA; sho_staging.netsuite.location.pos_nbr not in (select pos_nbr from sho_dw.dim.location);&#xA;&#xA;update sho_dw.dim.location set &#xA;district_sk_id = -1;&#xA;&#xA;update sho_dw.dim.location set &#xA;region_sk_id = -1;&#xA;&#xA;Update sho_dw.dim.location &#xA;set ordc_nbr = -1;&#xA;&#xA;update sho_dw.dim.location set &#xA;district_sk_id = sho_dw.dim.district.district_sk_id&#xA;from sho_dw.dim.district&#xA;inner join sho_dw.dim.location loc on &#xA;sho_dw.dim.district.district_nbr = loc.district;&#xA;&#xA;update sho_dw.dim.location set &#xA;region_sk_id = sho_dw.dim.region.region_sk_id&#xA;from sho_dw.dim.region&#xA;inner join sho_dw.dim.location loc on &#xA;sho_dw.dim.region.region_nbr = loc.region;&#xA;&#xA;Update sho_dw.dim.location &#xA;set ordc_nbr = source.ordc_pos_nbr &#xA;from sho_dw.dbo.location_outlet_ordc_network source&#xA;where source.store_pos_nbr = sho_dw.dim.location.pos_nbr;&#xA;&#xA;update sho_dw.dim.location set &#xA;district = convert(int,trim(sho_staging.netsuite.location_raw.district)) &#xA;from sho_staging.netsuite.location_raw&#xA;inner join sho_dw.dim.location loc on &#xA;convert(int,sho_staging.netsuite.location_raw.pos_nbr) = loc.pos_nbr &#xA;where loc.district_sk_id = -1;&#xA;&#xA;update sho_dw.dim.location set &#xA;district_sk_id = sho_dw.dim.district.district_sk_id&#xA;from sho_dw.dim.district&#xA;inner join sho_dw.dim.location loc on &#xA;sho_dw.dim.district.district_nbr = loc.district&#xA;where loc.district_sk_id = -1;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update sho_dw_sho_sales with APO Data"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6ce8260c-fed4-4ec1-910e-03391ea8b5e6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update sho_dw_sho_sales with APO Data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="--*** Update sho_dw.fact.sho_sales_by_loc with APO Opportunities data ***&#xA;Update sho_dw.fact.sho_sales_by_loc set apo_opps = coalesce(apo_ns.apo_opps_ty,0)&#xA;FROM&#xA;(&#xA;select Convert(date,apo.[Date Created]) as trs_dt, location.pos_nbr, Coalesce(count (distinct apo.[Sales Check nummber]),0) as apo_opps_ty from sho_staging.netsuite.[NS_Daily_File_Sales_Orders_Header_APO_history] apo&#xA;inner join [sho_staging].[netsuite].[NS_Daily_File_Sales_Orders_Header_history] header &#xA;on TRIM(apo.[Transaction Document Number]) = TRIM(header.[Transaction Document Number]) &#xA;inner join [sho_dw].[dim].[location] location on &#xA;convert(int,header.Location) = location.eis_nbr&#xA;where len(trim(header.[sales check nummber])) &gt; 0 &#xA;and trim(header.[Payment or Refund Method]) not like '%Sears MasterCard%' &#xA;and trim(header.[Payment or Refund Method]) not like '%Sears Private Label%' &#xA;GROUP BY Convert(date,apo.[Date Created]), location.pos_nbr&#xA;)&#xA;apo_ns&#xA;INNER JOIN &#xA;sho_dw.fact.sho_sales_by_loc fact ON &#xA;apo_ns.pos_nbr = fact.pos_nbr and apo_ns.trs_dt = fact.trs_dt;&#xA;&#xA;--*** Update sho_dw.fact.sho_sales_by_loc with APO Applications data ***&#xA;Update sho_dw.fact.sho_sales_by_loc set apo_apps = coalesce(apo_ns.apo_apps_ty,0)&#xA;FROM&#xA;(&#xA;select Convert(date,apo.[Date Created]) as trs_dt, location.pos_nbr, Coalesce(count(*),0) as apo_apps_ty from sho_staging.netsuite.[NS_Daily_File_Sales_Orders_Header_APO_history] apo&#xA;inner join [sho_staging].[netsuite].[NS_Daily_File_Sales_Orders_Header_history] header &#xA;on TRIM(apo.[Transaction Document Number]) = TRIM(header.[Transaction Document Number]) &#xA;inner join [sho_dw].[dim].[location] location on &#xA;convert(int,header.Location) = location.eis_nbr&#xA;where apo.SHO_REASON_CODE = 'SCAP' &#xA;GROUP BY Convert(date,apo.[Date Created]), location.pos_nbr&#xA;)&#xA;apo_ns&#xA;INNER JOIN &#xA;sho_dw.fact.sho_sales_by_loc fact ON &#xA;apo_ns.pos_nbr = fact.pos_nbr and apo_ns.trs_dt = fact.trs_dt;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Update SKU Sales in sho_sales_sku"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -90,32 +126,48 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="update  sho_staging.teradata.td_sales_dly_sales_sku set sku_nbr = right('000' + trim(sku_nbr),3);&#xA;&#xA;update sho_dw.dim.product set cat_nbr = '' where cat_nbr = '0-1';&#xA;update sho_dw.dim.product set div_nbr = '' where div_nbr = '0-1';&#xA;&#xA;BEGIN TRY&#xA;&#xA;--*** Populate SKU Fact Table ***&#xA;Insert Into sho_dw.fact.sho_sales_sku&#xA;(&#xA;[trs_dt_sk_id],&#xA;[prod_sku_sk_id],&#xA;[cat_div_sk_id],&#xA;[location_sk_id],&#xA;[trs_dt],&#xA;[pos_nbr],&#xA;[div_nbr],&#xA;[item_nbr],&#xA;[sku_nbr],&#xA;[net_sales],&#xA;[net_units],&#xA;[trs_typ_cd],&#xA;[pos_source_system]&#xA;) Select &#xA;cal.calendar_dt_sk_id,&#xA;prod.prod_sku_sk_id,&#xA;prod.cat_div_sk_id,&#xA;loc.location_sk_id,&#xA;cal.calendar_dt,&#xA;loc.pos_nbr,&#xA;prod.div_nbr,&#xA;prod.item_nbr,&#xA;sku.sku_nbr,&#xA;SUM(Case when trs_typ_cd &lt;&gt; 'S' then (Convert(decimal,sku.netsales) * -1) else Convert(decimal,sku.netsales) end) net_sales,&#xA;SUM(Case when trs_typ_cd &lt;&gt; 'S' then (Convert(int,sku.netunits) * -1) else Convert(int,sku.netunits) end) as net_units,&#xA;trs_typ_cd,&#xA;'T'&#xA; From &#xA; sho_staging.teradata.td_sales_dly_sales_sku sku &#xA;&#x9;inner join sho_dw.dim.calendar cal on convert(date,sku.TRS_DT) = cal.calendar_dt &#xA;&#x9;inner join sho_dw.dim.product prod on convert(int,sku.div_no) = convert(int, prod.div_nbr)&#xA;&#x9;&#x9;AND convert(int,sku.item_nbr) = convert(int,prod.item_nbr) &#xA;&#x9;inner join sho_dw.dim.location loc on Convert(int,sku.LOC_NO) = loc.pos_nbr &#xA;where isnumeric(sku.item_nbr) &lt;&gt; 0 and isnumeric(prod.item_nbr) &lt;&gt; 0 &#xA;GROUP BY cal.calendar_dt_sk_id,prod.prod_sku_sk_id,prod.cat_div_sk_id,loc.location_sk_id,&#xA;cal.calendar_dt,loc.pos_nbr,prod.div_nbr,prod.item_nbr,sku.sku_nbr,trs_typ_cd;&#xA;&#xA;END TRY&#xA;&#xA;BEGIN CATCH&#xA;&#xA;END CATCH&#xA;&#xA;&#xA;&#xA;--*** Populate SKU History Table and Truncate SKU Table ***&#xA;use sho_staging;&#xA;&#xA;BEGIN TRAN&#xA;&#xA;INSERT INTO [sho_staging].[teradata].[td_sales_dly_sales_sku_history]&#xA;SELECT * FROM [sho_staging].[teradata].[td_sales_dly_sales_sku];&#xA;&#xA;truncate table [sho_staging].teradata.td_sales_dly_sales_sku;&#xA;&#xA;COMMIT TRAN" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="update  sho_staging.teradata.td_sales_dly_sales_sku set sku_nbr = right('000' + trim(sku_nbr),3);&#xA;&#xA;update sho_dw.dim.product set cat_nbr = '' where cat_nbr = '0-1';&#xA;update sho_dw.dim.product set div_nbr = '' where div_nbr = '0-1';&#xA;&#xA;--*** Populate SKU Fact Table ***&#xA;Insert Into sho_dw.fact.sho_sales_sku&#xA;(&#xA;[trs_dt_sk_id],&#xA;[prod_sku_sk_id],&#xA;[cat_div_sk_id],&#xA;[location_sk_id],&#xA;[trs_dt],&#xA;[pos_nbr],&#xA;[div_nbr],&#xA;[item_nbr],&#xA;[sku_nbr],&#xA;[net_sales],&#xA;[net_units],&#xA;[trs_typ_cd],&#xA;[pos_source_system]&#xA;) &#xA;Select &#xA;cal.calendar_dt_sk_id,&#xA;prod.prod_sku_sk_id,&#xA;prod.cat_div_sk_id,&#xA;loc.location_sk_id,&#xA;cal.calendar_dt,&#xA;loc.pos_nbr,&#xA;prod.div_nbr,&#xA;prod.item_nbr,&#xA;sku.sku_nbr,&#xA;SUM(Case when trs_typ_cd &lt;&gt; 'S' then (Convert(decimal,sku.netsales) * -1) else Convert(decimal,sku.netsales) end) net_sales,&#xA;SUM(Case when trs_typ_cd &lt;&gt; 'S' then (Convert(int,sku.netunits) * -1) else Convert(int,sku.netunits) end) as net_units,&#xA;trs_typ_cd,&#xA;'T'&#xA; From &#xA; sho_staging.teradata.td_sales_dly_sales_sku sku &#xA;&#x9;inner join sho_dw.dim.calendar cal on convert(date,sku.TRS_DT) = cal.calendar_dt &#xA;&#x9;inner join &#xA;&#x9;(&#xA;&#x9;&#x9;Select div_nbr, item_nbr, sku_nbr, max(prod_sku_sk_id) AS prod_sku_sk_id, max(cat_div_sk_id) AS cat_div_sk_id&#xA;&#x9;&#x9;from sho_dw.dim.product &#xA;&#x9;&#x9;GROUP BY div_nbr, item_nbr, sku_nbr&#xA;&#x9;)&#xA;&#x9;prod on convert(int,sku.div_no) = convert(int, prod.div_nbr)&#xA;&#x9;&#x9;AND convert(int,sku.item_nbr) = convert(int,prod.item_nbr) &#xA;and convert(int,sku.sku_nbr) = convert(int,prod.sku_nbr) &#x9;&#xA;inner join sho_dw.dim.location loc on Convert(int,sku.LOC_NO) = loc.pos_nbr &#xA;where isnumeric(sku.item_nbr) &lt;&gt; 0 and isnumeric(prod.item_nbr) &lt;&gt; 0 and TRS_DT NOT IN &#xA;(SELECT TRS_DT FROM [sho_dw].[fact].[sho_sales_sku])&#xA;GROUP BY cal.calendar_dt_sk_id,prod.prod_sku_sk_id,prod.cat_div_sk_id,loc.location_sk_id,&#xA;cal.calendar_dt,loc.pos_nbr,prod.div_nbr,prod.item_nbr,sku.sku_nbr,trs_typ_cd;&#xA;&#xA;&#xA;--*** Populate SKU History Table and Truncate SKU Table ***&#xA;use sho_staging;&#xA;&#xA;BEGIN TRAN;&#xA;&#xA;INSERT INTO [sho_staging].[teradata].[td_sales_dly_sales_sku_history]&#xA;SELECT * FROM [sho_staging].[teradata].[td_sales_dly_sales_sku] where TRS_DT NOT IN &#xA;(SELECT TRS_DT FROM [sho_staging].[teradata].[td_sales_dly_sales_sku_history]);&#xA;&#xA;truncate table [sho_staging].teradata.td_sales_dly_sales_sku;&#xA;&#xA;COMMIT TRAN;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{60E40E0A-5E26-4820-9B57-E1D10A0E8C5C}"
+      DTS:From="Package\Update sho_dw_sho_sales with APO Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Update Online Sales in sho_sales and sho_sales_by_loc" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{e21b00d6-07ff-48ec-ba39-76e91ce199cb}"
+      DTS:DTSID="{B69B1D61-B8C8-415F-8B74-D803DD9B3940}"
       DTS:From="Package\Update Online Sales in sho_sales and sho_sales_by_loc"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Update sho_dw_dim_location Data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{64BD2B0A-D4F9-48E9-AED4-9AC18C13ED49}"
+      DTS:From="Package\Update Gross Profit Test"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
       DTS:To="Package\Update SKU Sales in sho_sales_sku" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{850febed-54d4-4cf1-946e-305ee5114904}"
-      DTS:From="Package\Update SKU Sales in sho_sales_sku"
+      DTS:DTSID="{BACF4E36-0201-4ED9-805B-7F282E34FEBD}"
+      DTS:From="Package\Update sho_dw_dim_location Data"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
       DTS:To="Package\Update Gross Profit Test" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
       DTS:CreationName=""
-      DTS:DTSID="{2a0d70d7-3a8e-4b6a-b25e-8e0bd0fb74f0}"
-      DTS:From="Package\Update Gross Profit Test"
+      DTS:DTSID="{B032CBAC-38BD-4AF7-9E75-DD751B85D7E8}"
+      DTS:From="Package\Update SKU Sales in sho_sales_sku"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 4"
       DTS:To="Package\Update Gross Profit Production" />
@@ -131,37 +183,125 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="224,42"
           Id="Package\Update Gross Profit Production"
-          TopLeft="233,359" />
+          TopLeft="213,448" />
         <NodeLayout
           Size="194,42"
           Id="Package\Update Gross Profit Test"
-          TopLeft="215,289" />
+          TopLeft="220,306" />
         <NodeLayout
           Size="340,42"
           Id="Package\Update Online Sales in sho_sales and sho_sales_by_loc"
           TopLeft="164,126" />
         <NodeLayout
+          Size="243,42"
+          Id="Package\Update sho_dw_dim_location Data"
+          TopLeft="175,216" />
+        <NodeLayout
+          Size="275,42"
+          Id="Package\Update sho_dw_sho_sales with APO Data"
+          TopLeft="182,44" />
+        <NodeLayout
           Size="245,42"
           Id="Package\Update SKU Sales in sho_sales_sku"
-          TopLeft="213,210" />
+          TopLeft="203,395" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="334.75,168">
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="319.5,86">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,42"
+              StartConnector="{assembly:Null}"
+              EndConnector="14.5,40"
               Start="0,0"
-              End="0,34.5">
+              End="14.5,32.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.5" />
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="4,20" />
+                  <mssgle:LineSegment
+                    End="10.5,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.5,20"
+                    Point2="14.5,20"
+                    Point3="14.5,24" />
+                  <mssgle:LineSegment
+                    End="14.5,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="334,168">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-37.5,48"
+              Start="0,0"
+              End="-37.5,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="-4,24" />
+                  <mssgle:LineSegment
+                    End="-33.5,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-33.5,24"
+                    Point2="-37.5,24"
+                    Point3="-37.5,28" />
+                  <mssgle:LineSegment
+                    End="-37.5,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="317,348">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.5,47"
+              Start="0,0"
+              End="8.5,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5"
+                    Point2="0,23.5"
+                    Point3="4,23.5" />
+                  <mssgle:LineSegment
+                    End="4.5,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.5,23.5"
+                    Point2="8.5,23.5"
+                    Point3="8.5,27.5" />
+                  <mssgle:LineSegment
+                    End="8.5,39.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -172,30 +312,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="335.5,252">
+          TopLeft="296.5,258">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="-23.5,37"
+              StartConnector="{assembly:Null}"
+              EndConnector="20.5,48"
               Start="0,0"
-              End="-23.5,29.5">
+              End="20.5,40.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14.5" />
+                    End="0,20" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,14.5"
-                    Point2="0,18.5"
-                    Point3="-4,18.5" />
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="4,24" />
                   <mssgle:LineSegment
-                    End="-19.5,18.5" />
+                    End="16.5,24" />
                   <mssgle:CubicBezierSegment
-                    Point1="-19.5,18.5"
-                    Point2="-23.5,18.5"
-                    Point3="-23.5,22.5" />
+                    Point1="16.5,24"
+                    Point2="20.5,24"
+                    Point3="20.5,28" />
                   <mssgle:LineSegment
-                    End="-23.5,29.5" />
+                    End="20.5,40.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -206,30 +346,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="312,331">
+          TopLeft="448,416">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="33,28"
+              StartConnector="{assembly:Null}"
+              EndConnector="-11,53"
               Start="0,0"
-              End="33,20.5">
+              End="-3.5,53">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10" />
+                    End="18.5,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,10"
-                    Point2="0,14"
-                    Point3="4,14" />
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,4" />
                   <mssgle:LineSegment
-                    End="29,14" />
+                    End="22.5,49" />
                   <mssgle:CubicBezierSegment
-                    Point1="29,14"
-                    Point2="33,14"
-                    Point3="33,18" />
+                    Point1="22.5,49"
+                    Point2="22.5,53"
+                    Point3="18.5,53" />
                   <mssgle:LineSegment
-                    End="33,20.5" />
+                    End="-3.5,53" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

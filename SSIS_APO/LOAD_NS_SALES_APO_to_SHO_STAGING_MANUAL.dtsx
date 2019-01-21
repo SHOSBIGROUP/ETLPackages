@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_SALES_APO_to_SHO_STAGING_MANUAL"
   DTS:PackageType="5"
-  DTS:VersionBuild="201"
-  DTS:VersionGUID="{F9D0041F-8F25-4D42-8298-54D4A8645DFE}">
+  DTS:VersionBuild="221"
+  DTS:VersionGUID="{68AF6263-6861-4E15-B1AD-BFC3A961C261}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -193,7 +193,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite\ns_daily_sales_transaction_pos_comments_20181228.txt">
+          DTS:ConnectionString="\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite\ns_daily_sales_transaction_pos_comments_20190117.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1205,7 +1205,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Projects\Interim-Data-Platform\APO\ns_daily_sales_transaction_pos_comments_20181228.txt">
+          DTS:ConnectionString="C:\Projects\Interim-Data-Platform\NetsuiteSales\ns_daily_sales_transaction_pos_comments_20190106.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1214,7 +1214,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Date Created"
-              DTS:DTSID="{CFB03304-3512-4B4A-8850-80D8B6BD7FE9}"
+              DTS:DTSID="{2DFEEB10-AA46-4B2E-A26D-74C1C55199A4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1223,7 +1223,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Transaction Document Number"
-              DTS:DTSID="{ADDCAF07-BF5C-4818-AF64-7831BE260C25}"
+              DTS:DTSID="{854B06CB-27F9-420D-872C-E0E050229A95}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1232,7 +1232,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Sales Check nummber"
-              DTS:DTSID="{23562D5D-0A36-4F26-B1F4-B8AE212ED85A}"
+              DTS:DTSID="{0DC2D0A3-BFAA-45E1-A180-16D01D1793F7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1241,7 +1241,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Promotion"
-              DTS:DTSID="{F28B0BEF-E723-41F0-B7E3-D80613F8A7DD}"
+              DTS:DTSID="{8BE71CD6-5851-4DBC-8395-7522CA15C5E6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1250,7 +1250,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Applied Promotion Status"
-              DTS:DTSID="{B7CE9B8B-622E-492D-B48D-366AFE48F064}"
+              DTS:DTSID="{45172230-6805-4B8F-AF26-3C1A9AB3EA52}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1259,7 +1259,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SHO_REASON_CODE"
-              DTS:DTSID="{3D35919E-2C4B-46AF-A7D6-A1578AD222DE}"
+              DTS:DTSID="{BD7C9456-9741-46D3-9DC2-9B9DD0A48E90}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1268,7 +1268,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SHO_POS_READON_CODE_COMMENT "
-              DTS:DTSID="{23A582DD-527C-4409-815A-80B8AE5BCBAA}"
+              DTS:DTSID="{7E904C31-1FC9-4302-993A-46F6E0D39BB0}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -2058,7 +2058,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
+                  name="FastLoadKeepNulls">true</property>
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
@@ -2239,6 +2239,24 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Insert to sho_staging_netsuite_NS_Daily_File_Sales_Orders_Header_APO_History"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{e55b0621-74df-4d62-b7aa-cc54238884ae}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Insert to sho_staging_netsuite_NS_Daily_File_Sales_Orders_Header_APO_History"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B3E81C13-A77F-4EF8-9AD6-9EDF3434FC82}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="--*** Insert Netsuite APO Data to History *** &#xA;Insert into sho_staging.netsuite.NS_Daily_File_Sales_Orders_Header_APO_History &#xA;Select * from sho_staging.netsuite.NS_Daily_File_Sales_Orders_Header_APO;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Move the file from ftp location to SSIS incoming"
       DTS:CreationName="Microsoft.FileSystemTask"
       DTS:Description="File System Task"
@@ -2297,7 +2315,6 @@
       DTS:refId="Package\Truncate Staging Netsuite Header APO Table"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
       DTS:DTSID="{CD3C694A-EC25-479B-ACE1-B45CF049B801}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -2307,9 +2324,9 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
+          SQLTask:Connection="{B3E81C13-A77F-4EF8-9AD6-9EDF3434FC82}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="Insert Into [sho_staging].[netsuite].[NS_Daily_File_Sales_Orders_Header_APO_History]&#xA;Select * from [sho_staging].[netsuite].[NS_Daily_File_Sales_Orders_Header_APO];&#xA;&#xA;truncate table [sho_staging].[netsuite].[NS_Daily_File_Sales_Orders_Header_APO];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="truncate table [sho_staging].[netsuite].[NS_Daily_File_Sales_Orders_Header_APO];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -2336,11 +2353,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{604915B9-BC53-4546-9D4C-C1CB4CB54621}"
+      DTS:DTSID="{DEEB4765-4538-4FEE-A655-40377733D913}"
       DTS:From="Package\Data Flow Task"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Update sho_dw_sho_sales with APO Data" />
+      DTS:To="Package\Insert to sho_staging_netsuite_NS_Daily_File_Sales_Orders_Header_APO_History" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
@@ -2373,6 +2390,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 4"
       DTS:To="Package\Source File Archive" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{7C5292A4-4527-4F87-B9F3-00A60D9B6B3C}"
+      DTS:From="Package\Insert to sho_staging_netsuite_NS_Daily_File_Sales_Orders_Header_APO_History"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Update sho_dw_sho_sales with APO Data" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -2387,9 +2412,13 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150,42"
+          Size="464,42"
           Id="Package\Data Flow Task"
           TopLeft="150.666660679711,168.173334677802" />
+        <NodeLayout
+          Size="464,42"
+          Id="Package\Insert to sho_staging_netsuite_NS_Daily_File_Sales_Orders_Header_APO_History"
+          TopLeft="28,237" />
         <NodeLayout
           Size="304,42"
           Id="Package\Move the file from ftp location to SSIS incoming"
@@ -2397,11 +2426,11 @@
         <NodeLayout
           Size="169,42"
           Id="Package\Source File Archive"
-          TopLeft="166.666662269169,342.560002595266" />
+          TopLeft="96.666662269169,385.560002595266" />
         <NodeLayout
           Size="172,42"
           Id="Package\Source File Deletion"
-          TopLeft="409.333320644167,344.480002578735" />
+          TopLeft="339.333320644167,387.480002578735" />
         <NodeLayout
           Size="291,42"
           Id="Package\Truncate Staging Netsuite Header APO Table"
@@ -2409,21 +2438,33 @@
         <NodeLayout
           Size="275,42"
           Id="Package\Update sho_dw_sho_sales with APO Data"
-          TopLeft="96,253" />
+          TopLeft="100,332" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="229.583330339855,210.173334677802">
+          TopLeft="382.666660679711,210.173334677802">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42.826665322198"
+              EndConnector="-122.666660679711,26.826665322198"
               Start="0,0"
-              End="0,35.326665322198">
+              End="-122.666660679711,19.326665322198">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.326665322198" />
+                    End="0,9.41333266109901" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.41333266109901"
+                    Point2="0,13.413332661099"
+                    Point3="-4,13.413332661099" />
+                  <mssgle:LineSegment
+                    End="-118.666660679711,13.413332661099" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-118.666660679711,13.413332661099"
+                    Point2="-122.666660679711,13.413332661099"
+                    Point3="-122.666660679711,17.413332661099" />
+                  <mssgle:LineSegment
+                    End="-122.666660679711,19.326665322198" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2468,18 +2509,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="225.833328869608,126.586667338901">
+          TopLeft="225.999997059504,126.586667338901">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,41.5866673389009"
+              EndConnector="156.666663620207,41.5866673389009"
               Start="0,0"
-              End="0,34.0866673389009">
+              End="156.666663620207,34.0866673389009">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.0866673389009" />
+                    End="0,16.7933336694504" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.7933336694504"
+                    Point2="0,20.7933336694504"
+                    Point3="4,20.7933336694504" />
+                  <mssgle:LineSegment
+                    End="152.666663620207,20.7933336694504" />
+                  <mssgle:CubicBezierSegment
+                    Point1="152.666663620207,20.7933336694504"
+                    Point2="156.666663620207,20.7933336694504"
+                    Point3="156.666663620207,24.7933336694504" />
+                  <mssgle:LineSegment
+                    End="156.666663620207,34.0866673389009" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2490,7 +2543,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="335.666662269169,364.520002587">
+          TopLeft="265.666662269169,407.520002587">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2512,30 +2565,58 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="233.5,295">
+          TopLeft="237.5,374">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="17.666662269169,47.560002595266"
+              EndConnector="28.166662269169,26.8933359285993"
               Start="0,0"
-              End="17.666662269169,40.060002595266">
+              End="20.666662269169,26.8933359285993">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.780001297633" />
+                    End="0,22.8933359285993" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.780001297633"
-                    Point2="0,23.780001297633"
-                    Point3="4,23.780001297633" />
+                    Point1="0,22.8933359285993"
+                    Point2="0,26.8933359285993"
+                    Point3="4,26.8933359285993" />
                   <mssgle:LineSegment
-                    End="13.666662269169,23.780001297633" />
+                    End="20.666662269169,26.8933359285993" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="260,279">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-22.5,53"
+              Start="0,0"
+              End="-22.5,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="13.666662269169,23.780001297633"
-                    Point2="17.666662269169,23.780001297633"
-                    Point3="17.666662269169,27.780001297633" />
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="-4,26.5" />
                   <mssgle:LineSegment
-                    End="17.666662269169,40.060002595266" />
+                    End="-18.5,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,26.5"
+                    Point2="-22.5,26.5"
+                    Point3="-22.5,30.5" />
+                  <mssgle:LineSegment
+                    End="-22.5,45.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

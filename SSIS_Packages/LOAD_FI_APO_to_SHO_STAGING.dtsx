@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_FI_APO_to_SHO_STAGING"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{B6F74763-3917-4E82-9ADC-0F425C7BB238}">
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{DBEE8C26-CC18-4526-A6A3-3CB8FB228073}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,7 +25,7 @@
         DTS:Name="ConnectionString">"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\mssql_etl\\Sears Hometown &amp; Outlet Stores\\DEPT_SHOS Analytics - Misc\\APO_" + (DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".xlsx;Extended Properties=\"EXCEL 12.0 XML;HDR=NO\";"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\mssql_etl\Sears Hometown &amp; Outlet Stores\DEPT_SHOS Analytics - Misc\APO_20190102.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=NO&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\mssql_etl\Sears Hometown &amp; Outlet Stores\DEPT_SHOS Analytics - Misc\APO_20190116.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=NO&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -2742,7 +2742,7 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="Insert Into sho_staging.finance.day_location_apo(&#xA;[POS_NO],&#xA;[LOCATION_NAME],&#xA;[APPS_CPR_TY_DLY],&#xA;[OPPS_CPR_TY_DLY],&#xA;[APPS_CPR_LY_DLY],&#xA;[OPPS_CPR_LY_DLY],&#xA;[rec_load_dt]&#xA;) Select &#xA;Convert(varchar(50),[POS_NO]),&#xA;Convert(varchar(50),F2),&#xA;Convert(varchar(50),[APPS_CPR_TY_DLY]),&#xA;Convert(varchar(50),[OPPS_CPR_TY_DLY]),&#xA;Convert(varchar(50),[APPS_CPR_LY_DLY]),&#xA;Convert(varchar(50),[OPPS_CPR_LY_DLY]),&#xA;Convert(datetime,[rec_load_dt])&#xA; From sho_staging.finance.day_location_apo_raw;&#xA;&#xA;--*** Update trs_dt from valid date ***&#xA;Update [sho_staging].[finance].[day_location_apo] &#xA;Set trs_dt = &#xA;(&#xA;SELECT Top 1 CONVERT(date,[APPS_CPR_TY_DLY]) FROM [sho_staging].[finance].[day_location_apo] WHERE ISDATE([APPS_CPR_TY_DLY]) &lt;&gt; 0&#xA;);&#xA;&#xA;--*** Delete invalid POS Numbers ***&#xA;DELETE FROM [sho_staging].[finance].[day_location_apo] WHERE ISNUMERIC(POS_NO) = 0;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="--*** Update trs_dt from valid date from sho_staging.finance.day_location_apo_raw ***&#xA;Update [sho_staging].[finance].[day_location_apo_raw] &#xA;Set trs_dt = &#xA;(&#xA;SELECT Top 1 CONVERT(date,[APPS_CPR_TY_DLY]) FROM [sho_staging].[finance].[day_location_apo_raw] WHERE ISDATE([APPS_CPR_TY_DLY]) &lt;&gt; 0&#xA;);&#xA;&#xA;--*** Delete invalid POS Numbers from sho_staging.finance.day_location_apo_raw ***&#xA;DELETE FROM [sho_staging].[finance].[day_location_apo_raw] WHERE ISNUMERIC(POS_NO) = 0;&#xA;&#xA;--*** Insert Legacy APO Data from sho_staging.finance.day_location_apo_raw to sho_staging.finance.day_location_apo ***&#xA;Insert Into sho_staging.finance.day_location_apo(&#xA;[POS_NO],&#xA;[APPS_CPR_TY_DLY],&#xA;[OPPS_CPR_TY_DLY],&#xA;[APPS_CPR_LY_DLY],&#xA;[OPPS_CPR_LY_DLY],&#xA;[trs_dt],&#xA;[rec_load_dt]&#xA;) Select &#xA;Convert(varchar(50),[POS_NO]),&#xA;Convert(varchar(50),[APPS_CPR_TY_DLY]),&#xA;Convert(varchar(50),[OPPS_CPR_TY_DLY]),&#xA;Convert(varchar(50),[APPS_CPR_LY_DLY]),&#xA;Convert(varchar(50),[OPPS_CPR_LY_DLY]),&#xA;Convert(date,[trs_dt]),&#xA;Convert(datetime,[rec_load_dt])&#xA; From sho_staging.finance.day_location_apo_raw where Convert(date,[trs_dt]) not in (select Convert(date,[trs_dt]) from sho_staging.finance.day_location_apo);&#xA;&#xA;&#xA;--*** Update sho_dw.fact.sho_sales_by_loc with Applications and Opportunities by Location by Day from sho_staging.finance.day_location_apo ***&#xA;Update sho_dw.fact.sho_sales_by_loc set apo_apps = apo.apo_apps_ty, apo_opps = apo.apo_opps_ty &#xA;FROM&#xA;(&#xA;Select Convert(int,POS_NO) as pos_nbr, trs_dt, Convert(decimal(11,2),APPS_CPR_TY_DLY) as apo_apps_ty, Convert(decimal(11,2),OPPS_CPR_TY_DLY) as apo_opps_ty, &#xA;Convert(decimal(11,2),APPS_CPR_LY_DLY) as apo_apps_ly, Convert(decimal(11,2),OPPS_CPR_LY_DLY) as apo_opps_ly From [sho_staging].[finance].[day_location_apo]&#xA;)&#xA;apo&#xA;INNER JOIN &#xA;sho_dw.fact.sho_sales_by_loc fact ON &#xA;convert(int,apo.pos_nbr) = convert(int,fact.pos_nbr) and apo.trs_dt = fact.trs_dt;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -2778,7 +2778,7 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="--*** Update sho_dw.fact.sho_sales_by_loc with Applications and Opportunities by Location by Day ***&#xA;Update sho_dw.fact.sho_sales_by_loc set apo_apps_ty = apo.apo_apps_ty, apo_opps_ty = apo.apo_opps_ty, apo_apps_ly = apo.apo_apps_ly, apo_opps_ly = apo.apo_opps_ly &#xA;FROM&#xA;(&#xA;Select Convert(int,POS_NO) as pos_nbr, trs_dt, Convert(decimal(11,2),APPS_CPR_TY_DLY) as apo_apps_ty, Convert(decimal(11,2),OPPS_CPR_TY_DLY) as apo_opps_ty, &#xA;Convert(decimal(11,2),APPS_CPR_LY_DLY) as apo_apps_ly, Convert(decimal(11,2),OPPS_CPR_LY_DLY) as apo_opps_ly From [sho_staging].[finance].[day_location_apo]&#xA;)&#xA;apo&#xA;INNER JOIN &#xA;sho_dw.fact.sho_sales_by_loc fact ON &#xA;apo.pos_nbr = fact.pos_nbr and apo.trs_dt = fact.trs_dt;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="--*** Update sho_dw.fact.sho_sales_by_loc with Applications and Opportunities by Location by Day ***&#xA;Update sho_dw.fact.sho_sales_by_loc set apo_apps = apo.apo_apps_ty, apo_opps = apo.apo_opps_ty&#xA;--, apo_apps_ly = apo.apo_apps_ly, apo_opps_ly = apo.apo_opps_ly &#xA;FROM&#xA;(&#xA;Select Convert(int,POS_NO) as pos_nbr, trs_dt, Convert(decimal(11,2),APPS_CPR_TY_DLY) as apo_apps_ty, Convert(decimal(11,2),OPPS_CPR_TY_DLY) as apo_opps_ty&#xA;--,Convert(decimal(11,2),APPS_CPR_LY_DLY) as apo_apps_ly, Convert(decimal(11,2),OPPS_CPR_LY_DLY) as apo_opps_ly &#xA;From [sho_staging].[finance].[day_location_apo]&#xA;)&#xA;apo&#xA;INNER JOIN &#xA;sho_dw.fact.sho_sales_by_loc fact ON &#xA;apo.pos_nbr = fact.pos_nbr and apo.trs_dt = fact.trs_dt;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -2819,7 +2819,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="309,42"
           Id="Package\Load APO Data to sho_staging_finance_apo_raw"
@@ -2841,7 +2841,7 @@
           TopLeft="341,172">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="11.5,55"
               Start="0,0"
               End="11.5,47.5">
@@ -2875,7 +2875,7 @@
           TopLeft="352.5,269">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-16,48"
               Start="0,0"
               End="-16,40.5">
@@ -2909,7 +2909,7 @@
           TopLeft="339.5,359">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,26"
               Start="0,0"
               End="0,18.5">

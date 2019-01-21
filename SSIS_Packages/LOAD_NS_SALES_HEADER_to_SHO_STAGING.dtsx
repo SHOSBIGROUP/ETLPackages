@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_SALES_HEADER_to_SHO_STAGING"
   DTS:PackageType="5"
-  DTS:VersionBuild="163"
-  DTS:VersionGUID="{4BEF7E4F-97DC-47C5-8153-488DD876C002}">
+  DTS:VersionBuild="166"
+  DTS:VersionGUID="{C315DFF9-C3D9-4865-A4A4-9290A57B4925}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -32,7 +32,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite\ns_daily_sales_transaction_header_20181206.txt">
+          DTS:ConnectionString="\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite\ns_daily_sales_transaction_header_20190116.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -396,7 +396,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\ns_daily_sales_transaction_header_20181206.txt">
+          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\ns_daily_sales_transaction_header_20190116.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -760,7 +760,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\ns_daily_sales_transaction_header_20181206.txt">
+          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\ns_daily_sales_transaction_header_20190116.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -4579,7 +4579,7 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="INSERT INTO [netsuite].[NS_Daily_File_Sales_Orders_Header_History]&#xA;           ([Transaction Date]&#xA;           ,[Paid Date]&#xA;           ,[Transaction Type]&#xA;           ,[Transaction Status]&#xA;           ,[Transaction Source]&#xA;           ,[Transaction Document Number]&#xA;           ,[Sales Check nummber]&#xA;           ,[Accounting Unit]&#xA;           ,[Accounting Unit (no hierarchy)]&#xA;           ,[Location format type]&#xA;           ,[Store Region]&#xA;           ,[Store District]&#xA;           ,[Store]&#xA;           ,[Location]&#xA;           ,[Subtotal]&#xA;           ,[Discount amount]&#xA;           ,[Tax total]&#xA;           ,[Shipping cost]&#xA;           ,[Gift certificate amount]&#xA;           ,[Total]&#xA;           ,[Amount due]&#xA;           ,[Payment or Refund Method]&#xA;           ,[Payment Amount]&#xA;           ,[Comp Store Flag]&#xA;           ,[Customer First Name]&#xA;           ,[Customer Last Name]&#xA;           ,[Customer Address_1]&#xA;           ,[Customer Address_2]&#xA;           ,[Customer City]&#xA;           ,[Customer State]&#xA;           ,[Customer Zip]&#xA;           ,[Email]&#xA;           ,[Alt  Email]&#xA;           ,[Acc Email]&#xA;           ,[Shipping Email]&#xA;           ,[Phone]&#xA;           ,[Mobile]&#xA;           ,[Home Phone]&#xA;           ,[Sho_syw_memberid]&#xA;           ,[Sho_maskedcard]&#xA;           ,[Payment_Document_Number]&#xA;           ,[Payment_date]&#xA;           ,[Sales_Rep]&#xA;           ,[Amount_Net_of_Tax]&#xA;           ,[REC_LOAD_DTM])&#xA; SELECT&#xA;          [Transaction Date]&#xA;           ,[Paid Date]&#xA;           ,[Transaction Type]&#xA;           ,[Transaction Status]&#xA;           ,[Transaction Source]&#xA;           ,[Transaction Document Number]&#xA;           ,[Sales Check nummber]&#xA;           ,[Accounting Unit]&#xA;           ,[Accounting Unit (no hierarchy)]&#xA;           ,[Location format type]&#xA;           ,[Store Region]&#xA;           ,[Store District]&#xA;           ,[Store]&#xA;           ,[Location]&#xA;           ,[Subtotal]&#xA;           ,[Discount amount]&#xA;           ,[Tax total]&#xA;           ,[Shipping cost]&#xA;           ,[Gift certificate amount]&#xA;           ,[Total]&#xA;           ,[Amount due]&#xA;           ,[Payment or Refund Method]&#xA;           ,[Payment Amount]&#xA;           ,[Comp Store Flag]&#xA;           ,[Customer First Name]&#xA;           ,[Customer Last Name]&#xA;           ,[Customer Address_1]&#xA;           ,[Customer Address_2]&#xA;           ,[Customer City]&#xA;           ,[Customer State]&#xA;           ,[Customer Zip]&#xA;           ,[Email]&#xA;           ,[Alt  Email]&#xA;           ,[Acc Email]&#xA;           ,[Shipping Email]&#xA;           ,[Phone]&#xA;           ,[Mobile]&#xA;           ,[Home Phone]&#xA;           ,[Sho_syw_memberid]&#xA;           ,[Sho_maskedcard]&#xA;           ,[Payment_Document_Number]&#xA;           ,[Payment_date]&#xA;           ,[Sales_Rep]&#xA;           ,[Amount_Net_of_Tax]&#xA;           ,[REC_LOAD_DTM] &#xA;FROM [netsuite].[NS_Daily_File_Sales_Orders_Header];&#xA;&#xA;&#xA;--update [netsuite].[NS_Daily File_Sales_Orders] set [Payment Method ]=REPLACE([Payment Method ],'&quot;','');&#xA;&#xA;&#xA;--update [netsuite].[NS_Daily File_Sales_Orders] set [store]=trim([store]);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="--update [netsuite].[NS_Daily File_Sales_Orders] set [Payment Method ]=REPLACE([Payment Method ],'&quot;','');&#xA;&#xA;--update [netsuite].[NS_Daily File_Sales_Orders] set [store]=trim([store]);&#xA;&#xA;INSERT INTO [netsuite].[NS_Daily_File_Sales_Orders_Header_History]&#xA;           ([Transaction Date]&#xA;           ,[Paid Date]&#xA;           ,[Transaction Type]&#xA;           ,[Transaction Status]&#xA;           ,[Transaction Source]&#xA;           ,[Transaction Document Number]&#xA;           ,[Sales Check nummber]&#xA;           ,[Accounting Unit]&#xA;           ,[Accounting Unit (no hierarchy)]&#xA;           ,[Location format type]&#xA;           ,[Store Region]&#xA;           ,[Store District]&#xA;           ,[Store]&#xA;           ,[Location]&#xA;           ,[Subtotal]&#xA;           ,[Discount amount]&#xA;           ,[Tax total]&#xA;           ,[Shipping cost]&#xA;           ,[Gift certificate amount]&#xA;           ,[Total]&#xA;           ,[Amount due]&#xA;           ,[Payment or Refund Method]&#xA;           ,[Payment Amount]&#xA;           ,[Comp Store Flag]&#xA;           ,[Customer First Name]&#xA;           ,[Customer Last Name]&#xA;           ,[Customer Address_1]&#xA;           ,[Customer Address_2]&#xA;           ,[Customer City]&#xA;           ,[Customer State]&#xA;           ,[Customer Zip]&#xA;           ,[Email]&#xA;           ,[Alt  Email]&#xA;           ,[Acc Email]&#xA;           ,[Shipping Email]&#xA;           ,[Phone]&#xA;           ,[Mobile]&#xA;           ,[Home Phone]&#xA;           ,[Sho_syw_memberid]&#xA;           ,[Sho_maskedcard]&#xA;           ,[Payment_Document_Number]&#xA;           ,[Payment_date]&#xA;           ,[Sales_Rep]&#xA;           ,[Amount_Net_of_Tax]&#xA;           ,[REC_LOAD_DTM])&#xA; SELECT&#xA;          [Transaction Date]&#xA;           ,[Paid Date]&#xA;           ,[Transaction Type]&#xA;           ,[Transaction Status]&#xA;           ,[Transaction Source]&#xA;           ,[Transaction Document Number]&#xA;           ,[Sales Check nummber]&#xA;           ,[Accounting Unit]&#xA;           ,[Accounting Unit (no hierarchy)]&#xA;           ,[Location format type]&#xA;           ,[Store Region]&#xA;           ,[Store District]&#xA;           ,[Store]&#xA;           ,[Location]&#xA;           ,[Subtotal]&#xA;           ,[Discount amount]&#xA;           ,[Tax total]&#xA;           ,[Shipping cost]&#xA;           ,[Gift certificate amount]&#xA;           ,[Total]&#xA;           ,[Amount due]&#xA;           ,[Payment or Refund Method]&#xA;           ,[Payment Amount]&#xA;           ,[Comp Store Flag]&#xA;           ,[Customer First Name]&#xA;           ,[Customer Last Name]&#xA;           ,[Customer Address_1]&#xA;           ,[Customer Address_2]&#xA;           ,[Customer City]&#xA;           ,[Customer State]&#xA;           ,[Customer Zip]&#xA;           ,[Email]&#xA;           ,[Alt  Email]&#xA;           ,[Acc Email]&#xA;           ,[Shipping Email]&#xA;           ,[Phone]&#xA;           ,[Mobile]&#xA;           ,[Home Phone]&#xA;           ,[Sho_syw_memberid]&#xA;           ,[Sho_maskedcard]&#xA;           ,[Payment_Document_Number]&#xA;           ,[Payment_date]&#xA;           ,[Sales_Rep]&#xA;           ,[Amount_Net_of_Tax]&#xA;           ,[REC_LOAD_DTM] &#xA;FROM [netsuite].[NS_Daily_File_Sales_Orders_Header] &#xA;where trim([paid date]) not in (select trim([paid date]) from [netsuite].[NS_Daily_File_Sales_Orders_Header_History]);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
