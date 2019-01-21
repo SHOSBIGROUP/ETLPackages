@@ -11,8 +11,13 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_TD_to_SHO_DW_FACT_SALES"
   DTS:PackageType="5"
+<<<<<<< HEAD
   DTS:VersionBuild="222"
   DTS:VersionGUID="{724DDA3F-1887-44B1-8063-9DD00244365A}">
+=======
+  DTS:VersionBuild="224"
+  DTS:VersionGUID="{55C95528-EB68-47C4-973E-9751AD94A1F5}">
+>>>>>>> 4a2ac2639a40c97bc20df9d7e759a9a31f42d657
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -2200,7 +2205,11 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
+<<<<<<< HEAD
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT Distinct
+=======
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+>>>>>>> 4a2ac2639a40c97bc20df9d7e759a9a31f42d657
 	lu.TRS_DT,
 	lu.LOC_NO,
 	lu.DIV_NO,
@@ -11710,6 +11719,30 @@ GROUP BY trs_dt,LOC_NO,DIV_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
                       refId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[guardsman_units]"
                       dataType="i4"
                       name="guardsman_units" />
+                    <externalMetadataColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[online_sales]"
+                      dataType="numeric"
+                      name="online_sales"
+                      precision="11"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[online_units]"
+                      dataType="numeric"
+                      name="online_units"
+                      precision="11"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[apo_apps]"
+                      dataType="numeric"
+                      name="apo_apps"
+                      precision="11"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Merge Teradata Raw into fact sho sales by loc\Insert New day-loc sales rows to fact.Inputs[OLE DB Destination Input].ExternalColumns[apo_opps]"
+                      dataType="numeric"
+                      name="apo_opps"
+                      precision="11"
+                      scale="2" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -13471,8 +13504,12 @@ where [refTable].[pos_nbr] = ?</property>
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">--Join in all raw tables to feed into ssis to load fact
+<<<<<<< HEAD
 SELECT
                Distinct 
+=======
+SELECT DISTINCT
+>>>>>>> 4a2ac2639a40c97bc20df9d7e759a9a31f42d657
 	CASE WHEN net.TRS_DT IS NOT NULL THEN net.TRS_DT ELSE lse.TRS_DT END as TRS_DT,
 	CASE WHEN net.LOC_NO IS NOT NULL THEN net.LOC_NO ELSE lse.LOC_NO END as LOC_NO,
 	sum(coalesce(net.netsales,0)) as net_sales,
@@ -16681,7 +16718,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
         <NodeLayout
           Size="296,42"
           Id="Package\Merge Teradata Raw into fact sho sales by loc"
-          TopLeft="75,49" />
+          TopLeft="74,49" />
         <AnnotationLayout
           Text="Both data flows are executed in parallel"
           ParentId="Package"
@@ -17247,7 +17284,7 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-38.80638671875,1,129.350078125,16"
+              BoundingBox="-38.80638671875,1,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17391,7 +17428,11 @@ GROUP BY trs_dt,LOC_NO,PRD_CHR_CD,PRD_CHR_ATR_CD</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
+<<<<<<< HEAD
               BoundingBox="-105.44138671875,1,114.120078125,16"
+=======
+              BoundingBox="-105.44138671875,1,96.3827734375,11.609375"
+>>>>>>> 4a2ac2639a40c97bc20df9d7e759a9a31f42d657
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
