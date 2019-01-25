@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_SALES_to_SHO_DW_SKU_FACT"
   DTS:PackageType="5"
-  DTS:VersionBuild="183"
-  DTS:VersionGUID="{F7BDB363-51E4-4530-8D0D-51C02A328448}">
+  DTS:VersionBuild="184"
+  DTS:VersionGUID="{08D8827F-79AD-4DA4-8FB7-A8F370172C7B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2265,7 +2265,7 @@ where [refTable].[eis_nbr] = ?</property>
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select   a.[Transaction Document Number] ,[sho type],[transaction status], cast(trim([paid date]) as date) as paid_date ,
 cast(trim(store) as varchar) as store,trim(location) as location,RIGHT('000'+CAST(a.division AS VARCHAR(3)),3) as division,
-RIGHT('000'+CAST(line AS VARCHAR(3)),3) as line,cast(trim(category) as varchar) as category,  
+RIGHT('000'+CAST(line AS VARCHAR(3)),3) as line, LEFT(cast(trim(category) as varchar),3) as category,  
 case when  a.[item name] is not null then RIGHT('000000000'+CAST(a.[item name] AS VARCHAR(9)),6) else '-1' end  as  item_name,
 a.sku# as sku,
 case when a.[transaction status] like 'applied%' then 'R' else 'S' end as trs_typ_cd,
@@ -2514,7 +2514,7 @@ where a.[SHO Type] like 'Merch%'    and a.category &lt;&gt; ' '    and isnumeric
                       refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[category]"
                       codePage="1252"
                       dataType="str"
-                      length="30"
+                      length="3"
                       name="category" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Output].ExternalColumns[qty]"
@@ -2643,7 +2643,7 @@ where a.[SHO Type] like 'Merch%'    and a.category &lt;&gt; ' '    and isnumeric
                       refId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[category]"
                       codePage="1252"
                       dataType="str"
-                      length="30"
+                      length="3"
                       lineageId="Package\Data Flow Task\Netsuite Sales by item Staging.Outputs[OLE DB Source Error Output].Columns[category]"
                       name="category" />
                     <outputColumn
@@ -3014,6 +3014,10 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
           Size="205,42"
           Id="Package\Update Netsuite Sales APO"
           TopLeft="131,205" />
+        <NodeLayout
+          Size="253,42"
+          Id="Package\Update Netsuite SKU Data in Staging"
+          TopLeft="96,54" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="251.666659726037,179.280001091004">
@@ -3048,10 +3052,6 @@ where [refTable].[item_nbr] = ? and [refTable].[cat_div_sk_id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="253,42"
-          Id="Package\Update Netsuite SKU Data in Staging"
-          TopLeft="96,54" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="222.5,96">
