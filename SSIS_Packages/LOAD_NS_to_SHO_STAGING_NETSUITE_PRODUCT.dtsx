@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_to_SHO_DW_DIM_PRODUCT"
   DTS:PackageType="5"
-  DTS:VersionBuild="161"
-  DTS:VersionGUID="{47877568-5325-42C3-9D9D-67DAC5F2D4B6}">
+  DTS:VersionBuild="164"
+  DTS:VersionGUID="{F15D9300-6519-46E9-A437-981A5A0150DA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -32,7 +32,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\ns_daily_product_feed_20190125.csv">
+          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\ns_daily_product_feed_20190201.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -333,7 +333,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite\ns_daily_product_feed_20190125.csv">
+          DTS:ConnectionString="\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite\ns_daily_product_feed_20190201.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1075,6 +1075,12 @@
                       cachedLength="100"
                       cachedName="Item Name"
                       lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Item Name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input].Columns[item_nbr_full]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="item_nbr_full"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Derived Column.Outputs[Derived Column Output].Columns[item_nbr_full]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1724,6 +1730,28 @@
                           name="FastParse">false</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[item_nbr_full]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="12"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[item_nbr_full]"
+                      name="item_nbr_full"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_staging_netsuite_product Table\Derived Column.Outputs[Derived Column Output].Columns[item_nbr_full]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1744,6 +1772,89 @@
                       refId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Populate sho_staging_netsuite_product Table\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Populate sho_staging_netsuite_product Table\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Derived Column.Inputs[Derived Column Input].Columns[Item Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Item Name"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Item Name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Populate sho_staging_netsuite_product Table\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Populate sho_staging_netsuite_product Table\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Derived Column.Outputs[Derived Column Output].Columns[item_nbr_full]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="12"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Derived Column.Outputs[Derived Column Output].Columns[item_nbr_full]"
+                      name="item_nbr_full"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT]([TRIM](#{Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output].Columns[Item Name]}),12)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(TRIM([Flat File Source].[Item Name]),12)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Populate sho_staging_netsuite_product Table\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Populate sho_staging_netsuite_product Table\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2972,6 +3083,14 @@
                       cachedName="Item Name"
                       externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Item No]"
                       lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[Item Name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[item_nbr_full]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="item_nbr_full"
+                      externalMetadataColumnId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[item_nbr_full]"
+                      lineageId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output].Columns[item_nbr_full]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3157,6 +3276,12 @@
                       refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cat_div_sk_id]"
                       dataType="i8"
                       name="cat_div_sk_id" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[item_nbr_full]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="item_nbr_full" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -3193,8 +3318,13 @@
               name="Data Conversion Output"
               startId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\Populate sho_staging_netsuite_product Table.Paths[Flat File Source Output]"
+              refId="Package\Populate sho_staging_netsuite_product Table.Paths[Derived Column Output]"
               endId="Package\Populate sho_staging_netsuite_product Table\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Populate sho_staging_netsuite_product Table\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Populate sho_staging_netsuite_product Table.Paths[Flat File Source Output]"
+              endId="Package\Populate sho_staging_netsuite_product Table\Derived Column.Inputs[Derived Column Input]"
               name="Flat File Source Output"
               startId="Package\Populate sho_staging_netsuite_product Table\Flat File Source.Outputs[Flat File Source Output]" />
           </paths>
@@ -3302,6 +3432,10 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="344,42"
+          Id="Package\Move the Product file from ftp location to SSIS incoming"
+          TopLeft="194,102" />
+        <NodeLayout
           Size="294,42"
           Id="Package\Populate sho_staging_netsuite_product Table"
           TopLeft="264.333326207267,179.253334694333" />
@@ -3317,72 +3451,6 @@
           Size="295,42"
           Id="Package\Truncate sho_staging_netsuite_product Table"
           TopLeft="249.333325968849,20.480000512441" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="397,275">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="10.333325968849,23"
-              Start="0,0"
-              End="10.333325968849,15.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,7.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,7.5"
-                    Point2="0,11.5"
-                    Point3="4,11.5" />
-                  <mssgle:LineSegment
-                    End="6.33332596884901,11.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6.33332596884901,11.5"
-                    Point2="10.333325968849,11.5"
-                    Point3="10.333325968849,15.5" />
-                  <mssgle:LineSegment
-                    End="10.333325968849,15.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="264.333326207267,200.253334694333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="132.666673792733,32.746665305667"
-              Start="0,0"
-              End="132.666673792733,25.246665305667">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="128.666673792733,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="128.666673792733,0"
-                    Point2="132.666673792733,0"
-                    Point3="132.666673792733,4" />
-                  <mssgle:LineSegment
-                    End="132.666673792733,25.246665305667" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="344,42"
-          Id="Package\Move the Product file from ftp location to SSIS incoming"
-          TopLeft="194,102" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="396.833325968849,62.480000512441">
@@ -3409,6 +3477,40 @@
                     Point3="-30.833325968849,23.7599997437795" />
                   <mssgle:LineSegment
                     End="-30.833325968849,32.019999487559" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="397,275">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.333325968849,23"
+              Start="0,0"
+              End="10.333325968849,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.5"
+                    Point2="0,11.5"
+                    Point3="4,11.5" />
+                  <mssgle:LineSegment
+                    End="6.33332596884901,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.33332596884901,11.5"
+                    Point2="10.333325968849,11.5"
+                    Point3="10.333325968849,15.5" />
+                  <mssgle:LineSegment
+                    End="10.333325968849,15.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3451,6 +3553,34 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="264.333326207267,200.253334694333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="132.666673792733,32.746665305667"
+              Start="0,0"
+              End="132.666673792733,25.246665305667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="128.666673792733,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="128.666673792733,0"
+                    Point2="132.666673792733,0"
+                    Point3="132.666673792733,4" />
+                  <mssgle:LineSegment
+                    End="132.666673792733,25.246665305667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -3458,45 +3588,37 @@
     design-time-name="Package\Populate sho_staging_netsuite_product Table">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="151,42"
           Id="Package\Populate sho_staging_netsuite_product Table\Flat File Source"
-          TopLeft="161.499994754792,5.64666662809583" />
+          TopLeft="159.499994754792,6.64666662809583" />
         <NodeLayout
           Size="156,42"
           Id="Package\Populate sho_staging_netsuite_product Table\Data Conversion"
-          TopLeft="146,83" />
+          TopLeft="170,160" />
         <NodeLayout
           Size="171,42"
           Id="Package\Populate sho_staging_netsuite_product Table\OLE DB Destination"
-          TopLeft="126.999994913737,175.426668132358" />
+          TopLeft="156.999994913737,275.426668132358" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Populate sho_staging_netsuite_product Table\Derived Column"
+          TopLeft="172,85" />
         <EdgeLayout
-          Id="Package\Populate sho_staging_netsuite_product Table.Paths[Flat File Source Output]"
-          TopLeft="236.999994754792,47.6466666280958">
+          Id="Package\Populate sho_staging_netsuite_product Table.Paths[Derived Column Output]"
+          TopLeft="248.5,127">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="-12.999994754792,35.3533333719042"
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33"
               Start="0,0"
-              End="-12.999994754792,27.8533333719042">
+              End="0,25.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.6766666859521" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.6766666859521"
-                    Point2="0,17.6766666859521"
-                    Point3="-4,17.6766666859521" />
-                  <mssgle:LineSegment
-                    End="-8.999994754792,17.6766666859521" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-8.999994754792,17.6766666859521"
-                    Point2="-12.999994754792,17.6766666859521"
-                    Point3="-12.999994754792,21.6766666859521" />
-                  <mssgle:LineSegment
-                    End="-12.999994754792,27.8533333719042" />
+                    End="0,25.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3507,30 +3629,52 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Populate sho_staging_netsuite_product Table.Paths[Data Conversion Output]"
-          TopLeft="224,125">
+          TopLeft="245.249997456868,202">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="-11.500005086263,50.426668132358"
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73.426668132358"
               Start="0,0"
-              End="-11.500005086263,42.926668132358">
+              End="0,65.926668132358">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.213334066179" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.213334066179"
-                    Point2="0,25.213334066179"
-                    Point3="-4,25.213334066179" />
+                    End="0,65.926668132358" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Populate sho_staging_netsuite_product Table.Paths[Flat File Source Output]"
+          TopLeft="234.999994754792,48.6466666280958">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.000005245208,36.3533333719042"
+              Start="0,0"
+              End="14.000005245208,28.8533333719042">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-7.500005086263,25.213334066179" />
+                    End="0,14.1766666859521" />
                   <mssgle:CubicBezierSegment
-                    Point1="-7.500005086263,25.213334066179"
-                    Point2="-11.500005086263,25.213334066179"
-                    Point3="-11.500005086263,29.213334066179" />
+                    Point1="0,14.1766666859521"
+                    Point2="0,18.1766666859521"
+                    Point3="4,18.1766666859521" />
                   <mssgle:LineSegment
-                    End="-11.500005086263,42.926668132358" />
+                    End="10.000005245208,18.1766666859521" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.000005245208,18.1766666859521"
+                    Point2="14.000005245208,18.1766666859521"
+                    Point3="14.000005245208,22.1766666859521" />
+                  <mssgle:LineSegment
+                    End="14.000005245208,28.8533333719042" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
