@@ -1,0 +1,1576 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/15/2019 10:27:28 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-PBEJN2M"
+  DTS:CreatorName="DESKTOP-PBEJN2M\BusinessIntel"
+  DTS:DTSID="{52D53822-CB29-4E72-870C-DE99CB7AD918}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LOAD_NS_to_SHO_STAGING_NETSUITE_PAYMENT"
+  DTS:PackageType="5"
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{9E3FEE46-44A9-4F73-A7D6-42B3B42B3236}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LOAD_NS_to_SHO_STAGING_PAYMENT_RAW]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="Loads the NetSiote Payment file into RAW"
+      DTS:DTSID="{FFA67599-87F1-4B38-B304-50E21E354DBB}"
+      DTS:ObjectName="LOAD_NS_to_SHO_STAGING_PAYMENT_RAW">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::in_filename]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\quicktemp\development\NetSuiteDevelopment\netsuite data design\sample files\SHOBINewPaymentfileResults759.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Internal ID"
+              DTS:DTSID="{B808DB17-3B53-44B3-88C4-DC68325F921B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Internal ID_2"
+              DTS:DTSID="{D244803D-2BF1-4038-AEE0-9BABFEF91390}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="18"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Date"
+              DTS:DTSID="{E4D4658E-61F9-4BB5-A236-A8E223BC31A4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Subsidiary (no hierarchy)"
+              DTS:DTSID="{93EAA7CF-D0C1-4FC7-A98F-327227101310}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Location"
+              DTS:DTSID="{8D230539-679E-464F-B00F-8536B5E8B790}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EIS Location Number"
+              DTS:DTSID="{F0D2B979-623D-43F2-B711-C3676DC341F3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EIS Number"
+              DTS:DTSID="{9C5CFC2D-158C-4AA4-AE6C-6EE29ABB9E42}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="25"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Type"
+              DTS:DTSID="{50AABB63-21D6-462A-9477-199108BF6E99}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CD CR Payment"
+              DTS:DTSID="{D1BAF27A-4A59-4168-AE81-4730306A762B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SO or Invoice"
+              DTS:DTSID="{088E8876-EC01-45B5-B232-FF2E8123AA04}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sales Check Number"
+              DTS:DTSID="{4C41248C-A454-409A-80F5-62F5717B75E5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Credit Memo"
+              DTS:DTSID="{5A4AF348-C8AE-465B-AA8F-9CEEBE7396AC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Return Sales Check"
+              DTS:DTSID="{37E4AD1D-6A8A-445C-A5D6-B434B85A0DEC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Payment Method"
+              DTS:DTSID="{320B413F-8E4A-4130-B1BC-B1E24E927EA9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Masked Credit Card Number"
+              DTS:DTSID="{9CA23549-90E3-4944-AD37-FDF0FE6CD3BB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="125"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Account"
+              DTS:DTSID="{1AA59D73-3F3D-4CB2-BDD4-44F167CDFB81}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="125"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Account (Grouped)"
+              DTS:DTSID="{143558BB-B602-4306-9CEC-B7BABF08B375}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Account Type"
+              DTS:DTSID="{1310E112-6CEC-40FC-98CB-796772886475}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="18"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Amount"
+              DTS:DTSID="{FFD2635B-4652-458A-B46E-30A423FA9BC9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Card Holder Name"
+              DTS:DTSID="{98948CF5-97C9-46C5-9A3A-3F2116396AA4}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0EC7A99B-8D35-44C6-9586-67AED39034D4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="in_filename">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\quicktemp\development\NetSuiteDevelopment\netsuite data design\sample files\SHOBINewPaymentfileResults759.csv</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load to Raw"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C84A82AF-ACAA-4994-9BB5-516D48189BB7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load to Raw"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load to Raw\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load to Raw\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load to Raw\Data Conversion.Inputs[Data Conversion Input].Columns[filename]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="filename"
+                      lineageId="Package\Load to Raw\Derived Column.Outputs[Derived Column Output].Columns[filename]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load to Raw\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Load to Raw\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load to Raw\Data Conversion.Outputs[Data Conversion Output].Columns[casted filename]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Load to Raw\Data Conversion.Outputs[Data Conversion Output].Columns[casted filename]"
+                      name="casted filename"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load to Raw\Derived Column.Outputs[Derived Column Output].Columns[filename]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load to Raw\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Load to Raw\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load to Raw\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load to Raw\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load to Raw\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load to Raw\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load to Raw\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load to Raw\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load to Raw\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load to Raw\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load to Raw\Derived Column.Outputs[Derived Column Output].Columns[filename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Load to Raw\Derived Column.Outputs[Derived Column Output].Columns[filename]"
+                      name="filename"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,255)@[User::in_filename]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,255)@[User::in_filename]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load to Raw\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load to Raw\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load to Raw\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load to Raw\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load to Raw\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load to Raw\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load to Raw\Insert into payment raw"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert into payment raw"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[netsuite].[sales_daily_payment_raw]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load to Raw\Insert into payment raw.Connections[OleDbConnection]"
+                  connectionManagerID="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_STAGING]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].Columns[Location]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Location"
+                      externalMetadataColumnId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[location]"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Location]" />
+                    <inputColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].Columns[Account]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="125"
+                      cachedName="Account"
+                      externalMetadataColumnId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[account]"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Account]" />
+                    <inputColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].Columns[Amount]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="18"
+                      cachedName="Amount"
+                      externalMetadataColumnId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[amount]"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Amount]" />
+                    <inputColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].Columns[Date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="18"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[create_date]"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].Columns[Subsidiary (no hierarchy)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Subsidiary (no hierarchy)"
+                      externalMetadataColumnId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[subsidiary_no_hierarchy]"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Subsidiary (no hierarchy)]" />
+                    <inputColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].Columns[EIS Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="EIS Number"
+                      externalMetadataColumnId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[eis_number]"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[EIS Number]" />
+                    <inputColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].Columns[Transaction Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Transaction Type"
+                      externalMetadataColumnId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[transaction_type]"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Transaction Type]" />
+                    <inputColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].Columns[CD CR Payment]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CD CR Payment"
+                      externalMetadataColumnId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[document_number]"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[CD CR Payment]" />
+                    <inputColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].Columns[SO or Invoice]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SO or Invoice"
+                      externalMetadataColumnId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[sales_document_number]"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[SO or Invoice]" />
+                    <inputColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].Columns[Sales Check Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Sales Check Number"
+                      externalMetadataColumnId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[sales_check_number]"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Sales Check Number]" />
+                    <inputColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].Columns[Return Sales Check]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Return Sales Check"
+                      externalMetadataColumnId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[return_sales_check]"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Return Sales Check]" />
+                    <inputColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].Columns[Payment Method]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Payment Method"
+                      externalMetadataColumnId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[payment_method]"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Payment Method]" />
+                    <inputColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].Columns[Account (Grouped)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="125"
+                      cachedName="Account (Grouped)"
+                      externalMetadataColumnId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[account_grouped]"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Account (Grouped)]" />
+                    <inputColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].Columns[Account Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Account Type"
+                      externalMetadataColumnId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[account_type]"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Account Type]" />
+                    <inputColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].Columns[casted filename]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="casted filename"
+                      externalMetadataColumnId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[filename]"
+                      lineageId="Package\Load to Raw\Data Conversion.Outputs[Data Conversion Output].Columns[casted filename]" />
+                    <inputColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].Columns[Credit Memo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Credit Memo"
+                      externalMetadataColumnId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[credit_memo]"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Credit Memo]" />
+                    <inputColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].Columns[Internal ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Internal ID"
+                      externalMetadataColumnId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[internal_id]"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Internal ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[create_date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="create_date" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[subsidiary_no_hierarchy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="subsidiary_no_hierarchy" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="location" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[eis_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="eis_number" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[transaction_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="transaction_type" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[document_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="document_number" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[sales_document_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="sales_document_number" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[sales_check_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="sales_check_number" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[return_document_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="return_document_number" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[return_sales_check]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="return_sales_check" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[payment_method]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="payment_method" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[account]"
+                      codePage="1252"
+                      dataType="str"
+                      length="125"
+                      name="account" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[account_grouped]"
+                      codePage="1252"
+                      dataType="str"
+                      length="125"
+                      name="account_grouped" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[account_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="account_type" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[amount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="amount" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[rec_load_dt]"
+                      dataType="dbTimeStamp"
+                      name="rec_load_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[filename]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="filename" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[credit_memo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="credit_memo" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input].ExternalColumns[internal_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="internal_id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load to Raw\Insert into payment raw.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load to Raw\Insert into payment raw.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load to Raw\Insert into payment raw.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load to Raw\Insert into payment raw.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load to Raw\Load NetSuite Payment File"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Load NetSuite Payment File"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load to Raw\Load NetSuite Payment File.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LOAD_NS_to_SHO_STAGING_PAYMENT_RAW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LOAD_NS_to_SHO_STAGING_PAYMENT_RAW]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                      length="18"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Subsidiary (no hierarchy)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Subsidiary (no hierarchy)]"
+                      length="40"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Subsidiary (no hierarchy)]"
+                      name="Subsidiary (no hierarchy)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Location]"
+                      length="255"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Location]"
+                      name="Location"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[EIS Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[EIS Number]"
+                      length="10"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[EIS Number]"
+                      name="EIS Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Transaction Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Transaction Type]"
+                      length="25"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Transaction Type]"
+                      name="Transaction Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Sales Check Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Sales Check Number]"
+                      length="50"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Sales Check Number]"
+                      name="Sales Check Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Return Sales Check]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Return Sales Check]"
+                      length="50"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Return Sales Check]"
+                      name="Return Sales Check"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Payment Method]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Payment Method]"
+                      length="50"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Payment Method]"
+                      name="Payment Method"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Account]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Account]"
+                      length="125"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Account]"
+                      name="Account"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Account (Grouped)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Account (Grouped)]"
+                      length="125"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Account (Grouped)]"
+                      name="Account (Grouped)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Account Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Account Type]"
+                      length="50"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Account Type]"
+                      name="Account Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Internal ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Internal ID]"
+                      length="10"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Internal ID]"
+                      name="Internal ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Internal ID_2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Internal ID_2]"
+                      length="50"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Internal ID_2]"
+                      name="Internal ID_2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[EIS Location Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[EIS Location Number]"
+                      length="10"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[EIS Location Number]"
+                      name="EIS Location Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[CD CR Payment]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[CD CR Payment]"
+                      length="10"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[CD CR Payment]"
+                      name="CD CR Payment"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[SO or Invoice]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[SO or Invoice]"
+                      length="10"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[SO or Invoice]"
+                      name="SO or Invoice"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Credit Memo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Credit Memo]"
+                      length="10"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Credit Memo]"
+                      name="Credit Memo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Masked Credit Card Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Masked Credit Card Number]"
+                      length="50"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Masked Credit Card Number]"
+                      name="Masked Credit Card Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Amount]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Amount]"
+                      length="18"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Amount]"
+                      name="Amount"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Card Holder Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Card Holder Name]"
+                      length="50"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].Columns[Card Holder Name]"
+                      name="Card Holder Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Subsidiary (no hierarchy)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Subsidiary (no hierarchy)" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Location" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[EIS Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="EIS Number" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Transaction Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Transaction Type" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Sales Check Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Sales Check Number" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Return Sales Check]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Return Sales Check" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Payment Method]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Payment Method" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Account]"
+                      codePage="1252"
+                      dataType="str"
+                      length="125"
+                      name="Account" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Account (Grouped)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="125"
+                      name="Account (Grouped)" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Account Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Account Type" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Internal ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Internal ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Internal ID_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Internal ID_2" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[EIS Location Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="EIS Location Number" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[CD CR Payment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CD CR Payment" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[SO or Invoice]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SO or Invoice" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Credit Memo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Credit Memo" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Masked Credit Card Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Masked Credit Card Number" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Amount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="Amount" />
+                    <externalMetadataColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output].ExternalColumns[Card Holder Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Card Holder Name" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load to Raw.Paths[Data Conversion Output]"
+              endId="Package\Load to Raw\Insert into payment raw.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Load to Raw\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Load to Raw.Paths[Derived Column Output]"
+              endId="Package\Load to Raw\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Load to Raw\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load to Raw.Paths[Flat File Source Output]"
+              endId="Package\Load to Raw\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\Load to Raw\Load NetSuite Payment File.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Staging Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="truncate payemnt raw table"
+      DTS:DTSID="{0070478a-aa91-42f3-94c0-0ad446ba38aa}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Staging Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="Use sho_staging;&#xA;&#xA;truncate table sho_staging.netsuite.sales_daily_payment_raw" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{F8A88703-89BB-4576-BACD-E6BD0FDD2453}"
+      DTS:From="Package\Truncate Staging Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load to Raw" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Load to Raw"
+          TopLeft="177,105" />
+        <NodeLayout
+          Size="372,42"
+          Id="Package\Truncate Staging Table"
+          TopLeft="67,33" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="249.5,75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load to Raw">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Load to Raw\Derived Column"
+          TopLeft="121,112" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Load to Raw\Load NetSuite Payment File"
+          TopLeft="98,34" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Load to Raw\Data Conversion"
+          TopLeft="127,199" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\Load to Raw\Insert into payment raw"
+          TopLeft="109,296" />
+        <EdgeLayout
+          Id="Package\Load to Raw.Paths[Flat File Source Output]"
+          TopLeft="200,76">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load to Raw.Paths[Derived Column Output]"
+          TopLeft="201.5,154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load to Raw.Paths[Data Conversion Output]"
+          TopLeft="205.25,241">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load to Raw\Insert into payment raw">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
