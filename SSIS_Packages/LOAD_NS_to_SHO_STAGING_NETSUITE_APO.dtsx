@@ -1,0 +1,2566 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/20/2018 11:12:25 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LT-SELVI-TEST"
+  DTS:CreatorName="LT-SELVI-TEST\User"
+  DTS:DTSID="{8B12A436-0076-4530-B9E2-5A082E4BF461}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LOAD_NS_to_SHO_STAGING_NETSUITE_APO"
+  DTS:PackageType="5"
+  DTS:VersionBuild="185"
+  DTS:VersionGUID="{C52E0FC2-3E56-4C9D-8809-1CC92144E3EE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LOAD_NS_SALES_APO_to_SHO_STAGING_FF_REJECTS]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{8290EAE5-7C53-4A57-BCDA-B20452337A35}"
+      DTS:ObjectName="LOAD_NS_SALES_APO_to_SHO_STAGING_FF_REJECTS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="E:\ssis_rejects\netsuite\ns_daily_sales_transaction_header_apo_rejects.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Document Number"
+              DTS:DTSID="{7357842D-0089-4776-A06C-CDB9388D443B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sales Check nummber"
+              DTS:DTSID="{B3764A96-8C8E-4772-84FE-9CCF970FB7B2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Date Created"
+              DTS:DTSID="{BD436C56-2026-40CF-9E66-5E5F411442E2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Promotion"
+              DTS:DTSID="{3ECAD9A8-8532-4991-B8A8-13DEB395854F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Applied Promotion Status"
+              DTS:DTSID="{79267B70-6A8D-4C64-B55D-8A2A49C125DC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SHO_REASON_CODE"
+              DTS:DTSID="{006A6D88-EC05-441A-9535-1070DEB93E30}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SHO_POS_READON_CODE_COMMENT"
+              DTS:DTSID="{2165ED2E-9FE2-4670-8BC0-8F3D5C89A337}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CNV_Transaction Document Number"
+              DTS:DTSID="{0C3EF2F2-DC3A-4243-A147-CD839B2EC1D6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CNV_Sales Check nummber"
+              DTS:DTSID="{2D94AFCC-724E-4045-BD04-B784AB45F940}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CNV_Date Created"
+              DTS:DTSID="{B3933CDB-7176-4302-B618-B4619A3DC5B3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CNV_Promotion"
+              DTS:DTSID="{3F5D661A-9F0B-441A-82AB-5695E9A01E8E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CNV_Applied Promotion Status"
+              DTS:DTSID="{745068C4-9680-4D52-BA8B-C9169AF77B30}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CNV_SHO_REASON_CODE"
+              DTS:DTSID="{F86B0222-3AEA-40A0-BFFB-52FA5A96266F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CNV_SHO_POS_READON_CODE_COMMENT"
+              DTS:DTSID="{0BB1A85D-E70C-48B7-A248-90404D770F5C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{4FE950D3-1661-4ACD-98FD-C1E54CE363E5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{6519A526-7444-49AF-A015-86E1E3DC0D3B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LOAD_NS_to_SHO_STAGING_APO_RAW]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{9A5E8DD0-ABC4-485F-A3E9-CC7C8E558B25}"
+      DTS:ObjectName="LOAD_NS_to_SHO_STAGING_APO_RAW">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::in_filename]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\quicktemp\development\NetSuiteDevelopment\netsuite data design\sample files\SHOBINewPOSCommentsfileResults272.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Internal ID"
+              DTS:DTSID="{E4C84FAB-B763-44C4-91ED-AF4D75EB343C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Date"
+              DTS:DTSID="{BB9E3C30-0CC9-43B3-9F01-6E422B0E6DCA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Type"
+              DTS:DTSID="{07773C16-9A71-4B52-85C1-CC40112A84A0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="type_2"
+              DTS:DTSID="{1DBAFC52-C8AD-4D4A-8FF0-EB4C4E73A4AF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Document Number"
+              DTS:DTSID="{9AB11230-B788-4C53-B467-522F0B5D6098}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sales Check Number"
+              DTS:DTSID="{6BE708EB-6859-4548-937A-60CE3C375342}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Promotion"
+              DTS:DTSID="{725A9595-A187-4F41-A42C-F4CE3D0ED551}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Applied Promotion Status"
+              DTS:DTSID="{5698E317-CB6A-466D-BEE1-FEDBC31E2968}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SHO_Reason_Code"
+              DTS:DTSID="{6AFAAC03-6B72-4814-9914-170D676B95E4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SHO_POS_Readon_Code_Comment"
+              DTS:DTSID="{B4E1D8F2-D2D2-4E76-B712-A2AB81242BBA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="New Sears Card application Status"
+              DTS:DTSID="{6C0DDF23-6CFA-448D-9497-A01ADBE1ECAA}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SOURCE FTP LOCATION]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{3526ABAA-13C6-4319-9AA0-4EAC63E8C7C5}"
+      DTS:ObjectName="SOURCE FTP LOCATION">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"\\\\azitutil.ads.shos.com\\sftp_root\\BI\\data\\in\\netsuite\\ns_daily_sales_transaction_pos_comments_"+(DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".txt"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite\ns_daily_sales_transaction_pos_comments_20190201.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Date"
+              DTS:DTSID="{F0DC4258-61FE-48F1-B1FF-C0298BB27843}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Paid Date"
+              DTS:DTSID="{E3847A44-5765-4428-AEFF-7B2935AE11AC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Type"
+              DTS:DTSID="{BFA734CF-265C-4931-B59B-7C76AD86596C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Status"
+              DTS:DTSID="{2A2AEA2D-1341-4028-A8B4-D5582DC3E0AD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Source"
+              DTS:DTSID="{B88D5BF6-E7E7-462D-9768-0CC5D106B74C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Document Number"
+              DTS:DTSID="{3D8548E8-A7F1-4A52-80AC-A3F1E4620DF9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sales Check nummber"
+              DTS:DTSID="{6265204D-A2A5-4DA9-8C56-24A2BD12B90C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Accounting Unit"
+              DTS:DTSID="{F8CC0902-1C94-416A-9A33-0449837EEE05}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Accounting Unit (no hierarchy)"
+              DTS:DTSID="{6270E70D-DF8B-4E40-A8F0-3244D3D347AA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Location format type"
+              DTS:DTSID="{F38EA4DF-97E7-4F45-B541-148ADDC1FC11}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Store Region"
+              DTS:DTSID="{83E84DE1-C855-4831-8B04-6E7B11DA7550}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Store District"
+              DTS:DTSID="{E06F998D-21EE-4025-9130-DB50F6B36DA2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Store"
+              DTS:DTSID="{85B43C21-A045-4445-AAEE-13CA09F97CF0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Location"
+              DTS:DTSID="{F008B793-0D2B-4709-97D6-C85F3867C2CD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Category"
+              DTS:DTSID="{9E63A1E7-C349-4059-9170-1EFAB4D1675B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Division"
+              DTS:DTSID="{02A7BA12-413B-407E-9577-1B0E706FC48E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Line"
+              DTS:DTSID="{A5B27700-20D3-4995-8B93-ABAAE107E90C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Subline"
+              DTS:DTSID="{E60177CD-843B-4AB0-BF92-A866A2DA795C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Class"
+              DTS:DTSID="{F91EC429-4D5F-46B2-8AA9-866E89F0BD1B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Item Name"
+              DTS:DTSID="{614FFFFD-FB0F-4EDF-8001-D0BF371A914B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Discription"
+              DTS:DTSID="{63549F64-B9CE-407B-902E-2D64AFB861CC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Designation"
+              DTS:DTSID="{2B3887FE-625D-4B3A-837D-2C709ABD5341}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SKU#"
+              DTS:DTSID="{C212616B-3510-4236-B186-F13D5DB5FE92}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SHO Type"
+              DTS:DTSID="{DA651A42-0A14-4468-B59D-708FE5B51F14}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Brand"
+              DTS:DTSID="{845CC0BF-6A2E-43B0-8789-33219E8386E0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Is PA"
+              DTS:DTSID="{20017838-01B8-42E8-90AB-90032DB06F4B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Available PA"
+              DTS:DTSID="{519A539E-5446-4699-AD4E-DCFBE7BBA0D7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Bulk Sale Tran"
+              DTS:DTSID="{D800E79D-602C-4EEF-9C76-BC7E4EC73B36}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Net Amount"
+              DTS:DTSID="{FEE48F8B-32A0-4AB0-B8AE-F1093C70A47D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Qty"
+              DTS:DTSID="{CA46C29C-3A4F-49F9-B5AB-78DF44DC0134}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Avg  Cost"
+              DTS:DTSID="{E949248B-43CB-4830-BBA8-4B92E5091BBB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="List Price"
+              DTS:DTSID="{E73C8412-C65B-4ABD-B48A-058E9853E28F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Regular price"
+              DTS:DTSID="{14DC0046-194A-4B71-A79C-7CBB84473BBE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cadence 3H"
+              DTS:DTSID="{9CBA91A3-6D46-4030-9F2B-3D037002124A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cadence outlet"
+              DTS:DTSID="{83D664A8-47CA-483D-A8AA-F52DD8EC2068}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Amount"
+              DTS:DTSID="{94717644-413A-42E1-BA91-FB53AC1C7C0E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gross Profit"
+              DTS:DTSID="{7AB08BD6-2857-479B-A3AB-C3BE3EAC950A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Store Indicator"
+              DTS:DTSID="{9151DCF4-A997-4D66-8953-9133985D54FC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fulfilment method"
+              DTS:DTSID="{1D4C7150-206E-4B8A-9CD9-FB23771ECE99}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fulfilment Selected"
+              DTS:DTSID="{3ED654FE-F383-4218-9425-B8366D989ED3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer First Name"
+              DTS:DTSID="{5446C6C4-A948-4A4D-BF61-B0FCD5096927}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Last Name"
+              DTS:DTSID="{D14F8442-9BFE-4831-97D7-8E1A45F818B0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Address_1"
+              DTS:DTSID="{770B7652-E60E-440D-9EB6-D5141CEB44A5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Address_2"
+              DTS:DTSID="{9A0ABE7E-D238-4326-B787-EB8838586C0F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer City"
+              DTS:DTSID="{FD69F548-1D69-4A9E-8B14-5E05413C66CC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer State"
+              DTS:DTSID="{E968301F-B35D-4F25-9D30-84411C017CEE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Zip"
+              DTS:DTSID="{8C435DA0-3582-41AB-AFD2-55688D2C8648}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{69FE0D52-D4A2-4F2A-B431-3611FE7C10F0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Alt  Email"
+              DTS:DTSID="{2ED3E9C7-3003-458C-8675-CDBF5C6D32CE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Acc Email"
+              DTS:DTSID="{DC99DF5C-FB1F-4893-8C83-B718950F5265}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Shipping Email"
+              DTS:DTSID="{E9D495BB-E157-4913-B580-DA38CF498592}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Phone"
+              DTS:DTSID="{6BF13EC0-C21D-437D-85B3-E2AEE9F92A8D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Mobile"
+              DTS:DTSID="{0A6C538A-7582-4BCA-A46C-D450B6DDBE2E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Home Phone "
+              DTS:DTSID="{63E81BBC-39D8-45AC-83ED-C20923786B60}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SSIS ARCHIVE]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{62613241-2520-44F8-A848-78696ED20D52}"
+      DTS:ObjectName="SSIS ARCHIVE">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"\\\\10.1.0.22\\ssis_incoming\\netsuite\\archive\\ns_daily_sales_transaction_Line_"  +(DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2)+ ".txt"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\archive\ns_daily_sales_transaction_Line_20190201.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Date"
+              DTS:DTSID="{D63F3595-0BB2-4DBD-9A01-44AC2F6B7D78}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Paid Date"
+              DTS:DTSID="{43818996-0454-4DE0-861F-6F63C946B6CC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Type"
+              DTS:DTSID="{AD392D1A-8503-4698-B9AA-05F614ECD1F2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Status"
+              DTS:DTSID="{6D822934-856C-4A94-8065-4B72D2BFD719}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Source"
+              DTS:DTSID="{5EA01BC2-6B47-4422-9F5D-53F53A8119D7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Document Number"
+              DTS:DTSID="{8647B7E9-A4CF-4430-98DB-B384A6C03730}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sales Check nummber"
+              DTS:DTSID="{23C2CAF0-5055-4E4C-8CF8-03FB0DB72481}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Accounting Unit"
+              DTS:DTSID="{2F8A14EA-55E7-4A6C-BE93-F8E9874C2F4B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Accounting Unit (no hierarchy)"
+              DTS:DTSID="{2475575B-ECDA-4E2B-B5C1-F35BA654C522}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Location format type"
+              DTS:DTSID="{5D442099-3D69-4053-863E-E937926589C0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Store Region"
+              DTS:DTSID="{3CA4BFD3-5DD2-4177-922D-6A25BE8C7AE5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Store District"
+              DTS:DTSID="{217C0CFA-5DC5-4E00-9CA6-0E6F8365E1DD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Store"
+              DTS:DTSID="{0810E6D9-9410-4CAA-9903-878ADC049482}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Location"
+              DTS:DTSID="{4A80A1E6-B7C7-4D58-A342-5208CDE94718}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Category"
+              DTS:DTSID="{80A943CE-3445-48D4-821E-CEC34B27F8BB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Division"
+              DTS:DTSID="{3DEEF630-3E41-43C7-AA5A-F58B3D7AD48F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Line"
+              DTS:DTSID="{39720C46-AC85-4F5E-AA60-A85E0DC40468}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Subline"
+              DTS:DTSID="{81276649-EE3F-4DAE-9224-4F11B29BA550}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Class"
+              DTS:DTSID="{8CAF786E-5C76-404A-A075-397D085DF320}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Item Name"
+              DTS:DTSID="{118DD385-FAF6-4678-B6D8-25289F03D000}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Discription"
+              DTS:DTSID="{C552FABA-CCFB-4028-89E9-5083C8909E93}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Designation"
+              DTS:DTSID="{342C10F0-90F8-4985-B3E0-C218549D67E9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SKU#"
+              DTS:DTSID="{48F3292E-F3FA-479D-8636-041D196635C0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SHO Type"
+              DTS:DTSID="{F8686697-30E6-4256-8A1C-24317C629D83}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Brand"
+              DTS:DTSID="{AB095488-7827-4C6C-8067-1E9CEDA6EF0A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Is PA"
+              DTS:DTSID="{E9A38822-66C8-42A0-BA05-ECBD37E0D11B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Available PA"
+              DTS:DTSID="{5E191CBA-9FD4-4CF2-97D5-6B72F3D59BB5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Bulk Sale Tran"
+              DTS:DTSID="{998A454F-CE6D-4941-8559-58FFEFC317D1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Net Amount"
+              DTS:DTSID="{F3E95548-5AE5-4E8E-9055-C070AE65F548}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Qty"
+              DTS:DTSID="{85EAAADF-370B-4A39-AD27-246BD44302AA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Avg  Cost"
+              DTS:DTSID="{2AA61C58-BC10-4FD5-93DC-FF8E873478C4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="List Price"
+              DTS:DTSID="{11B486AD-978A-45DA-8117-24BCCBB80F80}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Regular price"
+              DTS:DTSID="{8D2D7622-16C7-48E3-8A9B-75BBA7691C28}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cadence 3H"
+              DTS:DTSID="{B7181DD4-EC23-4D68-BF5E-F80767163A27}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cadence outlet"
+              DTS:DTSID="{8BEAF872-A703-43D8-8B73-E7858D156374}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Amount"
+              DTS:DTSID="{ECA415D8-0661-428A-B55A-61F96CCAE4C5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gross Profit"
+              DTS:DTSID="{A9F3D59A-BBA1-4CF6-8D55-2956BC1AA2FF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Store Indicator"
+              DTS:DTSID="{415B8437-7E2F-40B9-86E9-EAF44B7035F5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fulfilment method"
+              DTS:DTSID="{98AF5D64-CE6B-46DD-B3DF-EAC62D93F3B4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fulfilment Selected"
+              DTS:DTSID="{BFDC1324-BAB5-4E56-8C31-EC69757B31E4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer First Name"
+              DTS:DTSID="{1C9BB4FC-2093-4DA3-996C-408C9698ABAA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Last Name"
+              DTS:DTSID="{E3245884-4A02-4748-AF49-B22017CC0312}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Address_1"
+              DTS:DTSID="{1FBC435E-B53E-4FAD-8177-DE899CBC6B26}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Address_2"
+              DTS:DTSID="{E5630683-1698-4605-A8CA-7F494BFE6E91}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer City"
+              DTS:DTSID="{4B7C981E-6271-4DB8-B6FD-5F1A16C968C7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer State"
+              DTS:DTSID="{6C4CA8B5-737A-405F-BB46-1D5B60038826}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Zip"
+              DTS:DTSID="{C0D645F1-BBD4-4D83-8812-46DCDE163ECB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{1BBC5EC8-4807-400F-A518-F65B7A4441D0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Alt  Email"
+              DTS:DTSID="{C8CA03F6-7756-4D6B-A1B5-A7990A2B9855}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Acc Email"
+              DTS:DTSID="{8FA3C3AA-45EB-4697-8AEB-8A853D3CA179}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Shipping Email"
+              DTS:DTSID="{074381A9-AFDE-4A4F-B5D7-19B19CAC87B2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Phone"
+              DTS:DTSID="{24E9E701-B599-4AA8-AC75-DD1C714E1078}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Mobile"
+              DTS:DTSID="{33909C63-59BA-4D87-84A6-1465CC5511C0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Home Phone "
+              DTS:DTSID="{3142D5E5-1911-4551-8D4C-524F6F1CDD05}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{67AAFDF3-9358-4585-8B90-A05DEE87875F}"
+      DTS:ObjectName="FlatFileConnectionManager_ConnectionString">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">X:\SourceFiles\Netsuite\NS_Daily File_Sales_Orders-8.27.2018</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{39E82741-0D92-4F33-B6D5-49A010A4B05A}"
+      DTS:ObjectName="netsuite_incoming"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4D6DBC43-AA63-4F15-BA7A-89BD2A45403C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="in_filename">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\quicktemp\development\NetSuiteDevelopment\netsuite data design\sample files\SHOBINewPOSCommentsfileResults272.csv</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A6708B78-C94C-4107-8FBA-1ED8F55E7507}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\APO File"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="APO File"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\APO File.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LOAD_NS_to_SHO_STAGING_APO_RAW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LOAD_NS_to_SHO_STAGING_APO_RAW]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[Internal ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[Internal ID]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[Internal ID]"
+                      name="Internal ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[Date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[Document Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[Document Number]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[Document Number]"
+                      name="Document Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[Sales Check Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[Sales Check Number]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[Sales Check Number]"
+                      name="Sales Check Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[Promotion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[Promotion]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[Promotion]"
+                      name="Promotion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[Applied Promotion Status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[Applied Promotion Status]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[Applied Promotion Status]"
+                      name="Applied Promotion Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[SHO_Reason_Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[SHO_Reason_Code]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[SHO_Reason_Code]"
+                      name="SHO_Reason_Code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[SHO_POS_Readon_Code_Comment]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[SHO_POS_Readon_Code_Comment]"
+                      length="350"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[SHO_POS_Readon_Code_Comment]"
+                      name="SHO_POS_Readon_Code_Comment"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[New Sears Card application Status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[New Sears Card application Status]"
+                      length="500"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[New Sears Card application Status]"
+                      name="New Sears Card application Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[Type]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[Type]"
+                      name="Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[type_2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[type_2]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[type_2]"
+                      name="type_2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[Internal ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Internal ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[Document Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Document Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[Sales Check Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Sales Check Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[Promotion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Promotion" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[Applied Promotion Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Applied Promotion Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[SHO_Reason_Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SHO_Reason_Code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[SHO_POS_Readon_Code_Comment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="SHO_POS_Readon_Code_Comment" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[New Sears Card application Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="New Sears Card application Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].ExternalColumns[type_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="type_2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\APO File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[filename]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="filename"
+                      lineageId="Package\Data Flow Task\Put in_filename in stream.Outputs[Derived Column Output].Columns[filename]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[casted filename]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[casted filename]"
+                      name="casted filename"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Put in_filename in stream.Outputs[Derived Column Output].Columns[filename]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Insert into APO raw"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert into APO raw"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[netsuite].[sales_daily_apo_raw]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Insert into APO raw.Connections[OleDbConnection]"
+                  connectionManagerID="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_STAGING]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[Promotion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Promotion"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[promotion]"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[Promotion]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[SHO_Reason_Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SHO_Reason_Code"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[sho_reason_code]"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[SHO_Reason_Code]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[Internal ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Internal ID"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[internal_id]"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[Internal ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[Date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[date_created]"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[Document Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Document Number"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[transaction_document_number]"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[Document Number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[Sales Check Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Sales Check Number"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[sales_check_nummber]"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[Sales Check Number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[Applied Promotion Status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Applied Promotion Status"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[applied_promotion_status]"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[Applied Promotion Status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[SHO_POS_Readon_Code_Comment]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="SHO_POS_Readon_Code_Comment"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[sho_pos_reason_code_comment]"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[SHO_POS_Readon_Code_Comment]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[New Sears Card application Status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="New Sears Card application Status"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[new_sears_card_application_status]"
+                      lineageId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output].Columns[New Sears Card application Status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[casted filename]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="casted filename"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[filename]"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[casted filename]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[internal_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="internal_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[date_created]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="date_created" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[transaction_document_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="transaction_document_number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[sales_check_nummber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="sales_check_nummber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[promotion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="promotion" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[applied_promotion_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="applied_promotion_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[sho_reason_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="sho_reason_code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[sho_pos_reason_code_comment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="sho_pos_reason_code_comment" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[new_sears_card_application_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="new_sears_card_application_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[rec_load_dt]"
+                      dataType="dbTimeStamp"
+                      name="rec_load_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[filename]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="filename" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Insert into APO raw.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Insert into APO raw.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Insert into APO raw.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Insert into APO raw.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Put in_filename in stream"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Put in_filename in stream"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Put in_filename in stream.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Put in_filename in stream.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task\Put in_filename in stream.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Put in_filename in stream.Outputs[Derived Column Output].Columns[filename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Put in_filename in stream.Outputs[Derived Column Output].Columns[filename]"
+                      name="filename"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,255)@[User::in_filename]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,255)@[User::in_filename]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Put in_filename in stream.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task\Put in_filename in stream.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Put in_filename in stream.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Put in_filename in stream.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Put in_filename in stream.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Put in_filename in stream.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task\Insert into APO raw.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Output]"
+              endId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task\Put in_filename in stream.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task\Put in_filename in stream.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task\APO File.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Move the file from ftp location to SSIS incoming"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{2F7ED910-A2D2-4150-B2BA-9394AB8596BE}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Move the file from ftp location to SSIS incoming"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="{3526ABAA-13C6-4319-9AA0-4EAC63E8C7C5}"
+          TaskDestinationPath="{C59AFD7E-B2ED-492C-8174-E53BE485C7AD}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Source File Archive"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{0D612CC2-75FA-4B5E-90B2-BDD8A732D85C}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Source File Archive"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskSourcePath="{C59AFD7E-B2ED-492C-8174-E53BE485C7AD}"
+          TaskDestinationPath="{62613241-2520-44F8-A848-78696ED20D52}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Source File Deletion"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{63B29D17-F5A7-4FED-8121-67FEA89FA378}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Source File Deletion"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteFile"
+          TaskSourcePath="{3526ABAA-13C6-4319-9AA0-4EAC63E8C7C5}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Staging Netsuite Header APO Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3531059C-91B6-4261-9E90-DE36965C60E8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Staging Netsuite Header APO Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="truncate table [sho_staging].[netsuite].[sales_daily_apo_raw];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update sho_dw_sho_sales with APO Data"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D0B005E4-5FAE-471B-95AB-C6D33161462F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update sho_dw_sho_sales with APO Data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="&#xA;--*** Update sho_dw.fact.sho_sales_by_loc with APO Opportunities data ***&#xA;Update sho_dw.fact.sho_sales_by_loc set apo_opps_ty = apo_ns.apo_opps_ty&#xA;FROM&#xA;(&#xA;select Convert(date,apo.[Date Created]) as trs_dt, location.pos_nbr, count (distinct apo.[Sales Check nummber]) as apo_opps_ty from sho_staging.netsuite.[NS_Daily_File_Sales_Orders_Header_APO] apo&#xA;inner join [sho_staging].[netsuite].[NS_Daily_File_Sales_Orders_Header] header &#xA;on TRIM(apo.[Transaction Document Number]) = TRIM(header.[Transaction Document Number]) &#xA;inner join [sho_dw].[dim].[location] location on &#xA;convert(int,header.Location) = location.eis_nbr&#xA;where len(trim(header.[sales check nummber])) &gt; 0 &#xA;GROUP BY Convert(date,apo.[Date Created]), location.pos_nbr&#xA;)&#xA;apo_ns&#xA;INNER JOIN &#xA;sho_dw.fact.sho_sales_by_loc fact ON &#xA;apo_ns.pos_nbr = fact.pos_nbr and apo_ns.trs_dt = fact.trs_dt;&#xA;&#xA;--*** Update sho_dw.fact.sho_sales_by_loc with APO Applications data ***&#xA;Update sho_dw.fact.sho_sales_by_loc set apo_apps_ty = apo_ns.apo_apps_ty&#xA;FROM&#xA;(&#xA;select Convert(date,apo.[Date Created]) as trs_dt, location.pos_nbr, count(*) as apo_apps_ty from sho_staging.netsuite.[NS_Daily_File_Sales_Orders_Header_APO] apo&#xA;inner join [sho_staging].[netsuite].[NS_Daily_File_Sales_Orders_Header] header &#xA;on TRIM(apo.[Transaction Document Number]) = TRIM(header.[Transaction Document Number]) &#xA;inner join [sho_dw].[dim].[location] location on &#xA;convert(int,header.Location) = location.eis_nbr&#xA;where apo.SHO_REASON_CODE = 'SCAP' &#xA;GROUP BY Convert(date,apo.[Date Created]), location.pos_nbr&#xA;)&#xA;apo_ns&#xA;INNER JOIN &#xA;sho_dw.fact.sho_sales_by_loc fact ON &#xA;apo_ns.pos_nbr = fact.pos_nbr and apo_ns.trs_dt = fact.trs_dt;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{94170CA8-BF92-46E0-8B52-F3A8A6A436D7}"
+      DTS:From="Package\Data Flow Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Update sho_dw_sho_sales with APO Data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{707DF6F2-62C8-45E9-8306-2644B309BAB0}"
+      DTS:From="Package\Truncate Staging Netsuite Header APO Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Move the file from ftp location to SSIS incoming" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{924E5D3A-B3E9-4037-A164-44DA29D3DEAA}"
+      DTS:From="Package\Move the file from ftp location to SSIS incoming"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Data Flow Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{5D15A75A-BBAB-4FD5-89F1-D64DE0B8A225}"
+      DTS:From="Package\Source File Archive"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Source File Deletion" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{658DEB4D-24CC-4676-B961-4F72C1B0EB65}"
+      DTS:From="Package\Update sho_dw_sho_sales with APO Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Source File Archive" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Data Flow Task"
+          TopLeft="150.666660679711,168.173334677802" />
+        <NodeLayout
+          Size="304,42"
+          Id="Package\Move the file from ftp location to SSIS incoming"
+          TopLeft="73.9999970595044,84.5866673389011" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Source File Archive"
+          TopLeft="166.666662269169,342.560002595266" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Source File Deletion"
+          TopLeft="409.333320644167,344.480002578735" />
+        <NodeLayout
+          Size="291,42"
+          Id="Package\Truncate Staging Netsuite Header APO Table"
+          TopLeft="128.666661553913,16.6400001322429" />
+        <NodeLayout
+          Size="275,42"
+          Id="Package\Update sho_dw_sho_sales with APO Data"
+          TopLeft="96,253" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="229.583330339855,210.173334677802">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.826665322198"
+              Start="0,0"
+              End="0,35.326665322198">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.326665322198" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="274.166661553913,58.6400001322429">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-48.1666644944086,25.9466672066582"
+              Start="0,0"
+              End="-48.1666644944086,18.4466672066582">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.9733336033291" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.9733336033291"
+                    Point2="0,12.9733336033291"
+                    Point3="-4,12.9733336033291" />
+                  <mssgle:LineSegment
+                    End="-44.1666644944086,12.9733336033291" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-44.1666644944086,12.9733336033291"
+                    Point2="-48.1666644944086,12.9733336033291"
+                    Point3="-48.1666644944086,16.9733336033291" />
+                  <mssgle:LineSegment
+                    End="-48.1666644944086,18.4466672066582" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="225.833328869608,126.586667338901">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.5866673389009"
+              Start="0,0"
+              End="0,34.0866673389009">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.0866673389009" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="335.666662269169,364.520002587">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73.666658374998,0"
+              Start="0,0"
+              End="66.166658374998,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="66.166658374998,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="233.5,295">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.666662269169,47.560002595266"
+              Start="0,0"
+              End="17.666662269169,40.060002595266">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.780001297633" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.780001297633"
+                    Point2="0,23.780001297633"
+                    Point3="4,23.780001297633" />
+                  <mssgle:LineSegment
+                    End="13.666662269169,23.780001297633" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.666662269169,23.780001297633"
+                    Point2="17.666662269169,23.780001297633"
+                    Point3="17.666662269169,27.780001297633" />
+                  <mssgle:LineSegment
+                    End="17.666662269169,40.060002595266" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Data Flow Task\Data Conversion"
+          TopLeft="198,229" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Data Flow Task\Put in_filename in stream"
+          TopLeft="179,136" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Data Flow Task\APO File"
+          TopLeft="227,25" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Data Flow Task\Insert into APO raw"
+          TopLeft="197,330" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="279.5,271">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="282.25,67">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69"
+              Start="0,0"
+              End="0,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="277.25,178">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Insert into APO raw">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
