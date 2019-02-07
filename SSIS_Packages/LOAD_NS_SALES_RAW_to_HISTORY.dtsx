@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_SALES_RAW_to_HISTORY"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{B1926AAC-A997-4E68-8C87-DFB1391ADAFC}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{B42682C8-5C3A-49D3-91FA-857E60C99021}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -26,7 +26,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Insert Into netsuite_sales_daily_header_history"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -45,7 +45,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Insert Into netsuite_sales_daily_line_history"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -64,13 +64,13 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Insert into netsuite_sales_daily_payment_history"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="--*** Insert Into sho_staging.netsuite.sales_daily_payment_history ***&#xA;Insert Into sho_staging.netsuite.sales_daily_payment_history(&#xA;[internal_id],&#xA;[create_date],&#xA;[subsidiary_no_hierarchy],&#xA;[location],&#xA;[eis_number],&#xA;[transaction_type],&#xA;[document_number],&#xA;[sales_document_number],&#xA;[sales_check_number],&#xA;[credit_memo],&#xA;[return_document_number],&#xA;[return_sales_check],&#xA;[payment_method],&#xA;[account],&#xA;[account_grouped],&#xA;[account_type],&#xA;[amount],&#xA;[rec_load_dt],&#xA;[filename]&#xA;) Select &#xA;Convert(varchar(10),[internal_id]),&#xA;Convert(varchar(18),[create_date]),&#xA;Convert(varchar(40),[subsidiary_no_hierarchy]),&#xA;Convert(varchar(255),[location]),&#xA;Convert(int,[eis_number]),&#xA;Convert(varchar(25),[transaction_type]),&#xA;Convert(varchar(10),[document_number]),&#xA;Convert(varchar(10),[sales_document_number]),&#xA;Convert(varchar(50),[sales_check_number]),&#xA;Convert(varchar(10),[credit_memo]),&#xA;Convert(varchar(10),[return_document_number]),&#xA;Convert(varchar(50),[return_sales_check]),&#xA;Convert(varchar(50),[payment_method]),&#xA;Convert(varchar(125),[account]),&#xA;Convert(varchar(125),[account_grouped]),&#xA;Convert(varchar(50),[account_type]),&#xA;Convert(decimal(11,2),[amount]),&#xA;GETDATE(),&#xA;Convert(varchar(255),[filename])&#xA; From sho_staging.netsuite.sales_daily_payment_raw r&#xA;  where NOT EXISTS &#xA; (&#xA;&#x9;SELECT [document_number]&#xA;&#x9;FROM sho_staging.netsuite.sales_daily_payment_history h&#xA;&#x9;WHERE trim(h.document_number) = trim(r.document_number) &#xA;&#x9;&#x9;and trim(h.credit_memo) = trim(r.credit_memo) &#xA;&#x9;&#x9;and trim(h.account) = trim(r.account)&#xA; );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="--*** Insert Into sho_staging.netsuite.sales_daily_payment_history ***&#xA;Insert Into sho_staging.netsuite.sales_daily_payment_history(&#xA;[internal_id],&#xA;[create_date],&#xA;[subsidiary_no_hierarchy],&#xA;[location],&#xA;[eis_number],&#xA;[transaction_type],&#xA;[document_number],&#xA;[sales_document_number],&#xA;[sales_check_number],&#xA;[credit_memo],&#xA;[return_document_number],&#xA;[return_sales_check],&#xA;[payment_method],&#xA;[creditcard_masked],&#xA;[cardholder_name],&#xA;[account],&#xA;[account_grouped],&#xA;[account_type],&#xA;[amount],&#xA;[rec_load_dt],&#xA;[filename]&#xA;) Select &#xA;Convert(varchar(10),[internal_id]),&#xA;Convert(varchar(18),[create_date]),&#xA;Convert(varchar(40),[subsidiary_no_hierarchy]),&#xA;Convert(varchar(255),[location]),&#xA;Convert(int,[eis_number]),&#xA;Convert(varchar(25),[transaction_type]),&#xA;Convert(varchar(10),[document_number]),&#xA;Convert(varchar(10),[sales_document_number]),&#xA;Convert(varchar(50),[sales_check_number]),&#xA;Convert(varchar(10),[credit_memo]),&#xA;Convert(varchar(10),[return_document_number]),&#xA;Convert(varchar(50),[return_sales_check]),&#xA;Convert(varchar(50),[payment_method]),&#xA;Convert(varchar(50),[creditcard_masked]),&#xA;Convert(varchar(50),[cardholder_name]),&#xA;Convert(varchar(125),[account]),&#xA;Convert(varchar(125),[account_grouped]),&#xA;Convert(varchar(50),[account_type]),&#xA;Convert(decimal(11,2),[amount]),&#xA;GETDATE(),&#xA;Convert(varchar(255),[filename])&#xA; From sho_staging.netsuite.sales_daily_payment_raw r&#xA;  where NOT EXISTS &#xA; (&#xA;&#x9;SELECT [document_number]&#xA;&#x9;FROM sho_staging.netsuite.sales_daily_payment_history h&#xA;&#x9;WHERE trim(h.document_number) = trim(r.document_number) &#xA;&#x9;&#x9;and trim(h.credit_memo) = trim(r.credit_memo) &#xA;&#x9;&#x9;and trim(h.account) = trim(r.account)&#xA; );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -88,7 +88,7 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="--*** Insert into netsuite_sales_daily_payment_sales_daily_header_apo_history ***&#xA;Insert Into sho_staging.netsuite.sales_daily_apo_history&#xA;(&#xA;[internal_id_header],&#xA;[internal_id_apo],&#xA;[date_created],&#xA;[transaction_document_number],&#xA;[sales_check_nummber],&#xA;[promotion],&#xA;[applied_promotion_status],&#xA;[sho_reason_code],&#xA;[sho_pos_reason_code_comment],&#xA;[new_sears_card_application_status],&#xA;[rec_load_dt],&#xA;[rec_upd_dt],&#xA;[filename]&#xA;) &#xA;Select Distinct&#xA;Convert(varchar(15),[internal_id_header]),&#xA;Convert(varchar(15),[internal_id_apo]),&#xA;Convert(varchar(15),[date_created]),&#xA;Convert(varchar(15),[transaction_document_number]),&#xA;Convert(varchar(50),[sales_check_nummber]),&#xA;Convert(varchar(50),[promotion]),&#xA;Convert(varchar(50),[applied_promotion_status]),&#xA;Convert(varchar(10),[sho_reason_code]),&#xA;Convert(varchar(350),[sho_pos_reason_code_comment]),&#xA;Convert(varchar(200),[new_sears_card_application_status]),&#xA;GETDATE(),&#xA;GETDATE(),&#xA;Convert(varchar(255),[filename])&#xA; From sho_staging.netsuite.sales_daily_apo_raw r&#xA; WHERE NOT EXISTS &#xA; (&#xA;&#x9;SELECT [transaction_document_number] from sho_staging.netsuite.sales_daily_apo_history h &#xA;&#x9;WHERE &#xA;&#x9;trim(h.[internal_id_apo]) = trim(r.[internal_id_apo])&#xA;)&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="--*** Insert into netsuite_sales_daily_payment_sales_daily_header_apo_history ***&#xA;Insert Into sho_staging.netsuite.sales_daily_apo_history&#xA;(&#xA;[internal_id_header],&#xA;[internal_id_apo],&#xA;[date_created],&#xA;[transaction_document_number],&#xA;[sales_check_nummber],&#xA;[promotion],&#xA;[applied_promotion_status],&#xA;[sho_reason_code],&#xA;[sho_pos_reason_code_comment],&#xA;[new_sears_card_application_status],&#xA;[rec_load_dt],&#xA;[rec_upd_dt],&#xA;[filename]&#xA;) &#xA;Select Distinct&#xA;Convert(varchar(15),[internal_id_header]),&#xA;Convert(varchar(15),Coalesce([internal_id_apo],'')),&#xA;Convert(varchar(15),[date_created]),&#xA;Convert(varchar(15),[transaction_document_number]),&#xA;Convert(varchar(50),[sales_check_nummber]),&#xA;Convert(varchar(50),[promotion]),&#xA;Convert(varchar(50),[applied_promotion_status]),&#xA;Convert(varchar(10),[sho_reason_code]),&#xA;Convert(varchar(350),[sho_pos_reason_code_comment]),&#xA;Convert(varchar(200),[new_sears_card_application_status]),&#xA;GETDATE(),&#xA;GETDATE(),&#xA;Convert(varchar(255),[filename])&#xA; From sho_staging.netsuite.sales_daily_apo_raw r&#xA; WHERE NOT EXISTS &#xA; (&#xA;&#x9;SELECT [transaction_document_number] from sho_staging.netsuite.sales_daily_apo_history h &#xA;&#x9;WHERE &#xA;&#x9;trim(h.[internal_id_header]) = trim(r.[internal_id_header])&#xA;&#x9;and trim(h.[internal_id_apo]) = trim(coalesce(r.[internal_id_apo],'')) &#xA;);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -100,7 +100,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Update netsuite_sales_daily_header_history"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -119,7 +119,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Update netsuite_sales_daily_line_history"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -138,13 +138,13 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Update netsuite_sales_daily_payment_history"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="--*** Update sho_staging.netsuite.sales_daily_payment_history***&#xA;Update sho_staging.netsuite.sales_daily_payment_history SET &#xA;[create_date] = Convert(varchar(18),r.[create_date]),&#xA;[subsidiary_no_hierarchy] = Convert(varchar(40),r.[subsidiary_no_hierarchy]),&#xA;[location] = Convert(varchar(255),r.[location]),&#xA;[eis_number] = Convert(int,r.[eis_number]),&#xA;[transaction_type] = Convert(varchar(25),r.[transaction_type]),&#xA;[document_number] = Convert(varchar(10),r.[document_number]),&#xA;[sales_document_number] = Convert(varchar(10),r.[sales_document_number]),&#xA;[sales_check_number] = Convert(varchar(50),r.[sales_check_number]),&#xA;[credit_memo] = Convert(varchar(10),r.[credit_memo]),&#xA;[return_document_number] = Convert(varchar(10),r.[return_document_number]),&#xA;[return_sales_check] = Convert(varchar(50),r.[return_sales_check]),&#xA;[payment_method] = Convert(varchar(50),r.[payment_method]),&#xA;[account] = Convert(varchar(125),r.[account]),&#xA;[account_grouped] = Convert(varchar(125),r.[account_grouped]),&#xA;[account_type] = Convert(varchar(50),r.[account_type]),&#xA;[amount] = Convert(decimal(11,2),r.[amount]),&#xA;[rec_upd_dt] = GETDATE(),&#xA;[filename] = Convert(varchar(255),r.[filename])&#xA;  From sho_staging.netsuite.sales_daily_payment_raw r&#xA; Inner Join sho_staging.netsuite.sales_daily_payment_history h&#xA; On &#xA; trim(r.internal_id) = trim(h.internal_id) &#xA; and trim(r.document_number) = trim(h.document_number) &#xA; and trim(r.sales_check_number) = trim(h.sales_check_number)&#xA; and trim(r.credit_memo) = trim(h.credit_memo) &#xA; and trim(r.account_type) = trim(h.account_type);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="--*** Update sho_staging.netsuite.sales_daily_payment_history***&#xA;Update sho_staging.netsuite.sales_daily_payment_history SET &#xA;[create_date] = Convert(varchar(18),r.[create_date]),&#xA;[subsidiary_no_hierarchy] = Convert(varchar(40),r.[subsidiary_no_hierarchy]),&#xA;[location] = Convert(varchar(255),r.[location]),&#xA;[eis_number] = Convert(int,r.[eis_number]),&#xA;[transaction_type] = Convert(varchar(25),r.[transaction_type]),&#xA;[document_number] = Convert(varchar(10),r.[document_number]),&#xA;[sales_document_number] = Convert(varchar(10),r.[sales_document_number]),&#xA;[sales_check_number] = Convert(varchar(50),r.[sales_check_number]),&#xA;[credit_memo] = Convert(varchar(10),r.[credit_memo]),&#xA;[return_document_number] = Convert(varchar(10),r.[return_document_number]),&#xA;[return_sales_check] = Convert(varchar(50),r.[return_sales_check]),&#xA;[payment_method] = Convert(varchar(50),r.[payment_method]),&#xA;[creditcard_masked] = Convert(varchar(50),r.[creditcard_masked]),&#xA;[cardholder_name] = Convert(varchar(50),r.[cardholder_name]),&#xA;[account] = Convert(varchar(125),r.[account]),&#xA;[account_grouped] = Convert(varchar(125),r.[account_grouped]),&#xA;[account_type] = Convert(varchar(50),r.[account_type]),&#xA;[amount] = Convert(decimal(11,2),r.[amount]),&#xA;[rec_upd_dt] = GETDATE(),&#xA;[filename] = Convert(varchar(255),r.[filename])&#xA;  From sho_staging.netsuite.sales_daily_payment_raw r&#xA; Inner Join sho_staging.netsuite.sales_daily_payment_history h&#xA; On &#xA; trim(r.internal_id) = trim(h.internal_id) &#xA; and trim(r.document_number) = trim(h.document_number) &#xA; and trim(r.sales_check_number) = trim(h.sales_check_number)&#xA; and trim(r.credit_memo) = trim(h.credit_memo) &#xA; and trim(r.account_type) = trim(h.account_type);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -162,7 +162,7 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="--*** Update netsuite_sales_daily_payment_sales_daily_header_apo_history***&#xA;Update sho_staging.netsuite.sales_daily_apo_history SET &#xA;[internal_id_header] = Convert(varchar(15),r.[internal_id_header]),&#xA;[date_created] = Convert(varchar(15),r.[date_created]),&#xA;[transaction_document_number] = Convert(varchar(15),r.[transaction_document_number]),&#xA;[sales_check_nummber] = Convert(varchar(50),r.[sales_check_nummber]),&#xA;[promotion] = Convert(varchar(50),r.[promotion]),&#xA;[applied_promotion_status] = Convert(varchar(50),r.[applied_promotion_status]),&#xA;[sho_reason_code] = Convert(varchar(10),r.[sho_reason_code]),&#xA;[sho_pos_reason_code_comment] = Convert(varchar(350),r.[sho_pos_reason_code_comment]),&#xA;[new_sears_card_application_status] = Convert(varchar(200),r.[new_sears_card_application_status]),&#xA;[rec_upd_dt] = GETDATE(),&#xA;[filename] = Convert(varchar(255),r.[filename])&#xA; From sho_staging.netsuite.sales_daily_apo_raw r&#xA; Inner Join sho_staging.netsuite.sales_daily_apo_history h&#xA; On trim(r.internal_id_apo) = trim(h.internal_id_apo);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="--*** Update netsuite_sales_daily_payment_sales_daily_header_apo_history***&#xA;Update sho_staging.netsuite.sales_daily_apo_history SET &#xA;[internal_id_header] = Convert(varchar(15),r.[internal_id_header]),&#xA;[date_created] = Convert(varchar(15),r.[date_created]),&#xA;[transaction_document_number] = Convert(varchar(15),r.[transaction_document_number]),&#xA;[sales_check_nummber] = Convert(varchar(50),r.[sales_check_nummber]),&#xA;[promotion] = Convert(varchar(50),r.[promotion]),&#xA;[applied_promotion_status] = Convert(varchar(50),r.[applied_promotion_status]),&#xA;[sho_reason_code] = Convert(varchar(10),r.[sho_reason_code]),&#xA;[sho_pos_reason_code_comment] = Convert(varchar(350),r.[sho_pos_reason_code_comment]),&#xA;[new_sears_card_application_status] = Convert(varchar(200),r.[new_sears_card_application_status]),&#xA;[rec_upd_dt] = GETDATE(),&#xA;[filename] = Convert(varchar(255),r.[filename])&#xA; From sho_staging.netsuite.sales_daily_apo_raw r&#xA; Inner Join sho_staging.netsuite.sales_daily_apo_history h&#xA; On trim(h.[internal_id_header]) = trim(r.[internal_id_header])&#xA;&#x9;and trim(h.[internal_id_apo]) = trim(coalesce(r.[internal_id_apo],''));" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
