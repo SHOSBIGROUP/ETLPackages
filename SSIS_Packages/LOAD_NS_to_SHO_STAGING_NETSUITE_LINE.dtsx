@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_to_SHO_STAGING_NETSUITE_LINE"
   DTS:PackageType="5"
-  DTS:VersionBuild="62"
-  DTS:VersionGUID="{14378989-E843-41B9-96DD-2A2E57E0DB73}">
+  DTS:VersionBuild="75"
+  DTS:VersionGUID="{8508CAA7-0FD8-48C0-A1BC-6A755E6CC54F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -657,7 +657,7 @@
       DTS:DTSID="{A24D95E8-57ED-4401-8FFB-08F61D9DF2BF}"
       DTS:ObjectName="SOURCE FTP LOCATION">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">"\\\\azitutil.ads.shos.com\\sftp_root\\BI\\data\\in\\netsuite\\ns_daily_sales_transaction_line_"+(DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".txt"</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">"\\\\azitutil.ads.shos.com\\sftp_root\\BI\\data\\in\\netsuite\\bi_daily_transaction_line_"+(DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -667,7 +667,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite\ns_daily_sales_transaction_line_20190211.txt">
+          DTS:ConnectionString="\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite\bi_daily_transaction_line_20190212.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1165,7 +1165,7 @@
       DTS:DTSID="{D22A1440-D7D9-4CE4-BB30-0A7465914DD9}"
       DTS:ObjectName="SSIS ARCHIVE">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">"\\\\10.1.0.22\\ssis_incoming\\netsuite\\archive\\ns_daily_sales_transaction_line_"  +(DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2)+ ".txt"</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">"\\\\10.1.0.22\\ssis_incoming\\netsuite\\archive\\bi_daily_transaction_line_"  +(DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2)+ ".csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -1175,7 +1175,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\archive\ns_daily_sales_transaction_line_20190211.txt">
+          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\archive\bi_daily_transaction_line_20190212.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1673,7 +1673,7 @@
       DTS:DTSID="{6CDDA343-FFF4-402D-91C4-869AF68099A3}"
       DTS:ObjectName="SSIS INCOMING">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">"\\\\10.1.0.22\\ssis_incoming\\netsuite\\ns_daily_sales_transaction_line_"  +(DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".txt"</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">"\\\\10.1.0.22\\ssis_incoming\\netsuite\\bi_daily_transaction_line_"  +(DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -1683,25 +1683,25 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\ns_daily_sales_transaction_line_20190211.txt">
+          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\bi_daily_transaction_line_20190212.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="15"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Internal ID"
-              DTS:DTSID="{D89D1FD3-CA2D-4F56-B881-2FD0923E2132}"
+              DTS:DTSID="{4B2B4AFD-A508-47AC-8C52-29251A4C6D79}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="15"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Date"
-              DTS:DTSID="{4AE1E52D-7D41-41F3-8C77-B8E9D47ABE4C}"
+              DTS:ObjectName="TranDate"
+              DTS:DTSID="{B4A8D235-1E98-45B9-921F-1106BFDAC65E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1710,7 +1710,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Type"
-              DTS:DTSID="{170931E7-E3D6-4F1B-8CB5-F892C76077BF}"
+              DTS:DTSID="{4E9F61C4-9AF4-4C73-8BF3-00650B52FC73}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1718,8 +1718,17 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Created From Type"
-              DTS:DTSID="{1A75E661-E4F1-41B4-B9AA-FB97250760C5}"
+              DTS:ObjectName="Status"
+              DTS:DTSID="{BA1AA0AF-A2C6-4444-BB68-E2B143FBB0CC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Source"
+              DTS:DTSID="{6029509D-1326-4A46-A816-3E996A7BA417}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1728,16 +1737,34 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Document Number"
-              DTS:DTSID="{6CF540A9-5E3C-4D87-9536-CF192E479670}"
+              DTS:DTSID="{1E5BEFF8-279E-4121-A2A3-A8C9D6959532}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="60"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Sales Check Number"
-              DTS:DTSID="{93EF5AF0-A2D9-4804-AE77-492CD7CD2AB1}"
+              DTS:DTSID="{7652F3A6-C2AA-45E2-BF51-0F31CE243D66}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="80"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Accounting Unit"
+              DTS:DTSID="{DB5709B2-0F97-4974-A1B2-D90EA6779852}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="80"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Accounting Unit (no hierarchy)"
+              DTS:DTSID="{547DE3F3-6B3C-42F9-86D5-5F0EE63C41AC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1745,8 +1772,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Promotion"
-              DTS:DTSID="{3892A9F9-BCAA-45C7-98CD-CA5D4D9D0A03}"
+              DTS:ObjectName="Acc Unit Format"
+              DTS:DTSID="{E2A1BB7F-A385-4962-AA3D-00D35DDAEA0A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1754,8 +1781,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Applied Promotion Status"
-              DTS:DTSID="{79376EE7-ED4A-4EF0-9DCF-62756FF7AB12}"
+              DTS:ObjectName="Acc Unit Region"
+              DTS:DTSID="{26E7533B-C6A8-47D4-BB78-1C180FD1111B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1763,26 +1790,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="SHO_Reason_Code"
-              DTS:DTSID="{CF0461E8-6C8C-42A8-958E-9BB8E9DB01B1}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="350"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="SHO_POS_Readon_Code_Comment"
-              DTS:DTSID="{C3516FF3-D9CB-41A4-9F92-85D80E7F3456}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="250"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="New Sears Card application Status"
-              DTS:DTSID="{543D2FCA-9B8E-44C2-A036-12DAC0FD8F31}"
+              DTS:ObjectName="Acc Unit District"
+              DTS:DTSID="{84BDD948-8BEE-4C1F-8F1C-576CE8730DB9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1790,17 +1799,503 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Last Modified"
-              DTS:DTSID="{D4DF0F70-0D80-404E-A47A-E30D8CEF30B4}"
+              DTS:ObjectName="Acc Unit Store"
+              DTS:DTSID="{59D8F2FF-D25E-4A9C-BF57-6615E5473EE3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fulfilling Location"
+              DTS:DTSID="{CB4C3157-C487-4BF0-AA1C-9D8A2C79E1A3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Category"
+              DTS:DTSID="{2E161F98-8F65-4AC4-86A7-AE141934CEE8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Division"
+              DTS:DTSID="{8C704163-5BE6-48A1-8CDF-654BECF03449}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Line"
+              DTS:DTSID="{CCA47D40-C014-4E01-A0C8-441D4C808EB3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Subline"
+              DTS:DTSID="{0D32FB0C-78EA-4672-B40E-37D7ED806541}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Class"
+              DTS:DTSID="{9AABB932-07AC-4EC9-AD99-DF0CD3C5BD18}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Item Name"
+              DTS:DTSID="{853A592E-685B-49B5-BEB6-8D125F448E56}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Item Description"
+              DTS:DTSID="{FB2D79A2-C892-4982-912E-C14658864DE2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SKU #"
+              DTS:DTSID="{0B8DB56B-EFB1-4A93-A109-77697594488A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Item Designation"
+              DTS:DTSID="{7D9EF9DF-AB29-465E-A306-F5D070DE560D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SHO Item Type"
+              DTS:DTSID="{70EC7F83-8C62-444B-9E1B-97C5D6DFAACB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Brand"
+              DTS:DTSID="{35D6AD4A-12BF-479D-B4B4-02A627E12D51}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Is Protection Agreement Item"
+              DTS:DTSID="{21E84E3D-FC57-4787-B22D-E63ADA1DDBB3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="55"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Available Protection Agreements"
+              DTS:DTSID="{AB94D9C8-628C-4897-AD7B-D5C623E2C250}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Bulk Sale Transaction"
+              DTS:DTSID="{B2C9502D-5FC6-4FB3-9D21-8BC1E7480390}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Amount (Net)"
+              DTS:DTSID="{53C4FC5E-2895-413D-B3E6-F8B777D52784}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Quantity"
+              DTS:DTSID="{EEBE9260-9DF1-4128-8F06-750FCE9966E0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Average Cost"
+              DTS:DTSID="{F1F96F38-C314-4E9B-8B9C-DD9429489FF9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="List Price (Outlet)"
+              DTS:DTSID="{20146423-C693-4AA7-98B1-41ED34D0CFF3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Regular Price (3H)"
+              DTS:DTSID="{14578C76-8DB4-4615-AFE3-326603B52E41}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cadence % (3H)"
+              DTS:DTSID="{51018D34-2839-4C06-9DB3-764C522D304C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cadence % (Outlet)"
+              DTS:DTSID="{64FC3D3A-E5E4-45EF-BC1A-F144A21C463F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Amount"
+              DTS:DTSID="{BA56123C-2F05-4205-AA61-B298E703FD8E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Est  Gross Profit (Line)"
+              DTS:DTSID="{1C0659DB-71D4-43FB-9DC2-145C0B012F5F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Comp Store Indicator"
+              DTS:DTSID="{6DE690CA-7846-479B-A21F-6E2C58E16903}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fulfillment Method"
+              DTS:DTSID="{4E6D2C6F-CA76-45E4-B640-70D6521DDAA5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fulfillment Option Selected"
+              DTS:DTSID="{388F023A-A98B-4693-AA90-68FC3AD25A0F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="First Name"
+              DTS:DTSID="{F240D4AE-AC8F-4F0C-8180-EDD929FC02E2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Last Name"
+              DTS:DTSID="{B2D20488-9683-41B1-91DE-2419627B53D0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Address 1"
+              DTS:DTSID="{1195AFF2-F4F3-43DB-A94D-17F5EC63557B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Address 2"
+              DTS:DTSID="{E0F485C6-4C87-409D-89E7-7AC2D1CEC0EC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="City"
+              DTS:DTSID="{EFE3BFFB-441D-4132-8714-CE9E2A674963}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="State"
+              DTS:DTSID="{E925F7D0-93BE-4A07-BE93-D9E8460BB8C6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Zip"
+              DTS:DTSID="{E38C0F22-9A0B-47D0-8F14-EF58E8C3D4D0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Email_1"
+              DTS:DTSID="{A767D92E-3F34-42A0-A980-23CCB85F6E0F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Email_2"
+              DTS:DTSID="{11BA1DD5-6A77-41D6-B19D-4185D92F7649}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Email_3"
+              DTS:DTSID="{7F80D523-C96C-4D37-B7FE-31C05628B803}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Email_4"
+              DTS:DTSID="{BB183384-4615-4471-B37B-A4EE5F6BF042}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Phone Number"
+              DTS:DTSID="{ADF4584F-BA09-4080-A60E-8B6CEA42E88B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Mobile Number"
+              DTS:DTSID="{0749D9C6-2EF9-49FE-BED8-FE9AD52A68BD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Home Number"
+              DTS:DTSID="{084B18A4-CF35-45CB-B281-2581EDBFB2A4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Line Sequence Number"
+              DTS:DTSID="{5EE8E0A4-6EE6-4608-ABD6-D210E64E7540}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Amount (Tax)"
+              DTS:DTSID="{7EAC7FD9-1E6D-4243-A79F-D2984EFBEDB6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UPC Code"
+              DTS:DTSID="{89CCEE31-5BA4-4F95-847F-49F2E47383C5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="265"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Created From Type"
+              DTS:DTSID="{C51DE652-7C91-4860-82A2-AD11E951764D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Line Last Modified"
+              DTS:DTSID="{2080CA00-3320-4A7C-9E9C-9377316E58C9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fulfilled Received (Line Level)"
+              DTS:DTSID="{5A77946F-CDF3-499E-B20A-BBC7CEFB6B9F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="265"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Created From Document Number"
+              DTS:DTSID="{5692A4F1-D692-460E-A24A-D01384FC5FE4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Line Unique Key"
+              DTS:DTSID="{15999E02-90BD-4550-BEE0-3160CE140513}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="265"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Created From Invoice"
+              DTS:DTSID="{10BCC555-F48F-4891-B618-9CCB51F10991}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="265"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Created From SO"
+              DTS:DTSID="{F3157BFD-B841-4860-A8AD-734A3069948E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Flowpath Selected"
+              DTS:DTSID="{778E96C0-0340-4EC9-A737-ED622551637F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FlowPath Selected"
+              DTS:DTSID="{EC6D805C-13E6-4608-BC12-F5F73D550C5E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fulfilling Location Type"
+              DTS:DTSID="{9197D37C-4CA1-4951-8B13-1694D2299252}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000A_"
-              DTS:MaximumWidth="15"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Comments_Internal ID"
-              DTS:DTSID="{00160632-0863-4324-A7F0-8482CD8133B6}"
+              DTS:ObjectName="EIS Location Number"
+              DTS:DTSID="{F983C7C6-1E48-470E-80E1-215637B57A09}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -2101,7 +2596,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Brand]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="36"
+                      cachedLength="50"
                       cachedName="Brand"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[brand]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Brand]" />
@@ -2109,7 +2604,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[TranDate]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="28"
+                      cachedLength="50"
                       cachedName="TranDate"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[create_date]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[TranDate]" />
@@ -2117,7 +2612,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Type]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="20"
+                      cachedLength="50"
                       cachedName="Type"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[transaction_type]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Type]" />
@@ -2133,7 +2628,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Transaction Source]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="27"
+                      cachedLength="50"
                       cachedName="Transaction Source"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[transaction_source]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Transaction Source]" />
@@ -2141,7 +2636,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Document Number]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="18"
+                      cachedLength="50"
                       cachedName="Document Number"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[document_number]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Document Number]" />
@@ -2165,7 +2660,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Acc Unit Format]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="13"
+                      cachedLength="50"
                       cachedName="Acc Unit Format"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[store_format_type]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Acc Unit Format]" />
@@ -2173,7 +2668,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Acc Unit Region]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="10"
+                      cachedLength="50"
                       cachedName="Acc Unit Region"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[region]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Acc Unit Region]" />
@@ -2181,7 +2676,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Acc Unit District]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="10"
+                      cachedLength="50"
                       cachedName="Acc Unit District"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[district]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Acc Unit District]" />
@@ -2189,7 +2684,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Acc Unit Store]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="14"
+                      cachedLength="50"
                       cachedName="Acc Unit Store"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[store]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Acc Unit Store]" />
@@ -2197,7 +2692,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Accounting Unit (no hierarchy)]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="100"
+                      cachedLength="80"
                       cachedName="Accounting Unit (no hierarchy)"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[location_no_hierarchy]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Accounting Unit (no hierarchy)]" />
@@ -2221,7 +2716,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Item Designation]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="31"
+                      cachedLength="50"
                       cachedName="Item Designation"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[item_designation]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Item Designation]" />
@@ -2229,7 +2724,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[SKU #]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="13"
+                      cachedLength="50"
                       cachedName="SKU #"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[sku_number]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[SKU #]" />
@@ -2237,7 +2732,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[SHO Item Type]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="36"
+                      cachedLength="50"
                       cachedName="SHO Item Type"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[sho_item_type]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[SHO Item Type]" />
@@ -2245,7 +2740,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Bulk Sale Transaction]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="11"
+                      cachedLength="50"
                       cachedName="Bulk Sale Transaction"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[bulk_sales]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Bulk Sale Transaction]" />
@@ -2253,7 +2748,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Amount (Net)]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="18"
+                      cachedLength="50"
                       cachedName="Amount (Net)"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[net_amt]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Amount (Net)]" />
@@ -2261,7 +2756,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Quantity]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="12"
+                      cachedLength="50"
                       cachedName="Quantity"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[net_qty]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Quantity]" />
@@ -2269,7 +2764,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Average Cost]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="18"
+                      cachedLength="50"
                       cachedName="Average Cost"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[item_average_cost]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Average Cost]" />
@@ -2277,7 +2772,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[List Price (Outlet)]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="18"
+                      cachedLength="50"
                       cachedName="List Price (Outlet)"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[list_price]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[List Price (Outlet)]" />
@@ -2285,7 +2780,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Regular Price (3H)]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="18"
+                      cachedLength="50"
                       cachedName="Regular Price (3H)"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[regular_price]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Regular Price (3H)]" />
@@ -2293,7 +2788,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Cadence % (3H)]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="6"
+                      cachedLength="50"
                       cachedName="Cadence % (3H)"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[cadence_price_3h]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Cadence % (3H)]" />
@@ -2301,7 +2796,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Cadence % (Outlet)]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="6"
+                      cachedLength="50"
                       cachedName="Cadence % (Outlet)"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[cadance_price_outlet]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Cadence % (Outlet)]" />
@@ -2309,7 +2804,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Est  Gross Profit (Line)]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="18"
+                      cachedLength="50"
                       cachedName="Est  Gross Profit (Line)"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[gross_profit]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Est  Gross Profit (Line)]" />
@@ -2317,7 +2812,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Comp Store Indicator]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="11"
+                      cachedLength="50"
                       cachedName="Comp Store Indicator"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[comp_store_flag]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Comp Store Indicator]" />
@@ -2325,7 +2820,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Fulfillment Method]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="40"
+                      cachedLength="50"
                       cachedName="Fulfillment Method"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[fulfillment_method]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Fulfillment Method]" />
@@ -2333,7 +2828,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Fulfillment Option Selected]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="40"
+                      cachedLength="50"
                       cachedName="Fulfillment Option Selected"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[fulfillment_option_selected]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Fulfillment Option Selected]" />
@@ -2453,7 +2948,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Line Sequence Number]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="12"
+                      cachedLength="50"
                       cachedName="Line Sequence Number"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[line_sequence_number]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Line Sequence Number]" />
@@ -2469,7 +2964,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[UPC Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="24"
+                      cachedLength="50"
                       cachedName="UPC Code"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[upc_code]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[UPC Code]" />
@@ -2485,7 +2980,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Line Last Modified]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="20"
+                      cachedLength="50"
                       cachedName="Line Last Modified"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[line_last_modified]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Line Last Modified]" />
@@ -2493,7 +2988,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Fulfilled Received (Line Level)]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="265"
+                      cachedLength="50"
                       cachedName="Fulfilled Received (Line Level)"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[fulfilled_received_line_level]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Fulfilled Received (Line Level)]" />
@@ -2509,7 +3004,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Line Unique Key]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="265"
+                      cachedLength="50"
                       cachedName="Line Unique Key"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[line_unique_key]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Line Unique Key]" />
@@ -2533,7 +3028,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Fulfilling Location Type]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="10"
+                      cachedLength="50"
                       cachedName="Fulfilling Location Type"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[fullfilment_location_type]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Fulfilling Location Type]" />
@@ -2549,7 +3044,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Amount]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="18"
+                      cachedLength="50"
                       cachedName="Amount"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[sold_price]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Amount]" />
@@ -2557,7 +3052,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[EIS Location Number]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="4"
+                      cachedLength="50"
                       cachedName="EIS Location Number"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[eis_location_num]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[EIS Location Number]" />
@@ -2565,7 +3060,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].Columns[Flowpath Selected]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="265"
+                      cachedLength="50"
                       cachedName="Flowpath Selected"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Insert into line raw table.Inputs[OLE DB Destination Input].ExternalColumns[flowpath_selected]"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Flowpath Selected]" />
@@ -3024,8 +3519,8 @@
               <connections>
                 <connection
                   refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LOAD_NS_to_SHO_STAGING_LINE_RAW]"
-                  connectionManagerRefId="Package.ConnectionManagers[LOAD_NS_to_SHO_STAGING_LINE_RAW]"
+                  connectionManagerID="Package.ConnectionManagers[SSIS INCOMING]"
+                  connectionManagerRefId="Package.ConnectionManagers[SSIS INCOMING]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -3040,31 +3535,9 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Internal ID]"
-                      length="10"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Internal ID]"
                       name="Internal ID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[TranDate]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[TranDate]"
-                      length="28"
-                      lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[TranDate]"
-                      name="TranDate"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -3084,9 +3557,97 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Type]"
-                      length="20"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Type]"
                       name="Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Document Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Document Number]"
+                      length="50"
+                      lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Document Number]"
+                      name="Document Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Sales Check Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Sales Check Number]"
+                      length="60"
+                      lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Sales Check Number]"
+                      name="Sales Check Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Created From Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Created From Type]"
+                      length="265"
+                      lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Created From Type]"
+                      name="Created From Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[TranDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[TranDate]"
+                      length="50"
+                      lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[TranDate]"
+                      name="TranDate"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -3128,53 +3689,9 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Transaction Source]"
-                      length="27"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Transaction Source]"
                       name="Transaction Source"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Document Number]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Document Number]"
-                      length="18"
-                      lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Document Number]"
-                      name="Document Number"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Sales Check Number]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Sales Check Number]"
-                      length="60"
-                      lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Sales Check Number]"
-                      name="Sales Check Number"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -3216,7 +3733,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Accounting Unit (no hierarchy)]"
-                      length="100"
+                      length="80"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Accounting Unit (no hierarchy)]"
                       name="Accounting Unit (no hierarchy)"
                       truncationRowDisposition="FailComponent">
@@ -3238,7 +3755,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Acc Unit Format]"
-                      length="13"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Acc Unit Format]"
                       name="Acc Unit Format"
                       truncationRowDisposition="FailComponent">
@@ -3260,7 +3777,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Acc Unit Region]"
-                      length="10"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Acc Unit Region]"
                       name="Acc Unit Region"
                       truncationRowDisposition="FailComponent">
@@ -3282,7 +3799,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Acc Unit District]"
-                      length="10"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Acc Unit District]"
                       name="Acc Unit District"
                       truncationRowDisposition="FailComponent">
@@ -3304,7 +3821,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Acc Unit Store]"
-                      length="14"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Acc Unit Store]"
                       name="Acc Unit Store"
                       truncationRowDisposition="FailComponent">
@@ -3326,7 +3843,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Fulfilling Location]"
-                      length="14"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Fulfilling Location]"
                       name="Fulfilling Location"
                       truncationRowDisposition="FailComponent">
@@ -3502,7 +4019,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[SKU #]"
-                      length="13"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[SKU #]"
                       name="SKU #"
                       truncationRowDisposition="FailComponent">
@@ -3524,7 +4041,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Item Designation]"
-                      length="31"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Item Designation]"
                       name="Item Designation"
                       truncationRowDisposition="FailComponent">
@@ -3546,7 +4063,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[SHO Item Type]"
-                      length="36"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[SHO Item Type]"
                       name="SHO Item Type"
                       truncationRowDisposition="FailComponent">
@@ -3568,7 +4085,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Brand]"
-                      length="36"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Brand]"
                       name="Brand"
                       truncationRowDisposition="FailComponent">
@@ -3590,7 +4107,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Is Protection Agreement Item]"
-                      length="27"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Is Protection Agreement Item]"
                       name="Is Protection Agreement Item"
                       truncationRowDisposition="FailComponent">
@@ -3634,7 +4151,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Bulk Sale Transaction]"
-                      length="11"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Bulk Sale Transaction]"
                       name="Bulk Sale Transaction"
                       truncationRowDisposition="FailComponent">
@@ -3656,7 +4173,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Amount (Net)]"
-                      length="18"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Amount (Net)]"
                       name="Amount (Net)"
                       truncationRowDisposition="FailComponent">
@@ -3678,7 +4195,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Quantity]"
-                      length="12"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Quantity]"
                       name="Quantity"
                       truncationRowDisposition="FailComponent">
@@ -3700,7 +4217,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Average Cost]"
-                      length="18"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Average Cost]"
                       name="Average Cost"
                       truncationRowDisposition="FailComponent">
@@ -3722,7 +4239,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[List Price (Outlet)]"
-                      length="18"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[List Price (Outlet)]"
                       name="List Price (Outlet)"
                       truncationRowDisposition="FailComponent">
@@ -3744,7 +4261,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Regular Price (3H)]"
-                      length="18"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Regular Price (3H)]"
                       name="Regular Price (3H)"
                       truncationRowDisposition="FailComponent">
@@ -3766,7 +4283,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Cadence % (3H)]"
-                      length="6"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Cadence % (3H)]"
                       name="Cadence % (3H)"
                       truncationRowDisposition="FailComponent">
@@ -3788,7 +4305,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Cadence % (Outlet)]"
-                      length="6"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Cadence % (Outlet)]"
                       name="Cadence % (Outlet)"
                       truncationRowDisposition="FailComponent">
@@ -3810,7 +4327,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Amount]"
-                      length="18"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Amount]"
                       name="Amount"
                       truncationRowDisposition="FailComponent">
@@ -3832,7 +4349,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Est  Gross Profit (Line)]"
-                      length="18"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Est  Gross Profit (Line)]"
                       name="Est  Gross Profit (Line)"
                       truncationRowDisposition="FailComponent">
@@ -3854,7 +4371,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Comp Store Indicator]"
-                      length="11"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Comp Store Indicator]"
                       name="Comp Store Indicator"
                       truncationRowDisposition="FailComponent">
@@ -3876,7 +4393,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Fulfillment Method]"
-                      length="40"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Fulfillment Method]"
                       name="Fulfillment Method"
                       truncationRowDisposition="FailComponent">
@@ -3898,7 +4415,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Fulfillment Option Selected]"
-                      length="40"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Fulfillment Option Selected]"
                       name="Fulfillment Option Selected"
                       truncationRowDisposition="FailComponent">
@@ -4228,7 +4745,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Line Sequence Number]"
-                      length="12"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Line Sequence Number]"
                       name="Line Sequence Number"
                       truncationRowDisposition="FailComponent">
@@ -4272,31 +4789,9 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[UPC Code]"
-                      length="24"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[UPC Code]"
                       name="UPC Code"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Created From Type]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Created From Type]"
-                      length="265"
-                      lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Created From Type]"
-                      name="Created From Type"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -4316,7 +4811,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Line Last Modified]"
-                      length="20"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Line Last Modified]"
                       name="Line Last Modified"
                       truncationRowDisposition="FailComponent">
@@ -4338,7 +4833,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Fulfilled Received (Line Level)]"
-                      length="265"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Fulfilled Received (Line Level)]"
                       name="Fulfilled Received (Line Level)"
                       truncationRowDisposition="FailComponent">
@@ -4382,7 +4877,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Line Unique Key]"
-                      length="265"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Line Unique Key]"
                       name="Line Unique Key"
                       truncationRowDisposition="FailComponent">
@@ -4448,7 +4943,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Flowpath Selected]"
-                      length="265"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Flowpath Selected]"
                       name="Flowpath Selected"
                       truncationRowDisposition="FailComponent">
@@ -4470,7 +4965,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[FlowPath Selected]"
-                      length="265"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[FlowPath Selected]"
                       name="FlowPath Selected"
                       truncationRowDisposition="FailComponent">
@@ -4492,7 +4987,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Fulfilling Location Type]"
-                      length="10"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[Fulfilling Location Type]"
                       name="Fulfilling Location Type"
                       truncationRowDisposition="FailComponent">
@@ -4514,7 +5009,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[EIS Location Number]"
-                      length="4"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].Columns[EIS Location Number]"
                       name="EIS Location Number"
                       truncationRowDisposition="FailComponent">
@@ -4536,20 +5031,38 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Internal ID]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
+                      length="50"
                       name="Internal ID" />
-                    <externalMetadataColumn
-                      refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[TranDate]"
-                      codePage="1252"
-                      dataType="str"
-                      length="28"
-                      name="TranDate" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Type]"
                       codePage="1252"
                       dataType="str"
-                      length="20"
+                      length="50"
                       name="Type" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Document Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Document Number" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Sales Check Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Sales Check Number" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Created From Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="265"
+                      name="Created From Type" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[TranDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TranDate" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Status]"
                       codePage="1252"
@@ -4560,20 +5073,8 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Transaction Source]"
                       codePage="1252"
                       dataType="str"
-                      length="27"
+                      length="50"
                       name="Transaction Source" />
-                    <externalMetadataColumn
-                      refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Document Number]"
-                      codePage="1252"
-                      dataType="str"
-                      length="18"
-                      name="Document Number" />
-                    <externalMetadataColumn
-                      refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Sales Check Number]"
-                      codePage="1252"
-                      dataType="str"
-                      length="60"
-                      name="Sales Check Number" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Accounting Unit]"
                       codePage="1252"
@@ -4584,37 +5085,37 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Accounting Unit (no hierarchy)]"
                       codePage="1252"
                       dataType="str"
-                      length="100"
+                      length="80"
                       name="Accounting Unit (no hierarchy)" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Acc Unit Format]"
                       codePage="1252"
                       dataType="str"
-                      length="13"
+                      length="50"
                       name="Acc Unit Format" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Acc Unit Region]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
+                      length="50"
                       name="Acc Unit Region" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Acc Unit District]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
+                      length="50"
                       name="Acc Unit District" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Acc Unit Store]"
                       codePage="1252"
                       dataType="str"
-                      length="14"
+                      length="50"
                       name="Acc Unit Store" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Fulfilling Location]"
                       codePage="1252"
                       dataType="str"
-                      length="14"
+                      length="50"
                       name="Fulfilling Location" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Category]"
@@ -4662,31 +5163,31 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[SKU #]"
                       codePage="1252"
                       dataType="str"
-                      length="13"
+                      length="50"
                       name="SKU #" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Item Designation]"
                       codePage="1252"
                       dataType="str"
-                      length="31"
+                      length="50"
                       name="Item Designation" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[SHO Item Type]"
                       codePage="1252"
                       dataType="str"
-                      length="36"
+                      length="50"
                       name="SHO Item Type" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Brand]"
                       codePage="1252"
                       dataType="str"
-                      length="36"
+                      length="50"
                       name="Brand" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Is Protection Agreement Item]"
                       codePage="1252"
                       dataType="str"
-                      length="27"
+                      length="50"
                       name="Is Protection Agreement Item" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Available Protection Agreements]"
@@ -4698,79 +5199,79 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Bulk Sale Transaction]"
                       codePage="1252"
                       dataType="str"
-                      length="11"
+                      length="50"
                       name="Bulk Sale Transaction" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Amount (Net)]"
                       codePage="1252"
                       dataType="str"
-                      length="18"
+                      length="50"
                       name="Amount (Net)" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Quantity]"
                       codePage="1252"
                       dataType="str"
-                      length="12"
+                      length="50"
                       name="Quantity" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Average Cost]"
                       codePage="1252"
                       dataType="str"
-                      length="18"
+                      length="50"
                       name="Average Cost" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[List Price (Outlet)]"
                       codePage="1252"
                       dataType="str"
-                      length="18"
+                      length="50"
                       name="List Price (Outlet)" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Regular Price (3H)]"
                       codePage="1252"
                       dataType="str"
-                      length="18"
+                      length="50"
                       name="Regular Price (3H)" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Cadence % (3H)]"
                       codePage="1252"
                       dataType="str"
-                      length="6"
+                      length="50"
                       name="Cadence % (3H)" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Cadence % (Outlet)]"
                       codePage="1252"
                       dataType="str"
-                      length="6"
+                      length="50"
                       name="Cadence % (Outlet)" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Amount]"
                       codePage="1252"
                       dataType="str"
-                      length="18"
+                      length="50"
                       name="Amount" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Est  Gross Profit (Line)]"
                       codePage="1252"
                       dataType="str"
-                      length="18"
+                      length="50"
                       name="Est  Gross Profit (Line)" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Comp Store Indicator]"
                       codePage="1252"
                       dataType="str"
-                      length="11"
+                      length="50"
                       name="Comp Store Indicator" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Fulfillment Method]"
                       codePage="1252"
                       dataType="str"
-                      length="40"
+                      length="50"
                       name="Fulfillment Method" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Fulfillment Option Selected]"
                       codePage="1252"
                       dataType="str"
-                      length="40"
+                      length="50"
                       name="Fulfillment Option Selected" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[First Name]"
@@ -4860,7 +5361,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Line Sequence Number]"
                       codePage="1252"
                       dataType="str"
-                      length="12"
+                      length="50"
                       name="Line Sequence Number" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Amount (Tax)]"
@@ -4872,25 +5373,19 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[UPC Code]"
                       codePage="1252"
                       dataType="str"
-                      length="24"
+                      length="50"
                       name="UPC Code" />
-                    <externalMetadataColumn
-                      refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Created From Type]"
-                      codePage="1252"
-                      dataType="str"
-                      length="265"
-                      name="Created From Type" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Line Last Modified]"
                       codePage="1252"
                       dataType="str"
-                      length="20"
+                      length="50"
                       name="Line Last Modified" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Fulfilled Received (Line Level)]"
                       codePage="1252"
                       dataType="str"
-                      length="265"
+                      length="50"
                       name="Fulfilled Received (Line Level)" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Created From Document Number]"
@@ -4902,7 +5397,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Line Unique Key]"
                       codePage="1252"
                       dataType="str"
-                      length="265"
+                      length="50"
                       name="Line Unique Key" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Created From Invoice]"
@@ -4920,25 +5415,25 @@
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Flowpath Selected]"
                       codePage="1252"
                       dataType="str"
-                      length="265"
+                      length="50"
                       name="Flowpath Selected" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[FlowPath Selected]"
                       codePage="1252"
                       dataType="str"
-                      length="265"
+                      length="50"
                       name="FlowPath Selected" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[Fulfilling Location Type]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
+                      length="50"
                       name="Fulfilling Location Type" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw\Load Netsuite Line File.Outputs[Flat File Source Output].ExternalColumns[EIS Location Number]"
                       codePage="1252"
                       dataType="str"
-                      length="4"
+                      length="50"
                       name="EIS Location Number" />
                   </externalMetadataColumns>
                 </output>
@@ -5064,13 +5559,13 @@
           Id="Package\Load File ns_daily_sales_transaction_line to Table netsuite_sales_daily_line_raw"
           TopLeft="156,240" />
         <NodeLayout
-          Size="302,42"
-          Id="Package\Truncate Staging netsuite_sales_daily_line_raw"
-          TopLeft="208,79" />
-        <NodeLayout
           Size="444,42"
           Id="Package\Move file ns_daily_sales_transaction_line from FTP Location to SSIS incoming"
           TopLeft="158,154" />
+        <NodeLayout
+          Size="302,42"
+          Id="Package\Truncate Staging netsuite_sales_daily_line_raw"
+          TopLeft="208,79" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="359,121">

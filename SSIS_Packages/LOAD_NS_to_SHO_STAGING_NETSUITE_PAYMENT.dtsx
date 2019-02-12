@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_to_SHO_STAGING_NETSUITE_PAYMENT"
   DTS:PackageType="5"
-  DTS:VersionBuild="42"
-  DTS:VersionGUID="{759CC5F1-8651-490B-90E6-49BEC50C2C4C}">
+  DTS:VersionBuild="47"
+  DTS:VersionGUID="{7A05BA2A-43B9-41F6-AEB5-86525A1D6A25}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -225,7 +225,7 @@
       DTS:DTSID="{A24D95E8-57ED-4401-8FFB-08F61D9DF2BF}"
       DTS:ObjectName="SOURCE FTP LOCATION">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">"\\\\azitutil.ads.shos.com\\sftp_root\\BI\\data\\in\\netsuite\\ns_daily_sales_transaction_payment_"+(DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".txt"</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">"\\\\azitutil.ads.shos.com\\sftp_root\\BI\\data\\in\\netsuite\\bi_daily_transaction_payment_"+(DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -235,7 +235,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite\ns_daily_sales_transaction_payment_20190207.txt">
+          DTS:ConnectionString="\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite\bi_daily_transaction_payment_20190212.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -733,7 +733,7 @@
       DTS:DTSID="{D22A1440-D7D9-4CE4-BB30-0A7465914DD9}"
       DTS:ObjectName="SSIS ARCHIVE">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">"\\\\10.1.0.22\\ssis_incoming\\netsuite\\archive\\ns_daily_sales_transaction_header_"  +(DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2)+ ".txt"</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">"\\\\10.1.0.22\\ssis_incoming\\netsuite\\archive\\bi_daily_transaction_payment_"  +(DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2)+ ".csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -743,7 +743,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\archive\ns_daily_sales_transaction_header_20190207.txt">
+          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\archive\bi_daily_transaction_payment_20190212.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1241,7 +1241,7 @@
       DTS:DTSID="{6CDDA343-FFF4-402D-91C4-869AF68099A3}"
       DTS:ObjectName="SSIS INCOMING">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">"\\\\10.1.0.22\\ssis_incoming\\netsuite\\ns_daily_sales_transaction_payment_"  +(DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".txt"</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">"\\\\10.1.0.22\\ssis_incoming\\netsuite\\bi_daily_transaction_payment_"  +(DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -1251,7 +1251,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\ns_daily_sales_transaction_payment_20190207.txt">
+          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\bi_daily_transaction_payment_20190212.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1260,16 +1260,16 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Internal ID"
-              DTS:DTSID="{57318222-E23C-4E89-88C7-8E306A50880D}"
+              DTS:DTSID="{3CDA49C3-D795-4E96-8C1D-DC71750E522F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="18"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Date"
-              DTS:DTSID="{A486F29B-5BE4-4C5D-85FC-F0D35FE31B03}"
+              DTS:DTSID="{20937CD5-E891-49EB-A0AD-8FBFE675C09B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1278,7 +1278,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Subsidiary (no hierarchy)"
-              DTS:DTSID="{E4196ADA-C67D-4F15-861C-BB5A09ACDFE4}"
+              DTS:DTSID="{841B64B5-E40F-4758-AC9C-EC890A7A79A1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1287,7 +1287,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Location"
-              DTS:DTSID="{F4D9FC28-8657-4841-8F2A-4F6BD2C501D1}"
+              DTS:DTSID="{5F0A0C3C-CE2B-4AFF-9A97-42F17D651061}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1296,7 +1296,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="EIS Location Number"
-              DTS:DTSID="{F1752C2A-CE9D-48EF-ADF2-4ABF76805D8A}"
+              DTS:DTSID="{1990B6C1-0816-4195-A477-103CE508B863}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1305,7 +1305,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="EIS Number"
-              DTS:DTSID="{550E13C0-14C4-41B6-A4CB-DBE67961CB4D}"
+              DTS:DTSID="{575EADBD-84D4-41FA-80BA-CF71B19C53AB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1314,7 +1314,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Transaction Type"
-              DTS:DTSID="{EEAA995D-F8FE-4A93-9F62-2FF2CD63B0C5}"
+              DTS:DTSID="{45E206DF-F536-4302-91FE-5846F66DD401}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1323,7 +1323,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CD CR Payment"
-              DTS:DTSID="{86E39B0A-5391-499A-940D-107E0F695C00}"
+              DTS:DTSID="{B735C628-8B8B-4389-9E86-C178A744F0CA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1332,7 +1332,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SO or Invoice"
-              DTS:DTSID="{2F608D45-FB58-4B43-A8D6-4B374729F952}"
+              DTS:DTSID="{A60510C6-093A-4892-A215-F28C54874C30}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1341,7 +1341,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Sales Check Number"
-              DTS:DTSID="{8FE30E3A-CE2B-400A-B413-348A98079BD6}"
+              DTS:DTSID="{D707A0A5-8ABA-4BFB-9C28-AE20FB570344}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1350,7 +1350,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Credit Memo"
-              DTS:DTSID="{FA5D5166-D3BF-40DF-8475-8DCC5F43E318}"
+              DTS:DTSID="{5CA48807-96B4-45C7-BA45-3B7BDC7A4CE9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1359,7 +1359,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Return Sales Check"
-              DTS:DTSID="{40EF6C57-7672-403E-8AB8-78FAC88B1AB4}"
+              DTS:DTSID="{060CEC06-A549-4848-87A1-1F7B35F1E651}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1368,7 +1368,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Payment Method"
-              DTS:DTSID="{500D4357-94A3-4404-ABD0-DAAC1B4E07A2}"
+              DTS:DTSID="{4D3413B8-FE0E-44D1-9717-BABEBF8E1981}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1377,7 +1377,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Masked Credit Card Number"
-              DTS:DTSID="{02E92738-373C-4B11-A8A6-BED16F1ED173}"
+              DTS:DTSID="{F1FDD46B-B561-41F5-AC7A-0815773CE0A9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1386,7 +1386,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Account"
-              DTS:DTSID="{1C6E38B6-B49C-476B-BEF8-CE634A9E4957}"
+              DTS:DTSID="{A4BD2736-A566-4B9A-BA27-5407946E43FF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1395,7 +1395,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Account (Grouped)"
-              DTS:DTSID="{080DB06E-83A7-4B40-9EDC-62AE29EC8B1F}"
+              DTS:DTSID="{37A634CB-542D-412B-83B8-738C0ACBAC54}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1404,7 +1404,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Account Type"
-              DTS:DTSID="{C3B037FB-BEB9-48D9-BC86-B552F4C36E62}"
+              DTS:DTSID="{6CFA5EAC-04D5-46D3-9EEC-34378E302C99}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1413,7 +1413,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Amount"
-              DTS:DTSID="{5EB49422-7CE2-4621-A9B2-63B457FEE5A9}"
+              DTS:DTSID="{2B58AACC-95FE-4503-9B58-23959F690ED6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1422,7 +1422,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Card Holder Name"
-              DTS:DTSID="{5AB784B5-71EF-4215-BB70-EF4847C82EB2}"
+              DTS:DTSID="{4E71053E-933D-48C5-8732-D313C34485CB}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -1633,7 +1633,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw\Load Staging netsuite_sales_daily_payment_raw.Inputs[OLE DB Destination Input].Columns[Date]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="18"
+                      cachedLength="50"
                       cachedName="Date"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw\Load Staging netsuite_sales_daily_payment_raw.Inputs[OLE DB Destination Input].ExternalColumns[create_date]"
                       lineageId="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw\Truncate Staging netsuite_sales_daily_payment_raw.Outputs[Flat File Source Output].Columns[Date]" />
@@ -1673,7 +1673,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw\Load Staging netsuite_sales_daily_payment_raw.Inputs[OLE DB Destination Input].Columns[SO or Invoice]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="50"
+                      cachedLength="10"
                       cachedName="SO or Invoice"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw\Load Staging netsuite_sales_daily_payment_raw.Inputs[OLE DB Destination Input].ExternalColumns[sales_document_number]"
                       lineageId="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw\Truncate Staging netsuite_sales_daily_payment_raw.Outputs[Flat File Source Output].Columns[SO or Invoice]" />
@@ -2024,7 +2024,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw\Truncate Staging netsuite_sales_daily_payment_raw.Outputs[Flat File Source Output].ExternalColumns[Date]"
-                      length="18"
+                      length="50"
                       lineageId="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw\Truncate Staging netsuite_sales_daily_payment_raw.Outputs[Flat File Source Output].Columns[Date]"
                       name="Date"
                       truncationRowDisposition="FailComponent">
@@ -2222,7 +2222,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw\Truncate Staging netsuite_sales_daily_payment_raw.Outputs[Flat File Source Output].ExternalColumns[SO or Invoice]"
-                      length="50"
+                      length="10"
                       lineageId="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw\Truncate Staging netsuite_sales_daily_payment_raw.Outputs[Flat File Source Output].Columns[SO or Invoice]"
                       name="SO or Invoice"
                       truncationRowDisposition="FailComponent">
@@ -2442,7 +2442,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw\Truncate Staging netsuite_sales_daily_payment_raw.Outputs[Flat File Source Output].ExternalColumns[Date]"
                       codePage="1252"
                       dataType="str"
-                      length="18"
+                      length="50"
                       name="Date" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw\Truncate Staging netsuite_sales_daily_payment_raw.Outputs[Flat File Source Output].ExternalColumns[Sales Check Number]"
@@ -2496,7 +2496,7 @@
                       refId="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw\Truncate Staging netsuite_sales_daily_payment_raw.Outputs[Flat File Source Output].ExternalColumns[SO or Invoice]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="10"
                       name="SO or Invoice" />
                     <externalMetadataColumn
                       refId="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw\Truncate Staging netsuite_sales_daily_payment_raw.Outputs[Flat File Source Output].ExternalColumns[Credit Memo]"
@@ -2764,17 +2764,17 @@
           Id="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw\Populate filename"
           TopLeft="121,112" />
         <NodeLayout
-          Size="326,42"
-          Id="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw\Truncate Staging netsuite_sales_daily_payment_raw"
-          TopLeft="98,34" />
+          Size="307,42"
+          Id="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw\Load Staging netsuite_sales_daily_payment_raw"
+          TopLeft="109,296" />
         <NodeLayout
           Size="161,42"
           Id="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw\Convert Filename"
           TopLeft="127,199" />
         <NodeLayout
-          Size="307,42"
-          Id="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw\Load Staging netsuite_sales_daily_payment_raw"
-          TopLeft="109,296" />
+          Size="326,42"
+          Id="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw\Truncate Staging netsuite_sales_daily_payment_raw"
+          TopLeft="98,34" />
         <EdgeLayout
           Id="Package\Load File ns_daily_sales_transaction_header to Table netsuite_sales_daily_payment_raw.Paths[Flat File Source Output]"
           TopLeft="261,76">
