@@ -11,12 +11,112 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_to_SHO_DW_FACT_SHO_SALES_PAYMENT"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{9DFF4B87-5BEE-44E5-8BEA-4F8F439004EF}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{DC704D66-5B3B-4313-BC63-50B6E3E158E6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
-  <DTS:Executables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load new Customer Deposits to fact_sho_sales_payment"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{f4281387-a326-4982-a908-fcc50488c023}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load new Customer Deposits to fact_sho_sales_payment"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="--Customer Deposits&#xA;INSERT INTO [sho_dw].[fact].[sho_sales_payment]&#xA;(&#xA;&#x9;transaction_sk_id&#xA;&#x9;,payment_dt_sk_id&#xA;&#x9;,location_sk_id&#xA;&#x9;,[internal_id]&#xA;&#x9;,eis_nbr&#xA;    ,[payment_date]&#xA;    ,[payment_type]&#xA;    ,[payment_method]&#xA;    ,[payment_document_nbr]&#xA;    ,[payment_amount]&#xA;    ,[transaction_document_nbr]&#xA;    ,[creditcard_masked]&#xA;    ,[cardholder_name]&#xA;&#x9;,[rec_load_dt]&#xA;)&#xA;Select distinct&#xA;&#x9;COALESCE(t.transaction_sk_id,-1),&#xA;&#x9;cal.calendar_dt_sk_id,&#xA;&#x9;loc.location_sk_id,&#xA;&#x9;a.internal_id,&#xA;&#x9;a.eis_number,&#xA;&#x9;a.create_date,&#xA;&#x9;trim(a.transaction_type),&#xA;&#x9;trim(a.payment_method),&#xA;&#x9;trim(a.document_number),&#xA;&#x9;abs(a.amount),&#xA;&#x9;trim(a.sales_document_number),&#xA;&#x9;trim(a.creditcard_masked),&#xA;&#x9;trim(a.cardholder_name),&#xA;&#x9;GETDATE()&#xA;FROM &#xA;[sho_staging].[netsuite].[sales_daily_payment_history] a&#xA;LEFT OUTER JOIN sho_dw.fact.sho_sales_transaction t &#xA;ON a.sales_document_number = t.document_number&#xA;INNER JOIN &#xA;sho_dw.dim.calendar cal on a.create_date = cal.calendar_dt &#xA;INNER JOIN&#xA;sho_dw.dim.location loc on a.eis_number = loc.eis_nbr&#xA;Where a.sales_document_number like 'SO%' &#xA;and NOT EXISTS &#xA;(&#xA;&#x9;SELECT p.[transaction_document_nbr]&#xA;&#x9;FROM [sho_dw].[fact].[sho_sales_payment] p&#xA;&#x9;WHERE p.payment_date = a.create_date &#xA;&#x9;AND p.payment_amount = a.amount &#xA;&#x9;AND p.transaction_document_nbr  = a.sales_document_number&#xA;&#x9;AND p.payment_document_nbr = a.document_number &#xA;&#x9;AND p.eis_nbr = a.eis_number&#xA;)&#xA;AND loc.inactive = 0;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load new Customer Refunds to fact_sho_sales_payment"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3592d0e2-0df3-4c51-aa9c-81c562066523}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load new Customer Refunds to fact_sho_sales_payment"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="--Customer Refunds&#xA;INSERT INTO [sho_dw].[fact].[sho_sales_payment]&#xA;(&#xA;&#x9;transaction_sk_id&#xA;&#x9;,payment_dt_sk_id&#xA;&#x9;,location_sk_id&#xA;&#x9;,[internal_id]&#xA;&#x9;,[eis_nbr]&#xA;    ,[payment_date]&#xA;    ,[payment_type]&#xA;    ,[payment_method]&#xA;    ,[payment_document_nbr]&#xA;    ,[payment_amount]&#xA;    ,[transaction_document_nbr]&#xA;    ,[creditcard_masked]&#xA;    ,[cardholder_name]&#xA;&#x9;,[rec_load_dt]&#xA;)&#xA;Select distinct&#xA;&#x9;COALESCE(t.transaction_sk_id,-1),&#xA;&#x9;cal.calendar_dt_sk_id,&#xA;&#x9;loc.location_sk_id,&#xA;&#x9;a.internal_id,&#xA;&#x9;a.eis_number,&#xA;&#x9;a.create_date,&#xA;&#x9;trim(a.transaction_type),&#xA;&#x9;trim(a.payment_method),&#xA;&#x9;trim(a.document_number),&#xA;&#x9;0 - abs(a.amount),&#xA;&#x9;trim(a.credit_memo),&#xA;&#x9;trim(a.creditcard_masked),&#xA;&#x9;trim(a.cardholder_name),&#xA;&#x9;GETDATE()&#xA;FROM &#xA;[sho_staging].[netsuite].[sales_daily_payment_history] a&#xA;LEFT OUTER JOIN sho_dw.fact.sho_sales_transaction t &#xA;ON a.sales_document_number = t.document_number&#xA;INNER JOIN &#xA;sho_dw.dim.calendar cal on a.create_date = cal.calendar_dt &#xA;INNER JOIN&#xA;sho_dw.dim.location loc on a.eis_number = loc.eis_nbr&#xA;Where a.credit_memo like 'CM%'&#xA;and NOT EXISTS &#xA;(&#xA;&#x9;SELECT p.[transaction_document_nbr]&#xA;&#x9;FROM [sho_dw].[fact].[sho_sales_payment] p&#xA;&#x9;WHERE p.payment_date = a.create_date &#xA;&#x9;AND p.payment_amount = a.amount &#xA;&#x9;AND p.transaction_document_nbr  = a.credit_memo&#xA;&#x9;AND p.payment_document_nbr = a.document_number &#xA;&#x9;AND p.eis_nbr = a.eis_number&#xA;)&#xA;AND loc.inactive = 0;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load new Payments to fact_sho_sales_payment"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D6EEC955-0A11-4A9E-B0FF-14B11BF67109}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load new Payments to fact_sho_sales_payment"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="--Payments&#xA;INSERT INTO [sho_dw].[fact].[sho_sales_payment]&#xA;(&#xA;&#x9;transaction_sk_id&#xA;&#x9;,payment_dt_sk_id&#xA;&#x9;,location_sk_id&#xA;&#x9;,[internal_id]&#xA;&#x9;,[eis_nbr]&#xA;    ,[payment_date]&#xA;    ,[payment_type]&#xA;    ,[payment_method]&#xA;    ,[payment_document_nbr]&#xA;    ,[payment_amount]&#xA;    ,[transaction_document_nbr]&#xA;    ,[creditcard_masked]&#xA;    ,[cardholder_name]&#xA;&#x9;,[rec_load_dt]&#xA;)&#xA;Select distinct&#xA;&#x9;COALESCE(t.transaction_sk_id,-1),&#xA;&#x9;cal.calendar_dt_sk_id,&#xA;&#x9;loc.location_sk_id,&#xA;&#x9;a.internal_id,&#xA;&#x9;a.eis_number,&#xA;&#x9;a.create_date,&#xA;&#x9;trim(a.transaction_type),&#xA;&#x9;trim(b.payment_method),&#xA;&#x9;trim(a.document_number),&#xA;&#x9;a.amount,&#xA;&#x9;trim(a.sales_document_number),&#xA;&#x9;trim(a.creditcard_masked),&#xA;&#x9;trim(a.cardholder_name),&#xA;&#x9;GETDATE()&#xA;FROM &#xA;&#x9;(&#xA;&#x9;&#x9;SELECT distinct internal_id, create_date,  eis_number,  transaction_type,  payment_method, &#xA;&#x9;&#x9;document_number,  amount,  sales_document_number,  credit_memo, creditcard_masked,  cardholder_name &#xA;&#x9;&#x9;from&#xA;&#x9;&#x9;[sho_staging].[netsuite].[sales_daily_payment_history] &#xA;&#x9;&#x9;where trim(transaction_type) like 'Pay%' and sales_document_number like 'INV%' &#xA;&#x9;)&#xA;a&#xA;INNER JOIN &#xA;&#x9;(&#xA;&#x9;&#x9;select distinct internal_id, payment_method from [sho_staging].[netsuite].[sales_daily_payment_history] where trim(transaction_type) like 'Pay%' and len(trim(payment_method)) &gt; 1&#xA;&#x9;) &#xA;b&#xA;ON a.internal_id = b.internal_id &#xA;LEFT OUTER JOIN sho_dw.fact.sho_sales_transaction t &#xA;ON a.sales_document_number = t.document_number&#xA;INNER JOIN &#xA;sho_dw.dim.calendar cal on a.create_date = cal.calendar_dt &#xA;INNER JOIN&#xA;sho_dw.dim.location loc on a.eis_number = loc.eis_nbr &#xA;WHERE NOT EXISTS &#xA;(&#xA;&#x9;SELECT p.[transaction_document_nbr]&#xA;&#x9;FROM [sho_dw].[fact].[sho_sales_payment] p&#xA;&#x9;WHERE p.payment_date = a.create_date &#xA;&#x9;AND p.payment_amount = a.amount &#xA;&#x9;AND p.transaction_document_nbr  = a.sales_document_number&#xA;&#x9;AND p.payment_document_nbr = a.document_number &#xA;&#x9;AND p.eis_nbr = a.eis_number&#xA;)&#xA;AND loc.inactive = 0;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Payments in fact_sho_sales_payment"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{17c36baa-73ff-4467-b931-a6ce8c889d5e}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Payments in fact_sho_sales_payment"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="--Payments&#xA;INSERT INTO [sho_dw].[fact].[sho_sales_payment]&#xA;(&#xA; transaction_sk_id&#xA; ,payment_dt_sk_id&#xA; ,location_sk_id&#xA; ,[internal_id]&#xA; ,[eis_nbr]&#xA;    ,[payment_date]&#xA;    ,[payment_type]&#xA;    ,[payment_method]&#xA;    ,[payment_document_nbr]&#xA;    ,[payment_amount]&#xA;    ,[transaction_document_nbr]&#xA;    ,[creditcard_masked]&#xA;    ,[cardholder_name]&#xA; ,[rec_upd_dt]&#xA; ,[rec_load_dt]&#xA;)&#xA;Select distinct&#xA; COALESCE(t.transaction_sk_id,-1),&#xA; cal.calendar_dt_sk_id,&#xA; loc.location_sk_id,&#xA; a.internal_id,&#xA; a.eis_number,&#xA; a.create_date,&#xA; trim(a.transaction_type),&#xA; trim(b.payment_method),&#xA; trim(a.document_number),&#xA; a.amount,&#xA; trim(a.sales_document_number),&#xA; trim(a.creditcard_masked),&#xA; trim(a.cardholder_name),&#xA; GETDATE(),&#xA; GETDATE()&#xA;FROM &#xA; (&#xA;  SELECT distinct internal_id, create_date,  eis_number,  transaction_type,  payment_method, &#xA;  document_number,  amount,  sales_document_number,  credit_memo, creditcard_masked,  cardholder_name &#xA;  from&#xA;  [sho_staging].[netsuite].[sales_daily_payment_history] &#xA;  where trim(transaction_type) like 'Pay%' and sales_document_number like 'INV%' &#xA; )&#xA;a&#xA;INNER JOIN &#xA; (&#xA;  select distinct internal_id, payment_method from [sho_staging].[netsuite].[sales_daily_payment_history] where trim(transaction_type) like 'Pay%' and len(trim(payment_method)) &gt; 1&#xA; ) &#xA;b&#xA;ON a.internal_id = b.internal_id &#xA;LEFT OUTER JOIN sho_dw.fact.sho_sales_transaction t &#xA;ON a.sales_document_number = t.document_number&#xA;INNER JOIN &#xA;sho_dw.dim.calendar cal on a.create_date = cal.calendar_dt &#xA;INNER JOIN&#xA;sho_dw.dim.location loc on a.eis_number = loc.eis_nbr &#xA;WHERE NOT EXISTS &#xA;(&#xA; SELECT p.[transaction_document_nbr]&#xA; FROM [sho_dw].[fact].[sho_sales_payment] p&#xA; WHERE p.payment_date = a.create_date &#xA; AND p.payment_amount = a.amount &#xA; AND p.transaction_document_nbr  = a.sales_document_number&#xA; AND p.payment_document_nbr = a.document_number &#xA; AND p.eis_nbr = a.eis_number&#xA;)&#xA;AND loc.inactive = 0;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{232E7CC8-4FBE-426C-BD60-2568CDD5EFE7}"
+      DTS:From="Package\Load new Payments to fact_sho_sales_payment"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load new Customer Deposits to fact_sho_sales_payment" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{6DED50F5-AEEF-4BFF-9FBA-BC4F40E69A81}"
+      DTS:From="Package\Load new Customer Deposits to fact_sho_sales_payment"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Load new Customer Refunds to fact_sho_sales_payment" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{87C24CB7-3C6E-4DAA-B7E6-C15D67113D0D}"
+      DTS:From="Package\Load new Customer Refunds to fact_sho_sales_payment"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Update Payments in fact_sho_sales_payment" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -24,5 +124,95 @@
 <Objects
   Version="8">
   <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="305,42"
+          Id="Package\Load new Payments to fact_sho_sales_payment"
+          TopLeft="202,35" />
+        <NodeLayout
+          Size="348,42"
+          Id="Package\Load new Customer Deposits to fact_sho_sales_payment"
+          TopLeft="188,116" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="358.25,77">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="346,42"
+          Id="Package\Load new Customer Refunds to fact_sho_sales_payment"
+          TopLeft="187,189" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="361,158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="292,42"
+          Id="Package\Update Payments in fact_sho_sales_payment"
+          TopLeft="208,262" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="357,231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
