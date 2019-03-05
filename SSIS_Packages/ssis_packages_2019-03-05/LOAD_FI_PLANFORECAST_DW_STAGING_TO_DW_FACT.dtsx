@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/4/2018 11:48:23 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LT-MPLASKO"
+  DTS:CreatorName="SHO\mplaskow"
+  DTS:DTSID="{4684EF93-D306-4A6A-B04C-5658D52C0C9E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LOAD_FI_PLANFORECAST_DW_STAGING_TO_DW_FACT"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{723C8D9D-A4B1-4C01-9C2C-F3DD986442B5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Insert Into sho_dw_finance_sho_sales_plan_gp_by_loc"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4C1AA493-F979-4334-8096-DCF6BD5D9D4A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Insert Into sho_dw_finance_sho_sales_plan_gp_by_loc"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{45a5110b-53ae-4bb5-85f0-14588469e03e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="UPDATE sho_staging.finance.day_location_sales_plan set daily_sales = 0 where daily_sales like '%E%';&#xA;&#xA;UPDATE sho_staging.finance.day_location_gp_plan set gp_plan = 0 where gp_plan like '%E%';&#xA;&#xA;delete From sho_staging.finance.day_location_sales_plan_raw where IsDate([day_of_month]) = 0;&#xA;&#xA;Insert Into sho_dw.fact.sho_sales_plan_gp_by_loc(&#xA;[sho_location_sk_id],&#xA;[plan_dt_sk_id],&#xA;[plan_dt],&#xA;[pos_nbr],&#xA;[sales_plan_amt],&#xA;[gp_plan_amt],&#xA;[rec_upd_dt],&#xA;[rec_load_dt]&#xA;)&#xA;Select Distinct&#xA;-1,&#xA;convert(varchar(8),convert(int,Convert(varchar(10),convert(datetime,dlsp.day_of_month),112))),&#xA;Convert(date,dlsp.[day_of_month]),&#xA;Convert(int,dlsp.[pos_nbr]),&#xA;convert(decimal(11,2),REPLACE(REPLACE(REPLACE(REPLACE(TRIM(dlsp.daily_sales),'$',''),',',''),'(',''),')','')),&#xA;convert(decimal(11,2),REPLACE(REPLACE(REPLACE(REPLACE(TRIM(dlgp.gp_plan),'$',''),',',''),'(',''),')','')),&#xA;GETDATE(),&#xA;GETDATE()&#xA; From sho_staging.finance.day_location_sales_plan_raw dlsp &#xA; LEFT OUTER JOIN sho_staging.finance.day_location_gp_plan_raw dlgp  &#xA;on trim(dlsp.day_of_month) = trim(dlgp.day_of_month)&#xA; AND convert(varchar(5),dlsp.pos_nbr) = convert(varchar(5),dlgp.pos_nbr) &#xA;where len(dlsp.[pos_nbr]) &gt; 0 and ISNUMERIC(dlsp.[pos_nbr]) &lt;&gt; 0 &#xA;and&#x9;convert(varchar(8),convert(int,Convert(varchar(10),convert(datetime,dlsp.day_of_month),112))) + '|' + convert(varchar(5),dlsp.pos_nbr) not in &#xA;&#x9;(select convert(varchar(8),plan_dt_sk_id) + '|' + convert(varchar(5),pos_nbr) from [sho_dw].[fact].[sho_sales_plan_gp_by_loc]);&#xA;&#xA;update sho_dw.fact.sho_sales_plan_gp_by_loc &#xA;set sho_location_sk_id = [sho_dw].[dim].[location].location_sk_id&#xA;FROM [sho_dw].[dim].[location]&#xA;INNER JOIN &#xA;sho_dw.fact.sho_sales_plan_gp_by_loc sales&#xA;on [sho_dw].[dim].[location].pos_nbr = sales.pos_nbr &#xA;where sales.sho_location_sk_id = -1;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="339,42"
+          Id="Package\Insert Into sho_dw_finance_sho_sales_plan_gp_by_loc"
+          TopLeft="138,77" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

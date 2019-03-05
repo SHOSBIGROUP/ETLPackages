@@ -1,0 +1,2691 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/18/2018 10:36:17 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LT-MPLASKO"
+  DTS:CreatorName="SHO\mplaskow"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{51281042-8625-488C-ADF2-8EC17BE7BC29}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="LOAD_SNAP_MERCH_ORDERS_to_DW_STAGING"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{9B713E31-F09C-4625-B439-4B993EC09ED7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F228B9DB-0C6A-48EE-82E6-E2E067F731C1}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=AZSQL01.ads.shos.com;Initial Catalog=sho_staging;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{3A8F51F9-566E-4067-B6D4-F8802C3A59E6}"
+      DTS:ObjectName="SourceConnectionFlatFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Projects\Interim-Data-Platform\SNAP\MerchOnOrderSales_prod_20181219084934.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUS_IAN_ID_NO"
+              DTS:DTSID="{476A4772-6083-4561-AE44-85A2D70CC316}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUS_FST_NM"
+              DTS:DTSID="{544FDD9C-DFF2-4031-8B40-B638162F72D2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUS_LST_NM"
+              DTS:DTSID="{5591414A-0D42-4EE0-8E81-50C2B4078CF7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ST_LN1_AD"
+              DTS:DTSID="{C60D81AE-A751-4A2E-9C21-57BB3D82EB55}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ST_LN2_AD"
+              DTS:DTSID="{69BEAF5A-F664-4835-B02A-07F8BABE9E75}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CTY_NM"
+              DTS:DTSID="{20C15781-F5F6-4D1B-87AF-CCF79478F478}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="STE_CD"
+              DTS:DTSID="{7A45E2B2-60FF-4617-838F-9ADEBEB89D6D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZIP_CD"
+              DTS:DTSID="{9FE88C14-00B7-40BD-94BC-EE392918478B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUS_PHN_ARE_CD"
+              DTS:DTSID="{8F7218F0-F65E-4D74-ACC0-2ADD87AF11AF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUS_PHN_NO"
+              DTS:DTSID="{23D423D2-3658-4720-A462-A4B1CC6B5D91}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUS_ALT_PHN_ARE_CD"
+              DTS:DTSID="{55CA4843-9091-4F59-87DA-6B9FE8ABEC74}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUS_ALT_PHN_NO"
+              DTS:DTSID="{43885EEC-6F1C-44A0-B42E-5438262B9675}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Email Address"
+              DTS:DTSID="{C45A72F5-C041-4833-8A31-EC2C71D097B7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FORMAT_SUB_TYPE"
+              DTS:DTSID="{894817CB-80FA-4708-90B2-0E971C27B9EE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DIV_OGP_NO"
+              DTS:DTSID="{547D0A0B-92F6-4D8F-876E-BBFD45D3CDF5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PRD_ITM_NO"
+              DTS:DTSID="{09D0D877-A432-4FCC-A479-DB8BE1075938}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SKU_NO"
+              DTS:DTSID="{E7CED13E-EA41-4515-849B-3622CE0EB4AF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rin_fty_id_no"
+              DTS:DTSID="{A140AC55-578B-4EED-ACB6-C028230534AE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="fty_id_no"
+              DTS:DTSID="{8273913A-EC9D-4D5C-A370-5B774E255B11}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="REG_NO"
+              DTS:DTSID="{C3EF3C6D-3161-4C5E-8BED-AF253512C73A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TRS_NO"
+              DTS:DTSID="{671FEB39-DDF4-4CFC-A31D-88F2E2CE6D21}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ITM_RGL_PRC_AM"
+              DTS:DTSID="{DF0CA276-65B3-4F36-AB0E-B09A1BC519EE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="plu_am"
+              DTS:DTSID="{6598D834-F4C8-4686-AF31-7F13420C1802}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PRD_QT"
+              DTS:DTSID="{46C8DEE9-AA95-4EF4-A18E-D26E4EF2159C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="extended_amt"
+              DTS:DTSID="{6D91D678-5749-47C1-AE53-D7094B7ACD64}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LN_ITM_TAX_AM"
+              DTS:DTSID="{47C9DD7B-5F6F-48E8-8831-33AF53E7834F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TOT_TRS_TAX_AM"
+              DTS:DTSID="{8EE9D729-0F3B-460C-B1AB-C212D29609E8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TRS_DT"
+              DTS:DTSID="{96D98342-5F37-4458-8AB0-A359C5236C06}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LN_ITM_TRS_TYP_CD"
+              DTS:DTSID="{137320C8-D5DC-4965-9405-0ED91EA5E6B6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TRS_LN_NO"
+              DTS:DTSID="{66D8E45C-C19A-4977-AEB5-892D7995A63D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DVR_TYP_CD"
+              DTS:DTSID="{AB1DCE50-FCB6-4E6D-B5A9-CA94AF1E1810}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ori_cus_ian_id_no"
+              DTS:DTSID="{42A6FAC7-A224-4559-831D-0FF74626D0F7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ORI_IAN_TYP_CD"
+              DTS:DTSID="{BB8FF055-9A8C-491E-8A6A-AA0D64520835}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ORI_TRS_LN_NO"
+              DTS:DTSID="{9C1F3AD2-E159-4101-860E-04295E924C90}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ori_fty_id_no"
+              DTS:DTSID="{11C8BBDE-7F61-4380-8A76-86A74FE808B3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ORI_REG_NO"
+              DTS:DTSID="{DAB4C02D-F249-47F8-B9CD-C5FDF8D370FD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ORI_TRS_NO"
+              DTS:DTSID="{36D7010D-6CA0-4C59-BA2F-25BB8757871E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ORI_TRS_DT"
+              DTS:DTSID="{DB72C917-10E5-4171-B438-4BCFDF005003}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ORI_TRS_TM"
+              DTS:DTSID="{D41F5CEB-6EC4-44EE-A41F-08E1619BC37E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ORI_LN_ITM_STS_CD"
+              DTS:DTSID="{3DCDF8E5-6813-4301-A4A9-6237238331FA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LN_ITM_PSD_DT"
+              DTS:DTSID="{0BEC4FDD-5FA5-4CF5-B0FC-FBF8D8177C5B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FLL_STK_FL"
+              DTS:DTSID="{B94D7593-8721-4E7D-A9C7-3ED2B1F9ECBC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LN_ITM_STS_RSN_CD"
+              DTS:DTSID="{7F5C95E5-131F-4470-A957-8759F6C130DB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LN_ITM_STS_CD"
+              DTS:DTSID="{58BFFD31-4CED-40B7-A94D-57AFF39D4720}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{B06DC98D-8AA2-44CF-BC17-DFE58224951F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - MerchOnOrderSales_prod"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[snap].[MerchOnOrderSales_prod]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[CUS_IAN_ID_NO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CUS_IAN_ID_NO"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[CUS_IAN_ID_NO]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_IAN_ID_NO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[CUS_FST_NM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CUS_FST_NM"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[CUS_FST_NM]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_FST_NM]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[CUS_LST_NM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CUS_LST_NM"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[CUS_LST_NM]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_LST_NM]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[ST_LN1_AD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ST_LN1_AD"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ST_LN1_AD]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ST_LN1_AD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[ST_LN2_AD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ST_LN2_AD"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ST_LN2_AD]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ST_LN2_AD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[CTY_NM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CTY_NM"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[CTY_NM]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CTY_NM]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[STE_CD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="STE_CD"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[STE_CD]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[STE_CD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[ZIP_CD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ZIP_CD"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ZIP_CD]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ZIP_CD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[CUS_PHN_ARE_CD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CUS_PHN_ARE_CD"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[CUS_PHN_ARE_CD]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_PHN_ARE_CD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[CUS_PHN_NO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CUS_PHN_NO"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[CUS_PHN_NO]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_PHN_NO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[CUS_ALT_PHN_ARE_CD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CUS_ALT_PHN_ARE_CD"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[CUS_ALT_PHN_ARE_CD]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_ALT_PHN_ARE_CD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[CUS_ALT_PHN_NO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CUS_ALT_PHN_NO"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[CUS_ALT_PHN_NO]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_ALT_PHN_NO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[Customer Email Address]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Customer Email Address"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[Customer Email Address]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[Customer Email Address]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[FORMAT_SUB_TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FORMAT_SUB_TYPE"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[FORMAT_SUB_TYPE]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[FORMAT_SUB_TYPE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[DIV_OGP_NO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DIV_OGP_NO"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[DIV_OGP_NO]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[DIV_OGP_NO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[PRD_ITM_NO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PRD_ITM_NO"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[PRD_ITM_NO]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[PRD_ITM_NO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[SKU_NO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SKU_NO"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[SKU_NO]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[SKU_NO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[rin_fty_id_no]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="rin_fty_id_no"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[rin_fty_id_no]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[rin_fty_id_no]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[fty_id_no]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="fty_id_no"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[fty_id_no]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[fty_id_no]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[REG_NO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="REG_NO"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[REG_NO]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[REG_NO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[TRS_NO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TRS_NO"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[TRS_NO]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[TRS_NO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[ITM_RGL_PRC_AM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ITM_RGL_PRC_AM"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ITM_RGL_PRC_AM]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ITM_RGL_PRC_AM]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[plu_am]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="plu_am"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[plu_am]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[plu_am]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[PRD_QT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PRD_QT"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[PRD_QT]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[PRD_QT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[extended_amt]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="extended_amt"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[extended_amt]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[extended_amt]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[LN_ITM_TAX_AM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LN_ITM_TAX_AM"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[LN_ITM_TAX_AM]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[LN_ITM_TAX_AM]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[TOT_TRS_TAX_AM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TOT_TRS_TAX_AM"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[TOT_TRS_TAX_AM]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[TOT_TRS_TAX_AM]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[TRS_DT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TRS_DT"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[TRS_DT]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[TRS_DT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[LN_ITM_TRS_TYP_CD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LN_ITM_TRS_TYP_CD"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[LN_ITM_TRS_TYP_CD]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[LN_ITM_TRS_TYP_CD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[TRS_LN_NO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TRS_LN_NO"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[TRS_LN_NO]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[TRS_LN_NO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[DVR_TYP_CD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DVR_TYP_CD"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[DVR_TYP_CD]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[DVR_TYP_CD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[ori_cus_ian_id_no]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ori_cus_ian_id_no"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ori_cus_ian_id_no]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ori_cus_ian_id_no]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[ORI_IAN_TYP_CD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ORI_IAN_TYP_CD"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ORI_IAN_TYP_CD]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_IAN_TYP_CD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[ORI_TRS_LN_NO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ORI_TRS_LN_NO"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ORI_TRS_LN_NO]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_TRS_LN_NO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[ori_fty_id_no]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ori_fty_id_no"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ori_fty_id_no]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ori_fty_id_no]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[ORI_REG_NO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ORI_REG_NO"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ORI_REG_NO]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_REG_NO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[ORI_TRS_NO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ORI_TRS_NO"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ORI_TRS_NO]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_TRS_NO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[ORI_TRS_DT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ORI_TRS_DT"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ORI_TRS_DT]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_TRS_DT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[ORI_TRS_TM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ORI_TRS_TM"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ORI_TRS_TM]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_TRS_TM]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[ORI_LN_ITM_STS_CD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ORI_LN_ITM_STS_CD"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ORI_LN_ITM_STS_CD]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_LN_ITM_STS_CD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[LN_ITM_PSD_DT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LN_ITM_PSD_DT"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[LN_ITM_PSD_DT]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[LN_ITM_PSD_DT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[FLL_STK_FL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FLL_STK_FL"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[FLL_STK_FL]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[FLL_STK_FL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[LN_ITM_STS_RSN_CD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LN_ITM_STS_RSN_CD"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[LN_ITM_STS_RSN_CD]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[LN_ITM_STS_RSN_CD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].Columns[LN_ITM_STS_CD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LN_ITM_STS_CD"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[LN_ITM_STS_CD]"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[LN_ITM_STS_CD]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[CUS_IAN_ID_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CUS_IAN_ID_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[CUS_FST_NM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CUS_FST_NM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[CUS_LST_NM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CUS_LST_NM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ST_LN1_AD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ST_LN1_AD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ST_LN2_AD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ST_LN2_AD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[CTY_NM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CTY_NM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[STE_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="STE_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ZIP_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ZIP_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[CUS_PHN_ARE_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CUS_PHN_ARE_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[CUS_PHN_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CUS_PHN_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[CUS_ALT_PHN_ARE_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CUS_ALT_PHN_ARE_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[CUS_ALT_PHN_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CUS_ALT_PHN_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[Customer Email Address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Customer Email Address" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[FORMAT_SUB_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FORMAT_SUB_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[DIV_OGP_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DIV_OGP_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[PRD_ITM_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PRD_ITM_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[SKU_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SKU_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[rin_fty_id_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="rin_fty_id_no" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[fty_id_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="fty_id_no" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[REG_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="REG_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[TRS_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TRS_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ITM_RGL_PRC_AM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ITM_RGL_PRC_AM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[plu_am]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="plu_am" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[PRD_QT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PRD_QT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[extended_amt]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="extended_amt" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[LN_ITM_TAX_AM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LN_ITM_TAX_AM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[TOT_TRS_TAX_AM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TOT_TRS_TAX_AM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[TRS_DT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TRS_DT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[LN_ITM_TRS_TYP_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LN_ITM_TRS_TYP_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[TRS_LN_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TRS_LN_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[DVR_TYP_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DVR_TYP_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ori_cus_ian_id_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ori_cus_ian_id_no" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ORI_IAN_TYP_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ORI_IAN_TYP_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ORI_TRS_LN_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ORI_TRS_LN_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ori_fty_id_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ori_fty_id_no" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ORI_REG_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ORI_REG_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ORI_TRS_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ORI_TRS_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ORI_TRS_DT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ORI_TRS_DT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ORI_TRS_TM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ORI_TRS_TM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[ORI_LN_ITM_STS_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ORI_LN_ITM_STS_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[LN_ITM_PSD_DT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LN_ITM_PSD_DT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[FLL_STK_FL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FLL_STK_FL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[LN_ITM_STS_RSN_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LN_ITM_STS_RSN_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[LN_ITM_STS_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LN_ITM_STS_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[IsDuplicate]"
+                      dataType="bool"
+                      name="IsDuplicate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input].ExternalColumns[IsDelete]"
+                      dataType="bool"
+                      name="IsDelete" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Source - MerchOnOrderSales_prod_20181218092232_txt"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_IAN_ID_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[CUS_IAN_ID_NO]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_IAN_ID_NO]"
+                      name="CUS_IAN_ID_NO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_FST_NM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[CUS_FST_NM]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_FST_NM]"
+                      name="CUS_FST_NM"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_LST_NM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[CUS_LST_NM]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_LST_NM]"
+                      name="CUS_LST_NM"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ST_LN1_AD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ST_LN1_AD]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ST_LN1_AD]"
+                      name="ST_LN1_AD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ST_LN2_AD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ST_LN2_AD]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ST_LN2_AD]"
+                      name="ST_LN2_AD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CTY_NM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[CTY_NM]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CTY_NM]"
+                      name="CTY_NM"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[STE_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[STE_CD]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[STE_CD]"
+                      name="STE_CD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ZIP_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ZIP_CD]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ZIP_CD]"
+                      name="ZIP_CD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_PHN_ARE_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[CUS_PHN_ARE_CD]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_PHN_ARE_CD]"
+                      name="CUS_PHN_ARE_CD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_PHN_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[CUS_PHN_NO]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_PHN_NO]"
+                      name="CUS_PHN_NO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_ALT_PHN_ARE_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[CUS_ALT_PHN_ARE_CD]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_ALT_PHN_ARE_CD]"
+                      name="CUS_ALT_PHN_ARE_CD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_ALT_PHN_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[CUS_ALT_PHN_NO]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[CUS_ALT_PHN_NO]"
+                      name="CUS_ALT_PHN_NO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[Customer Email Address]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[Customer Email Address]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[Customer Email Address]"
+                      name="Customer Email Address"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[FORMAT_SUB_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[FORMAT_SUB_TYPE]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[FORMAT_SUB_TYPE]"
+                      name="FORMAT_SUB_TYPE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[DIV_OGP_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[DIV_OGP_NO]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[DIV_OGP_NO]"
+                      name="DIV_OGP_NO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[PRD_ITM_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[PRD_ITM_NO]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[PRD_ITM_NO]"
+                      name="PRD_ITM_NO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[SKU_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[SKU_NO]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[SKU_NO]"
+                      name="SKU_NO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[rin_fty_id_no]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[rin_fty_id_no]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[rin_fty_id_no]"
+                      name="rin_fty_id_no"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[fty_id_no]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[fty_id_no]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[fty_id_no]"
+                      name="fty_id_no"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[REG_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[REG_NO]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[REG_NO]"
+                      name="REG_NO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[TRS_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[TRS_NO]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[TRS_NO]"
+                      name="TRS_NO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ITM_RGL_PRC_AM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ITM_RGL_PRC_AM]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ITM_RGL_PRC_AM]"
+                      name="ITM_RGL_PRC_AM"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[plu_am]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[plu_am]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[plu_am]"
+                      name="plu_am"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[PRD_QT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[PRD_QT]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[PRD_QT]"
+                      name="PRD_QT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[extended_amt]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[extended_amt]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[extended_amt]"
+                      name="extended_amt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[LN_ITM_TAX_AM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[LN_ITM_TAX_AM]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[LN_ITM_TAX_AM]"
+                      name="LN_ITM_TAX_AM"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[TOT_TRS_TAX_AM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[TOT_TRS_TAX_AM]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[TOT_TRS_TAX_AM]"
+                      name="TOT_TRS_TAX_AM"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[TRS_DT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[TRS_DT]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[TRS_DT]"
+                      name="TRS_DT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[LN_ITM_TRS_TYP_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[LN_ITM_TRS_TYP_CD]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[LN_ITM_TRS_TYP_CD]"
+                      name="LN_ITM_TRS_TYP_CD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[TRS_LN_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[TRS_LN_NO]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[TRS_LN_NO]"
+                      name="TRS_LN_NO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[DVR_TYP_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[DVR_TYP_CD]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[DVR_TYP_CD]"
+                      name="DVR_TYP_CD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ori_cus_ian_id_no]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ori_cus_ian_id_no]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ori_cus_ian_id_no]"
+                      name="ori_cus_ian_id_no"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_IAN_TYP_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ORI_IAN_TYP_CD]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_IAN_TYP_CD]"
+                      name="ORI_IAN_TYP_CD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_TRS_LN_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ORI_TRS_LN_NO]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_TRS_LN_NO]"
+                      name="ORI_TRS_LN_NO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ori_fty_id_no]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ori_fty_id_no]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ori_fty_id_no]"
+                      name="ori_fty_id_no"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_REG_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ORI_REG_NO]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_REG_NO]"
+                      name="ORI_REG_NO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_TRS_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ORI_TRS_NO]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_TRS_NO]"
+                      name="ORI_TRS_NO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_TRS_DT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ORI_TRS_DT]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_TRS_DT]"
+                      name="ORI_TRS_DT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_TRS_TM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ORI_TRS_TM]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_TRS_TM]"
+                      name="ORI_TRS_TM"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_LN_ITM_STS_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ORI_LN_ITM_STS_CD]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[ORI_LN_ITM_STS_CD]"
+                      name="ORI_LN_ITM_STS_CD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[LN_ITM_PSD_DT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[LN_ITM_PSD_DT]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[LN_ITM_PSD_DT]"
+                      name="LN_ITM_PSD_DT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[FLL_STK_FL]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[FLL_STK_FL]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[FLL_STK_FL]"
+                      name="FLL_STK_FL"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[LN_ITM_STS_RSN_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[LN_ITM_STS_RSN_CD]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[LN_ITM_STS_RSN_CD]"
+                      name="LN_ITM_STS_RSN_CD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[LN_ITM_STS_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[LN_ITM_STS_CD]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].Columns[LN_ITM_STS_CD]"
+                      name="LN_ITM_STS_CD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[CUS_IAN_ID_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CUS_IAN_ID_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[CUS_FST_NM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CUS_FST_NM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[CUS_LST_NM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CUS_LST_NM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ST_LN1_AD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ST_LN1_AD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ST_LN2_AD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ST_LN2_AD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[CTY_NM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CTY_NM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[STE_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="STE_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ZIP_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ZIP_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[CUS_PHN_ARE_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CUS_PHN_ARE_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[CUS_PHN_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CUS_PHN_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[CUS_ALT_PHN_ARE_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CUS_ALT_PHN_ARE_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[CUS_ALT_PHN_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CUS_ALT_PHN_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[Customer Email Address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Customer Email Address" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[FORMAT_SUB_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FORMAT_SUB_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[DIV_OGP_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DIV_OGP_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[PRD_ITM_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PRD_ITM_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[SKU_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SKU_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[rin_fty_id_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="rin_fty_id_no" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[fty_id_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="fty_id_no" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[REG_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="REG_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[TRS_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TRS_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ITM_RGL_PRC_AM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ITM_RGL_PRC_AM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[plu_am]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="plu_am" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[PRD_QT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PRD_QT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[extended_amt]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="extended_amt" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[LN_ITM_TAX_AM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LN_ITM_TAX_AM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[TOT_TRS_TAX_AM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TOT_TRS_TAX_AM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[TRS_DT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TRS_DT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[LN_ITM_TRS_TYP_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LN_ITM_TRS_TYP_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[TRS_LN_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TRS_LN_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[DVR_TYP_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DVR_TYP_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ori_cus_ian_id_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ori_cus_ian_id_no" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ORI_IAN_TYP_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ORI_IAN_TYP_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ORI_TRS_LN_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ORI_TRS_LN_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ori_fty_id_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ori_fty_id_no" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ORI_REG_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ORI_REG_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ORI_TRS_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ORI_TRS_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ORI_TRS_DT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ORI_TRS_DT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ORI_TRS_TM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ORI_TRS_TM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[ORI_LN_ITM_STS_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ORI_LN_ITM_STS_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[LN_ITM_PSD_DT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LN_ITM_PSD_DT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[FLL_STK_FL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FLL_STK_FL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[LN_ITM_STS_RSN_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LN_ITM_STS_RSN_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output].ExternalColumns[LN_ITM_STS_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LN_ITM_STS_CD" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod.Inputs[Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Preparation SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{6F7863D3-5E38-4E90-ADA9-23E3EB931310}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Preparation SQL Task 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F228B9DB-0C6A-48EE-82E6-E2E067F731C1}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="--IF NOT EXISTS(SELECT * FROM sys.schemas WHERE name = N'snap')&#xA;--BEGIN&#xA;--EXEC(N'CREATE SCHEMA [snap]')&#xA;--END&#xA;--CREATE TABLE [snap].[MerchOnOrderSales_prod] (&#xA;--[CUS_IAN_ID_NO] varchar(50),&#xA;--[CUS_FST_NM] varchar(50),&#xA;--[CUS_LST_NM] varchar(50),&#xA;--[ST_LN1_AD] varchar(50),&#xA;--[ST_LN2_AD] varchar(50),&#xA;--[CTY_NM] varchar(50),&#xA;--[STE_CD] varchar(50),&#xA;--[ZIP_CD] varchar(50),&#xA;--[CUS_PHN_ARE_CD] varchar(50),&#xA;--[CUS_PHN_NO] varchar(50),&#xA;--[CUS_ALT_PHN_ARE_CD] varchar(50),&#xA;--[CUS_ALT_PHN_NO] varchar(50),&#xA;--[Customer Email Address] varchar(50),&#xA;--[FORMAT_SUB_TYPE] varchar(50),&#xA;--[DIV_OGP_NO] varchar(50),&#xA;--[PRD_ITM_NO] varchar(50),&#xA;--[SKU_NO] varchar(50),&#xA;--[rin_fty_id_no] varchar(50),&#xA;--[fty_id_no] varchar(50),&#xA;--[REG_NO] varchar(50),&#xA;--[TRS_NO] varchar(50),&#xA;--[ITM_RGL_PRC_AM] varchar(50),&#xA;--[plu_am] varchar(50),&#xA;--[PRD_QT] varchar(50),&#xA;--[extended_amt] varchar(50),&#xA;--[LN_ITM_TAX_AM] varchar(50),&#xA;--[TOT_TRS_TAX_AM] varchar(50),&#xA;--[TRS_DT] varchar(50),&#xA;--[LN_ITM_TRS_TYP_CD] varchar(50),&#xA;--[TRS_LN_NO] varchar(50),&#xA;--[DVR_TYP_CD] varchar(50),&#xA;--[ori_cus_ian_id_no] varchar(50),&#xA;--[ORI_IAN_TYP_CD] varchar(50),&#xA;--[ORI_TRS_LN_NO] varchar(50),&#xA;--[ori_fty_id_no] varchar(50),&#xA;--[ORI_REG_NO] varchar(50),&#xA;--[ORI_TRS_NO] varchar(50),&#xA;--[ORI_TRS_DT] varchar(50),&#xA;--[ORI_TRS_TM] varchar(50),&#xA;--[ORI_LN_ITM_STS_CD] varchar(50),&#xA;--[LN_ITM_PSD_DT] varchar(50),&#xA;--[FLL_STK_FL] varchar(50),&#xA;--[LN_ITM_STS_RSN_CD] varchar(50),&#xA;--[LN_ITM_STS_CD] varchar(50),&#xA;--[IsDuplicate] [bit] NULL,&#xA;--[IsDelete] [bit] NULL&#xA;--);&#xA;&#xA;Truncate Table [snap].[MerchOnOrderSales_prod];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update snap_MerchOnOrderSales_prod for Duplicates and Delete"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8059b690-417f-4e5a-98b7-15ef09b3fef6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update snap_MerchOnOrderSales_prod for Duplicates and Delete"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="--*** Update [snap].[MerchOnOrderSales_prod] Set IsDuplicate if First, Last, Division, Item Repeated ***&#xA;Update [sho_staging].[snap].[MerchOnOrderSales_prod] set IsDuplicate = 1&#xA;where trim([CUS_FST_NM]) + '|' + trim([CUS_LST_NM]) + '|' + trim([DIV_OGP_NO]) + '|' + trim([PRD_ITM_NO]) &#xA;in &#xA;(&#xA;select trim([CUS_FST_NM]) + '|' + trim([CUS_LST_NM]) + '|' + trim([DIV_OGP_NO]) + '|' + trim([PRD_ITM_NO]) &#xA;from [sho_staging].[snap].[MerchOnOrderSales_prod]&#xA;group by trim([CUS_FST_NM]) + '|' + trim([CUS_LST_NM]) + '|' + trim([DIV_OGP_NO]) + '|' + trim([PRD_ITM_NO]) having count(*) &gt; 1&#xA;);&#xA;&#xA;--*** Update [snap].[MerchOnOrderSales_prod] Set IsDelete if Exists in [snap].[TakeWith_prod] with [LN_ITM_STS_CD] = 'C' ***&#xA;Update [sho_staging].[snap].[MerchOnOrderSales_prod] set IsDelete = 1&#xA;--Select * from [sho_staging].[snap].[MerchOnOrderSales_prod]&#xA;where trim([CUS_FST_NM]) + '|' + trim([CUS_LST_NM]) + '|' + trim([DIV_OGP_NO]) + '|' + trim([PRD_ITM_NO]) &#xA;in &#xA;(&#xA;select trim([CUS_FST_NM]) + '|' + trim([CUS_LST_NM]) + '|' + trim([DIV_OGP_NO]) + '|' + trim([PRD_ITM_NO]) &#xA;from [sho_staging].[snap].[TakeWith_prod] Where [LN_ITM_STS_CD] = 'C'&#xA;)&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{13938011-590B-4550-A3DB-2ECBC819CFEB}"
+      DTS:From="Package\Data Flow Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Update snap_MerchOnOrderSales_prod for Duplicates and Delete" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{E2141131-8971-42AF-AE31-B54C5461CA9B\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{E2141131-8971-42AF-AE31-B54C5461CA9B}"
+      DTS:From="Package\Preparation SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{E2141131-8971-42AF-AE31-B54C5461CA9B}"
+      DTS:To="Package\Data Flow Task 1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Data Flow Task 1"
+          TopLeft="28.5,107.5" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Preparation SQL Task 1"
+          TopLeft="13.5,5.5" />
+        <NodeLayout
+          Size="387,42"
+          Id="Package\Update snap_MerchOnOrderSales_prod for Duplicates and Delete"
+          TopLeft="19,198" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="108.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="104,48.5"
+              Start="0,0"
+              End="104,41">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.25"
+                    Point2="0,24.25"
+                    Point3="4,24.25" />
+                  <mssgle:LineSegment
+                    End="100,24.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="100,24.25"
+                    Point2="104,24.25"
+                    Point3="104,28.25" />
+                  <mssgle:LineSegment
+                    End="104,41" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{E2141131-8971-42AF-AE31-B54C5461CA9B\}]"
+          TopLeft="108.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="348,42"
+          Id="Package\Data Flow Task 1\Source - MerchOnOrderSales_prod_20181218092232_txt"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod"
+          TopLeft="48,107.5" />
+        <EdgeLayout
+          Id="Package\Data Flow Task 1.Paths[Flat File Source Output]"
+          TopLeft="179.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 1\Destination - MerchOnOrderSales_prod">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

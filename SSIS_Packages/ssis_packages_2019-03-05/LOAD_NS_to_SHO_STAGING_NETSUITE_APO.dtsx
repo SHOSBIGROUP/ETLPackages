@@ -1,0 +1,2802 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/20/2018 11:12:25 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LT-SELVI-TEST"
+  DTS:CreatorName="LT-SELVI-TEST\User"
+  DTS:DTSID="{EB3EA05A-286C-4B82-8A75-808AFC9D5FFA}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LOAD_NS_to_SHO_STAGING_NETSUITE_APO"
+  DTS:PackageType="5"
+  DTS:VersionBuild="203"
+  DTS:VersionGUID="{E246A375-B388-4CF9-BA15-AD0C3CB23650}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LOAD_NS_SALES_APO_to_SHO_STAGING_FF_REJECTS]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{688C4D2C-1DA4-4A82-BD2A-87236277FDB7}"
+      DTS:ObjectName="LOAD_NS_SALES_APO_to_SHO_STAGING_FF_REJECTS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="E:\ssis_rejects\netsuite\ns_daily_sales_transaction_header_apo_rejects.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Document Number"
+              DTS:DTSID="{CEC380B2-CE11-43FB-BD21-2CBEF3F64483}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sales Check nummber"
+              DTS:DTSID="{5C39CE9A-CE25-4F17-BF77-9B6867730737}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Date Created"
+              DTS:DTSID="{BC6A1298-5C0E-40F6-B733-C21B8AE4585C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Promotion"
+              DTS:DTSID="{3DD5CC13-DF1C-4CC2-B23B-9811A87450AE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Applied Promotion Status"
+              DTS:DTSID="{DCA99968-A078-490E-BAE6-92F6546AFC80}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SHO_REASON_CODE"
+              DTS:DTSID="{14CE658A-E60C-401B-B25F-EFFFE996216A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SHO_POS_READON_CODE_COMMENT"
+              DTS:DTSID="{72474BF9-BC73-41F4-8F15-94E0ED284593}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CNV_Transaction Document Number"
+              DTS:DTSID="{7D197B68-1A14-4FCE-A9C8-CD8972F026B0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CNV_Sales Check nummber"
+              DTS:DTSID="{270F7F14-C241-4057-9042-36D16120E687}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CNV_Date Created"
+              DTS:DTSID="{E6FDBDE5-F93D-478D-B29E-C0E3DCBCA0D3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CNV_Promotion"
+              DTS:DTSID="{9E040137-B78A-4E99-B14E-7E0B0898D758}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CNV_Applied Promotion Status"
+              DTS:DTSID="{E1241753-30E1-4767-BC4E-53AB74D297A8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CNV_SHO_REASON_CODE"
+              DTS:DTSID="{3EB6AFCA-416C-4D62-99C7-CFF17C6568E7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CNV_SHO_POS_READON_CODE_COMMENT"
+              DTS:DTSID="{EFE5FB58-70E9-47F2-B2A0-6126A76B6661}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{3F2D1DD7-B92A-4906-B4D9-850CECD3F846}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{5930F2F1-3F6B-4B55-A9AB-C58B9D96859B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LOAD_NS_to_SHO_STAGING_APO_RAW]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{55EC1785-593D-4C8B-B631-13D235F9644C}"
+      DTS:ObjectName="LOAD_NS_to_SHO_STAGING_APO_RAW">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::in_filename]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\quicktemp\development\NetSuiteDevelopment\netsuite data design\sample files\SHOBINewPOSCommentsfileResults272.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Internal ID"
+              DTS:DTSID="{2F29CA3B-60AA-44D2-968D-9B3F912E84C1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Date"
+              DTS:DTSID="{1920E33D-BBEF-4CF6-932B-7F682BEE03CF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Type"
+              DTS:DTSID="{04C7A554-9992-4121-BA9C-3F0CBDA9DE26}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="type_2"
+              DTS:DTSID="{D6E1DC72-50D3-4088-B277-E307DB35E11D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Document Number"
+              DTS:DTSID="{C2E22AFB-08F2-483E-A933-4A29B943ACD4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sales Check Number"
+              DTS:DTSID="{A20EBE81-DBB7-449A-832D-A5456529C15E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Promotion"
+              DTS:DTSID="{822B4368-71DB-4989-A177-DE41DAE3C6C9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Applied Promotion Status"
+              DTS:DTSID="{95DB8329-76BF-47A9-91E1-84760D810898}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SHO_Reason_Code"
+              DTS:DTSID="{C9CC71E6-E4DD-4A23-9838-A5A2BE2C0A8C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SHO_POS_Readon_Code_Comment"
+              DTS:DTSID="{0991167E-4621-4865-A6F6-E03B4FD174E2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="New Sears Card application Status"
+              DTS:DTSID="{77190919-BEA8-44C3-BF70-5CC0124971F9}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SOURCE FTP LOCATION]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{A24D95E8-57ED-4401-8FFB-08F61D9DF2BF}"
+      DTS:ObjectName="SOURCE FTP LOCATION">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"\\\\azitutil.ads.shos.com\\sftp_root\\BI\\data\\in\\netsuite\\bi_daily_transaction_pos_comments_"+(DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite\bi_daily_transaction_pos_comments_20190305.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Date"
+              DTS:DTSID="{4B7A0449-A669-40C1-B49D-5EEB940E3855}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Paid Date"
+              DTS:DTSID="{2028358A-1E11-4B5A-8888-000A802AF874}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Type"
+              DTS:DTSID="{FDAF93D2-1DFB-4DA2-B96F-84FCB9AEE9A5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Status"
+              DTS:DTSID="{1ED356FB-13F8-4679-8D8B-3BA9638BD7E4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Source"
+              DTS:DTSID="{236D3F82-C787-452C-B313-0072D6E8C297}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Document Number"
+              DTS:DTSID="{F045DF90-0CD2-4108-A561-1EB55EBE224D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sales Check nummber"
+              DTS:DTSID="{9E800C7A-4535-49AE-8320-8718A6ACDCE5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Accounting Unit"
+              DTS:DTSID="{DE653047-CDCA-4825-8151-A68326ABC211}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Accounting Unit (no hierarchy)"
+              DTS:DTSID="{34F47D99-4289-41DE-8F31-F1ABC0017383}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Location format type"
+              DTS:DTSID="{DC4F3E79-48F2-4EAC-B361-64F502562480}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Store Region"
+              DTS:DTSID="{0A2D35FB-F74F-479D-B603-DDF79BB1D14D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Store District"
+              DTS:DTSID="{37C549A6-1D42-4DBB-9053-5EF147C1899A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Store"
+              DTS:DTSID="{00C2DBA5-8EF5-4588-9107-C90E4EBC3838}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Location"
+              DTS:DTSID="{F5842A69-444C-4A23-AF1A-6541BED0A5AD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Category"
+              DTS:DTSID="{F27E61A3-FD9B-4291-A4D2-37B3D77E14CA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Division"
+              DTS:DTSID="{CF2014A6-34BF-4FB8-AF07-C0C9B8EBBC8F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Line"
+              DTS:DTSID="{50015D5C-9A4A-4975-9CEB-34D699DF870A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Subline"
+              DTS:DTSID="{D6BE268D-F365-44A2-A8B8-BFADF8DD09C5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Class"
+              DTS:DTSID="{7392190E-201A-4FBC-A3BD-A4B2FECE2906}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Item Name"
+              DTS:DTSID="{5FF43768-1194-4786-BF89-16DDF4BBB3E9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Discription"
+              DTS:DTSID="{B6FB8C87-2CB7-42AB-9638-575A948828FA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Designation"
+              DTS:DTSID="{27C05ADC-FC01-4805-BBF6-0F183698E042}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SKU#"
+              DTS:DTSID="{F01F44AC-8CEE-483A-8369-DF2DC691D813}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SHO Type"
+              DTS:DTSID="{F871C6E6-3374-4040-A64F-D18756DD8315}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Brand"
+              DTS:DTSID="{5816632F-4B51-44C6-A5E6-0D17BF1AD06E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Is PA"
+              DTS:DTSID="{2B224BED-0EB0-45EB-A00D-D04D268F3296}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Available PA"
+              DTS:DTSID="{204792E2-F287-4D75-8920-38AC6CB29FCB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Bulk Sale Tran"
+              DTS:DTSID="{933A7E38-F1E5-47A9-917C-281085CC0A6B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Net Amount"
+              DTS:DTSID="{E15D974C-0CA6-41C7-B99D-871640AF870F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Qty"
+              DTS:DTSID="{737B44D0-5A45-4B72-8CA8-7B04478640B4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Avg  Cost"
+              DTS:DTSID="{28B766AC-D163-417F-945F-73309719F8A1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="List Price"
+              DTS:DTSID="{82557BA2-E7B0-45D4-BB74-6BAB98FC3DDF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Regular price"
+              DTS:DTSID="{BE441AE5-F881-46B6-8CA6-BD8EF65837D0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cadence 3H"
+              DTS:DTSID="{822C1C34-C5AB-4F40-A7DC-9782078EAF21}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cadence outlet"
+              DTS:DTSID="{74633690-A142-47F2-8161-10BAE93E47A9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Amount"
+              DTS:DTSID="{87C0AF8B-F7B6-4E13-94B7-E9AC024DF639}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gross Profit"
+              DTS:DTSID="{66D66D78-D2CF-4BB2-B8FB-C4BD09C24258}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Store Indicator"
+              DTS:DTSID="{4AE5E1D3-758F-4693-BA03-9DF153BA4DED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fulfilment method"
+              DTS:DTSID="{CE52E73D-BCFE-4022-8898-57AB91EAE0D4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fulfilment Selected"
+              DTS:DTSID="{A0C337B4-B9F6-42E3-88A1-5A62F2CEEA81}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer First Name"
+              DTS:DTSID="{BE504598-0636-44BF-920B-E0108CA16E90}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Last Name"
+              DTS:DTSID="{783B4030-E610-49FE-9763-27660EDD8104}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Address_1"
+              DTS:DTSID="{B328D6C3-A60C-45C8-9F7F-EEF933EEEB82}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Address_2"
+              DTS:DTSID="{59530FE7-81EA-4989-A18F-905C97933921}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer City"
+              DTS:DTSID="{BA574BB5-A672-4970-A81F-039DFC6628BA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer State"
+              DTS:DTSID="{3CDC5096-B287-4700-A0FA-34EA41F7CD96}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Zip"
+              DTS:DTSID="{8AA230CB-FDCE-4D74-9074-3D2411FAF7D6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{84282209-9950-4AB8-B168-FA584710D2FA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Alt  Email"
+              DTS:DTSID="{5EE742F7-18DD-4CBD-9429-FBA31D9F3D41}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Acc Email"
+              DTS:DTSID="{FF41CE5F-C2F0-4BC6-AFBA-4760266BB8FD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Shipping Email"
+              DTS:DTSID="{C821AA9A-CFA2-4130-BDAA-A1B460EE8E79}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Phone"
+              DTS:DTSID="{DC06C869-7CA3-4B44-8266-63A506646379}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Mobile"
+              DTS:DTSID="{57971A77-5711-4C6A-803A-151810E18307}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Home Phone "
+              DTS:DTSID="{195720D5-0DDC-4374-9A83-84801D499030}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SSIS ARCHIVE]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{D22A1440-D7D9-4CE4-BB30-0A7465914DD9}"
+      DTS:ObjectName="SSIS ARCHIVE">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"\\\\10.1.0.22\\ssis_incoming\\netsuite\\archive\\bi_daily_transaction_pos_comments_"  +(DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2)+ ".csv"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\archive\bi_daily_transaction_pos_comments_20190305.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Date"
+              DTS:DTSID="{DB0BDD33-5967-454D-835D-FBB0DA019D7B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Paid Date"
+              DTS:DTSID="{06D924F6-58C7-41D1-A6ED-E6E8C425D732}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Type"
+              DTS:DTSID="{002EF9CC-CAE5-4415-9646-FCDCADFE33A4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Status"
+              DTS:DTSID="{9E480797-5FE1-4F05-BDF8-4F3A8E6542BE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Source"
+              DTS:DTSID="{2BD8180B-8D89-4080-8A71-E4EA0BEBBF4B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Document Number"
+              DTS:DTSID="{B0A95575-2267-49DE-984A-F78AA739C5B3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sales Check nummber"
+              DTS:DTSID="{87D9433D-D74B-4CA1-A436-F446317A079F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Accounting Unit"
+              DTS:DTSID="{C84E84B3-4AAA-4B18-BD31-CA77472CDFC4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Accounting Unit (no hierarchy)"
+              DTS:DTSID="{096E486C-03DD-4AB3-A11C-FE4BD862917D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Location format type"
+              DTS:DTSID="{41B268CB-D6E1-4A4D-BC24-0E7E4B7FA35C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Store Region"
+              DTS:DTSID="{E540391E-2F3F-4E24-9B73-129D30CDF929}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Store District"
+              DTS:DTSID="{AE27E540-FAE7-478A-8817-2140F06A6FDF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Store"
+              DTS:DTSID="{441DA98D-E1E1-426B-9F7E-BEA248B14339}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Location"
+              DTS:DTSID="{6A2D2894-D57C-41DE-B53C-570FECEE1663}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Category"
+              DTS:DTSID="{23CADF3A-1C34-4CFC-997A-5A59B14AD2B9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Division"
+              DTS:DTSID="{B243DDFE-5D33-4313-80EF-56340636DEDF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Line"
+              DTS:DTSID="{8E56CB7C-997B-4D94-8C52-914C5DCB57FF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Subline"
+              DTS:DTSID="{4F654F1D-7630-4531-B879-72B6BBEB9C4D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Class"
+              DTS:DTSID="{8898FAE9-1AD0-445F-BE19-627DC02B0CDF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Item Name"
+              DTS:DTSID="{DEADF4ED-E18B-4F0A-BBC0-37AC5410B4B8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Discription"
+              DTS:DTSID="{AD64D65F-F656-41AB-931A-EF393920C067}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Designation"
+              DTS:DTSID="{A45A3DEA-2B80-4C48-AE25-6758E8A678F5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SKU#"
+              DTS:DTSID="{A89F6A68-43DC-4FBC-B83A-79077A288840}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SHO Type"
+              DTS:DTSID="{17C6ABF8-A16C-46E5-9041-D182259EE5BF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Brand"
+              DTS:DTSID="{C81E1F8E-A908-426C-90FC-2010AFED4F69}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Is PA"
+              DTS:DTSID="{2B514211-64BA-4FD6-870C-D0B51BDB4B87}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Available PA"
+              DTS:DTSID="{6E98EA78-0C96-46B5-B60D-4FD92FE52C33}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Bulk Sale Tran"
+              DTS:DTSID="{76DCFF91-B562-4FAB-90CE-CF294543D877}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Net Amount"
+              DTS:DTSID="{98369F66-E440-4678-A01F-C0CC26E1AF37}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Qty"
+              DTS:DTSID="{3096CD4B-D83F-4EDE-BEAA-B7D2D94C6F45}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Avg  Cost"
+              DTS:DTSID="{B65DBEDC-F523-4B50-BBDF-C4DF6A1A449F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="List Price"
+              DTS:DTSID="{0AC0340C-B50E-451E-BBB3-28FF66405421}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Regular price"
+              DTS:DTSID="{897C892E-D95F-4F82-A3E0-AF63F6A0F7B2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cadence 3H"
+              DTS:DTSID="{D914F25D-18A6-4B3E-892D-B78400537096}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cadence outlet"
+              DTS:DTSID="{5ACBDD48-B32E-41F6-84CD-507C8BF18AA3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Amount"
+              DTS:DTSID="{5903878E-E704-4A90-9E4B-A25DA03C72AB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gross Profit"
+              DTS:DTSID="{89FE9926-6A3C-4762-A74B-F0DB2172A6EE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Store Indicator"
+              DTS:DTSID="{8F1E2F9A-1794-4CE2-A4B9-A53A6E75F817}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fulfilment method"
+              DTS:DTSID="{53677F06-0FD7-4775-AAC6-911E9ABA4013}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fulfilment Selected"
+              DTS:DTSID="{D802CEE2-D7BF-4BA8-A59B-040ED70026E1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer First Name"
+              DTS:DTSID="{D537660F-70D3-4FBF-AE8C-81987A84BF02}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Last Name"
+              DTS:DTSID="{747150F9-372C-4733-9444-C2B0F8E2395C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Address_1"
+              DTS:DTSID="{A9CF2325-E2C8-4712-B3CC-F15C2B9A5F78}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Address_2"
+              DTS:DTSID="{0A9A49FF-B04D-481C-992D-CEFE3A269D44}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer City"
+              DTS:DTSID="{F72367CF-DFB9-435F-ADD7-B5BADC3F9B0E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer State"
+              DTS:DTSID="{AEDC7410-7898-43C4-89A1-911FD3218302}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Zip"
+              DTS:DTSID="{28BC1330-2551-4E6A-8850-99AD1BDB851F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{3CE2A2AB-1EF2-43AB-A368-317658059424}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Alt  Email"
+              DTS:DTSID="{46AFDB1D-A0C4-4F9A-8BA9-720E32EFFFB6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Acc Email"
+              DTS:DTSID="{7165D97D-4B44-4352-BD20-34523874997C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Shipping Email"
+              DTS:DTSID="{5A0161F0-0F0B-483F-83A5-77B6B54EA166}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Phone"
+              DTS:DTSID="{16852162-63CD-4886-A298-210FE7DA55A6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Mobile"
+              DTS:DTSID="{2CC417E3-AD17-4273-98F5-476D30D2E555}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Home Phone "
+              DTS:DTSID="{DC9A424A-784E-4DF5-9DE5-A64C4A8E1B77}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SSIS INCOMING]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{6CDDA343-FFF4-402D-91C4-869AF68099A3}"
+      DTS:ObjectName="SSIS INCOMING">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"\\\\10.1.0.22\\ssis_incoming\\netsuite\\bi_daily_transaction_pos_comments_"  +(DT_WSTR,4)DATEPART("yyyy",GetDate()) + RIGHT("0" + (DT_WSTR,2)DATEPART("mm",GetDate()) ,2) +  RIGHT("0" + (DT_WSTR,2)DATEPART("dd",GetDate()),2) + ".csv"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\netsuite\bi_daily_transaction_pos_comments_20190305.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Internal ID"
+              DTS:DTSID="{5BD69927-E65F-4D59-B764-86DA9A201B97}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Date"
+              DTS:DTSID="{C44BFEA6-3BCB-4B1F-9D2D-468FDC4E659B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Type"
+              DTS:DTSID="{74DCDF95-634D-49B5-9B61-347E5539A87E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Created From Type"
+              DTS:DTSID="{04C5CA06-B2F4-434B-B47B-FBA9828179DB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Document Number"
+              DTS:DTSID="{F9AD4880-EA66-456E-B8EB-AFEAAD9DB749}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sales Check Number"
+              DTS:DTSID="{8181341D-0754-4336-830E-4AFC0BC62E75}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Promotion"
+              DTS:DTSID="{1135BB8F-70E1-426A-8587-5541B03A06FA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Applied Promotion Status"
+              DTS:DTSID="{B89AB614-6265-4AEB-B759-04F76493DFD6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SHO_Reason_Code"
+              DTS:DTSID="{D9A8E290-9141-46E6-9694-9D3739DC4188}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="350"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SHO_POS_Readon_Code_Comment"
+              DTS:DTSID="{EF8BBCCD-6D7C-4BED-A6CF-B90A466EFBE5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="New Sears Card application Status"
+              DTS:DTSID="{12A816C1-B27A-48B8-864C-DA98C6190B1F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Last Modified"
+              DTS:DTSID="{FBC139B5-72DA-4649-893E-E38D34014A75}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Comments_Internal ID"
+              DTS:DTSID="{6FFD7513-2C5F-42FB-B1F6-DCFCCF75F71A}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{36E31F06-285E-44FB-9A76-E86E05E39A91}"
+      DTS:ObjectName="FlatFileConnectionManager_ConnectionString">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">X:\SourceFiles\Netsuite\NS_Daily File_Sales_Orders-8.27.2018</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{56D85F44-1CAB-49F1-9EBA-915B23221AB6}"
+      DTS:ObjectName="netsuite_incoming"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">\\azitutil.ads.shos.com\sftp_root\BI\data\in\netsuite</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5D075F78-981E-400B-92E3-45BC156F43B1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="in_filename">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\quicktemp\development\NetSuiteDevelopment\netsuite data design\sample files\SHOBINewPOSCommentsfileResults272.csv</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2A3D2734-E553-4053-A76D-FE71F0FB8BA5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="APO File"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SSIS INCOMING]"
+                  connectionManagerRefId="Package.ConnectionManagers[SSIS INCOMING]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Internal ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[Internal ID]"
+                      length="15"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Internal ID]"
+                      name="Internal ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                      length="30"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[Type]"
+                      length="50"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Type]"
+                      name="Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Created From Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[Created From Type]"
+                      length="50"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Created From Type]"
+                      name="Created From Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Document Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[Document Number]"
+                      length="50"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Document Number]"
+                      name="Document Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Sales Check Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[Sales Check Number]"
+                      length="50"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Sales Check Number]"
+                      name="Sales Check Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Promotion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[Promotion]"
+                      length="50"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Promotion]"
+                      name="Promotion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Applied Promotion Status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[Applied Promotion Status]"
+                      length="50"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Applied Promotion Status]"
+                      name="Applied Promotion Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[SHO_Reason_Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[SHO_Reason_Code]"
+                      length="50"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[SHO_Reason_Code]"
+                      name="SHO_Reason_Code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[SHO_POS_Readon_Code_Comment]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[SHO_POS_Readon_Code_Comment]"
+                      length="350"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[SHO_POS_Readon_Code_Comment]"
+                      name="SHO_POS_Readon_Code_Comment"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[New Sears Card application Status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[New Sears Card application Status]"
+                      length="250"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[New Sears Card application Status]"
+                      name="New Sears Card application Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Last Modified]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[Last Modified]"
+                      length="50"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Last Modified]"
+                      name="Last Modified"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Comments_Internal ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[Comments_Internal ID]"
+                      length="15"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Comments_Internal ID]"
+                      name="Comments_Internal ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[Internal ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Internal ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Type" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[Created From Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Created From Type" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[Document Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Document Number" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[Sales Check Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Sales Check Number" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[Promotion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Promotion" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[Applied Promotion Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Applied Promotion Status" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[SHO_Reason_Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SHO_Reason_Code" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[SHO_POS_Readon_Code_Comment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="SHO_POS_Readon_Code_Comment" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[New Sears Card application Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="New Sears Card application Status" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[Last Modified]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Last Modified" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].ExternalColumns[Comments_Internal ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Comments_Internal ID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Data Conversion.Inputs[Data Conversion Input].Columns[filename]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="filename"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Put in_filename in stream.Outputs[Derived Column Output].Columns[filename]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Data Conversion.Outputs[Data Conversion Output].Columns[casted filename]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Data Conversion.Outputs[Data Conversion Output].Columns[casted filename]"
+                      name="casted filename"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Put in_filename in stream.Outputs[Derived Column Output].Columns[filename]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert into APO raw"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[netsuite].[sales_daily_apo_raw]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Connections[OleDbConnection]"
+                  connectionManagerID="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_STAGING]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[Promotion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Promotion"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[promotion]"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Promotion]" />
+                    <inputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[SHO_Reason_Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SHO_Reason_Code"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[sho_reason_code]"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[SHO_Reason_Code]" />
+                    <inputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[Date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[date_created]"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[Document Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Document Number"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[transaction_document_number]"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Document Number]" />
+                    <inputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[Sales Check Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Sales Check Number"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[sales_check_nummber]"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Sales Check Number]" />
+                    <inputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[Applied Promotion Status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Applied Promotion Status"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[applied_promotion_status]"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Applied Promotion Status]" />
+                    <inputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[SHO_POS_Readon_Code_Comment]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="SHO_POS_Readon_Code_Comment"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[sho_pos_reason_code_comment]"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[SHO_POS_Readon_Code_Comment]" />
+                    <inputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[New Sears Card application Status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="250"
+                      cachedName="New Sears Card application Status"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[new_sears_card_application_status]"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[New Sears Card application Status]" />
+                    <inputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[casted filename]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="casted filename"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[filename]"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Data Conversion.Outputs[Data Conversion Output].Columns[casted filename]" />
+                    <inputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[Internal ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Internal ID"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[internal_id_header]"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Internal ID]" />
+                    <inputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].Columns[Comments_Internal ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Comments_Internal ID"
+                      externalMetadataColumnId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[internal_id_apo]"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output].Columns[Comments_Internal ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[date_created]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="date_created" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[transaction_document_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="transaction_document_number" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[sales_check_nummber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="sales_check_nummber" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[promotion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="promotion" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[applied_promotion_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="applied_promotion_status" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[sho_reason_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="sho_reason_code" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[sho_pos_reason_code_comment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="sho_pos_reason_code_comment" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[new_sears_card_application_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="new_sears_card_application_status" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[rec_load_dt]"
+                      dataType="dbTimeStamp"
+                      name="rec_load_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[filename]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="filename" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[internal_id_header]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="internal_id_header" />
+                    <externalMetadataColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input].ExternalColumns[internal_id_apo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="internal_id_apo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Put in_filename in stream"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Put in_filename in stream"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Put in_filename in stream.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Put in_filename in stream.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Put in_filename in stream.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Put in_filename in stream.Outputs[Derived Column Output].Columns[filename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Put in_filename in stream.Outputs[Derived Column Output].Columns[filename]"
+                      name="filename"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,255)@[User::in_filename]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,255)@[User::in_filename]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Put in_filename in stream.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Put in_filename in stream.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Put in_filename in stream.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Put in_filename in stream.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Put in_filename in stream.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Put in_filename in stream.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw.Paths[Data Conversion Output]"
+              endId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw.Paths[Derived Column Output]"
+              endId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Put in_filename in stream.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw.Paths[Flat File Source Output]"
+              endId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Put in_filename in stream.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Move file ns_daily_sales_transaction_pos_comments from FTP Location to SSIS incoming"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{6784FC4C-1D26-4CC7-8C8F-17F579919510}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Move file ns_daily_sales_transaction_pos_comments from FTP Location to SSIS incoming"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="{A24D95E8-57ED-4401-8FFB-08F61D9DF2BF}"
+          TaskDestinationPath="{6CDDA343-FFF4-402D-91C4-869AF68099A3}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Source File Archive"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{094411B8-A6C5-4DD0-BD4C-0E76C3D00953}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Source File Archive"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskSourcePath="{6CDDA343-FFF4-402D-91C4-869AF68099A3}"
+          TaskDestinationPath="{D22A1440-D7D9-4CE4-BB30-0A7465914DD9}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Source File Deletion"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{28425A44-C153-4427-B9E7-F23791B839E1}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Source File Deletion"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteFile"
+          TaskSourcePath="{A24D95E8-57ED-4401-8FFB-08F61D9DF2BF}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Staging netsuite_sales_daily_apo_raw"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3F2FD255-8EAE-4B3B-8027-234C6435FBD1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Staging netsuite_sales_daily_apo_raw"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="truncate table [sho_staging].[netsuite].[sales_daily_apo_raw];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update sho_dw_sho_sales with APO Data"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{5A957E64-E60C-4928-AC6D-9F8ED1673040}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update sho_dw_sho_sales with APO Data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="&#xA;--*** Update sho_dw.fact.sho_sales_by_loc with APO Opportunities data ***&#xA;Update sho_dw.fact.sho_sales_by_loc set apo_opps_ty = apo_ns.apo_opps_ty&#xA;FROM&#xA;(&#xA;select Convert(date,apo.[Date Created]) as trs_dt, location.pos_nbr, count (distinct apo.[Sales Check nummber]) as apo_opps_ty from sho_staging.netsuite.[NS_Daily_File_Sales_Orders_Header_APO] apo&#xA;inner join [sho_staging].[netsuite].[NS_Daily_File_Sales_Orders_Header] header &#xA;on TRIM(apo.[Transaction Document Number]) = TRIM(header.[Transaction Document Number]) &#xA;inner join [sho_dw].[dim].[location] location on &#xA;convert(int,header.Location) = location.eis_nbr&#xA;where len(trim(header.[sales check nummber])) &gt; 0 &#xA;GROUP BY Convert(date,apo.[Date Created]), location.pos_nbr&#xA;)&#xA;apo_ns&#xA;INNER JOIN &#xA;sho_dw.fact.sho_sales_by_loc fact ON &#xA;apo_ns.pos_nbr = fact.pos_nbr and apo_ns.trs_dt = fact.trs_dt;&#xA;&#xA;--*** Update sho_dw.fact.sho_sales_by_loc with APO Applications data ***&#xA;Update sho_dw.fact.sho_sales_by_loc set apo_apps_ty = apo_ns.apo_apps_ty&#xA;FROM&#xA;(&#xA;select Convert(date,apo.[Date Created]) as trs_dt, location.pos_nbr, count(*) as apo_apps_ty from sho_staging.netsuite.[NS_Daily_File_Sales_Orders_Header_APO] apo&#xA;inner join [sho_staging].[netsuite].[NS_Daily_File_Sales_Orders_Header] header &#xA;on TRIM(apo.[Transaction Document Number]) = TRIM(header.[Transaction Document Number]) &#xA;inner join [sho_dw].[dim].[location] location on &#xA;convert(int,header.Location) = location.eis_nbr&#xA;where apo.SHO_REASON_CODE = 'SCAP' &#xA;GROUP BY Convert(date,apo.[Date Created]), location.pos_nbr&#xA;)&#xA;apo_ns&#xA;INNER JOIN &#xA;sho_dw.fact.sho_sales_by_loc fact ON &#xA;apo_ns.pos_nbr = fact.pos_nbr and apo_ns.trs_dt = fact.trs_dt;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{4959F736-197E-428F-96BA-84739C85B3E6}"
+      DTS:From="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Update sho_dw_sho_sales with APO Data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{14040730-108A-478A-B886-B8C5EA53F4DA}"
+      DTS:From="Package\Truncate Staging netsuite_sales_daily_apo_raw"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Move file ns_daily_sales_transaction_pos_comments from FTP Location to SSIS incoming" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{C678BC89-EA0D-4067-B8C9-441A32F37C86}"
+      DTS:From="Package\Move file ns_daily_sales_transaction_pos_comments from FTP Location to SSIS incoming"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{11A9A103-2271-448A-BE4E-39DE0FC3DA77}"
+      DTS:From="Package\Source File Archive"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Source File Deletion" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{871839CD-A00F-46DE-B66B-7243D9C50E38}"
+      DTS:From="Package\Update sho_dw_sho_sales with APO Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Source File Archive" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="511,42"
+          Id="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw"
+          TopLeft="178.666660679711,172.173334677802" />
+        <NodeLayout
+          Size="499,42"
+          Id="Package\Move file ns_daily_sales_transaction_pos_comments from FTP Location to SSIS incoming"
+          TopLeft="116.999997059504,92.5866673389011" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Source File Archive"
+          TopLeft="166.666662269169,342.560002595266" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Source File Deletion"
+          TopLeft="409.333320644167,344.480002578735" />
+        <NodeLayout
+          Size="303,42"
+          Id="Package\Truncate Staging netsuite_sales_daily_apo_raw"
+          TopLeft="128.666661553913,16.6400001322429" />
+        <NodeLayout
+          Size="275,42"
+          Id="Package\Update sho_dw_sho_sales with APO Data"
+          TopLeft="96,253" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="434.166660679711,214.173334677802">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-200.666660679711,38.826665322198"
+              Start="0,0"
+              End="-200.666660679711,31.326665322198">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.413332661099" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.413332661099"
+                    Point2="0,19.413332661099"
+                    Point3="-4,19.413332661099" />
+                  <mssgle:LineSegment
+                    End="-196.666660679711,19.413332661099" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-196.666660679711,19.413332661099"
+                    Point2="-200.666660679711,19.413332661099"
+                    Point3="-200.666660679711,23.413332661099" />
+                  <mssgle:LineSegment
+                    End="-200.666660679711,31.326665322198" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="280.166661553913,58.6400001322429">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="86.333335505591,33.9466672066582"
+              Start="0,0"
+              End="86.333335505591,26.4466672066582">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.9733336033291" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.9733336033291"
+                    Point2="0,16.9733336033291"
+                    Point3="4,16.9733336033291" />
+                  <mssgle:LineSegment
+                    End="82.333335505591,16.9733336033291" />
+                  <mssgle:CubicBezierSegment
+                    Point1="82.333335505591,16.9733336033291"
+                    Point2="86.333335505591,16.9733336033291"
+                    Point3="86.333335505591,20.9733336033291" />
+                  <mssgle:LineSegment
+                    End="86.333335505591,26.4466672066582" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="366.499997059504,134.586667338901">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="67.666663620207,37.5866673389009"
+              Start="0,0"
+              End="67.666663620207,30.0866673389009">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.7933336694504" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.7933336694504"
+                    Point2="0,18.7933336694504"
+                    Point3="4,18.7933336694504" />
+                  <mssgle:LineSegment
+                    End="63.666663620207,18.7933336694504" />
+                  <mssgle:CubicBezierSegment
+                    Point1="63.666663620207,18.7933336694504"
+                    Point2="67.666663620207,18.7933336694504"
+                    Point3="67.666663620207,22.7933336694504" />
+                  <mssgle:LineSegment
+                    End="67.666663620207,30.0866673389009" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="335.666662269169,364.520002587">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73.666658374998,0"
+              Start="0,0"
+              End="66.166658374998,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="66.166658374998,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="233.5,295">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.666662269169,47.560002595266"
+              Start="0,0"
+              End="17.666662269169,40.060002595266">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.780001297633" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.780001297633"
+                    Point2="0,23.780001297633"
+                    Point3="4,23.780001297633" />
+                  <mssgle:LineSegment
+                    End="13.666662269169,23.780001297633" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.666662269169,23.780001297633"
+                    Point2="17.666662269169,23.780001297633"
+                    Point3="17.666662269169,27.780001297633" />
+                  <mssgle:LineSegment
+                    End="17.666662269169,40.060002595266" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw"
+          TopLeft="197,330" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\APO File"
+          TopLeft="227,25" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Put in_filename in stream"
+          TopLeft="179,136" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Data Conversion"
+          TopLeft="198,229" />
+        <EdgeLayout
+          Id="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw.Paths[Flat File Source Output]"
+          TopLeft="282.25,67">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69"
+              Start="0,0"
+              End="0,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw.Paths[Derived Column Output]"
+          TopLeft="277.25,178">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw.Paths[Data Conversion Output]"
+          TopLeft="279.5,271">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load File ns_daily_sales_transaction_pos_comments to Table netsuite_sales_daily_apo_raw\Insert into APO raw">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,2003 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/9/2018 8:52:27 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LT-MPLASKO"
+  DTS:CreatorName="SHO\mplaskow"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{FC55BC56-26EC-4875-87BE-BE1E9ABD734C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="LOAD_FI_SALESGPPLANDIVISIONDAY_to_DW_STAGING"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{42AAFF97-6405-4820-A2AC-29B5F50511F7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B985646E-5B73-4BCE-9C40-BB5AC1AC4604}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=AZSQL01.ads.shos.com;User ID=mssql_etl;Initial Catalog=sho_staging;Provider=SQLNCLI11;Auto Translate=false;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAo4fAlTcN5Ui1YNp7O0Gt2AAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAABukgBBBLpKgYYpTY1wy+XAAAAAASAAACgAAAAEAAAAOgIkA1iDZIaUoOS1+XCu+woAAAAsa4vzWXnYRDkK68zQsAGves0r/aZQBEIzdsws/GdtBXC8aL/QVNTaBQAAAC5ohZ4nFTch+gW3UIErYGvu+cWnA</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{4794080E-30C6-492D-A84F-788CDD98F9DD}"
+      DTS:ObjectName="SourceConnectionFlatFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="X:\ssis_incoming\finance\Plan by Division By Day - Dec18(for BI).csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="div_cd"
+              DTS:DTSID="{9B257DDA-B40F-4CED-A3B4-5C25853549F7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="div_desc"
+              DTS:DTSID="{F9FC37F3-B765-4A72-BBF5-8E70CDF2EAF8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="store_format"
+              DTS:DTSID="{D037B99A-391B-4C29-826C-6D42B77C795B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="plan_amount_month"
+              DTS:DTSID="{0240AA87-A2F4-420F-A19C-491AC74496A8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="day_of_month"
+              DTS:DTSID="{FC04D006-7EA7-4969-A2AE-C3DBAFE8152B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="day_nbr"
+              DTS:DTSID="{8C01C3D0-22F1-4777-A4A2-152AB94540EB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="day_nbr_2"
+              DTS:DTSID="{34943935-B432-427F-BFB9-9E58AC3A6D19}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="daily_sales"
+              DTS:DTSID="{B33A4C0B-3399-436A-AA2A-C173375C5F00}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="daily_gp"
+              DTS:DTSID="{BD028F36-CA9E-46CD-AF31-7FB5709D4C1B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 9"
+              DTS:DTSID="{B2A96FF6-E06E-4067-9B87-2E05D47C4817}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 10"
+              DTS:DTSID="{E7A46A09-106A-4048-9C34-BE4968124224}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 11"
+              DTS:DTSID="{45DFFFE0-E5ED-40C2-8016-3B61B5ADFB6B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 12"
+              DTS:DTSID="{C42DBFE8-4080-4268-859B-522437DBB228}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 13"
+              DTS:DTSID="{75D24C80-8ACF-41F5-BBE8-7278339174FC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 14"
+              DTS:DTSID="{95662F92-7F49-4FF1-97F7-A5E1257BB1A0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 15"
+              DTS:DTSID="{309163D3-C659-4305-B278-D95ADF9B5D57}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 16"
+              DTS:DTSID="{665C2B44-921B-424B-8E93-EEAF0DAD5653}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 17"
+              DTS:DTSID="{8F61C5E4-5E5B-4457-A604-F55706F2C27F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 18"
+              DTS:DTSID="{24F936AF-ECD8-4A06-BC55-D74D90E9F095}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 19"
+              DTS:DTSID="{730C4DE6-1A7A-4EC3-ABCC-4F7FA575DC79}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 20"
+              DTS:DTSID="{3FDCBB77-07F0-4058-B604-50E354EBC812}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 21"
+              DTS:DTSID="{C0701B94-7B4E-4E52-8DED-1389FDD8AF60}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 22"
+              DTS:DTSID="{1A8B5E39-CA8C-4F50-965F-BCED292CC688}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 23"
+              DTS:DTSID="{1061E321-44D1-4B2B-9F61-DC85270DA017}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 24"
+              DTS:DTSID="{0FF37B03-FBC2-4E40-885B-FDBD66F41DF7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 25"
+              DTS:DTSID="{0295F197-A035-4928-94AC-304F8183152F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 26"
+              DTS:DTSID="{A3E0AB86-2F81-4455-97A5-A5E128C1D8FB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 27"
+              DTS:DTSID="{9FFEA8A9-76CB-4A29-A225-A43DBB7690E1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 28"
+              DTS:DTSID="{D60AD67D-214A-41B9-B316-BDC525A15985}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 29"
+              DTS:DTSID="{FF46A433-0D47-49DB-9F8C-F97040002427}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 30"
+              DTS:DTSID="{39FEFB04-B3C1-49B1-B114-D08B48D455D5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 31"
+              DTS:DTSID="{DA5A6DCC-BDFC-4FBB-9BA1-8A1BD93EB897}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 32"
+              DTS:DTSID="{1454A0CB-4478-437A-B04D-144500D0C06B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 33"
+              DTS:DTSID="{5395B83E-D67E-4883-A729-59E15CD395CA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 34"
+              DTS:DTSID="{FA8D8D8F-BC1A-40F8-927E-38541D3B613F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 35"
+              DTS:DTSID="{B54E5409-EF80-4C57-A795-1C0680CC2E49}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 36"
+              DTS:DTSID="{8ABDB7AB-C26A-47FF-8BB7-776D56B94250}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 37"
+              DTS:DTSID="{3EA33107-F747-4503-8FB1-464C41B8FBD4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 38"
+              DTS:DTSID="{010E4662-B4AC-4FF3-ABC6-2E52646B083A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 39"
+              DTS:DTSID="{80F9ED32-7900-41CD-AF3C-B781195BDE5F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 40"
+              DTS:DTSID="{4ACD04AA-9C29-43D1-A13A-24F12CA20B4E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 41"
+              DTS:DTSID="{05F6ECE5-FCC0-4757-A082-A356DE04AAC0}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{A35EF09C-68AF-4C17-A280-CCF9D19D862D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - div_format_daily_plan_raw"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[finance].[div_format_daily_plan_raw]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].Columns[div_cd]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="div_cd"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[div_cd]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[div_cd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].Columns[div_desc]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="div_desc"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[div_desc]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[div_desc]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].Columns[store_format]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="store_format"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[store_format]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[store_format]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].Columns[plan_amount_month]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="plan_amount_month"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[plan_amount_month]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[plan_amount_month]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].Columns[day_of_month]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="day_of_month"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[day_of_month]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_of_month]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].Columns[day_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="day_nbr"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[day_nbr]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_nbr]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].Columns[day_nbr_2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="day_nbr_2"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[day_nbr_2]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_nbr_2]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].Columns[daily_sales]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="daily_sales"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[daily_sales]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[daily_sales]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].Columns[daily_gp]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="daily_gp"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[daily_gp]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[daily_gp]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[div_cd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="div_cd" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[div_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="div_desc" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[store_format]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="store_format" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[plan_amount_month]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="plan_amount_month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[day_of_month]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_of_month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[day_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[day_nbr_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_nbr_2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[daily_sales]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="daily_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[daily_gp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="daily_gp" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Source - Plan by Division by Day csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[div_cd]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[div_cd]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[div_cd]"
+                      name="div_cd"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[div_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[div_desc]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[div_desc]"
+                      name="div_desc"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[store_format]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[store_format]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[store_format]"
+                      name="store_format"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[plan_amount_month]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[plan_amount_month]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[plan_amount_month]"
+                      name="plan_amount_month"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_of_month]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[day_of_month]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_of_month]"
+                      name="day_of_month"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[day_nbr]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_nbr]"
+                      name="day_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_nbr_2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[day_nbr_2]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_nbr_2]"
+                      name="day_nbr_2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[daily_sales]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[daily_sales]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[daily_sales]"
+                      name="daily_sales"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[daily_gp]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[daily_gp]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[daily_gp]"
+                      name="daily_gp"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 9]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 9]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 9]"
+                      name="Column 9"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 10]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 10]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 10]"
+                      name="Column 10"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 11]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 11]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 11]"
+                      name="Column 11"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 12]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 12]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 12]"
+                      name="Column 12"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 13]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 13]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 13]"
+                      name="Column 13"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 14]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 14]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 14]"
+                      name="Column 14"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 15]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 15]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 15]"
+                      name="Column 15"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 16]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 16]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 16]"
+                      name="Column 16"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 17]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 17]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 17]"
+                      name="Column 17"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 18]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 18]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 18]"
+                      name="Column 18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 19]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 19]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 19]"
+                      name="Column 19"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 20]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 20]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 20]"
+                      name="Column 20"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 21]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 21]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 21]"
+                      name="Column 21"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 22]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 22]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 22]"
+                      name="Column 22"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 23]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 23]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 23]"
+                      name="Column 23"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 24]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 24]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 24]"
+                      name="Column 24"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 25]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 25]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 25]"
+                      name="Column 25"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 26]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 26]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 26]"
+                      name="Column 26"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 27]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 27]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 27]"
+                      name="Column 27"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 28]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 28]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 28]"
+                      name="Column 28"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 29]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 29]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 29]"
+                      name="Column 29"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 30]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 30]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 30]"
+                      name="Column 30"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 31]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 31]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 31]"
+                      name="Column 31"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 32]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 32]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 32]"
+                      name="Column 32"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 33]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 33]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 33]"
+                      name="Column 33"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 34]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 34]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 34]"
+                      name="Column 34"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 35]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 35]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 35]"
+                      name="Column 35"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 36]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 36]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 36]"
+                      name="Column 36"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 37]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 37]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 37]"
+                      name="Column 37"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 38]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 38]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 38]"
+                      name="Column 38"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 39]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 39]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 39]"
+                      name="Column 39"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 40]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 40]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 40]"
+                      name="Column 40"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 41]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 41]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 41]"
+                      name="Column 41"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[div_cd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="div_cd" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[div_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="div_desc" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[store_format]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="store_format" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[plan_amount_month]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="plan_amount_month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[day_of_month]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_of_month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[day_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[day_nbr_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_nbr_2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[daily_sales]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="daily_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[daily_gp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="daily_gp" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 9]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 9" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 10]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 11]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 11" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 12]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 12" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 13]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 13" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 14]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 14" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 15]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 15" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 16]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 16" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 17]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 17" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 18]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 19]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 19" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 20]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 20" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 21]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 21" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 22]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 22" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 23]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 23" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 24]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 24" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 25]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 25" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 26]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 26" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 27]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 27" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 28]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 29]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 29" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 30]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 30" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 31]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 31" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 32]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 32" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 33]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 33" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 34]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 34" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 35]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 35" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 36]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 36" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 37]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 37" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 38]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 38" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 39]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 39" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 40]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 40" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 41]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 41" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Data Flow Task 1"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="250,42"
+          Id="Package\Data Flow Task 1\Source - Plan by Division by Day csv"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="269,42"
+          Id="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw"
+          TopLeft="35,107.5" />
+        <EdgeLayout
+          Id="Package\Data Flow Task 1.Paths[Flat File Source Output]"
+          TopLeft="130.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39,60"
+              Start="0,0"
+              End="39,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="35,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35,30"
+                    Point2="39,30"
+                    Point3="39,34" />
+                  <mssgle:LineSegment
+                    End="39,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,2519 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/3/2018 1:55:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LT-MPLASKO"
+  DTS:CreatorName="SHO\mplaskow"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{356A9959-3451-4CF4-AEA8-D2C99F4E0459}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="LOAD_FI_SALESPLANLOCATIONDAY_to_DW_STAGING"
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{10207FFF-536F-4C26-9E77-1327E46E3923}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LOAD_FI_SALESPLANLOCATIONDAY_to_DW_STAGING_CSV_DATASOURCE]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{FBA5BC28-76A9-4C97-99DB-44027C399D6F}"
+      DTS:ObjectName="LOAD_FI_SALESPLANLOCATIONDAY_to_DW_STAGING_CSV_DATASOURCE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="X:\ssis_incoming\finance\Plan by Store by Day  - Dec 18(for BI).csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 0"
+              DTS:DTSID="{65440AEC-9A8E-410C-92BA-3DF58BFACC78}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 1"
+              DTS:DTSID="{247CF875-BBCD-46DB-B8CB-A5AAE11762D2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 2"
+              DTS:DTSID="{ACF05AAE-7EA9-4423-9264-588F6668EA16}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 3"
+              DTS:DTSID="{242F2DC3-FDC8-4AE6-95AD-28708356C901}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 4"
+              DTS:DTSID="{69DE456D-AFE9-48E2-91D2-508F93192F44}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 5"
+              DTS:DTSID="{27FBD3E3-3271-4388-B930-0C07A04566E2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 6"
+              DTS:DTSID="{FF1D7C54-0A1B-45F9-B7CE-5B725B5CD82A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 7"
+              DTS:DTSID="{09EAADE9-0462-4E9C-93E2-25D24BFD0BF6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 8"
+              DTS:DTSID="{464AE315-F3DB-43C1-930E-C826E74193C6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 9"
+              DTS:DTSID="{CEDA7AF0-9E62-4CF2-A2F8-4C7ECC1F4234}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 10"
+              DTS:DTSID="{E09B4841-F66D-4981-A250-374BE0FCF644}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 11"
+              DTS:DTSID="{95881B46-3BBA-4D5C-9E3E-D1236D6DE990}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 12"
+              DTS:DTSID="{2DB88A03-E99A-4504-8E4B-AF2065344B17}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 13"
+              DTS:DTSID="{DE0907E2-A1E1-4556-970A-E34D9FEA9347}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 14"
+              DTS:DTSID="{0C101B84-A372-4735-A261-5988B01202DD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 15"
+              DTS:DTSID="{2EB85C3D-514E-4839-81DE-453660CA27A7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 16"
+              DTS:DTSID="{C8153798-539F-4297-8CF1-DF9E4EE26CF7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 17"
+              DTS:DTSID="{10E871A0-9F2A-4586-BD66-2708D8AA6EB4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 18"
+              DTS:DTSID="{35AACE35-66C1-479B-B905-4E077D89A113}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 19"
+              DTS:DTSID="{04B18672-07DC-4D28-96F8-4A592F89920E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 20"
+              DTS:DTSID="{4EDC6C59-F9B3-420C-9585-DCCC318D4299}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 21"
+              DTS:DTSID="{2EB218D6-ACAD-4BB2-A0F9-E155E58725BA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 22"
+              DTS:DTSID="{24516F4A-0C91-40BB-A377-35B196673532}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 23"
+              DTS:DTSID="{89DFD82B-501B-448E-86A9-9BD9E8CE922E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 24"
+              DTS:DTSID="{299ACE5D-101D-4BFF-8A9B-EF1F30738C7D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 25"
+              DTS:DTSID="{5C5EDB61-5154-4270-9DCB-6E20F29FECFA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 26"
+              DTS:DTSID="{688BF482-4744-45B8-9A60-B9B605B84E0E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 27"
+              DTS:DTSID="{00E29A95-AA72-4EB5-99CB-AF21C8042804}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 28"
+              DTS:DTSID="{146CD4E9-F313-4838-806C-592F14E0D7B4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 29"
+              DTS:DTSID="{329F87A8-217F-48EE-90BE-2CF2C75502A7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 30"
+              DTS:DTSID="{C8D58F43-A46A-4CC0-A726-DEF03DB703D9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 31"
+              DTS:DTSID="{3BD27B26-245C-47B4-9C9C-FE447CA1C703}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 32"
+              DTS:DTSID="{29B602BA-10F7-44D6-B89F-907BD40F7DC9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 33"
+              DTS:DTSID="{0EBD9D31-9348-4458-8CEE-3C9FDD19342C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 34"
+              DTS:DTSID="{96EE8323-CBB8-49E3-AA9F-58C2C953F038}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 35"
+              DTS:DTSID="{119A6C9F-22A3-465A-8868-9E74DB81AF6A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 36"
+              DTS:DTSID="{F162F69C-CBCE-4CC9-8A74-4326FC59D0D5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 37"
+              DTS:DTSID="{98BC4821-0D36-4E84-8842-7195C0723D3A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 38"
+              DTS:DTSID="{67A7BF2A-926C-4D87-9E81-2BBC5127BA73}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 39"
+              DTS:DTSID="{82E728D3-3DBD-4BDD-B19E-7BD76F6A25C7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 40"
+              DTS:DTSID="{A7796826-449F-4A0C-99C9-E8E1D3786E70}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 41"
+              DTS:DTSID="{821BFF63-8110-49C0-84AA-BAEBAA64FDFF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 42"
+              DTS:DTSID="{92F82D31-B56E-41DD-9058-0C521B536B94}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 43"
+              DTS:DTSID="{4592A6B5-066D-479A-BC8E-8A22A82D0ACC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 44"
+              DTS:DTSID="{FB19FADD-4B7D-452A-B0C9-8E5CF1AB450C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 45"
+              DTS:DTSID="{6465A892-6880-4A07-ADB5-0D72C74478CB}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load Sales Plan by Location by Day to dw_staging"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{248DEBED-AB5C-4385-977E-899431A179AD}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Sales Plan by Location by Day to dw_staging"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - Sales Plan by Store By Day DW_STAGING"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[finance].[day_location_sales_plan_raw]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Connections[OleDbConnection]"
+                  connectionManagerID="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_STAGING]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="RedirectRow"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].Columns[pos_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="pos_nbr"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[pos_nbr]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[pos_nbr]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].Columns[eis_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="eis_nbr"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[eis_nbr]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[eis_nbr]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].Columns[store_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="store_name"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[store_name]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[store_name]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].Columns[district_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="district_nbr"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[district_nbr]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[district_nbr]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].Columns[region_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="region_nbr"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[region_nbr]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[region_nbr]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].Columns[store_format]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="store_format"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[store_format]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[store_format]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].Columns[date_opened]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="date_opened"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[date_opened]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[date_opened]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].Columns[gp_plan_total_month]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="gp_plan_total_month"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[gp_plan_total_month]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[gp_plan_total_month]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].Columns[day_of_month]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="day_of_month"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[day_of_month]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[day_of_month]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].Columns[day_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="day_nbr"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[day_nbr]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[day_nbr]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].Columns[day_nbr_2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="day_nbr_2"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[day_nbr_2]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[day_nbr_2]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].Columns[daily_sales]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="daily_sales"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[daily_sales]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[daily_sales]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[pos_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="pos_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[eis_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="eis_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[store_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="store_name" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[district_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="district_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[region_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="region_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[store_format]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="store_format" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[date_opened]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="date_opened" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[gp_plan_total_month]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="gp_plan_total_month" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[day_of_month]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_of_month" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[day_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[day_nbr_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_nbr_2" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input].ExternalColumns[daily_sales]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="daily_sales" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - Sales Plan by Store By Day DW_STAGING Errors"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[finance].[day_location_sales_plan_raw_errors]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Connections[OleDbConnection]"
+                  connectionManagerID="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_STAGING]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].Columns[pos_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="pos_nbr"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[pos_nbr]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[pos_nbr]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].Columns[eis_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="eis_nbr"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[eis_nbr]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[eis_nbr]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].Columns[store_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="store_name"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[store_name]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[store_name]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].Columns[district_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="district_nbr"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[district_nbr]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[district_nbr]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].Columns[region_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="region_nbr"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[region_nbr]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[region_nbr]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].Columns[store_format]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="store_format"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[store_format]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[store_format]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].Columns[date_opened]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="date_opened"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[date_opened]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[date_opened]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].Columns[gp_plan_total_month]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="gp_plan_total_month"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[gp_plan_total_month]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[gp_plan_total_month]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].Columns[day_of_month]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="day_of_month"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[day_of_month]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[day_of_month]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].Columns[day_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="day_nbr"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[day_nbr]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[day_nbr]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].Columns[day_nbr_2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="day_nbr_2"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[day_nbr_2]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[day_nbr_2]" />
+                    <inputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].Columns[daily_sales]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="daily_sales"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[daily_sales]"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[daily_sales]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[pos_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="pos_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[eis_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="eis_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[store_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="store_name" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[district_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="district_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[region_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="region_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[store_format]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="store_format" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[date_opened]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="date_opened" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[gp_plan_total_month]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="gp_plan_total_month" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[day_of_month]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_of_month" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[day_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[day_nbr_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_nbr_2" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input].ExternalColumns[daily_sales]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="daily_sales" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Source - Sales Plan by Store by Day CSV"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LOAD_FI_SALESPLANLOCATIONDAY_to_DW_STAGING_CSV_DATASOURCE]"
+                  connectionManagerRefId="Package.ConnectionManagers[LOAD_FI_SALESPLANLOCATIONDAY_to_DW_STAGING_CSV_DATASOURCE]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[pos_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 0]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[pos_nbr]"
+                      name="pos_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[eis_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 1]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[eis_nbr]"
+                      name="eis_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[store_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 2]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[store_name]"
+                      name="store_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[district_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 3]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[district_nbr]"
+                      name="district_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[region_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 4]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[region_nbr]"
+                      name="region_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[store_format]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 5]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[store_format]"
+                      name="store_format"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[date_opened]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 6]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[date_opened]"
+                      name="date_opened"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[gp_plan_total_month]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 7]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[gp_plan_total_month]"
+                      name="gp_plan_total_month"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[day_of_month]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 8]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[day_of_month]"
+                      name="day_of_month"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[day_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 9]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[day_nbr]"
+                      name="day_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[day_nbr_2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 10]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[day_nbr_2]"
+                      name="day_nbr_2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[daily_sales]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 11]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[daily_sales]"
+                      name="daily_sales"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 12]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 12]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 12]"
+                      name="Column 12"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 13]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 13]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 13]"
+                      name="Column 13"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 14]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 14]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 14]"
+                      name="Column 14"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 15]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 15]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 15]"
+                      name="Column 15"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 16]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 16]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 16]"
+                      name="Column 16"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 17]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 17]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 17]"
+                      name="Column 17"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 18]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 18]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 18]"
+                      name="Column 18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 19]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 19]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 19]"
+                      name="Column 19"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 20]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 20]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 20]"
+                      name="Column 20"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 21]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 21]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 21]"
+                      name="Column 21"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 22]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 22]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 22]"
+                      name="Column 22"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 23]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 23]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 23]"
+                      name="Column 23"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 24]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 24]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 24]"
+                      name="Column 24"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 25]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 25]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 25]"
+                      name="Column 25"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 26]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 26]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 26]"
+                      name="Column 26"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 27]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 27]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 27]"
+                      name="Column 27"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 28]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 28]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 28]"
+                      name="Column 28"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 29]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 29]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 29]"
+                      name="Column 29"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 30]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 30]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 30]"
+                      name="Column 30"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 31]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 31]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 31]"
+                      name="Column 31"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 32]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 32]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 32]"
+                      name="Column 32"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 33]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 33]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 33]"
+                      name="Column 33"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 34]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 34]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 34]"
+                      name="Column 34"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 35]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 35]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 35]"
+                      name="Column 35"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 36]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 36]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 36]"
+                      name="Column 36"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 37]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 37]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 37]"
+                      name="Column 37"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 38]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 38]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 38]"
+                      name="Column 38"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 39]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 39]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 39]"
+                      name="Column 39"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 40]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 40]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 40]"
+                      name="Column 40"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 41]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 41]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 41]"
+                      name="Column 41"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 42]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 42]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 42]"
+                      name="Column 42"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 43]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 43]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 43]"
+                      name="Column 43"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 44]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 44]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 44]"
+                      name="Column 44"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 45]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 45]"
+                      length="50"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].Columns[Column 45]"
+                      name="Column 45"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 0" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 1" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 2" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 3" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 4" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 5" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 6" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 7" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 8]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 8" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 9]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 9" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 10]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 10" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 11]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 11" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 12]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 12" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 13]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 13" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 14]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 14" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 15]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 15" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 16]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 16" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 17]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 17" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 18]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 18" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 19]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 19" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 20]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 20" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 21]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 21" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 22]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 22" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 23]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 23" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 24]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 24" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 25]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 25" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 26]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 26" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 27]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 27" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 28]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 28" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 29]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 29" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 30]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 30" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 31]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 31" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 32]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 32" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 33]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 33" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 34]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 34" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 35]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 35" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 36]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 36" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 37]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 37" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 38]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 38" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 39]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 39" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 40]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 40" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 41]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 41" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 42]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 42" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 43]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 43" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 44]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 44" />
+                    <externalMetadataColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output].ExternalColumns[Column 45]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 45" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load Sales Plan by Location by Day to dw_staging.Paths[Flat File Source Output]"
+              endId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Inputs[Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Load Sales Plan by Location by Day to dw_staging.Paths[OLE DB Destination Error Output]"
+              endId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors.Inputs[Destination Input]"
+              name="OLE DB Destination Error Output"
+              startId="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING.Outputs[OLE DB Destination Error Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="316,42"
+          Id="Package\Load Sales Plan by Location by Day to dw_staging"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load Sales Plan by Location by Day to dw_staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="339,42"
+          Id="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING"
+          TopLeft="0.500000000000028,143.5" />
+        <NodeLayout
+          Size="370,42"
+          Id="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors"
+          TopLeft="385.5,153.5" />
+        <NodeLayout
+          Size="270,42"
+          Id="Package\Load Sales Plan by Location by Day to dw_staging\Source - Sales Plan by Store by Day CSV"
+          TopLeft="13.5,3.5" />
+        <EdgeLayout
+          Id="Package\Load Sales Plan by Location by Day to dw_staging.Paths[OLE DB Destination Error Output]"
+          TopLeft="339.5,164.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46,10"
+              Start="0,0"
+              End="38.5,10">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="19,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19,0"
+                    Point2="23,0"
+                    Point3="23,4" />
+                  <mssgle:LineSegment
+                    End="23,6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23,6"
+                    Point2="23,10"
+                    Point3="27,10" />
+                  <mssgle:LineSegment
+                    End="38.5,10" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-50.20890625,-17.43359375,146.4178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Sales Plan by Location by Day to dw_staging.Paths[Flat File Source Output]"
+          TopLeft="148.5,45.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21.5,98"
+              Start="0,0"
+              End="21.5,90.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45"
+                    Point2="0,49"
+                    Point3="4,49" />
+                  <mssgle:LineSegment
+                    End="17.5,49" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.5,49"
+                    Point2="21.5,49"
+                    Point3="21.5,53" />
+                  <mssgle:LineSegment
+                    End="21.5,90.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Sales Plan by Location by Day to dw_staging\Destination - Sales Plan by Store By Day DW_STAGING Errors">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,2513 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/9/2018 9:26:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LT-MPLASKO"
+  DTS:CreatorName="SHO\mplaskow"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{DBC27032-B31E-4D23-8C6A-D350DCB1C760}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="LOAD_FI_SALESGPFORECASTDIVISIONDAY_to_DW_STAGING"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{1828902D-E13C-45C7-AAAC-02BA449DFF43}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7362B58C-4136-4008-B5E9-9E5EF52B4D63}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=AZSQL01.ads.shos.com;Initial Catalog=sho_staging;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{CADB9DE7-8CC4-490C-B742-092E03707CEB}"
+      DTS:ObjectName="SourceConnectionFlatFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="X:\ssis_incoming\finance\Forecast by Division By Day - Dec18(for BI).csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="div_cd"
+              DTS:DTSID="{9AA6F8E0-B0EA-48BF-A7C5-8E6CE996E6E1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="div_desc"
+              DTS:DTSID="{7FC98FE0-FCA3-4EEB-B487-69DCBD1AA9CC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="store_format"
+              DTS:DTSID="{28DDA1A4-E7A0-4004-B4E2-1A03792D624C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="plan_amount_month"
+              DTS:DTSID="{EF191263-0A1C-4E46-8A1B-FE4BFF2BB04C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="day_of_month"
+              DTS:DTSID="{EA7FB720-1E51-4125-B320-913A52E87C57}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="day_nbr"
+              DTS:DTSID="{9A98FFAD-3200-4573-AA32-B067583DF8AE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="day_nbr_2"
+              DTS:DTSID="{8BA729B9-DEB0-4D18-846B-624B4DBFBAA1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="daily_sales"
+              DTS:DTSID="{11EEF220-D1A6-48ED-B526-38CF0E2944E3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="gp_sales"
+              DTS:DTSID="{5456BCAB-1BAF-40AB-8E3A-E0E6EEE89129}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 9"
+              DTS:DTSID="{BC8F5ED9-4E11-4A38-BA60-E4E072CE79A0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 10"
+              DTS:DTSID="{7E3D7147-5D46-4E4F-A503-804E880856FF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 11"
+              DTS:DTSID="{27343B1C-0F4E-4C68-8411-328E0F088016}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 12"
+              DTS:DTSID="{8A171947-01E1-4437-A878-54B4574B2ED9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 13"
+              DTS:DTSID="{323F3C00-1047-4FA2-8CA3-29DFCE2F3C0A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 14"
+              DTS:DTSID="{C2A3D226-B92A-4F20-9DFD-958D190182A3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 15"
+              DTS:DTSID="{10BA918F-62C5-4011-9649-C543EC8A2F4B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 16"
+              DTS:DTSID="{561866CC-F01E-436E-91EB-EB6534223A95}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 17"
+              DTS:DTSID="{BBA32D6E-4719-4814-A4D7-6329557C98D9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 18"
+              DTS:DTSID="{8D2CAED8-C9A6-4525-A64A-166339852865}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 19"
+              DTS:DTSID="{CE29E6ED-6C81-44DA-90BC-641EC8D2B18F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 20"
+              DTS:DTSID="{87D18969-B035-4C72-8BED-65D1D044DD1E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 21"
+              DTS:DTSID="{4407FE40-3D90-462A-9F78-35E6DD0CCB22}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 22"
+              DTS:DTSID="{4F75D077-C536-43FC-9966-67D563576950}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 23"
+              DTS:DTSID="{F05F2799-52A1-470A-8C2E-C14DC80873B9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 24"
+              DTS:DTSID="{D934CD19-950A-42D1-9185-805B29C57A0E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 25"
+              DTS:DTSID="{6080B2D1-4880-4E9D-A2F1-AF332E58F359}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 26"
+              DTS:DTSID="{D921C445-26C5-4C2E-A6F8-EAE294A14140}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 27"
+              DTS:DTSID="{43CED96E-81BD-49C3-9067-F752331619ED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 28"
+              DTS:DTSID="{B8F26D3C-29D0-40CB-BA68-5780B600B5A1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 29"
+              DTS:DTSID="{529C3770-D15C-4C97-A239-3444C25E58A4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 30"
+              DTS:DTSID="{7447F89E-1887-439E-AE9E-0B031A9523B6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 31"
+              DTS:DTSID="{769CA8D8-8484-4D12-B874-04A1A06FB92C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 32"
+              DTS:DTSID="{D21AA1C7-721A-4864-82EF-AC31BED372B8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 33"
+              DTS:DTSID="{7D37673B-36D3-4635-9F79-32B13AF9264C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 34"
+              DTS:DTSID="{7E3E8FE0-E05D-48BB-B834-E42CFB037429}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 35"
+              DTS:DTSID="{22F9A5A6-2C4D-47CD-B645-775801761CEC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 36"
+              DTS:DTSID="{575DE84E-1F0C-4628-BF7F-FE6297F697C8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 37"
+              DTS:DTSID="{58D4C2A4-187F-48EE-A2DA-E659A6B4728E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 38"
+              DTS:DTSID="{2866D8D6-4A5A-4C3B-AC17-0D3235D3217B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 39"
+              DTS:DTSID="{CC1DC0C5-0F62-4EDF-A2DA-E4DB381DAEA9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 40"
+              DTS:DTSID="{B78A64FE-2154-48B1-A05D-56E2246B6C8F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 41"
+              DTS:DTSID="{9A27CCEF-E700-4D7D-A1B7-D21241B8ECFE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 42"
+              DTS:DTSID="{C67D2527-D974-40B1-87C1-73C2906EF7B5}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{7B537679-F601-496F-8DA4-5D477B2D3745}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - div_format_daily_forecast_raw"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[finance].[div_format_daily_forecast_raw]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[div_cd]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="div_cd"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[div_cd]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[div_cd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[div_desc]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="div_desc"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[div_desc]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[div_desc]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[store_format]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="store_format"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[store_format]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[store_format]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[plan_amount_month]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="plan_amount_month"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[plan_amount_month]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[plan_amount_month]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[day_of_month]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="day_of_month"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[day_of_month]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[day_of_month]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[day_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="day_nbr"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[day_nbr]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[day_nbr]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[day_nbr_2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="day_nbr_2"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[day_nbr_2]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[day_nbr_2]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[daily_sales]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="daily_sales"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[daily_sales]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[daily_sales]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[gp_sales]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="gp_sales"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[gp_sales]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[gp_sales]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 9]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 9"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 9]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 9]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 10]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 10"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 10]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 10]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 11]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 11"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 11]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 11]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 12]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 12"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 12]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 12]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 13]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 13"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 13]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 13]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 14]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 14"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 14]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 14]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 15]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 15"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 15]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 15]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 16]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 16"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 16]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 16]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 17]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 17"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 17]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 17]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 18]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 18"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 18]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 18]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 19]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 19"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 19]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 19]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 20]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 20"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 20]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 20]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 21]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 21"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 21]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 21]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 22]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 22"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 22]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 22]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 23]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 23"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 23]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 23]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 24]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 24"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 24]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 24]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 25]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 25"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 25]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 25]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 26]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 26"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 26]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 26]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 27]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 27"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 27]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 27]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 28]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 28"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 28]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 28]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 29]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 29"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 29]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 29]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 30]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 30"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 30]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 30]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 31]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 31"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 31]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 31]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 32]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 32"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 32]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 32]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 33]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 33"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 33]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 33]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 34]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 34"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 34]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 34]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 35]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 35"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 35]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 35]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 36]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 36"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 36]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 36]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 37]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 37"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 37]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 37]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 38]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 38"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 38]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 38]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 39]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 39"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 39]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 39]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 40]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 40"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 40]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 40]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 41]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 41"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 41]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 41]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].Columns[Column 42]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 42"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 42]"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 42]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[div_cd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="div_cd" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[div_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="div_desc" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[store_format]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="store_format" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[plan_amount_month]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="plan_amount_month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[day_of_month]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_of_month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[day_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[day_nbr_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_nbr_2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[daily_sales]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="daily_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[gp_sales]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="gp_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 9]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 9" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 10]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 11]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 11" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 12]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 12" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 13]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 13" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 14]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 14" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 15]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 15" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 16]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 16" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 17]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 17" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 18]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 19]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 19" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 20]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 20" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 21]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 21" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 22]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 22" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 23]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 23" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 24]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 24" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 25]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 25" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 26]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 26" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 27]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 27" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 28]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 29]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 29" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 30]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 30" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 31]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 31" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 32]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 32" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 33]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 33" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 34]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 34" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 35]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 35" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 36]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 36" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 37]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 37" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 38]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 38" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 39]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 39" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 40]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 40" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 41]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 41" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input].ExternalColumns[Column 42]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 42" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Source - Forecast By Division By Day csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[div_cd]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[div_cd]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[div_cd]"
+                      name="div_cd"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[div_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[div_desc]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[div_desc]"
+                      name="div_desc"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[store_format]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[store_format]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[store_format]"
+                      name="store_format"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[plan_amount_month]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[plan_amount_month]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[plan_amount_month]"
+                      name="plan_amount_month"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[day_of_month]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[day_of_month]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[day_of_month]"
+                      name="day_of_month"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[day_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[day_nbr]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[day_nbr]"
+                      name="day_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[day_nbr_2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[day_nbr_2]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[day_nbr_2]"
+                      name="day_nbr_2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[daily_sales]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[daily_sales]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[daily_sales]"
+                      name="daily_sales"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[gp_sales]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[gp_sales]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[gp_sales]"
+                      name="gp_sales"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 9]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 9]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 9]"
+                      name="Column 9"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 10]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 10]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 10]"
+                      name="Column 10"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 11]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 11]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 11]"
+                      name="Column 11"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 12]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 12]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 12]"
+                      name="Column 12"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 13]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 13]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 13]"
+                      name="Column 13"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 14]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 14]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 14]"
+                      name="Column 14"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 15]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 15]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 15]"
+                      name="Column 15"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 16]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 16]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 16]"
+                      name="Column 16"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 17]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 17]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 17]"
+                      name="Column 17"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 18]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 18]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 18]"
+                      name="Column 18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 19]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 19]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 19]"
+                      name="Column 19"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 20]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 20]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 20]"
+                      name="Column 20"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 21]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 21]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 21]"
+                      name="Column 21"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 22]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 22]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 22]"
+                      name="Column 22"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 23]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 23]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 23]"
+                      name="Column 23"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 24]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 24]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 24]"
+                      name="Column 24"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 25]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 25]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 25]"
+                      name="Column 25"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 26]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 26]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 26]"
+                      name="Column 26"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 27]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 27]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 27]"
+                      name="Column 27"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 28]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 28]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 28]"
+                      name="Column 28"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 29]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 29]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 29]"
+                      name="Column 29"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 30]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 30]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 30]"
+                      name="Column 30"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 31]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 31]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 31]"
+                      name="Column 31"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 32]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 32]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 32]"
+                      name="Column 32"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 33]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 33]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 33]"
+                      name="Column 33"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 34]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 34]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 34]"
+                      name="Column 34"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 35]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 35]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 35]"
+                      name="Column 35"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 36]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 36]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 36]"
+                      name="Column 36"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 37]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 37]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 37]"
+                      name="Column 37"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 38]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 38]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 38]"
+                      name="Column 38"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 39]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 39]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 39]"
+                      name="Column 39"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 40]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 40]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 40]"
+                      name="Column 40"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 41]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 41]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 41]"
+                      name="Column 41"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 42]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 42]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].Columns[Column 42]"
+                      name="Column 42"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[div_cd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="div_cd" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[div_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="div_desc" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[store_format]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="store_format" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[plan_amount_month]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="plan_amount_month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[day_of_month]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_of_month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[day_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[day_nbr_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_nbr_2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[daily_sales]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="daily_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[gp_sales]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="gp_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 9]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 9" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 10]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 11]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 11" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 12]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 12" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 13]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 13" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 14]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 14" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 15]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 15" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 16]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 16" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 17]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 17" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 18]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 19]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 19" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 20]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 20" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 21]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 21" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 22]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 22" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 23]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 23" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 24]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 24" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 25]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 25" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 26]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 26" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 27]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 27" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 28]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 29]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 29" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 30]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 30" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 31]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 31" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 32]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 32" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 33]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 33" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 34]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 34" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 35]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 35" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 36]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 36" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 37]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 37" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 38]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 38" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 39]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 39" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 40]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 40" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 41]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 41" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 42]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 42" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw.Inputs[Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task 1\Source - Forecast By Division By Day csv.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Data Flow Task 1"
+          TopLeft="20.5,107.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="287,42"
+          Id="Package\Data Flow Task 1\Destination - div_format_daily_forecast_raw"
+          TopLeft="36,107.5" />
+        <NodeLayout
+          Size="271,42"
+          Id="Package\Data Flow Task 1\Source - Forecast By Division By Day csv"
+          TopLeft="5.5,4.5" />
+        <EdgeLayout
+          Id="Package\Data Flow Task 1.Paths[Flat File Source Output]"
+          TopLeft="141,46.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.5,61"
+              Start="0,0"
+              End="38.5,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="4,30.5" />
+                  <mssgle:LineSegment
+                    End="34.5,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.5,30.5"
+                    Point2="38.5,30.5"
+                    Point3="38.5,34.5" />
+                  <mssgle:LineSegment
+                    End="38.5,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

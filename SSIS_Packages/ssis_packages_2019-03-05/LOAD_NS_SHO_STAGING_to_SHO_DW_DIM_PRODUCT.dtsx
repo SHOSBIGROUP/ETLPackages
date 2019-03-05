@@ -1,0 +1,2598 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/14/2018 3:23:06 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LT-SELVI-TEST"
+  DTS:CreatorName="LT-SELVI-TEST\User"
+  DTS:DTSID="{6F748263-E06F-4CC2-9AE4-7707DB8EBF8B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LOAD_NS_to_SHO_DW_DIM_PRODUCT"
+  DTS:PackageType="5"
+  DTS:VersionBuild="133"
+  DTS:VersionGUID="{9F86264F-7F1B-4273-A537-73F7D77B534C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Populate sho_dw_dim_product Table"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{9A5DB920-1B53-42A3-8186-3F83F5C5A61C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Populate sho_dw_dim_product Table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Convert Data Types for Product Columns"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[db_regular_price]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="db_regular_price"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_regular_price]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[db_list_price]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="db_list_price"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_list_price]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[db_msrp_price]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="db_msrp_price"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_msrp_price]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[db_weighted_avg_cost]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="db_weighted_avg_cost"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_weighted_avg_cost]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[db_height]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="db_height"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_height]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[db_shipping_height]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="db_shipping_height"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_shipping_height]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[db_width]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="db_width"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_width]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[db_shipping_width]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="db_shipping_width"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_shipping_width]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[fmt_manufacturer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="fmt_manufacturer_name"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_manufacturer_name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[fmt_item_desc]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="fmt_item_desc"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_item_desc]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[fmt_contract_item_type]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="fmt_contract_item_type"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_contract_item_type]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[fmt_brand_desc]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="fmt_brand_desc"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_brand_desc]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[fmt_brand_id]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="fmt_brand_id"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_brand_id]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[fmt_manufacturer_nbr]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="fmt_manufacturer_nbr"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_manufacturer_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[fmt_upc_code]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="fmt_upc_code"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_upc_code]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[fmt_sku_nbr]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="fmt_sku_nbr"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_sku_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[fmt_item_nbr]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="fmt_item_nbr"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_item_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[fmt_cat_nbr]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="fmt_cat_nbr"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_cat_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[fmt_cat_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="fmt_cat_name"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_cat_name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[fmt_div_nbr]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="fmt_div_nbr"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_div_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[fmt_div_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="fmt_div_name"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_div_name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[fmt_ln_nbr]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="fmt_ln_nbr"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_ln_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[fmt_ln_desc]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="fmt_ln_desc"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_ln_desc]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[fmt_sbl_nbr]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="fmt_sbl_nbr"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_sbl_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[fmt_sbl_desc]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="fmt_sbl_desc"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_sbl_desc]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[fmt_cls_nbr]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="fmt_cls_nbr"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_cls_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input].Columns[fmt_cls_desc]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="fmt_cls_desc"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_cls_desc]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_regular_price]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_regular_price]"
+                      name="cnv_regular_price"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_regular_price]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_list_price]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_list_price]"
+                      name="cnv_list_price"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_list_price]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_msrp_price]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_msrp_price]"
+                      name="cnv_msrp_price"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_msrp_price]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_weighted_avg_cost]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_weighted_avg_cost]"
+                      name="cnv_weighted_avg_cost"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_weighted_avg_cost]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_height]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_height]"
+                      name="cnv_height"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_height]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_shipping_height]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_shipping_height]"
+                      name="cnv_shipping_height"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_shipping_height]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_width]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_width]"
+                      name="cnv_width"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_width]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_shipping_width]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_shipping_width]"
+                      name="cnv_shipping_width"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_shipping_width]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_manufacturer_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_manufacturer_name]"
+                      name="cnv_manufacturer_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_manufacturer_name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_item_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="200"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_item_desc]"
+                      name="cnv_item_desc"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_item_desc]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_contract_item_type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="5"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_contract_item_type]"
+                      name="cnv_contract_item_type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_contract_item_type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_brand_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_brand_desc]"
+                      name="cnv_brand_desc"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_brand_desc]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_brand_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_brand_id]"
+                      name="cnv_brand_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_brand_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_manufacturer_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_manufacturer_nbr]"
+                      name="cnv_manufacturer_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_manufacturer_nbr]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_upc_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_upc_code]"
+                      name="cnv_upc_code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_upc_code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_sku_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_sku_nbr]"
+                      name="cnv_sku_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_sku_nbr]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_item_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_item_nbr]"
+                      name="cnv_item_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_item_nbr]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_cat_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_cat_nbr]"
+                      name="cnv_cat_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_cat_nbr]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_cat_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_cat_name]"
+                      name="cnv_cat_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_cat_name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_div_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_div_nbr]"
+                      name="cnv_div_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_div_nbr]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_div_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_div_name]"
+                      name="cnv_div_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_div_name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_ln_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_ln_nbr]"
+                      name="cnv_ln_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_ln_nbr]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_ln_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_ln_desc]"
+                      name="cnv_ln_desc"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_ln_desc]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_sbl_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_sbl_nbr]"
+                      name="cnv_sbl_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_sbl_nbr]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_sbl_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_sbl_desc]"
+                      name="cnv_sbl_desc"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_sbl_desc]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_cls_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_cls_nbr]"
+                      name="cnv_cls_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_cls_nbr]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_cls_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output].Columns[cnv_cls_desc]"
+                      name="cnv_cls_desc"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_cls_desc]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Populate sho_dw_dim_product Table\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Populate sho_dw_dim_product Table\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Populate sho_dw_dim_product Table\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Populate sho_dw_dim_product Table\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Derived Column.Outputs[Derived Column Output].Columns[Item_Active_Flg]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Derived Column.Outputs[Derived Column Output].Columns[Item_Active_Flg]"
+                      name="Item_Active_Flg"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Derived Column.Outputs[Derived Column Output].Columns[updated_dt]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Derived Column.Outputs[Derived Column Output].Columns[updated_dt]"
+                      name="updated_dt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Derived Column.Outputs[Derived Column Output].Columns[record_expiration_dt]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Derived Column.Outputs[Derived Column Output].Columns[record_expiration_dt]"
+                      name="record_expiration_dt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Populate sho_dw_dim_product Table\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Populate sho_dw_dim_product Table\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Read from sho_staging_netsuite_product Table"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[netsuite].[product]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select *
+from sho_staging.netsuite.product</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Connections[OleDbConnection]"
+                  connectionManagerID="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_STAGING]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_inactive]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Inactive]"
+                      length="5"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_inactive]"
+                      name="db_inactive"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_manufacturer_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Manufacturer]"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_manufacturer_name]"
+                      name="db_manufacturer_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_item_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      length="150"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_item_desc]"
+                      name="db_item_desc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_contract_item_type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Contract Item Type]"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_contract_item_type]"
+                      name="db_contract_item_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_brand_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Item Brand]"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_brand_desc]"
+                      name="db_brand_desc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_brand_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Product Brand ID]"
+                      length="20"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_brand_id]"
+                      name="db_brand_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_manufacturer_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Item Mfgn Number]"
+                      length="40"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_manufacturer_nbr]"
+                      name="db_manufacturer_nbr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_upc_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[UPC Code]"
+                      length="20"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_upc_code]"
+                      name="db_upc_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_sku_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[SKU #]"
+                      length="10"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_sku_nbr]"
+                      name="db_sku_nbr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_item_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Item No]"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_item_nbr]"
+                      name="db_item_nbr"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_cat_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Category No]"
+                      length="10"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_cat_nbr]"
+                      name="db_cat_nbr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_cat_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Category Name]"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_cat_name]"
+                      name="db_cat_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_div_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Div No]"
+                      length="10"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_div_nbr]"
+                      name="db_div_nbr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_div_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Div Name]"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_div_name]"
+                      name="db_div_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_ln_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Line No]"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_ln_nbr]"
+                      name="db_ln_nbr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_ln_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Line Name]"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_ln_desc]"
+                      name="db_ln_desc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_sbl_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Subline No]"
+                      length="20"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_sbl_nbr]"
+                      name="db_sbl_nbr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_sbl_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Subline Name]"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_sbl_desc]"
+                      name="db_sbl_desc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_cls_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Class No]"
+                      length="20"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_cls_nbr]"
+                      name="db_cls_nbr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_cls_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Class Name]"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_cls_desc]"
+                      name="db_cls_desc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_regular_price]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Regular Price (3H)]"
+                      length="20"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_regular_price]"
+                      name="db_regular_price"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_list_price]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[List Price (Outlet)]"
+                      length="20"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_list_price]"
+                      name="db_list_price"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_msrp_price]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[MSRP]"
+                      length="20"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_msrp_price]"
+                      name="db_msrp_price"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_weighted_avg_cost]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Average Cost]"
+                      length="20"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_weighted_avg_cost]"
+                      name="db_weighted_avg_cost"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_height]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Height (in.)]"
+                      length="10"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_height]"
+                      name="db_height"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_shipping_height]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Shipping Height]"
+                      length="15"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_shipping_height]"
+                      name="db_shipping_height"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_width]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Width (in.)]"
+                      length="10"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_width]"
+                      name="db_width"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_shipping_width]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Shipping Width]"
+                      length="10"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_shipping_width]"
+                      name="db_shipping_width"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_cat_div_sk_id]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[cat_div_sk_id]"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_cat_div_sk_id]"
+                      name="db_cat_div_sk_id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Inactive]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="Inactive" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Manufacturer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Manufacturer" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Contract Item Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Contract Item Type" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Item Brand]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Item Brand" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Product Brand ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Product Brand ID" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Item Mfgn Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Item Mfgn Number" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[UPC Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="UPC Code" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[SKU #]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SKU #" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Item No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Item No" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Category No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Category No" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Category Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Category Name" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Division #]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Division #" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Div No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Div No" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Div Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Div Name" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Line No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Line No" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Line Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Line Name" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Subline No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Subline No" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Subline Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Subline Name" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Class No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Class No" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Class Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Class Name" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Regular Price (3H)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Regular Price (3H)" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[List Price (Outlet)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="List Price (Outlet)" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[MSRP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="MSRP" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Average Cost]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Average Cost" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Height (in.)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Height (in.)" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Shipping Height]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Shipping Height" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Width (in.)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Width (in.)" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[Shipping Width]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Shipping Width" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[rec_load_dt]"
+                      dataType="dbTimeStamp"
+                      name="rec_load_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].ExternalColumns[cat_div_sk_id]"
+                      dataType="i8"
+                      name="cat_div_sk_id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[cat_div_sk_id]"
+                      dataType="i8"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[cat_div_sk_id]"
+                      name="cat_div_sk_id" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Inactive]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Inactive]"
+                      name="Inactive" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Contract Item Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Contract Item Type]"
+                      name="Contract Item Type" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Item Brand]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Item Brand]"
+                      name="Item Brand" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Product Brand ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Product Brand ID]"
+                      name="Product Brand ID" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Manufacturer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Manufacturer]"
+                      name="Manufacturer" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Item Mfgn Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Item Mfgn Number]"
+                      name="Item Mfgn Number" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[UPC Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[UPC Code]"
+                      name="UPC Code" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[SKU #]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[SKU #]"
+                      name="SKU #" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Item No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Item No]"
+                      name="Item No" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      name="Description" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Category No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Category No]"
+                      name="Category No" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Category Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Category Name]"
+                      name="Category Name" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Div No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Div No]"
+                      name="Div No" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Div Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Div Name]"
+                      name="Div Name" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Line No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Line No]"
+                      name="Line No" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Line Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Line Name]"
+                      name="Line Name" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Subline No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Subline No]"
+                      name="Subline No" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Subline Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Subline Name]"
+                      name="Subline Name" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Class No]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Class No]"
+                      name="Class No" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Class Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Class Name]"
+                      name="Class Name" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Regular Price (3H)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Regular Price (3H)]"
+                      name="Regular Price (3H)" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[List Price (Outlet)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[List Price (Outlet)]"
+                      name="List Price (Outlet)" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[MSRP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[MSRP]"
+                      name="MSRP" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Average Cost]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Average Cost]"
+                      name="Average Cost" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Height (in.)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Height (in.)]"
+                      name="Height (in.)" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Shipping Height]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Shipping Height]"
+                      name="Shipping Height" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Width (in.)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Width (in.)]"
+                      name="Width (in.)" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Shipping Width]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[Shipping Width]"
+                      name="Shipping Width" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Set Boolean for Inactive and Format Strings"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input].Columns[db_inactive]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="db_inactive"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_inactive]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input].Columns[db_manufacturer_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="db_manufacturer_name"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_manufacturer_name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input].Columns[db_item_desc]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="db_item_desc"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_item_desc]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input].Columns[db_contract_item_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="db_contract_item_type"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_contract_item_type]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input].Columns[db_brand_desc]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="db_brand_desc"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_brand_desc]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input].Columns[db_brand_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="db_brand_id"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_brand_id]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input].Columns[db_manufacturer_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="db_manufacturer_nbr"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_manufacturer_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input].Columns[db_upc_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="db_upc_code"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_upc_code]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input].Columns[db_sku_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="db_sku_nbr"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_sku_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input].Columns[db_item_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="db_item_nbr"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_item_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input].Columns[db_cat_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="db_cat_nbr"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_cat_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input].Columns[db_cat_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="db_cat_name"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_cat_name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input].Columns[db_div_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="db_div_nbr"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_div_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input].Columns[db_div_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="db_div_name"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_div_name]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input].Columns[db_ln_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="db_ln_nbr"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_ln_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input].Columns[db_ln_desc]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="db_ln_desc"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_ln_desc]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input].Columns[db_sbl_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="db_sbl_nbr"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_sbl_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input].Columns[db_sbl_desc]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="db_sbl_desc"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_sbl_desc]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input].Columns[db_cls_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="db_cls_nbr"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_cls_nbr]" />
+                    <inputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input].Columns[db_cls_desc]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="db_cls_desc"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_cls_desc]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[cnv_inactive]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[cnv_inactive]"
+                      name="cnv_inactive"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_inactive]} == "Yes" ?  TRUE  :  FALSE </property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">db_inactive == "Yes" ?  TRUE  :  FALSE </property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_manufacturer_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_manufacturer_name]"
+                      name="fmt_manufacturer_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_manufacturer_name]},50)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(db_manufacturer_name,50)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_item_desc]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="200"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_item_desc]"
+                      name="fmt_item_desc"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_item_desc]},200)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(db_item_desc,200)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_contract_item_type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="5"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_contract_item_type]"
+                      name="fmt_contract_item_type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_contract_item_type]},5)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(db_contract_item_type,5)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_brand_desc]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_brand_desc]"
+                      name="fmt_brand_desc"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_brand_desc]},200)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(db_brand_desc,200)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_brand_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_brand_id]"
+                      name="fmt_brand_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_brand_id]},50)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(db_brand_id,50)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_manufacturer_nbr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_manufacturer_nbr]"
+                      name="fmt_manufacturer_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_manufacturer_nbr]},50)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(db_manufacturer_nbr,50)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_upc_code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_upc_code]"
+                      name="fmt_upc_code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_upc_code]},20)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(db_upc_code,20)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_sku_nbr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_sku_nbr]"
+                      name="fmt_sku_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_sku_nbr]},3)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(db_sku_nbr,3)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_item_nbr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_item_nbr]"
+                      name="fmt_item_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_item_nbr]},50)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(db_item_nbr,50)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_cat_nbr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_cat_nbr]"
+                      name="fmt_cat_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_cat_nbr]},3)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(db_cat_nbr,3)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_cat_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_cat_name]"
+                      name="fmt_cat_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_cat_name]},100)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(db_cat_name,100)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_div_nbr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_div_nbr]"
+                      name="fmt_div_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_div_nbr]},3)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(db_div_nbr,3)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_div_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_div_name]"
+                      name="fmt_div_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_div_name]},100)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(db_div_name,100)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_ln_nbr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_ln_nbr]"
+                      name="fmt_ln_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_ln_nbr]},3)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(db_ln_nbr,3)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_ln_desc]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_ln_desc]"
+                      name="fmt_ln_desc"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_ln_desc]},200)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(db_ln_desc,200)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_sbl_nbr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_sbl_nbr]"
+                      name="fmt_sbl_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_sbl_nbr]},3)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(db_sbl_nbr,3)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_sbl_desc]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_sbl_desc]"
+                      name="fmt_sbl_desc"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_sbl_desc]},200)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(db_sbl_desc,200)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_cls_nbr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_cls_nbr]"
+                      name="fmt_cls_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_cls_nbr]},3)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(db_cls_nbr,3)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_cls_desc]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output].Columns[fmt_cls_desc]"
+                      name="fmt_cls_desc"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output].Columns[db_cls_desc]},200)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(db_cls_desc,200)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Populate sho_dw_dim_product Table.Paths[Data Conversion Output]"
+              endId="Package\Populate sho_dw_dim_product Table\Derived Column.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Populate sho_dw_dim_product Table.Paths[Derived Column Output]"
+              endId="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Populate sho_dw_dim_product Table.Paths[OLE DB Source Output]"
+              endId="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update cat_div_sk_id, cat_nbr and div_nbr in sho_dw_dim_product Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D074EA67-12CC-44AB-AA9A-7A97862A9BAD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update cat_div_sk_id, cat_nbr and div_nbr in sho_dw_dim_product Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{45a5110b-53ae-4bb5-85f0-14588469e03e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="use sho_dw;&#xA;&#xA;update sho_dw.dim.product set div_nbr = convert(char(3),(RIGHT('000'+TRIM(div_nbr),3))) where len(div_nbr) &gt; 0;&#xA;&#xA;update sho_dw.dim.product set cat_nbr = convert(char(3),(RIGHT('000'+TRIM(cat_nbr),3))) where len(cat_nbr) &gt; 0;&#xA;&#xA;update sho_dw.dim.product set item_nbr = substring(item_nbr,4,6);&#xA;&#xA;UPDATE sho_dw.dim.product SET cat_div_sk_id = -1;&#xA;&#xA;UPDATE sho_dw.dim.product SET cat_div_sk_id = sho_dw.dim.category_division.cat_div_sk_id FROM sho_dw.dim.category_division INNER JOIN sho_dw.dim.product ON sho_dw.dim.category_division.cat_nbr = sho_dw.dim.product.cat_nbr and sho_dw.dim.category_division.div_nbr = sho_dw.dim.product.div_nbr;&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{44D18C13-13A0-41D6-9BDC-80B1787DD63F}"
+      DTS:From="Package\Populate sho_dw_dim_product Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Update cat_div_sk_id, cat_nbr and div_nbr in sho_dw_dim_product Table" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="253,42"
+          Id="Package\Populate sho_dw_dim_product Table"
+          TopLeft="239,92" />
+        <NodeLayout
+          Size="426,42"
+          Id="Package\Update cat_div_sk_id, cat_nbr and div_nbr in sho_dw_dim_product Table"
+          TopLeft="153,181" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="365.75,134">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Populate sho_dw_dim_product Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="285,42"
+          Id="Package\Populate sho_dw_dim_product Table\Set Boolean for Inactive and Format Strings"
+          TopLeft="169.5,107.5" />
+        <NodeLayout
+          Size="302,42"
+          Id="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table"
+          TopLeft="161,5.5" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Populate sho_dw_dim_product Table\Derived Column"
+          TopLeft="240,270.5" />
+        <NodeLayout
+          Size="271,42"
+          Id="Package\Populate sho_dw_dim_product Table\Convert Data Types for Product Columns"
+          TopLeft="176.5,209.5" />
+        <EdgeLayout
+          Id="Package\Populate sho_dw_dim_product Table.Paths[OLE DB Source Output]"
+          TopLeft="312,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Populate sho_dw_dim_product Table.Paths[Derived Column Output]"
+          TopLeft="312,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Populate sho_dw_dim_product Table.Paths[Data Conversion Output]"
+          TopLeft="312,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82,40"
+              Start="0,0"
+              End="74.5,40">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36"
+                    Point2="0,40"
+                    Point3="4,40" />
+                  <mssgle:LineSegment
+                    End="74.5,40" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Populate sho_dw_dim_product Table\Read from sho_staging_netsuite_product Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

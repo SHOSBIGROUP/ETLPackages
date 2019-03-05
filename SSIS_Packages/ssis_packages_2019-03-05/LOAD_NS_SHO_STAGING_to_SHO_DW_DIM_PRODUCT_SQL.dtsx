@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/18/2018 2:38:11 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LT-MPLASKO"
+  DTS:CreatorName="SHO\mplaskow"
+  DTS:DTSID="{4C62D204-7DEA-4496-A1A8-8BEF49F25252}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LOAD_NS_SHO_STAGING_to_SHO_DW_DIM_PRODUCT_SQL"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{B32DF56F-5054-416A-BF3D-97B04C59AF32}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Insert new Items in sho_dw_dim_product"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1023ECA8-D9E6-42DF-B4AD-F33BE16A6D6E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Insert new Items in sho_dw_dim_product"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{45a5110b-53ae-4bb5-85f0-14588469e03e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="--*** Insert New Products from Netsuite in sho_staging.netsuite.product in sho_dw.dim.product ***&#xA;Insert Into sho_dw.dim.product(&#xA;[cat_div_sk_id],&#xA;[inactive],&#xA;[cat_nbr],&#xA;[cat_name],&#xA;[div_nbr],&#xA;[div_name],&#xA;[ln_nbr],&#xA;[ln_desc],&#xA;[sbl_nbr],&#xA;[sbl_desc],&#xA;[cls_nbr],&#xA;[cls_desc],&#xA;[item_nbr],&#xA;[item_nbr_full],&#xA;[item_nbr_label],&#xA;[item_desc],&#xA;[sku_nbr],&#xA;[upc_code],&#xA;[manufacturer_nbr],&#xA;[manufacturer_name],&#xA;[brand_id],&#xA;[brand_desc],&#xA;[contract_item_type],&#xA;[height],&#xA;[width],&#xA;[shipping_height],&#xA;[shipping_width],&#xA;[list_price],&#xA;[regular_price],&#xA;[msrp_price],&#xA;[weighted_avg_cost],&#xA;[rec_load_dt],&#xA;[rec_upd_dt]&#xA;) Select &#xA;Convert(int,[cat_div_sk_id]),&#xA;CASE WHEN (UPPER(s.Inactive) Like 'Y%') THEN 1 Else 0 END,&#xA;Convert(char(3),Right('000' + Trim([Category No]),3)),&#xA;Convert(varchar(100),Trim([Category Name])),&#xA;Convert(char(3),Right('000' + Trim([Div No]),3)),&#xA;Convert(varchar(100),Trim([Div Name])),&#xA;Convert(char(3),Right('000' + Trim([Line No]),3)),&#xA;Convert(varchar(200),Trim([Line Name])),&#xA;Convert(char(3),Right('000' + Trim([Subline No]),3)),&#xA;Convert(varchar(200),Trim([Subline Name])),&#xA;Convert(char(3),Right('000' + Trim([Class No]),3)),&#xA;Convert(varchar(200),Trim([Class Name])),&#xA;Substring(Trim([item no]),4,6),&#xA;Convert(varchar(50),[item_nbr_full]),&#xA;trim([item no]),&#xA;Convert(varchar(200),Trim([Description])),&#xA;Convert(char(3),Right('000' + Trim([SKU #]),3)),&#xA;Convert(varchar(50),Trim([UPC Code])),&#xA;Convert(varchar(50),Trim([Item Mfgn Number])),&#xA;Convert(varchar(100),Trim([Manufacturer])),&#xA;Convert(varchar(50),Trim([Product Brand ID])),&#xA;Convert(varchar(500),Trim([Item Brand])),&#xA;Convert(varchar(5),Trim([Contract Item Type])),&#xA;Convert(float,Trim([Height (in.)])),&#xA;Convert(float,Trim([Width (in.)])),&#xA;Case When Trim([Shipping Height]) = '' Then NULL Else Convert(decimal,Trim([Shipping Height])) End,&#xA;Case When Trim([Shipping Width]) = '' Then NULL Else Convert(decimal,Trim([Shipping Width])) End,&#xA;Case When Trim([List Price (Outlet)]) = '' Then NULL Else Convert(decimal,Trim([List Price (Outlet)])) End,&#xA;Case When Trim([Regular Price (3H)]) = '' Then NULL Else Convert(decimal,Trim([Regular Price (3H)])) End,&#xA;Case When Trim([MSRP]) = '' Then NULL Else Convert(decimal,Trim([MSRP])) End,&#xA;Case When Trim([Average Cost]) = '' Then NULL Else Convert(decimal,Trim([Average Cost])) End,&#xA;GETDATE(),&#xA;GETDATE()&#xA; From [sho_staging].[netsuite].[product] s &#xA; where trim([item no]) not in &#xA; (Select trim([item_nbr_label]) from sho_dw.dim.product);&#xA;&#xA;--*** Update Category Division Surrogate Key in sho_staging.netsuite.product ***&#xA; Update [sho_staging].[netsuite].[product] set &#xA;  cat_div_sk_id = s.cat_div_sk_id from &#xA;  [sho_dw].[dim].[category_division] s&#xA;  inner join [sho_staging].[netsuite].[product] t &#xA;  on Convert(char(3),Right('000' + Trim(s.[div_nbr]),3)) = Convert(char(3),Right('000' + Trim(t.[Div No]),3)) and &#xA;  Convert(char(3),Right('000' + Trim(s.[cat_nbr]),3)) = Convert(char(3),Right('000' + Trim(t.[Category No]),3));&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Changed Values in sho_dw_dim_product"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Update Changed Values in sho_dw_dim_product"
+      DTS:DTSID="{23720C63-D4F3-4EA4-9C20-5FA8283B247C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Changed Values in sho_dw_dim_product"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{45a5110b-53ae-4bb5-85f0-14588469e03e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="--*** Update Category Division Surrogate Key in sho_staging.netsuite.product ***&#xA; Update [sho_staging].[netsuite].[product] set &#xA;  cat_div_sk_id = s.cat_div_sk_id from &#xA;  [sho_dw].[dim].[category_division] s&#xA;  inner join [sho_staging].[netsuite].[product] t &#xA;  on Convert(char(3),Right('000' + Trim(s.[div_nbr]),3)) = Convert(char(3),Right('000' + Trim(t.[Div No]),3)) and &#xA;  Convert(char(3),Right('000' + Trim(s.[cat_nbr]),3)) = Convert(char(3),Right('000' + Trim(t.[Category No]),3));&#xA;&#xA; Update [sho_dw].[dim].[product] set &#xA;  cat_div_sk_id = s.cat_div_sk_id from &#xA;  [sho_dw].[dim].[category_division] s&#xA;  inner join [sho_dw].[dim].[product] t &#xA;  on Convert(char(3),Right('000' + Trim(s.[div_nbr]),3)) = Convert(char(3),Right('000' + Trim(t.[div_nbr]),3)) and &#xA;  Convert(char(3),Right('000' + Trim(s.[cat_nbr]),3)) = Convert(char(3),Right('000' + Trim(t.[cat_nbr]),3));&#xA;&#xA;Update sho_dw.dim.product Set sku_nbr = '0' where sku_nbr is null;&#xA;&#xA;--*** Update Existing Products from Netsuite in sho_staging.netsuite.product in sho_dw.dim.product ***&#xA;Update sho_dw.dim.product Set &#xA;[cat_div_sk_id] = Convert(int,s.[cat_div_sk_id]),&#xA;[inactive] = CASE WHEN (UPPER(s.Inactive) Like 'Y%') THEN 1 Else 0 END,&#xA;[cat_nbr] = Convert(char(3),Right('000' + Trim([Category No]),3)),&#xA;[cat_name] = Convert(varchar(100),Trim([Category Name])),&#xA;[div_nbr] = Convert(char(3),Right('000' + Trim([Div No]),3)),&#xA;[div_name] = Convert(varchar(100),Trim([Div Name])),&#xA;[ln_nbr] = Convert(char(3),Right('000' + Trim([Line No]),3)),&#xA;[ln_desc] = Convert(varchar(200),Trim([Line Name])),&#xA;[sbl_nbr] = Convert(char(3),Right('000' + Trim([Subline No]),3)),&#xA;[sbl_desc] = Convert(varchar(200),Trim([Subline Name])),&#xA;[cls_nbr] = Convert(char(3),Right('000' + Trim([Class No]),3)),&#xA;[cls_desc] = Convert(varchar(200),Trim([Class Name])),&#xA;[item_nbr] = Substring(Trim([item no]),4,6),&#xA;[item_desc] = Convert(varchar(200),Trim([Description])),&#xA;[sku_nbr] = Convert(char(3),Right('000' + Trim([SKU #]),3)),&#xA;[upc_code] = Convert(varchar(50),Trim([UPC Code])),&#xA;[manufacturer_nbr] = Convert(varchar(50),Trim([Item Mfgn Number])),&#xA;[manufacturer_name] = Convert(varchar(100),Trim([Manufacturer])),&#xA;[brand_id] = Convert(varchar(50),Trim([Product Brand ID])),&#xA;[brand_desc] = Convert(varchar(500),Trim([Item Brand])),&#xA;[contract_item_type] = Convert(varchar(5),Trim([Contract Item Type])),&#xA;[height] = Convert(float,Trim([Height (in.)])),&#xA;[width] = Convert(float,Trim([Width (in.)])),&#xA;[shipping_height] = Case When Trim([Shipping Height]) = '' Then NULL Else Convert(decimal,Trim([Shipping Height])) End,&#xA;[shipping_width] = Case When Trim([Shipping Width]) = '' Then NULL Else Convert(decimal,Trim([Shipping Width])) End,&#xA;[list_price] = Case When Trim([List Price (Outlet)]) = '' Then NULL Else Convert(decimal,Trim([List Price (Outlet)])) End,&#xA;[regular_price] = Case When Trim([Regular Price (3H)]) = '' Then NULL Else Convert(decimal,Trim([Regular Price (3H)])) End,&#xA;[msrp_price] = Case When Trim([MSRP]) = '' Then NULL Else Convert(decimal,Trim([MSRP])) End,&#xA;[weighted_avg_cost] = Case When Trim([Average Cost]) = '' Then NULL Else Convert(decimal,Trim([Average Cost])) End,&#xA;[rec_upd_dt] = GETDATE()&#xA; From [sho_staging].[netsuite].[product] s&#xA; Inner Join sho_dw.dim.product t On &#xA; trim(s.[item no]) = trim(t.[item_nbr_label]);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{955940D4-CEC6-49E0-ABFF-D6DB855B0C5C}"
+      DTS:From="Package\Update Changed Values in sho_dw_dim_product"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Insert new Items in sho_dw_dim_product" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="276,42"
+          Id="Package\Insert new Items in sho_dw_dim_product"
+          TopLeft="243,166" />
+        <NodeLayout
+          Size="307,42"
+          Id="Package\Update Changed Values in sho_dw_dim_product"
+          TopLeft="214,69" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="367.5,111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.5,55"
+              Start="0,0"
+              End="13.5,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.5"
+                    Point2="0,27.5"
+                    Point3="4,27.5" />
+                  <mssgle:LineSegment
+                    End="9.5,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.5,27.5"
+                    Point2="13.5,27.5"
+                    Point3="13.5,31.5" />
+                  <mssgle:LineSegment
+                    End="13.5,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
