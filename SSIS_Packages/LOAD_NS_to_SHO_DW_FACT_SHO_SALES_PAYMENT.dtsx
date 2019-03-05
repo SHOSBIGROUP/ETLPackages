@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_NS_to_SHO_DW_FACT_SHO_SALES_PAYMENT"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{8A15E938-3CA6-42FD-8C1C-3A8235D4A007}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{78397120-550C-4BF6-A56A-73E2B97E92BD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -32,7 +32,7 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="--Customer Deposits&#xA;INSERT INTO [sho_dw].[fact].[sho_sales_payment]&#xA;(&#xA;&#x9;transaction_sk_id&#xA;&#x9;,payment_dt_sk_id&#xA;&#x9;,location_sk_id&#xA;&#x9;,[internal_id]&#xA;&#x9;,eis_nbr&#xA;    ,[payment_date]&#xA;    ,[payment_type]&#xA;    ,[payment_method]&#xA;    ,[payment_document_nbr]&#xA;    ,[payment_amount]&#xA;    ,[transaction_document_nbr]&#xA;    ,[creditcard_masked]&#xA;    ,[cardholder_name]&#xA;&#x9;,[rec_load_dt]&#xA;)&#xA;Select distinct&#xA;&#x9;COALESCE(t.transaction_sk_id,-1),&#xA;&#x9;cal.calendar_dt_sk_id,&#xA;&#x9;loc.location_sk_id,&#xA;&#x9;a.internal_id,&#xA;&#x9;a.eis_number,&#xA;&#x9;a.create_date,&#xA;&#x9;trim(a.transaction_type),&#xA;&#x9;trim(a.payment_method),&#xA;&#x9;trim(a.document_number),&#xA;&#x9;abs(a.amount),&#xA;&#x9;trim(a.sales_document_number),&#xA;&#x9;trim(a.creditcard_masked),&#xA;&#x9;trim(a.cardholder_name),&#xA;&#x9;GETDATE()&#xA;FROM &#xA;[sho_staging].[netsuite].[sales_daily_payment_history] a&#xA;LEFT OUTER JOIN sho_dw.fact.sho_sales_transaction t &#xA;ON a.sales_document_number = t.document_number&#xA;INNER JOIN &#xA;sho_dw.dim.calendar cal on a.create_date = cal.calendar_dt &#xA;INNER JOIN&#xA;sho_dw.dim.location loc on a.eis_number = loc.eis_nbr&#xA;Where a.sales_document_number like 'SO%' &#xA;and NOT EXISTS &#xA;(&#xA;&#x9;SELECT p.[transaction_document_nbr]&#xA;&#x9;FROM [sho_dw].[fact].[sho_sales_payment] p&#xA;&#x9;WHERE p.payment_date = a.create_date &#xA;&#x9;AND p.payment_amount = a.amount &#xA;&#x9;AND p.transaction_document_nbr  = a.sales_document_number&#xA;&#x9;AND p.payment_document_nbr = a.document_number &#xA;&#x9;AND p.eis_nbr = a.eis_number&#xA;)&#xA;AND loc.inactive = 0;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="--Customer Deposits&#xA;INSERT INTO [sho_dw].[fact].[sho_sales_payment]&#xA;(&#xA;&#x9;transaction_sk_id&#xA;&#x9;,payment_dt_sk_id&#xA;&#x9;,location_sk_id&#xA;&#x9;,[internal_id]&#xA;&#x9;,eis_nbr&#xA;    ,[payment_date]&#xA;    ,[payment_type]&#xA;    ,[payment_method]&#xA;    ,[payment_document_nbr]&#xA;    ,[payment_amount]&#xA;    ,[transaction_document_nbr]&#xA;    ,[creditcard_masked]&#xA;    ,[cardholder_name]&#xA;&#x9;,[rec_load_dt]&#xA;)&#xA;Select distinct&#xA;&#x9;COALESCE(t.transaction_sk_id,-1),&#xA;&#x9;cal.calendar_dt_sk_id,&#xA;&#x9;loc.location_sk_id,&#xA;&#x9;a.internal_id,&#xA;&#x9;a.eis_number,&#xA;&#x9;a.create_date,&#xA;&#x9;trim(a.transaction_type),&#xA;&#x9;trim(a.payment_method),&#xA;&#x9;trim(a.document_number),&#xA;&#x9;abs(a.amount),&#xA;&#x9;trim(a.sales_document_number),&#xA;&#x9;trim(a.creditcard_masked),&#xA;&#x9;trim(a.cardholder_name),&#xA;&#x9;GETDATE()&#xA;FROM &#xA;[sho_staging].[netsuite].[sales_daily_payment_history] a&#xA;LEFT OUTER JOIN sho_dw.fact.sho_sales_transaction t &#xA;ON a.sales_document_number = t.document_number&#xA;INNER JOIN &#xA;sho_dw.dim.calendar cal on a.create_date = cal.calendar_dt &#xA;INNER JOIN&#xA;sho_dw.dim.location loc on a.eis_number = loc.eis_nbr&#xA;Where a.sales_document_number like 'SO%' &#xA;and NOT EXISTS &#xA;(&#xA;&#x9;SELECT p.[transaction_document_nbr]&#xA;&#x9;FROM [sho_dw].[fact].[sho_sales_payment] p&#xA;&#x9;WHERE p.payment_date = a.create_date &#xA;&#x9;AND ABS(p.payment_amount) = ABS(a.amount) &#xA;&#x9;AND p.transaction_document_nbr  = a.sales_document_number&#xA;&#x9;AND p.payment_document_nbr = a.document_number &#xA;&#x9;AND p.eis_nbr = a.eis_number&#xA;)&#xA;AND loc.inactive = 0;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -50,7 +50,7 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="--Customer Refunds&#xA;INSERT INTO [sho_dw].[fact].[sho_sales_payment]&#xA;(&#xA;&#x9;transaction_sk_id&#xA;&#x9;,payment_dt_sk_id&#xA;&#x9;,location_sk_id&#xA;&#x9;,[internal_id]&#xA;&#x9;,[eis_nbr]&#xA;    ,[payment_date]&#xA;    ,[payment_type]&#xA;    ,[payment_method]&#xA;    ,[payment_document_nbr]&#xA;    ,[payment_amount]&#xA;    ,[transaction_document_nbr]&#xA;    ,[creditcard_masked]&#xA;    ,[cardholder_name]&#xA;&#x9;,[rec_load_dt]&#xA;)&#xA;Select distinct&#xA;&#x9;COALESCE(t.transaction_sk_id,-1),&#xA;&#x9;cal.calendar_dt_sk_id,&#xA;&#x9;loc.location_sk_id,&#xA;&#x9;a.internal_id,&#xA;&#x9;a.eis_number,&#xA;&#x9;a.create_date,&#xA;&#x9;trim(a.transaction_type),&#xA;&#x9;trim(a.payment_method),&#xA;&#x9;trim(a.document_number),&#xA;&#x9;0 - abs(a.amount),&#xA;&#x9;trim(a.credit_memo),&#xA;&#x9;trim(a.creditcard_masked),&#xA;&#x9;trim(a.cardholder_name),&#xA;&#x9;GETDATE()&#xA;FROM &#xA;[sho_staging].[netsuite].[sales_daily_payment_history] a&#xA;LEFT OUTER JOIN sho_dw.fact.sho_sales_transaction t &#xA;ON a.sales_document_number = t.document_number&#xA;INNER JOIN &#xA;sho_dw.dim.calendar cal on a.create_date = cal.calendar_dt &#xA;INNER JOIN&#xA;sho_dw.dim.location loc on a.eis_number = loc.eis_nbr&#xA;Where a.credit_memo like 'CM%'&#xA;and NOT EXISTS &#xA;(&#xA;&#x9;SELECT p.[transaction_document_nbr]&#xA;&#x9;FROM [sho_dw].[fact].[sho_sales_payment] p&#xA;&#x9;WHERE p.payment_date = a.create_date &#xA;&#x9;AND p.payment_amount = a.amount &#xA;&#x9;AND p.transaction_document_nbr  = a.credit_memo&#xA;&#x9;AND p.payment_document_nbr = a.document_number &#xA;&#x9;AND p.eis_nbr = a.eis_number&#xA;)&#xA;AND loc.inactive = 0;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#x9;--Customer Refunds&#xA;INSERT INTO [sho_dw].[fact].[sho_sales_payment]&#xA;(&#xA;&#x9;transaction_sk_id&#xA;&#x9;,payment_dt_sk_id&#xA;&#x9;,location_sk_id&#xA;&#x9;,[internal_id]&#xA;&#x9;,[eis_nbr]&#xA;    ,[payment_date]&#xA;    ,[payment_type]&#xA;    ,[payment_method]&#xA;    ,[payment_document_nbr]&#xA;    ,[payment_amount]&#xA;    ,[transaction_document_nbr]&#xA;    ,[creditcard_masked]&#xA;    ,[cardholder_name]&#xA;&#x9;,[rec_load_dt]&#xA;)&#xA;Select distinct&#xA;&#x9;COALESCE(t.transaction_sk_id,-1),&#xA;&#x9;cal.calendar_dt_sk_id,&#xA;&#x9;loc.location_sk_id,&#xA;&#x9;a.internal_id,&#xA;&#x9;a.eis_number,&#xA;&#x9;a.create_date,&#xA;&#x9;trim(a.transaction_type),&#xA;&#x9;trim(a.payment_method),&#xA;&#x9;trim(a.document_number),&#xA;&#x9;0 - abs(a.amount),&#xA;&#x9;trim(a.credit_memo),&#xA;&#x9;trim(a.creditcard_masked),&#xA;&#x9;trim(a.cardholder_name),&#xA;&#x9;GETDATE()&#xA;FROM &#xA;[sho_staging].[netsuite].[sales_daily_payment_history] a&#xA;LEFT OUTER JOIN sho_dw.fact.sho_sales_transaction t &#xA;ON a.sales_document_number = t.document_number&#xA;INNER JOIN &#xA;sho_dw.dim.calendar cal on a.create_date = cal.calendar_dt &#xA;INNER JOIN&#xA;sho_dw.dim.location loc on a.eis_number = loc.eis_nbr&#xA;Where a.credit_memo like 'CM%'&#xA;and NOT EXISTS &#xA;(&#xA;&#x9;SELECT p.[transaction_document_nbr]&#xA;&#x9;FROM [sho_dw].[fact].[sho_sales_payment] p&#xA;&#x9;WHERE p.payment_date = a.create_date &#xA;&#x9;AND ABS(p.payment_amount) = ABS(a.amount)  &#xA;&#x9;AND p.transaction_document_nbr  = a.credit_memo&#xA;&#x9;AND p.payment_document_nbr = a.document_number &#xA;&#x9;AND p.eis_nbr = a.eis_number&#xA;)&#xA;AND loc.inactive = 0;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -68,7 +68,7 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="--Payments&#xA;INSERT INTO [sho_dw].[fact].[sho_sales_payment]&#xA;(&#xA;&#x9;transaction_sk_id&#xA;&#x9;,payment_dt_sk_id&#xA;&#x9;,location_sk_id&#xA;&#x9;,[internal_id]&#xA;&#x9;,[eis_nbr]&#xA;    ,[payment_date]&#xA;    ,[payment_type]&#xA;    ,[payment_method]&#xA;    ,[payment_document_nbr]&#xA;    ,[payment_amount]&#xA;    ,[transaction_document_nbr]&#xA;    ,[creditcard_masked]&#xA;    ,[cardholder_name]&#xA;&#x9;,[rec_load_dt]&#xA;)&#xA;Select distinct&#xA;&#x9;COALESCE(t.transaction_sk_id,-1),&#xA;&#x9;cal.calendar_dt_sk_id,&#xA;&#x9;loc.location_sk_id,&#xA;&#x9;a.internal_id,&#xA;&#x9;a.eis_number,&#xA;&#x9;a.create_date,&#xA;&#x9;trim(a.transaction_type),&#xA;&#x9;trim(b.payment_method),&#xA;&#x9;trim(a.document_number),&#xA;&#x9;abs(a.amount),&#xA;&#x9;trim(a.sales_document_number),&#xA;&#x9;trim(a.creditcard_masked),&#xA;&#x9;trim(a.cardholder_name),&#xA;&#x9;GETDATE()&#xA;FROM &#xA;&#x9;(&#xA;&#x9;&#x9;SELECT distinct internal_id, create_date,  eis_number,  transaction_type,  payment_method, &#xA;&#x9;&#x9;document_number,  amount,  sales_document_number,  credit_memo, creditcard_masked,  cardholder_name &#xA;&#x9;&#x9;from&#xA;&#x9;&#x9;[sho_staging].[netsuite].[sales_daily_payment_history] &#xA;&#x9;&#x9;where trim(transaction_type) like 'Pay%' and sales_document_number like 'INV%' &#xA;&#x9;)&#xA;a&#xA;INNER JOIN &#xA;&#x9;(&#xA;&#x9;&#x9;select distinct internal_id, payment_method from [sho_staging].[netsuite].[sales_daily_payment_history] where trim(transaction_type) like 'Pay%' and len(trim(payment_method)) &gt; 1&#xA;&#x9;) &#xA;b&#xA;ON a.internal_id = b.internal_id &#xA;LEFT OUTER JOIN sho_dw.fact.sho_sales_transaction t &#xA;ON a.sales_document_number = t.document_number&#xA;INNER JOIN &#xA;sho_dw.dim.calendar cal on a.create_date = cal.calendar_dt &#xA;INNER JOIN&#xA;sho_dw.dim.location loc on a.eis_number = loc.eis_nbr &#xA;WHERE NOT EXISTS &#xA;(&#xA;&#x9;SELECT p.[transaction_document_nbr]&#xA;&#x9;FROM [sho_dw].[fact].[sho_sales_payment] p&#xA;&#x9;WHERE p.payment_date = a.create_date &#xA;&#x9;AND p.payment_amount = a.amount &#xA;&#x9;AND p.transaction_document_nbr  = a.sales_document_number&#xA;&#x9;AND p.payment_document_nbr = a.document_number &#xA;&#x9;AND p.eis_nbr = a.eis_number&#xA;)&#xA;AND loc.inactive = 0;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="--Payments&#xA;INSERT INTO [sho_dw].[fact].[sho_sales_payment]&#xA;(&#xA;&#x9;transaction_sk_id&#xA;&#x9;,payment_dt_sk_id&#xA;&#x9;,location_sk_id&#xA;&#x9;,[internal_id]&#xA;&#x9;,[eis_nbr]&#xA;    ,[payment_date]&#xA;    ,[payment_type]&#xA;    ,[payment_method]&#xA;    ,[payment_document_nbr]&#xA;    ,[payment_amount]&#xA;    ,[transaction_document_nbr]&#xA;    ,[creditcard_masked]&#xA;    ,[cardholder_name]&#xA;&#x9;,[rec_load_dt]&#xA;)&#xA;Select distinct&#xA;&#x9;COALESCE(t.transaction_sk_id,-1),&#xA;&#x9;cal.calendar_dt_sk_id,&#xA;&#x9;loc.location_sk_id,&#xA;&#x9;a.internal_id,&#xA;&#x9;a.eis_number,&#xA;&#x9;a.create_date,&#xA;&#x9;trim(a.transaction_type),&#xA;&#x9;trim(b.payment_method),&#xA;&#x9;trim(a.document_number),&#xA;&#x9;abs(a.amount),&#xA;&#x9;trim(a.sales_document_number),&#xA;&#x9;trim(a.creditcard_masked),&#xA;&#x9;trim(a.cardholder_name),&#xA;&#x9;GETDATE()&#xA;FROM &#xA;&#x9;(&#xA;&#x9;&#x9;SELECT distinct internal_id, create_date,  eis_number,  transaction_type,  payment_method, &#xA;&#x9;&#x9;document_number,  amount,  sales_document_number,  credit_memo, creditcard_masked,  cardholder_name &#xA;&#x9;&#x9;from&#xA;&#x9;&#x9;[sho_staging].[netsuite].[sales_daily_payment_history] &#xA;&#x9;&#x9;where trim(transaction_type) like 'Pay%' and sales_document_number like 'INV%' &#xA;&#x9;)&#xA;a&#xA;INNER JOIN &#xA;&#x9;(&#xA;&#x9;&#x9;select distinct internal_id, payment_method from [sho_staging].[netsuite].[sales_daily_payment_history] where trim(transaction_type) like 'Pay%' and len(trim(payment_method)) &gt; 1&#xA;&#x9;) &#xA;b&#xA;ON a.internal_id = b.internal_id &#xA;LEFT OUTER JOIN sho_dw.fact.sho_sales_transaction t &#xA;ON a.sales_document_number = t.document_number&#xA;INNER JOIN &#xA;sho_dw.dim.calendar cal on a.create_date = cal.calendar_dt &#xA;INNER JOIN&#xA;sho_dw.dim.location loc on a.eis_number = loc.eis_nbr &#xA;WHERE NOT EXISTS &#xA;(&#xA;&#x9;SELECT p.[transaction_document_nbr]&#xA;&#x9;FROM [sho_dw].[fact].[sho_sales_payment] p&#xA;&#x9;WHERE p.payment_date = a.create_date &#xA;&#x9;AND ABS(p.payment_amount) = ABS(a.amount) &#xA;&#x9;AND p.transaction_document_nbr  = a.sales_document_number&#xA;&#x9;AND p.payment_document_nbr = a.document_number&#xA;)&#xA;AND loc.inactive = 0;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -132,7 +132,7 @@
         <NodeLayout
           Size="348,42"
           Id="Package\Load new Customer Deposits to fact_sho_sales_payment"
-          TopLeft="188,116" />
+          TopLeft="188,115" />
         <NodeLayout
           Size="346,42"
           Id="Package\Load new Customer Refunds to fact_sho_sales_payment"
@@ -151,14 +151,14 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39"
+              EndConnector="0,38"
               Start="0,0"
-              End="0,31.5">
+              End="0,30.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.5" />
+                    End="0,30.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -169,18 +169,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="361,158">
+          TopLeft="361,157">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31"
+              EndConnector="0,32"
               Start="0,0"
-              End="0,23.5">
+              End="0,24.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.5" />
+                    End="0,24.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
