@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="11/9/2018 8:52:27 PM"
@@ -8,15 +8,30 @@
   DTS:Description="SSIS Package Description"
   DTS:DTSID="{FC55BC56-26EC-4875-87BE-BE1E9ABD734C}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LastModifiedProductVersion="14.0.3026.27"
   DTS:LocaleID="1033"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="LOAD_FI_SALESGPPLANDIVISIONDAY_to_DW_STAGING"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{1CA7E537-DDAB-4220-864C-C41CEBF7553C}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{DD413836-9263-47B0-B744-B8E383D9C038}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B985646E-5B73-4BCE-9C40-BB5AC1AC4604}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=AZSQL01.ads.shos.com;User ID=mssql_etl;Initial Catalog=sho_staging;Provider=SQLNCLI11;Auto Translate=false;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABAocjDyWu0SznNU/Lfk9NQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADyGaSn26LcxiMO1+7yxW3CAAAAAASAAACgAAAAEAAAAPPqjcrxvp9PMROqEABq6t8oAAAABryGr6BLFnbpG2ebwNRayyAUDwPunIbKmyT7KILM/HNMNhIU8BIIPBQAAADH/NXWqgS2SwoNe7NowZcxKHZYfw</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
       DTS:CreationName="FLATFILE"
@@ -31,7 +46,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Projects\Interim-Data-Platform\PlanForecastGrossProfitEBIDTA\Sales-GP Plan by Division_021919.csv">
+          DTS:ConnectionString="X:\ssis_incoming\finance\Plan by Division By Day - Dec18(for BI).csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -40,7 +55,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="div_cd"
-              DTS:DTSID="{C7EECD40-AC87-4C66-81FC-8305658EE032}"
+              DTS:DTSID="{9B257DDA-B40F-4CED-A3B4-5C25853549F7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -49,7 +64,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="div_desc"
-              DTS:DTSID="{FCAC8B8C-CE10-4CDD-BF0C-CE54E219E170}"
+              DTS:DTSID="{F9FC37F3-B765-4A72-BBF5-8E70CDF2EAF8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -58,7 +73,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="store_format"
-              DTS:DTSID="{E6B520E7-7066-4FF5-9A37-472D330AB9E3}"
+              DTS:DTSID="{D037B99A-391B-4C29-826C-6D42B77C795B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -67,7 +82,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="plan_amount_month"
-              DTS:DTSID="{C9417F3D-20E9-473C-BBB8-D4A85D06B28F}"
+              DTS:DTSID="{0240AA87-A2F4-420F-A19C-491AC74496A8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -76,7 +91,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="day_of_month"
-              DTS:DTSID="{C2163ECD-E1D0-4A0E-8A48-B942DAC508ED}"
+              DTS:DTSID="{FC04D006-7EA7-4969-A2AE-C3DBAFE8152B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -85,7 +100,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="day_nbr"
-              DTS:DTSID="{30B63DCF-338A-45DD-A90E-5A7FF3C0AE1C}"
+              DTS:DTSID="{8C01C3D0-22F1-4777-A4A2-152AB94540EB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -94,7 +109,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="day_nbr_2"
-              DTS:DTSID="{21F66D45-57FD-419D-BC81-EC6FA698C35E}"
+              DTS:DTSID="{34943935-B432-427F-BFB9-9E58AC3A6D19}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -103,7 +118,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="daily_sales"
-              DTS:DTSID="{034FDC5A-0A50-4C66-966C-1BEFA7171680}"
+              DTS:DTSID="{B33A4C0B-3399-436A-AA2A-C173375C5F00}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -112,7 +127,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="daily_gp"
-              DTS:DTSID="{87A0F54C-CCEA-4001-B88C-80199F44644B}"
+              DTS:DTSID="{BD028F36-CA9E-46CD-AF31-7FB5709D4C1B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -121,7 +136,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 9"
-              DTS:DTSID="{4AB3A644-9AAD-44F5-A9C2-90B680443911}"
+              DTS:DTSID="{B2A96FF6-E06E-4067-9B87-2E05D47C4817}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -130,7 +145,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 10"
-              DTS:DTSID="{5E11495F-AFBE-4672-893D-491C2239501E}"
+              DTS:DTSID="{E7A46A09-106A-4048-9C34-BE4968124224}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -139,7 +154,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 11"
-              DTS:DTSID="{3327EE3D-A5AA-4E86-A4A5-2EA12BE419F5}"
+              DTS:DTSID="{45DFFFE0-E5ED-40C2-8016-3B61B5ADFB6B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -148,7 +163,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 12"
-              DTS:DTSID="{7B3FD817-E64A-459C-BB51-4F6FF2C17A6A}"
+              DTS:DTSID="{C42DBFE8-4080-4268-859B-522437DBB228}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -157,7 +172,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 13"
-              DTS:DTSID="{2278D099-1553-42DC-81F8-9EF6A9FD4493}"
+              DTS:DTSID="{75D24C80-8ACF-41F5-BBE8-7278339174FC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -166,7 +181,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 14"
-              DTS:DTSID="{688FF1D5-A9A3-4366-AE01-4E2B976CD6AC}"
+              DTS:DTSID="{95662F92-7F49-4FF1-97F7-A5E1257BB1A0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -175,7 +190,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 15"
-              DTS:DTSID="{1B6E2203-A923-44B0-9610-82AD5BD2DFE7}"
+              DTS:DTSID="{309163D3-C659-4305-B278-D95ADF9B5D57}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -184,7 +199,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 16"
-              DTS:DTSID="{58C28BF7-AE72-4430-A9A6-E92FC82D026B}"
+              DTS:DTSID="{665C2B44-921B-424B-8E93-EEAF0DAD5653}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -193,7 +208,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 17"
-              DTS:DTSID="{6EC6CEDD-E0D8-4697-87E3-BD2FB340C3B8}"
+              DTS:DTSID="{8F61C5E4-5E5B-4457-A604-F55706F2C27F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -202,7 +217,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 18"
-              DTS:DTSID="{59190F3B-AD32-40FC-A7A3-B458859186A5}"
+              DTS:DTSID="{24F936AF-ECD8-4A06-BC55-D74D90E9F095}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -211,7 +226,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 19"
-              DTS:DTSID="{D9A2F74E-24F3-4FC0-8EC9-D005065FB749}"
+              DTS:DTSID="{730C4DE6-1A7A-4EC3-ABCC-4F7FA575DC79}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -220,7 +235,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 20"
-              DTS:DTSID="{1DE984B3-F96F-41E2-9189-A33DD2BA5BFB}"
+              DTS:DTSID="{3FDCBB77-07F0-4058-B604-50E354EBC812}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -229,7 +244,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 21"
-              DTS:DTSID="{2100831C-A3AA-44D1-8F96-C0EB42E2C3D9}"
+              DTS:DTSID="{C0701B94-7B4E-4E52-8DED-1389FDD8AF60}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -238,7 +253,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 22"
-              DTS:DTSID="{3192E977-9429-4E29-86D8-4AD4B1A49C86}"
+              DTS:DTSID="{1A8B5E39-CA8C-4F50-965F-BCED292CC688}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -247,7 +262,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 23"
-              DTS:DTSID="{BF4F03EB-E52D-4430-9E98-ADC9270DCAF7}"
+              DTS:DTSID="{1061E321-44D1-4B2B-9F61-DC85270DA017}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -256,7 +271,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 24"
-              DTS:DTSID="{998508F6-6A6B-4F28-B5A7-7183281CAEB7}"
+              DTS:DTSID="{0FF37B03-FBC2-4E40-885B-FDBD66F41DF7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -265,7 +280,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 25"
-              DTS:DTSID="{783E9C97-FC6A-44EA-AF28-1D98343CFFC3}"
+              DTS:DTSID="{0295F197-A035-4928-94AC-304F8183152F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -274,7 +289,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 26"
-              DTS:DTSID="{711408A6-5560-41C8-8BB9-B72EAAE4C0B3}"
+              DTS:DTSID="{A3E0AB86-2F81-4455-97A5-A5E128C1D8FB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -283,7 +298,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 27"
-              DTS:DTSID="{3272EF8C-1072-428D-8796-90E982342FF9}"
+              DTS:DTSID="{9FFEA8A9-76CB-4A29-A225-A43DBB7690E1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -292,7 +307,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 28"
-              DTS:DTSID="{6BCA0C89-759C-4F31-B6A1-5D7D734C9507}"
+              DTS:DTSID="{D60AD67D-214A-41B9-B316-BDC525A15985}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -301,7 +316,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 29"
-              DTS:DTSID="{7AFAF391-8C87-4D20-8BF0-DBF6DCD809F5}"
+              DTS:DTSID="{FF46A433-0D47-49DB-9F8C-F97040002427}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -310,7 +325,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 30"
-              DTS:DTSID="{0BAB48CD-410F-46F0-94BE-EEE5124C187E}"
+              DTS:DTSID="{39FEFB04-B3C1-49B1-B114-D08B48D455D5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -319,7 +334,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 31"
-              DTS:DTSID="{D5890AD4-94A2-45C0-94BC-CCAB659F18C4}"
+              DTS:DTSID="{DA5A6DCC-BDFC-4FBB-9BA1-8A1BD93EB897}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -328,7 +343,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 32"
-              DTS:DTSID="{A69B2664-BFB1-4735-86A3-A3BF756D51D2}"
+              DTS:DTSID="{1454A0CB-4478-437A-B04D-144500D0C06B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -337,7 +352,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 33"
-              DTS:DTSID="{E24703FC-F4AB-47C5-80F3-92CFB17F8E43}"
+              DTS:DTSID="{5395B83E-D67E-4883-A729-59E15CD395CA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -346,7 +361,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 34"
-              DTS:DTSID="{52ED5CDC-F85B-4849-A195-964A575D89D3}"
+              DTS:DTSID="{FA8D8D8F-BC1A-40F8-927E-38541D3B613F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -355,7 +370,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 35"
-              DTS:DTSID="{6CE58683-26EE-4417-8793-E37DC6B14BCB}"
+              DTS:DTSID="{B54E5409-EF80-4C57-A795-1C0680CC2E49}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -364,7 +379,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 36"
-              DTS:DTSID="{B066F74C-8741-402F-87E8-23588DCEEA29}"
+              DTS:DTSID="{8ABDB7AB-C26A-47FF-8BB7-776D56B94250}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -373,7 +388,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 37"
-              DTS:DTSID="{7A0CB66E-F530-454F-AA98-DB47306B0108}"
+              DTS:DTSID="{3EA33107-F747-4503-8FB1-464C41B8FBD4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -382,7 +397,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 38"
-              DTS:DTSID="{224C01E0-7836-432B-BB6C-D4778E3EF393}"
+              DTS:DTSID="{010E4662-B4AC-4FF3-ABC6-2E52646B083A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -391,7 +406,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 39"
-              DTS:DTSID="{E7BF1BC1-7500-4E2A-927B-31D09C726CA0}"
+              DTS:DTSID="{80F9ED32-7900-41CD-AF3C-B781195BDE5F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -400,7 +415,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 40"
-              DTS:DTSID="{D3AB8171-465F-4538-90B6-E624C3FAF4A2}"
+              DTS:DTSID="{4ACD04AA-9C29-43D1-A13A-24F12CA20B4E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -409,7 +424,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 41"
-              DTS:DTSID="{6DD94E50-3CAB-4403-AF03-4F7B84C1EBA3}"
+              DTS:DTSID="{05F6ECE5-FCC0-4757-A082-A356DE04AAC0}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -419,13 +434,13 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Load sho_staging_finance_div_format_daily_plan_raw"
+      DTS:refId="Package\Data Flow Task 1"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:DTSID="{A35EF09C-68AF-4C17-A280-CCF9D19D862D}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:FailPackageOnFailure="True"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Load sho_staging_finance_div_format_daily_plan_raw"
+      DTS:ObjectName="Data Flow Task 1"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -434,11 +449,11 @@
           version="1">
           <components>
             <component
-              refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw"
+              refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Populate finance_div_format_daily_plan_raw"
+              name="Destination - div_format_daily_plan_raw"
               usesDispositions="true"
               version="4">
               <properties>
@@ -491,145 +506,145 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Connections[OleDbConnection]"
-                  connectionManagerID="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_SHO_STAGING]"
+                  refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input]"
+                  refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].Columns[store_format]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="store_format"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[store_format]"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[store_format]" />
-                    <inputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].Columns[day_of_month]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="day_of_month"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[day_of_month]"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_of_month]" />
-                    <inputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].Columns[day_nbr]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="day_nbr"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[day_nbr]"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_nbr]" />
-                    <inputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].Columns[day_nbr_2]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="day_nbr_2"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[day_nbr_2]"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_nbr_2]" />
-                    <inputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].Columns[daily_sales]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="daily_sales"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[daily_sales]"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[daily_sales]" />
-                    <inputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].Columns[div_cd]"
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].Columns[div_cd]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="div_cd"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[div_cd]"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[div_cd]" />
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[div_cd]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[div_cd]" />
                     <inputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].Columns[div_desc]"
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].Columns[div_desc]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="div_desc"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[div_desc]"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[div_desc]" />
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[div_desc]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[div_desc]" />
                     <inputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].Columns[plan_amount_month]"
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].Columns[store_format]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="store_format"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[store_format]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[store_format]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].Columns[plan_amount_month]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="plan_amount_month"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[plan_amount_month]"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[plan_amount_month]" />
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[plan_amount_month]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[plan_amount_month]" />
                     <inputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].Columns[daily_gp]"
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].Columns[day_of_month]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="day_of_month"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[day_of_month]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_of_month]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].Columns[day_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="day_nbr"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[day_nbr]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_nbr]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].Columns[day_nbr_2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="day_nbr_2"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[day_nbr_2]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_nbr_2]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].Columns[daily_sales]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="daily_sales"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[daily_sales]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[daily_sales]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].Columns[daily_gp]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="daily_gp"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[daily_gp]"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[daily_gp]" />
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[daily_gp]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[daily_gp]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[store_format]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="store_format" />
-                    <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[day_of_month]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="day_of_month" />
-                    <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[day_nbr]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="day_nbr" />
-                    <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[day_nbr_2]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="day_nbr_2" />
-                    <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[daily_sales]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="daily_sales" />
-                    <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[div_cd]"
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[div_cd]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="div_cd" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[div_desc]"
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[div_desc]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="div_desc" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[plan_amount_month]"
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[store_format]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="store_format" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[plan_amount_month]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="plan_amount_month" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[daily_gp]"
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[day_of_month]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_of_month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[day_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[day_nbr_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="day_nbr_2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[daily_sales]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="daily_sales" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input].ExternalColumns[daily_gp]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -639,22 +654,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input]">
+                  synchronousInputId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -663,7 +678,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv"
+              refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv"
               componentClassID="Microsoft.FlatFileSource"
               contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Flat File Source"
@@ -683,25 +698,25 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Connections[FlatFileConnection]"
+                  refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Connections[FlatFileConnection]"
                   connectionManagerID="Package.ConnectionManagers[SourceConnectionFlatFile]"
                   connectionManagerRefId="Package.ConnectionManagers[SourceConnectionFlatFile]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output]"
+                  refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output]"
                   name="Flat File Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[div_cd]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[div_cd]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[div_cd]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[div_cd]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[div_cd]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[div_cd]"
                       name="div_cd"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -716,14 +731,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[div_desc]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[div_desc]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[div_desc]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[div_desc]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[div_desc]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[div_desc]"
                       name="div_desc"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -738,14 +753,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[store_format]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[store_format]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[store_format]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[store_format]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[store_format]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[store_format]"
                       name="store_format"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -760,14 +775,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[plan_amount_month]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[plan_amount_month]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[plan_amount_month]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[plan_amount_month]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[plan_amount_month]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[plan_amount_month]"
                       name="plan_amount_month"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -782,14 +797,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_of_month]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_of_month]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[day_of_month]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[day_of_month]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_of_month]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_of_month]"
                       name="day_of_month"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -804,14 +819,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_nbr]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_nbr]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[day_nbr]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[day_nbr]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_nbr]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_nbr]"
                       name="day_nbr"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -826,14 +841,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_nbr_2]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_nbr_2]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[day_nbr_2]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[day_nbr_2]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_nbr_2]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[day_nbr_2]"
                       name="day_nbr_2"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -848,14 +863,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[daily_sales]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[daily_sales]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[daily_sales]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[daily_sales]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[daily_sales]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[daily_sales]"
                       name="daily_sales"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -870,14 +885,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[daily_gp]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[daily_gp]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[daily_gp]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[daily_gp]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[daily_gp]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[daily_gp]"
                       name="daily_gp"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -892,14 +907,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 9]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 9]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 9]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 9]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 9]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 9]"
                       name="Column 9"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -914,14 +929,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 10]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 10]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 10]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 10]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 10]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 10]"
                       name="Column 10"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -936,14 +951,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 11]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 11]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 11]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 11]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 11]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 11]"
                       name="Column 11"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -958,14 +973,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 12]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 12]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 12]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 12]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 12]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 12]"
                       name="Column 12"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -980,14 +995,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 13]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 13]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 13]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 13]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 13]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 13]"
                       name="Column 13"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1002,14 +1017,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 14]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 14]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 14]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 14]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 14]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 14]"
                       name="Column 14"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1024,14 +1039,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 15]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 15]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 15]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 15]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 15]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 15]"
                       name="Column 15"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1046,14 +1061,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 16]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 16]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 16]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 16]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 16]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 16]"
                       name="Column 16"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1068,14 +1083,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 17]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 17]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 17]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 17]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 17]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 17]"
                       name="Column 17"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1090,14 +1105,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 18]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 18]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 18]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 18]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 18]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 18]"
                       name="Column 18"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1112,14 +1127,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 19]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 19]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 19]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 19]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 19]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 19]"
                       name="Column 19"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1134,14 +1149,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 20]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 20]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 20]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 20]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 20]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 20]"
                       name="Column 20"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1156,14 +1171,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 21]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 21]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 21]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 21]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 21]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 21]"
                       name="Column 21"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1178,14 +1193,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 22]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 22]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 22]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 22]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 22]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 22]"
                       name="Column 22"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1200,14 +1215,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 23]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 23]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 23]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 23]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 23]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 23]"
                       name="Column 23"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1222,14 +1237,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 24]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 24]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 24]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 24]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 24]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 24]"
                       name="Column 24"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1244,14 +1259,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 25]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 25]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 25]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 25]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 25]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 25]"
                       name="Column 25"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1266,14 +1281,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 26]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 26]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 26]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 26]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 26]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 26]"
                       name="Column 26"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1288,14 +1303,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 27]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 27]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 27]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 27]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 27]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 27]"
                       name="Column 27"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1310,14 +1325,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 28]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 28]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 28]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 28]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 28]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 28]"
                       name="Column 28"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1332,14 +1347,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 29]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 29]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 29]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 29]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 29]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 29]"
                       name="Column 29"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1354,14 +1369,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 30]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 30]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 30]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 30]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 30]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 30]"
                       name="Column 30"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1376,14 +1391,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 31]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 31]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 31]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 31]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 31]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 31]"
                       name="Column 31"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1398,14 +1413,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 32]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 32]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 32]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 32]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 32]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 32]"
                       name="Column 32"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1420,14 +1435,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 33]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 33]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 33]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 33]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 33]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 33]"
                       name="Column 33"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1442,14 +1457,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 34]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 34]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 34]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 34]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 34]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 34]"
                       name="Column 34"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1464,14 +1479,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 35]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 35]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 35]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 35]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 35]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 35]"
                       name="Column 35"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1486,14 +1501,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 36]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 36]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 36]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 36]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 36]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 36]"
                       name="Column 36"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1508,14 +1523,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 37]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 37]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 37]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 37]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 37]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 37]"
                       name="Column 37"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1530,14 +1545,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 38]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 38]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 38]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 38]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 38]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 38]"
                       name="Column 38"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1552,14 +1567,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 39]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 39]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 39]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 39]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 39]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 39]"
                       name="Column 39"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1574,14 +1589,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 40]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 40]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 40]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 40]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 40]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 40]"
                       name="Column 40"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1596,14 +1611,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 41]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 41]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 41]"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 41]"
                       length="50"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 41]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].Columns[Column 41]"
                       name="Column 41"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1621,253 +1636,253 @@
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[div_cd]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[div_cd]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="div_cd" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[div_desc]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[div_desc]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="div_desc" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[store_format]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[store_format]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="store_format" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[plan_amount_month]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[plan_amount_month]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="plan_amount_month" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[day_of_month]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[day_of_month]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="day_of_month" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[day_nbr]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[day_nbr]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="day_nbr" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[day_nbr_2]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[day_nbr_2]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="day_nbr_2" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[daily_sales]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[daily_sales]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="daily_sales" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[daily_gp]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[daily_gp]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="daily_gp" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 9]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 9]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 9" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 10]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 10]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 10" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 11]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 11]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 11" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 12]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 12]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 12" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 13]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 13]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 13" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 14]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 14]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 14" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 15]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 15]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 15" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 16]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 16]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 16" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 17]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 17]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 17" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 18]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 18]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 18" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 19]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 19]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 19" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 20]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 20]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 20" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 21]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 21]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 21" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 22]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 22]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 22" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 23]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 23]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 23" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 24]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 24]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 24" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 25]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 25]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 25" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 26]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 26]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 26" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 27]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 27]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 27" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 28]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 28]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 28" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 29]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 29]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 29" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 30]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 30]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 30" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 31]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 31]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 31" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 32]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 32]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 32" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 33]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 33]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 33" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 34]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 34]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 34" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 35]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 35]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 35" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 36]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 36]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 36" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 37]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 37]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 37" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 38]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 38]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 38" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 39]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 39]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 39" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 40]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 40]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Column 40" />
                     <externalMetadataColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 41]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output].ExternalColumns[Column 41]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -1875,27 +1890,27 @@
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output]"
+                  refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output]"
                   isErrorOut="true"
                   name="Flat File Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
                       codePage="1252"
                       dataType="text"
                       description="Flat File Source Error Output Column"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
                       name="Flat File Source Error Output Column" />
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1906,43 +1921,15 @@
           </components>
           <paths>
             <path
-              refId="Package\Load sho_staging_finance_div_format_daily_plan_raw.Paths[Flat File Source Output]"
-              endId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw.Inputs[Destination Input]"
+              refId="Package\Data Flow Task 1.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw.Inputs[Destination Input]"
               name="Flat File Source Output"
-              startId="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv.Outputs[Flat File Source Output]" />
+              startId="Package\Data Flow Task 1\Source - Plan by Division by Day csv.Outputs[Flat File Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Truncate sho_staging_finance_div_format_daily_plan_raw"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{90323722-6740-4ba0-a094-710c50e54ad9}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Truncate sho_staging_finance_div_format_daily_plan_raw"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{70e1c0af-32b1-4003-bbb8-6f11bcf67768}"
-          SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="Truncate Table sho_staging.finance.div_format_daily_plan_raw;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
   </DTS:Executables>
-  <DTS:PrecedenceConstraints>
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint]"
-      DTS:CreationName=""
-      DTS:DTSID="{78F1308D-3F9D-4DF2-80C3-95D1A6CFFAAE}"
-      DTS:From="Package\Truncate sho_staging_finance_div_format_daily_plan_raw"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint"
-      DTS:To="Package\Load sho_staging_finance_div_format_daily_plan_raw" />
-  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -1954,79 +1941,53 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="334,42"
-          Id="Package\Load sho_staging_finance_div_format_daily_plan_raw"
-          TopLeft="71.5,172.5" />
-        <NodeLayout
-          Size="353,42"
-          Id="Package\Truncate sho_staging_finance_div_format_daily_plan_raw"
-          TopLeft="29,89" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="205.5,131">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="33,41.5"
-              Start="0,0"
-              End="33,34">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.75"
-                    Point2="0,20.75"
-                    Point3="4,20.75" />
-                  <mssgle:LineSegment
-                    End="29,20.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="29,20.75"
-                    Point2="33,20.75"
-                    Point3="33,24.75" />
-                  <mssgle:LineSegment
-                    End="33,34" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="160,42"
+          Id="Package\Data Flow Task 1"
+          TopLeft="5.5,5.5" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Load sho_staging_finance_div_format_daily_plan_raw">
+    design-time-name="Package\Data Flow Task 1">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="250,42"
-          Id="Package\Load sho_staging_finance_div_format_daily_plan_raw\Source - Plan by Division by Day csv"
-          TopLeft="59.5,7.5" />
+          Id="Package\Data Flow Task 1\Source - Plan by Division by Day csv"
+          TopLeft="5.5,5.5" />
         <NodeLayout
-          Size="290,42"
-          Id="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw"
+          Size="269,42"
+          Id="Package\Data Flow Task 1\Destination - div_format_daily_plan_raw"
           TopLeft="35,107.5" />
         <EdgeLayout
-          Id="Package\Load sho_staging_finance_div_format_daily_plan_raw.Paths[Flat File Source Output]"
-          TopLeft="182.25,49.5">
+          Id="Package\Data Flow Task 1.Paths[Flat File Source Output]"
+          TopLeft="130.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,58"
+              EndConnector="39,60"
               Start="0,0"
-              End="0,50.5">
+              End="39,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50.5" />
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="35,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35,30"
+                    Point2="39,30"
+                    Point3="39,34" />
+                  <mssgle:LineSegment
+                    End="39,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2038,18 +1999,5 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load sho_staging_finance_div_format_daily_plan_raw\Populate finance_div_format_daily_plan_raw">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
