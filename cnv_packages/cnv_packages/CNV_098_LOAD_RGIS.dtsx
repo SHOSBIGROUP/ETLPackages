@@ -1,0 +1,1585 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/29/2019 4:51:48 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LT-GEN009"
+  DTS:CreatorName="SHO\kpolani"
+  DTS:DTSID="{49EFC144-CE58-4FDF-99C1-B8089C4F9512}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CNV_098_LOAD_RGIS"
+  DTS:PackageType="5"
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{11640E86-5F10-4CE9-BE02-B1A9268F4B58}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[AZSQL01.ads.shos.com.conversion]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6A80A9E6-5062-427E-A9E4-BC22EEE4BD68}"
+      DTS:ObjectName="AZSQL01.ads.shos.com.conversion">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=AZSQL01.ads.shos.com;User ID=mssql_etl;Initial Catalog=conversion;Provider=SQLNCLI11.1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[INFILE_RGIS]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{7BC3DC58-1759-4296-9BEE-B6A82DFE54BF}"
+      DTS:ObjectName="INFILE_RGIS">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::source_filename]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\10.1.0.22\ssis_incoming\conversion\cnv098\Detail_Extension_Report_2019-03-30_ordc.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="load_dt"
+              DTS:DTSID="{7E5583A9-6323-4F93-B5C7-7EC838F3BBCB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="store_nbr"
+              DTS:DTSID="{72D68A1D-36B4-46DB-81A5-7C86018807A7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="fixture_nbr"
+              DTS:DTSID="{3B1BBE56-F001-480C-AF66-6EF15FF7BBB4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="shelf_nbr"
+              DTS:DTSID="{65E67E46-FED5-444E-A7D9-D86AD051CCD1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="barcode_nbr"
+              DTS:DTSID="{22FF4204-3B1F-455A-974F-C6C8528B6F15}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="not_on_file_flg"
+              DTS:DTSID="{F58FD01A-EEE5-4A0D-BF4D-73A9FD2B9349}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sku2_nbr"
+              DTS:DTSID="{8B9AA31F-11ED-4B71-8E05-06BAD1E7B7F5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="item_desc"
+              DTS:DTSID="{A78AF7C8-758E-4CD6-BC62-804E3D0BC2A5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="3"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="division_nbr"
+              DTS:DTSID="{6E77508B-414E-48C8-A857-B37697510EEC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="item_nbr"
+              DTS:DTSID="{3BD66D6C-89AD-4AF7-B5C1-B6505A7E7F89}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sku_nbr"
+              DTS:DTSID="{5987C40F-EF73-451F-BC89-41004F785EA4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="price_amt"
+              DTS:DTSID="{A5CD7040-909F-4005-9CA6-0F386B09F3E6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="quantity_amt"
+              DTS:DTSID="{18A2B213-BC8E-41BD-A8E2-AC0D65FB1860}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="extended_amt"
+              DTS:DTSID="{E88F3395-E202-4BFC-A095-63E4E895AA63}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="uid_cd"
+              DTS:DTSID="{EED4854A-2085-4752-BA7D-4BEC21DBA7A6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="inventory_dt"
+              DTS:DTSID="{3795B42F-4CD3-4A47-94F0-0B24A11C2641}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="inventory_company_cd"
+              DTS:DTSID="{8D1583BE-2DD3-4841-A564-A8B538672EE2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="create_dt"
+              DTS:DTSID="{1C7D931B-FFD4-4722-A137-32BC2775FE28}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{8FE0CF5A-D197-4801-9B56-9174BC1AB632}"
+      DTS:ObjectName="INPUT_DIR">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\quicktemp\cnv_support\2019-03-28_Wave2\input</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8F79F03E-E6F3-4C28-A2BE-50D24E9FC284}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="customer_range_end">
+      <DTS:VariableValue
+        DTS:DataType="3">2001</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7DCBDE69-A53B-41FB-8FBD-A1804AEF29A7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="customer_range_start">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D6E0C791-26C5-4C7C-B90E-D2BCEA06EFF3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="nib_range_end">
+      <DTS:VariableValue
+        DTS:DataType="3">2099</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C5B88FA5-0FB1-4B59-8C7F-251E0C44C889}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="nib_range_start">
+      <DTS:VariableValue
+        DTS:DataType="3">2002</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AF3EDB73-55F9-48FA-8B87-7E378B135B79}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="source_filename">
+      <DTS:VariableValue
+        DTS:DataType="8">\\10.1.0.22\ssis_incoming\conversion\cnv098\Detail_Extension_Report_2019-03-30_ordc.csv</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load RGIS Into DB"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{61C204CD-9C56-4B25-92F3-1A7AFB47C02C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load RGIS Into DB"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load RGIS Into DB\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load RGIS Into DB\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\Data Conversion.Inputs[Data Conversion Input].Columns[source_filename]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="source_filename"
+                      lineageId="Package\Load RGIS Into DB\pad div-item.Outputs[Derived Column Output].Columns[source_filename]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load RGIS Into DB\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Load RGIS Into DB\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of source_filename]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Load RGIS Into DB\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of source_filename]"
+                      name="Copy of source_filename"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load RGIS Into DB\pad div-item.Outputs[Derived Column Output].Columns[source_filename]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load RGIS Into DB\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Load RGIS Into DB\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load RGIS Into DB\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load RGIS Into DB\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load RGIS Into DB\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[cnv_098].[input_rgis]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load RGIS Into DB\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{091AA30C-44FC-445A-A30E-2FD8C423359D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_MSSQL_CONVERSION]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[load_dt]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="load_dt"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_dt]"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[load_dt]" />
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[store_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="store_nbr"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[store_nbr]"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[store_nbr]" />
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[fixture_nbr]"
+                      cachedDataType="i4"
+                      cachedName="fixture_nbr"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fixture_nbr]"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[fixture_nbr]" />
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[shelf_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="shelf_nbr"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[shelf_nbr]"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[shelf_nbr]" />
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[barcode_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="barcode_nbr"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[barcode_nbr]"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[barcode_nbr]" />
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[not_on_file_flg]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="not_on_file_flg"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[not_on_file_flg]"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[not_on_file_flg]" />
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sku2_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="sku2_nbr"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sku2_nbr]"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[sku2_nbr]" />
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[item_desc]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="item_desc"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[item_desc]"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[item_desc]" />
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[division_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="division_nbr"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[division_nbr]"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[division_nbr]" />
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[item_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="item_nbr"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[item_nbr]"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[item_nbr]" />
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sku_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="sku_nbr"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sku_nbr]"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[sku_nbr]" />
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[price_amt]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="price_amt"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[price_amt]"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[price_amt]" />
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[quantity_amt]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="quantity_amt"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[quantity_amt]"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[quantity_amt]" />
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[extended_amt]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="extended_amt"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[extended_amt]"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[extended_amt]" />
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[uid_cd]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="uid_cd"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[uid_cd]"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[uid_cd]" />
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[inventory_dt]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="inventory_dt"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[inventory_dt]"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[inventory_dt]" />
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[inventory_company_cd]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="inventory_company_cd"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[inventory_company_cd]"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[inventory_company_cd]" />
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[create_dt]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="create_dt"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[create_dt]"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[create_dt]" />
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of source_filename]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of source_filename"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[source_filename]"
+                      lineageId="Package\Load RGIS Into DB\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of source_filename]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_dt]"
+                      dataType="dbTimeStamp"
+                      name="load_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[store_nbr]"
+                      dataType="i4"
+                      name="store_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fixture_nbr]"
+                      dataType="i4"
+                      name="fixture_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[shelf_nbr]"
+                      dataType="i4"
+                      name="shelf_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[barcode_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="barcode_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[not_on_file_flg]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="not_on_file_flg" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sku2_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="sku2_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[item_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="item_desc" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[division_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="division_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[item_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="item_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[item_designation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="item_designation" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sku_nbr]"
+                      dataType="i4"
+                      name="sku_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[price_amt]"
+                      dataType="numeric"
+                      name="price_amt"
+                      precision="12"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[quantity_amt]"
+                      dataType="i4"
+                      name="quantity_amt" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[extended_amt]"
+                      dataType="numeric"
+                      name="extended_amt"
+                      precision="12"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[uid_cd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="uid_cd" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[inventory_dt]"
+                      dataType="dbTimeStamp"
+                      name="inventory_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[inventory_company_cd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="inventory_company_cd" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[create_dt]"
+                      dataType="dbTimeStamp"
+                      name="create_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[source_filename]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="source_filename" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rec_load_dt]"
+                      dataType="dbTimeStamp"
+                      name="rec_load_dt" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load RGIS Into DB\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load RGIS Into DB\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load RGIS Into DB\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load RGIS Into DB\pad div-item"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="pad div-item"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load RGIS Into DB\pad div-item.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\pad div-item.Inputs[Derived Column Input].Columns[division_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="division_nbr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[division_nbr]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[RIGHT]("000" + #{Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[division_nbr]},3)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">RIGHT("000" + division_nbr,3)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load RGIS Into DB\pad div-item.Inputs[Derived Column Input].Columns[item_nbr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="item_nbr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[item_nbr]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[RIGHT]("00000" + #{Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[item_nbr]},5)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">RIGHT("00000" + item_nbr,5)</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load RGIS Into DB\pad div-item.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load RGIS Into DB\pad div-item.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\pad div-item.Outputs[Derived Column Output].Columns[source_filename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Load RGIS Into DB\pad div-item.Outputs[Derived Column Output].Columns[source_filename]"
+                      name="source_filename"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,255)@[User::source_filename]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,255)@[User::source_filename]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load RGIS Into DB\pad div-item.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load RGIS Into DB\pad div-item.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\pad div-item.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load RGIS Into DB\pad div-item.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\pad div-item.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load RGIS Into DB\pad div-item.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load RGIS Into DB\RGIS Flatfile"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="RGIS Flatfile"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load RGIS Into DB\RGIS Flatfile.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[INFILE_RGIS]"
+                  connectionManagerRefId="Package.ConnectionManagers[INFILE_RGIS]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[load_dt]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[load_dt]"
+                      length="50"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[load_dt]"
+                      name="load_dt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[store_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[store_nbr]"
+                      length="50"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[store_nbr]"
+                      name="store_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[fixture_nbr]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[fixture_nbr]"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[fixture_nbr]"
+                      name="fixture_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[shelf_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[shelf_nbr]"
+                      length="50"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[shelf_nbr]"
+                      name="shelf_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[barcode_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[barcode_nbr]"
+                      length="50"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[barcode_nbr]"
+                      name="barcode_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[not_on_file_flg]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[not_on_file_flg]"
+                      length="50"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[not_on_file_flg]"
+                      name="not_on_file_flg"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[sku2_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[sku2_nbr]"
+                      length="50"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[sku2_nbr]"
+                      name="sku2_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[item_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[item_desc]"
+                      length="50"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[item_desc]"
+                      name="item_desc"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[division_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[division_nbr]"
+                      length="3"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[division_nbr]"
+                      name="division_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[item_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[item_nbr]"
+                      length="5"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[item_nbr]"
+                      name="item_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[sku_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[sku_nbr]"
+                      length="50"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[sku_nbr]"
+                      name="sku_nbr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[price_amt]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[price_amt]"
+                      length="50"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[price_amt]"
+                      name="price_amt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[quantity_amt]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[quantity_amt]"
+                      length="50"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[quantity_amt]"
+                      name="quantity_amt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[extended_amt]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[extended_amt]"
+                      length="50"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[extended_amt]"
+                      name="extended_amt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[uid_cd]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[uid_cd]"
+                      length="50"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[uid_cd]"
+                      name="uid_cd"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[inventory_dt]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[inventory_dt]"
+                      length="50"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[inventory_dt]"
+                      name="inventory_dt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[inventory_company_cd]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[inventory_company_cd]"
+                      length="50"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[inventory_company_cd]"
+                      name="inventory_company_cd"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[create_dt]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[create_dt]"
+                      length="50"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].Columns[create_dt]"
+                      name="create_dt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[load_dt]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="load_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[store_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="store_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[fixture_nbr]"
+                      dataType="i4"
+                      name="fixture_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[shelf_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="shelf_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[barcode_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="barcode_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[not_on_file_flg]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="not_on_file_flg" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[sku2_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="sku2_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[item_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="item_desc" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[division_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="division_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[item_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="item_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[sku_nbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="sku_nbr" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[price_amt]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="price_amt" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[quantity_amt]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="quantity_amt" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[extended_amt]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="extended_amt" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[uid_cd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="uid_cd" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[inventory_dt]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="inventory_dt" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[inventory_company_cd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="inventory_company_cd" />
+                    <externalMetadataColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output].ExternalColumns[create_dt]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="create_dt" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load RGIS Into DB.Paths[Data Conversion Output]"
+              endId="Package\Load RGIS Into DB\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Load RGIS Into DB\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Load RGIS Into DB.Paths[Derived Column Output]"
+              endId="Package\Load RGIS Into DB\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Load RGIS Into DB\pad div-item.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load RGIS Into DB.Paths[Flat File Source Output]"
+              endId="Package\Load RGIS Into DB\pad div-item.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\Load RGIS Into DB\RGIS Flatfile.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Load RGIS Into DB"
+          TopLeft="109.166665039957,44.1999992096424" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load RGIS Into DB">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="138,43"
+          Id="Package\Load RGIS Into DB\pad div-item"
+          TopLeft="162.833331085742,267.666663954655" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Load RGIS Into DB\OLE DB Destination"
+          TopLeft="150,452" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Load RGIS Into DB\Data Conversion"
+          TopLeft="171,355" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\Load RGIS Into DB\RGIS Flatfile"
+          TopLeft="157.416664425284,113.099998674989" />
+        <EdgeLayout
+          Id="Package\Load RGIS Into DB.Paths[Derived Column Output]"
+          TopLeft="231.833331085742,310.666663954655">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.166668914258,44.333336045345"
+              Start="0,0"
+              End="17.166668914258,36.833336045345">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1666680226725" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.1666680226725"
+                    Point2="0,22.1666680226725"
+                    Point3="4,22.1666680226725" />
+                  <mssgle:LineSegment
+                    End="13.166668914258,22.1666680226725" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.166668914258,22.1666680226725"
+                    Point2="17.166668914258,22.1666680226725"
+                    Point3="17.166668914258,26.1666680226725" />
+                  <mssgle:LineSegment
+                    End="17.166668914258,36.833336045345" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load RGIS Into DB.Paths[Data Conversion Output]"
+          TopLeft="249,397">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.5,55"
+              Start="0,0"
+              End="-13.5,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.5"
+                    Point2="0,27.5"
+                    Point3="-4,27.5" />
+                  <mssgle:LineSegment
+                    End="-9.5,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.5,27.5"
+                    Point2="-13.5,27.5"
+                    Point3="-13.5,31.5" />
+                  <mssgle:LineSegment
+                    End="-13.5,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load RGIS Into DB.Paths[Flat File Source Output]"
+          TopLeft="228.874997755513,155.099998674989">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,112.566665279666"
+              Start="0,0"
+              End="0,105.066665279666">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,105.066665279666" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load RGIS Into DB\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
