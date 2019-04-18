@@ -1,18 +1,18 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="10/4/2018 11:48:23 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="LT-MPLASKO"
   DTS:CreatorName="SHO\mplaskow"
-  DTS:DTSID="{4684EF93-D306-4A6A-B04C-5658D52C0C9E}"
+  DTS:DTSID="{4EB12A38-1CCE-4A28-9E2E-7ED5619C3D25}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
   DTS:LocaleID="1033"
   DTS:ObjectName="LOAD_FI_PLANFORECAST_DW_STAGING_TO_DW_FACT"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{05C40C12-3324-4198-B58A-37177D8AFB1B}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{06BB5CAD-8E57-471E-AFA7-902C88DD7A05}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -21,7 +21,7 @@
       DTS:refId="Package\Insert Into sho_dw_finance_sho_sales_plan_gp_by_loc"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{4C1AA493-F979-4334-8096-DCF6BD5D9D4A}"
+      DTS:DTSID="{9C4590E5-BE96-4396-9FDD-C423BCAA8154}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Insert Into sho_dw_finance_sho_sales_plan_gp_by_loc"
@@ -32,7 +32,7 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{45a5110b-53ae-4bb5-85f0-14588469e03e}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="UPDATE sho_staging.finance.day_location_sales_plan set daily_sales = 0 where daily_sales like '%E%';&#xA;&#xA;UPDATE sho_staging.finance.day_location_gp_plan set gp_plan = 0 where gp_plan like '%E%';&#xA;&#xA;delete From sho_staging.finance.day_location_sales_plan_raw where IsDate([day_of_month]) = 0;&#xA;&#xA;Insert Into sho_dw.fact.sho_sales_plan_gp_by_loc(&#xA;[sho_location_sk_id],&#xA;[plan_dt_sk_id],&#xA;[plan_dt],&#xA;[pos_nbr],&#xA;[sales_plan_amt],&#xA;[gp_plan_amt],&#xA;[rec_upd_dt],&#xA;[rec_load_dt]&#xA;)&#xA;Select Distinct&#xA;-1,&#xA;convert(varchar(8),convert(int,Convert(varchar(10),convert(datetime,dlsp.day_of_month),112))),&#xA;Convert(date,dlsp.[day_of_month]),&#xA;Convert(int,dlsp.[pos_nbr]),&#xA;convert(decimal(11,2),REPLACE(REPLACE(REPLACE(REPLACE(TRIM(dlsp.daily_sales),'$',''),',',''),'(',''),')','')),&#xA;convert(decimal(11,2),REPLACE(REPLACE(REPLACE(REPLACE(TRIM(dlgp.gp_plan),'$',''),',',''),'(',''),')','')),&#xA;GETDATE(),&#xA;GETDATE()&#xA; From sho_staging.finance.day_location_sales_plan_raw dlsp &#xA; LEFT OUTER JOIN sho_staging.finance.day_location_gp_plan_raw dlgp  &#xA;on trim(dlsp.day_of_month) = trim(dlgp.day_of_month)&#xA; AND convert(varchar(5),dlsp.pos_nbr) = convert(varchar(5),dlgp.pos_nbr) &#xA;where len(dlsp.[pos_nbr]) &gt; 0 and ISNUMERIC(dlsp.[pos_nbr]) &lt;&gt; 0 &#xA;and&#x9;convert(varchar(8),convert(int,Convert(varchar(10),convert(datetime,dlsp.day_of_month),112))) + '|' + convert(varchar(5),dlsp.pos_nbr) not in &#xA;&#x9;(select convert(varchar(8),plan_dt_sk_id) + '|' + convert(varchar(5),pos_nbr) from [sho_dw].[fact].[sho_sales_plan_gp_by_loc]);&#xA;&#xA;update sho_dw.fact.sho_sales_plan_gp_by_loc &#xA;set sho_location_sk_id = [sho_dw].[dim].[location].location_sk_id&#xA;FROM [sho_dw].[dim].[location]&#xA;INNER JOIN &#xA;sho_dw.fact.sho_sales_plan_gp_by_loc sales&#xA;on [sho_dw].[dim].[location].pos_nbr = sales.pos_nbr &#xA;where sales.sho_location_sk_id = -1;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE sho_staging.finance.day_location_sales_plan set daily_sales = 0 where daily_sales like '%E%';&#xA;&#xA;UPDATE sho_staging.finance.day_location_gp_plan set gp_plan = 0 where gp_plan like '%E%';&#xA;&#xA;delete From sho_staging.finance.day_location_sales_plan where IsDate([day_of_month]) = 0;&#xA;&#xA;Insert Into sho_dw.fact.sho_sales_plan_gp_by_loc(&#xA;[sho_location_sk_id],&#xA;[plan_dt_sk_id],&#xA;[plan_dt],&#xA;[pos_nbr],&#xA;[sales_plan_amt],&#xA;[gp_plan_amt],&#xA;[rec_upd_dt],&#xA;[rec_load_dt]&#xA;)&#xA;Select Distinct&#xA;-1,&#xA;convert(varchar(8),convert(int,Convert(varchar(10),convert(datetime,dlsp.day_of_month),112))),&#xA;Convert(date,dlsp.[day_of_month]),&#xA;Convert(int,dlsp.[pos_nbr]),&#xA;convert(decimal(11,2),REPLACE(REPLACE(REPLACE(REPLACE(TRIM(dlsp.daily_sales),'$',''),',',''),'(',''),')','')),&#xA;convert(decimal(11,2),REPLACE(REPLACE(REPLACE(REPLACE(TRIM(dlgp.gp_plan),'$',''),',',''),'(',''),')','')),&#xA;GETDATE(),&#xA;GETDATE()&#xA; From sho_staging.finance.day_location_sales_plan dlsp &#xA; LEFT OUTER JOIN sho_staging.finance.day_location_gp_plan dlgp  &#xA;&#x9;on trim(dlsp.day_of_month) = trim(dlgp.day_of_month)&#xA;&#x9;&#x9;AND convert(varchar(5),dlsp.pos_nbr) = convert(varchar(5),dlgp.pos_nbr) &#xA; where len(dlsp.[pos_nbr]) &gt; 0 and ISNUMERIC(dlsp.[pos_nbr]) &lt;&gt; 0 &#xA;&#x9;and&#x9;convert(varchar(8),convert(int,Convert(varchar(10),convert(datetime,dlsp.day_of_month),112))) + '|' + convert(varchar(5),dlsp.pos_nbr) not in &#xA;&#x9;(select convert(varchar(8),plan_dt_sk_id) + '|' + convert(varchar(5),pos_nbr) from [sho_dw].[fact].[sho_sales_plan_gp_by_loc]);&#xA;&#xA;update sho_dw.fact.sho_sales_plan_gp_by_loc &#xA;set sho_location_sk_id = [sho_dw].[dim].[location].location_sk_id&#xA;FROM [sho_dw].[dim].[location]&#xA;INNER JOIN &#xA;sho_dw.fact.sho_sales_plan_gp_by_loc sales&#xA;on [sho_dw].[dim].[location].pos_nbr = sales.pos_nbr &#xA;where sales.sho_location_sk_id = -1;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
